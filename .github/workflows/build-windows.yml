@@ -1,0 +1,65 @@
+# ============================================================
+# অটো Windows EXE বিল্ড (GitHub Actions)
+#
+# কীভাবে কাজ করে:
+#   main ব্রাঞ্চে যেকোনো কিছু push করলেই GitHub-এর নিজস্ব
+#   উইন্ডোজ মেশিনে প্রজেক্ট বিল্ড হয়ে NSIS setup.exe তৈরি হবে।
+#   আপনার মেশিনে কিছু সেটআপ লাগবে না, এজেন্ট খরচ করবে না।
+#
+#   ডাউনলোড করার ধাপ:
+#     রিপো খুলুন → "Actions" ট্যাগ → সর্বশেষ run ক্লিক →
+#     ডান পাশে/নিচে "Artifacts" → "StudySentry-Windows-Setup" →
+#     .zip ডাউনলোড → ভেতরে setup.exe
+#
+#   প্রথম বিল্ড: ~৮-১২ মিনিট | পরেরবার (cache): ~৪-৭ মিনিট
+#   Public রিপো হওয়ায় GitHub Actions সম্পূর্ণ ফ্রি।
+# ============================================================
+
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # চাইলে Actions ট্যাব থেকে ম্যানুয়ালও চালানো যায়
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: NSIS installer (x64)
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Setup Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      # দ্বিতীয় বার থেকে cargo cache ব্যবহার করে বিল্ড দ্রুত হয়
+      - name: Cache Rust build
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      # tauri.conf.json-এর beforeBuildCommand (npm run build =
+      # tsc --noEmit && vite build) এখানেই নিজে থেকে চলে
+      - name: Build Tauri app (NSIS)
+        run: npm run dist:win
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: StudySentry-Windows-Setup
+          path: src-tauri/target/release/bundle/nsis/*.exe
+          if-no-files-found: error
