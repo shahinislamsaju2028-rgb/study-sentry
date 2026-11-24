@@ -40,8 +40,11 @@ jobs:
         with:
           workspaces: src-tauri
 
+      # npm-এর known bug (#4828): npm ci কখনো কখনো platform-specific
+      # optional package (যেমন cli-win32-x64-msvc) বসায় না।
+      # তাই npm install ব্যবহার করা হচ্ছে — npm-এর নিজের এরর-মেসেজেও এটাই বলা আছে।
       - name: Install frontend dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       # বিল্ড + ডায়াগনস্টিক — সবকিছু run পেজের Summary-তে লেখা হবে
       - name: Build Tauri app (NSIS)
