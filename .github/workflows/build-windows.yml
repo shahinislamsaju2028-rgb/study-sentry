@@ -1,18 +1,10 @@
 # ============================================================
-# অটো Windows EXE বিল্ড (GitHub Actions)
+# অটো Windows EXE বিল্ড (GitHub Actions) — v2
+#   এই সংস্করণে বিল্ডের সব আউটপুট + ডায়াগনস্টিক সরাসরি
+#   run পেজের "Summary" অংশে দেখা যাবে — লগ খুঁজতে হবে না,
+#   আমিও পাবলিক API থেকে পড়তে পারব।
 #
-# কীভাবে কাজ করে:
-#   main ব্রাঞ্চে যেকোনো কিছু push করলেই GitHub-এর নিজস্ব
-#   উইন্ডোজ মেশিনে প্রজেক্ট বিল্ড হয়ে NSIS setup.exe তৈরি হবে।
-#   আপনার মেশিনে কিছু সেটআপ লাগবে না, এজেন্ট খরচ করবে না।
-#
-#   ডাউনলোড করার ধাপ:
-#     রিপো খুলুন → "Actions" ট্যাগ → সর্বশেষ run ক্লিক →
-#     ডান পাশে/নিচে "Artifacts" → "StudySentry-Windows-Setup" →
-#     .zip ডাউনলোড → ভেতরে setup.exe
-#
-#   প্রথম বিল্ড: ~৮-১২ মিনিট | পরেরবার (cache): ~৪-৭ মিনিট
-#   Public রিপো হওয়ায় GitHub Actions সম্পূর্ণ ফ্রি।
+#   ডাউনলোড: রিপো → Actions → সর্বশেষ run → Artifacts
 # ============================================================
 
 name: Build Windows EXE
@@ -43,7 +35,6 @@ jobs:
       - name: Setup Rust (stable)
         uses: dtolnay/rust-toolchain@stable
 
-      # দ্বিতীয় বার থেকে cargo cache ব্যবহার করে বিল্ড দ্রুত হয়
       - name: Cache Rust build
         uses: swatinem/rust-cache@v2
         with:
@@ -52,10 +43,30 @@ jobs:
       - name: Install frontend dependencies
         run: npm ci
 
-      # tauri.conf.json-এর beforeBuildCommand (npm run build =
-      # tsc --noEmit && vite build) এখানেই নিজে থেকে চলে
+      # বিল্ড + ডায়াগনস্টিক — সবকিছু run পেজের Summary-তে লেখা হবে
       - name: Build Tauri app (NSIS)
-        run: npm run dist:win
+        shell: pwsh
+        run: |
+          $lines = @()
+          $lines += "## Build diagnostics"
+          $lines += "- node: $(node --version)"
+          $lines += "- npm: $(npm --version)"
+          try { $lines += "- cargo: $(cargo --version)" } catch { $lines += "- cargo: **MISSING**" }
+          try { $lines += "- rustc: $(rustc --version)" } catch { $lines += "- rustc: **MISSING**" }
+          $lines += "- tauri.cmd present: $(Test-Path 'node_modules\.bin\tauri.cmd')"
+          $lines += ""
+          $lines += "### `npm run dist:win` output"
+          $lines += '```'
+          npm run dist:win 2>&1 | Tee-Object -Variable buildOut
+          $code = $LASTEXITCODE
+          $lines += $buildOut
+          $lines += '```'
+          $lines += ""
+          $lines += "exit code: **$code**"
+          $text = ($lines -join "`n")
+          if ($text.Length -gt 80000) { $text = $text.Substring(0, 80000) + "`n...(truncated)..." }
+          $text | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Encoding utf8 -Append
+          exit $code
 
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
