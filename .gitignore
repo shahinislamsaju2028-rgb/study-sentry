@@ -1,0 +1,29 @@
+# ── Dependencies ────────────────────────────────────────────────────────
+node_modules/
+
+# ── Build outputs ───────────────────────────────────────────────────────
+dist/
+dist-web/
+src-tauri/target/
+src-tauri/gen/
+
+# ── Runtime data (dev JSON store) ───────────────────────────────────────
+/data/
+
+# ── Dev-only harness (not shipped) ──────────────────────────────────────
+/.dev/
+
+# ── Logs & OS cruft ─────────────────────────────────────────────────────
+*.log
+.DS_Store
+Thumbs.db
+
+# Added by git-init-repo.ps1
+build/
+target/
+release/
+*.exe
+*.msi
+.env
+.env.*
+*.local

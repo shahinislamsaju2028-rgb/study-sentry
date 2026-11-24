@@ -1,0 +1,14 @@
+# ── Windows (MinGW) build configuration ──────────────────────────────────
+# webview2-com-sys declares `link(name = "WebView2Loader.dll")` for GNU
+# targets, which becomes a hard load-time import. The archive in
+# third_party/webview2 provides those same five symbols through a C shim so the
+# exe can start even when the runtime's loader is not app-local (see
+# webview2loader_shim.c for the resolution order).
+#
+# The NSIS bundle still ships Microsoft's genuine WebView2Loader.dll beside the
+# exe — the shim checks for it first and defers to it. Do not delete that DLL
+# from the bundle: the shim's fallback paths only cover unusual installs.
+[target.x86_64-pc-windows-gnu]
+rustflags = [
+  "-L", "native=third_party/webview2",
+]

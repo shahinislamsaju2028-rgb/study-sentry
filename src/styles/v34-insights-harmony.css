@@ -1,0 +1,648 @@
+/* ============================================================================
+   v34 — INSIGHTS HARMONY + TASK VIEW STAGE
+   Loaded last so it wins over every legacy !important rule.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. TASK BOARD ⇄ TIMELINE — connected, lag-free cross-fade
+   ------------------------------------------------------------------------- */
+
+.v34-task-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  min-height: 320px;
+}
+
+.v34-task-stage > .v34-task-panel {
+  grid-area: 1 / 1;
+  min-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 10px, 0) scale(0.995);
+  transition:
+    opacity 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 240ms;
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+.v34-task-stage > .v34-task-panel.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition:
+    opacity 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
+  pointer-events: auto;
+}
+
+/* Kill any inner entry animations that would re-trigger on every switch */
+.v34-task-panel .card,
+.v34-task-panel .v10-tl-stage,
+.v34-task-panel .tk-board {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v34-task-stage > .v34-task-panel {
+    transition: opacity 120ms linear, visibility 0s linear 120ms;
+    transform: none !important;
+  }
+  .v34-task-stage > .v34-task-panel.is-active {
+    transition: opacity 120ms linear, visibility 0s linear 0s;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   2. INSIGHTS — unified segmented navigation (matches the main app shell)
+   ------------------------------------------------------------------------- */
+
+.v11-ins-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 16px;
+  background: rgba(6, 9, 16, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 10px 26px rgba(0, 0, 0, 0.34);
+}
+
+.v11-ins-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 15px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: #9aa8bd;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+  white-space: nowrap;
+}
+
+.v11-ins-tab:hover {
+  color: #e8edf6;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.v11-ins-tab.is-active {
+  color: #f7c948;
+  border-color: rgba(251, 191, 36, 0.42);
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.v11-ins-tab .v13-tab-inner {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* The moving capsule now uses the app's champagne-gold language */
+.v11-ins-tab .v13-tab-spring-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(251, 191, 36, 0.20) 0%,
+    rgba(251, 191, 36, 0.07) 58%,
+    rgba(56, 189, 248, 0.10) 100%
+  );
+  border: 1px solid rgba(251, 191, 36, 0.34);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.10);
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------------------
+   3. INSIGHTS — remove the corner-dot decorations, unify card surfaces
+   ------------------------------------------------------------------------- */
+
+/* Neutralise every decorative corner dot inside Insights cards */
+.v11-insights-root .v31-sr-dot,
+.v11-insights-root .v11-ins-kpi-strip .dot,
+.v11-insights-root [class*='corner-dot'],
+.v11-insights-root [class*='-dot-deco'] {
+  display: none !important;
+}
+
+/* Every Insights surface shares ONE rounded language */
+.v11-insights-root .card,
+.v11-insights-root .v11-ins-card,
+.v11-insights-root .v11-ins-kpi-strip > *,
+.v11-insights-root .v11-cal-card,
+.v11-insights-root .v11-rank-card,
+.v11-insights-root .v31-subj-list,
+.v11-insights-root .v31-sr-row,
+.v11-insights-root .v13-astrolabe-card {
+  border-radius: 18px !important;
+  border: 1px solid rgba(255, 255, 255, 0.075) !important;
+  background:
+    linear-gradient(158deg, rgba(19, 23, 33, 0.94), rgba(11, 14, 21, 0.97)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 10px 30px rgba(0, 0, 0, 0.32) !important;
+  outline: none !important;
+}
+
+/* The old hard "inner field" borders read as a different app — soften them */
+.v11-insights-root .v31-sr-row,
+.v11-insights-root .v11-subj-bar-item {
+  border-radius: 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: rgba(255, 255, 255, 0.022) !important;
+  box-shadow: none !important;
+}
+
+.v11-insights-root .v31-sr-row:hover {
+  border-color: rgba(251, 191, 36, 0.28) !important;
+  background: rgba(251, 191, 36, 0.055) !important;
+}
+
+/* Lower cards get a soft gold hairline instead of a loud coloured ring */
+.v11-insights-root .v11-ins-kpi-strip > * {
+  position: relative;
+  overflow: hidden;
+}
+
+.v11-insights-root .v11-ins-kpi-strip > *::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(251, 191, 36, 0.55),
+    rgba(56, 189, 248, 0.32) 60%,
+    transparent
+  );
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------------------
+   4. SUBJECT BALANCE & RANK — a real dashboard, not a plain list
+   ------------------------------------------------------------------------- */
+
+.v34-balance-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1080px) {
+  .v34-balance-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.v34-balance-panel {
+  position: relative;
+  border-radius: 20px;
+  padding: 18px 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: linear-gradient(158deg, rgba(19, 23, 33, 0.94), rgba(11, 14, 21, 0.97));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 12px 34px rgba(0, 0, 0, 0.34);
+}
+
+.v34-balance-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.v34-balance-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 8% 0%, rgba(251, 191, 36, 0.13), transparent 58%);
+  pointer-events: none;
+}
+
+.v34-balance-panel.is-rank::before {
+  background: radial-gradient(120% 90% at 8% 0%, rgba(56, 189, 248, 0.14), transparent 58%);
+}
+
+.v34-balance-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.v34-balance-head-ico {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.26);
+}
+
+.v34-balance-panel.is-rank .v34-balance-head-ico {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.26);
+}
+
+.v34-balance-head h4 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 780;
+  color: #eef2f8;
+  letter-spacing: 0.01em;
+}
+
+.v34-balance-head small {
+  display: block;
+  font-size: 0.72rem;
+  color: #8d9bb0;
+  margin-top: 1px;
+}
+
+.v34-balance-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.v34-balance-stat {
+  border-radius: 14px;
+  padding: 11px 13px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.v34-balance-stat span {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8d9bb0;
+}
+
+.v34-balance-stat strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 1.16rem;
+  font-weight: 800;
+  color: #f4f7fc;
+}
+
+.v34-balance-stat.is-gold strong {
+  color: #fbbf24;
+}
+
+.v34-balance-stat.is-sky strong {
+  color: #38bdf8;
+}
+
+.v34-balance-stat.is-emerald strong {
+  color: #f0c56b;
+}
+
+.v34-balance-stat small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.68rem;
+  color: #7f8da2;
+}
+
+/* Podium for the top three subjects */
+.v34-balance-podium {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.v34-podium-item {
+  border-radius: 15px;
+  padding: 12px 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.028);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.v34-podium-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(251, 191, 36, 0.3);
+  background: rgba(251, 191, 36, 0.05);
+}
+
+.v34-podium-medal {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 7px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 820;
+  color: #0b0c10;
+  background: linear-gradient(140deg, #fde68a, #f59e0b);
+}
+
+.v34-podium-item.is-2 .v34-podium-medal {
+  background: linear-gradient(140deg, #e2e8f0, #94a3b8);
+}
+
+.v34-podium-item.is-3 .v34-podium-medal {
+  background: linear-gradient(140deg, #fdba74, #c2410c);
+  color: #fff7ed;
+}
+
+.v34-podium-item strong {
+  display: block;
+  font-size: 0.83rem;
+  font-weight: 750;
+  color: #e9eef6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.v34-podium-item small {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.v34-podium-bar {
+  margin-top: 7px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.v34-podium-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fbbf24, #fde68a);
+}
+
+/* Subject rows — richer, with a soft inline track instead of a bare dot */
+.v31-subj-list {
+  padding: 10px !important;
+}
+
+.v31-subj-row {
+  display: grid !important;
+  grid-template-columns: 26px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 9px 11px !important;
+  border-radius: 13px !important;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.v31-subj-row:hover {
+  transform: translateX(2px);
+}
+
+.v31-sr-rank {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 9px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #cfd8e6;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.v31-subj-row.is-hovered .v31-sr-rank {
+  color: #0b0c10;
+  background: linear-gradient(140deg, #fde68a, #f59e0b);
+  border-color: transparent;
+}
+
+.v31-sr-track {
+  height: 7px !important;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07) !important;
+  overflow: hidden;
+}
+
+.v31-sr-track span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.v31-sr-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.v31-sr-meta b {
+  font-size: 0.82rem;
+  font-weight: 760;
+  color: #e8edf6;
+  white-space: nowrap;
+}
+
+.v31-sr-meta small {
+  font-size: 0.74rem;
+  font-weight: 760;
+}
+
+/* ---------------------------------------------------------------------------
+   5. BALANCE TAB LAYOUT + RANK METER + SUBJECT TABLE
+   ------------------------------------------------------------------------- */
+
+.v34-balance-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.v34-balance-lower {
+  margin-top: 0 !important;
+}
+
+.v34-rank-meter {
+  padding: 4px 2px 0;
+}
+
+.v34-rank-meter-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.v34-rank-meter-track i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #fbbf24 70%, #fde68a);
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.35);
+  transition: width 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.v34-rank-meter-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 7px;
+  font-size: 0.73rem;
+  font-weight: 650;
+  color: #8d9bb0;
+}
+
+.v34-balance-empty {
+  margin: 4px 0 2px;
+  font-size: 0.82rem;
+  color: #8d9bb0;
+}
+
+.v34-balance-stat span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.v34-balance-table {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.v34-balance-table-head {
+  display: grid;
+  grid-template-columns: 1fr 92px 64px;
+  gap: 12px;
+  padding: 0 10px 7px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #74839a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.v34-balance-table-head span:nth-child(2),
+.v34-balance-table-head span:nth-child(3) {
+  text-align: right;
+}
+
+.v34-balance-table-row {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) 92px 92px 64px;
+  gap: 12px;
+  align-items: center;
+  padding: 9px 10px;
+  border-radius: 12px;
+  transition: background 170ms ease;
+}
+
+.v34-balance-table-row:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.v34-bt-rank {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #cfd8e6;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.v34-bt-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e6ebf4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.v34-bt-track {
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.v34-bt-track i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.v34-bt-time {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #c3cddc;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.v34-bt-pct {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.v34-balance-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 11px 13px;
+  border-radius: 14px;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #cdd6e4;
+  background: rgba(251, 191, 36, 0.07);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.v34-balance-tip svg {
+  flex: none;
+  margin-top: 2px;
+  color: #fbbf24;
+}

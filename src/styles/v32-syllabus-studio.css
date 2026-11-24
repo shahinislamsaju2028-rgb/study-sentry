@@ -1,0 +1,678 @@
+/* ==========================================================================
+   STUDY SENTRY v2.32 — Syllabus Studio Redesign
+   · Clean subject tab rail (icon · name · count, never jammed together)
+   · Properly structured chapter cards (no stray button chrome)
+   · Group header with an inline, readable progress meter
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO
+   -------------------------------------------------------------------------- */
+.v30-syl-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--v30-line);
+  background:
+    radial-gradient(520px 160px at 4% 0%, var(--v30-glow-soft), transparent 68%),
+    linear-gradient(180deg, var(--v30-sheen), transparent);
+}
+
+.v30-syl-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.v30-syl-pct-box {
+  display: grid;
+  place-items: center;
+  min-width: 66px;
+  padding: 9px 12px;
+  border-radius: 15px;
+  border: 1px solid var(--v30-line-strong);
+  background: var(--v30-glow-soft);
+  box-shadow: 0 0 18px var(--v30-glow-soft);
+}
+
+.v30-syl-pct-box strong {
+  font-size: 20px;
+  font-weight: 780;
+  color: var(--v30-accent-bright);
+  line-height: 1.1;
+}
+
+.v30-syl-pct-box span,
+.v30-syl-subcount {
+  font-size: 11px;
+  font-weight: 620;
+  color: var(--v30-mute);
+}
+
+.v30-syl-hero-left h3 {
+  margin: 0 0 2px;
+  font-size: 17px;
+  font-weight: 730;
+  letter-spacing: -0.015em;
+  color: var(--v30-text);
+}
+
+.v30-syl-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* --------------------------------------------------------------------------
+   2. SUB-NAVIGATION — subject tab rail + search
+   -------------------------------------------------------------------------- */
+.v32-syl-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--v30-line);
+  background: linear-gradient(180deg, var(--v30-sheen), transparent);
+}
+
+.v32-syl-tabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+
+.v32-syl-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.v32-syl-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  padding: 7px 13px 7px 8px;
+  border-radius: 11px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--v30-mute);
+  font-size: 12.5px;
+  font-weight: 660;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.v32-syl-tab:hover {
+  color: var(--v30-dim);
+  background: var(--v30-surface-2);
+  transform: translateY(-1px);
+}
+
+.v32-syl-tab.is-active {
+  color: var(--v30-text);
+  background: linear-gradient(180deg, var(--v30-surface-3), var(--v30-surface-2));
+  border-color: var(--v30-line-strong);
+  box-shadow: 0 4px 14px var(--v30-glow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.v32-syl-tab-icon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 8px;
+  background: var(--v30-surface-3);
+  border: 1px solid var(--v30-line);
+  color: var(--v30-dim);
+}
+
+.v32-syl-tab.is-active .v32-syl-tab-icon {
+  color: var(--v30-accent-bright);
+  background: var(--v30-glow-soft);
+  border-color: var(--v30-line-strong);
+  box-shadow: 0 0 12px var(--v30-glow-soft);
+}
+
+.v32-syl-tab-name {
+  color: inherit;
+}
+
+.v32-syl-tab-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 19px;
+  padding: 0 6px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 750;
+  color: var(--v30-mute);
+  background: var(--v30-surface-3);
+  border: 1px solid var(--v30-line);
+}
+
+.v32-syl-tab.is-active .v32-syl-tab-count {
+  color: var(--btn-primary-ink, #0b0c10);
+  background: linear-gradient(135deg, var(--v30-accent-bright), var(--v30-accent));
+  border-color: transparent;
+  box-shadow: 0 0 12px var(--v30-glow);
+}
+
+.v32-syl-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  width: 232px;
+  padding: 7px 12px;
+  border-radius: 11px;
+  border: 1px solid var(--v30-line);
+  background: var(--v30-input);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.v32-syl-search:focus-within {
+  border-color: var(--v30-line-strong);
+  box-shadow: 0 0 0 3px var(--v30-glow-soft);
+}
+
+.v32-syl-search svg {
+  color: var(--v30-mute);
+  flex: none;
+}
+
+.v32-syl-search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-size: 12.5px;
+  color: var(--v30-text);
+}
+
+.v32-syl-search input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.v32-syl-search button {
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  flex: none;
+  border: none;
+  border-radius: 999px;
+  background: var(--v30-surface-3);
+  color: var(--v30-mute);
+  cursor: pointer;
+}
+
+.v32-syl-search button:hover {
+  color: var(--v30-text);
+}
+
+/* --------------------------------------------------------------------------
+   3. GROUP CARDS
+   -------------------------------------------------------------------------- */
+.v30-syl-groups {
+  display: grid;
+  gap: 15px;
+  padding: 16px 18px 20px;
+}
+
+.v30-syl-group-card {
+  border-radius: 18px;
+  border: 1px solid var(--v30-line);
+  background: linear-gradient(180deg, var(--v30-surface-2), var(--v30-surface));
+  overflow: hidden;
+}
+
+.v30-syl-group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--v30-line);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--sub-tone, #38bdf8) 10%, transparent),
+      transparent 46%
+    ),
+    linear-gradient(180deg, var(--v30-sheen), transparent);
+}
+
+.v30-syl-group-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.v30-syl-sub-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 11px;
+  color: var(--v30-accent-bright);
+  background: var(--v30-glow-soft);
+  border: 1px solid var(--v30-line-strong);
+  box-shadow: 0 0 14px var(--v30-glow-soft);
+}
+
+.v30-syl-group-title-wrap h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 720;
+  color: var(--v30-text);
+  line-height: 1.25;
+}
+
+.v30-syl-group-title-wrap small {
+  font-size: 11px;
+  font-weight: 620;
+  color: var(--v30-mute);
+}
+
+/* Meter: bar + % on ONE line (percentage no longer falls below the rail) */
+.v30-syl-group-meter {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex: 0 0 auto;
+  min-width: 190px;
+}
+
+.v30-syl-group-rail {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--v30-line);
+  overflow: hidden;
+}
+
+.v30-syl-group-rail i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--v30-accent), var(--v30-accent-bright));
+  box-shadow: 0 0 12px var(--v30-glow);
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.v30-syl-group-meter strong {
+  flex: none;
+  min-width: 40px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 760;
+  color: var(--v30-accent-bright);
+}
+
+/* --------------------------------------------------------------------------
+   4. CHAPTER CARDS
+   -------------------------------------------------------------------------- */
+.v30-syl-ch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  gap: 12px;
+  padding: 14px 16px 16px;
+}
+
+.v30-syl-ch-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 152px;
+  padding: 13px 14px 14px;
+  border-radius: 15px;
+  border: 1px solid var(--v30-line);
+  background: var(--v30-surface);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.24s ease;
+}
+
+.v30-syl-ch-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--v30-line-strong);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.36);
+}
+
+.v30-syl-ch-card.is-complete {
+  border-color: color-mix(in srgb, var(--v30-good) 38%, transparent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--v30-good) 7%, transparent),
+    var(--v30-surface)
+  );
+}
+
+.v30-syl-ch-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* The chapter title IS a button — reset all UA chrome so no dark box shows */
+.v30-syl-ch-main {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.v30-syl-ch-main h5 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--v30-text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.v30-syl-ch-main:hover h5 {
+  color: var(--v30-accent-bright);
+}
+
+.v30-syl-ch-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.v30-syl-paper-tag {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: var(--v30-surface-3);
+  border: 1px solid var(--v30-line);
+  color: var(--v30-dim);
+}
+
+.v30-syl-topic-count {
+  font-size: 10.5px;
+  font-weight: 660;
+  color: var(--v30-mute);
+}
+
+.v30-syl-ch-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex: none;
+}
+
+.v30-syl-ch-pct {
+  font-size: 15px;
+  font-weight: 780;
+  color: var(--v30-accent-bright);
+  line-height: 1;
+}
+
+.v30-syl-ch-card.is-complete .v30-syl-ch-pct {
+  color: var(--v30-good);
+}
+
+.v30-syl-ch-icons {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.v30-syl-ch-card:hover .v30-syl-ch-icons {
+  opacity: 1;
+}
+
+.v30-syl-ch-icons button {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 8px;
+  border: 1px solid var(--v30-line);
+  background: var(--v30-surface-2);
+  color: var(--v30-mute);
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.v30-syl-ch-icons button:hover {
+  color: var(--v30-accent-bright);
+  border-color: var(--v30-line-strong);
+  box-shadow: 0 0 12px var(--v30-glow-soft);
+}
+
+.v30-syl-ch-bar {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--v30-line);
+  overflow: hidden;
+}
+
+.v30-syl-ch-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--v30-accent), var(--v30-accent-bright));
+  transition: width 0.4s ease;
+}
+
+.v30-syl-ch-card.is-complete .v30-syl-ch-bar i {
+  background: linear-gradient(90deg, var(--v30-good), var(--v30-accent-2));
+}
+
+.v30-syl-ch-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.v30-syl-stage-pills {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.v30-syl-stage-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--v30-line);
+  background: var(--v30-surface-2);
+  color: var(--v30-mute);
+  font-size: 10.5px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.v30-syl-stage-pill:hover {
+  color: var(--v30-text);
+  border-color: var(--v30-line-strong);
+}
+
+.v30-syl-stage-pill.is-done {
+  color: var(--v30-good);
+  border-color: color-mix(in srgb, var(--v30-good) 42%, transparent);
+  background: color-mix(in srgb, var(--v30-good) 12%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--v30-good) 16%, transparent);
+}
+
+/* Focus this chapter — a small, elegant play pill (never a lonely square) */
+.v30-syl-focus-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  height: 28px;
+  padding: 0 12px 0 4px;
+  border-radius: 999px;
+  border: 1px solid var(--v30-line-strong);
+  background: var(--v30-glow-soft);
+  color: var(--v30-accent-bright);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.22s ease;
+}
+
+.v30-syl-focus-orb {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border-radius: 999px;
+  color: var(--btn-primary-ink, #0b0c10);
+  background: linear-gradient(135deg, var(--v30-accent-bright), var(--v30-accent));
+  box-shadow: 0 0 12px var(--v30-glow);
+}
+
+.v30-syl-focus-label {
+  white-space: nowrap;
+}
+
+.v30-syl-focus-mini:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px var(--v30-glow-soft), 0 8px 18px var(--v30-glow);
+}
+
+/* --------------------------------------------------------------------------
+   5. IMPORTER DRAWER
+   -------------------------------------------------------------------------- */
+.v30-syl-importer {
+  margin: 15px 18px;
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px dashed var(--v30-line-strong);
+  background: var(--v30-surface-3);
+}
+
+.v30-syl-imp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.v30-syl-imp-top strong {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--v30-text);
+}
+
+.v30-syl-imp-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 13px;
+}
+
+.v30-syl-imp-subjects button {
+  padding: 6px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--v30-line);
+  background: var(--v30-surface-2);
+  color: var(--v30-dim);
+  font-size: 12px;
+  font-weight: 640;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.v30-syl-imp-subjects button:hover {
+  color: var(--v30-text);
+  border-color: var(--v30-line-strong);
+}
+
+.v30-syl-imp-subjects button.is-selected {
+  color: var(--btn-primary-ink, #0b0c10);
+  background: linear-gradient(135deg, var(--v30-accent-bright), var(--v30-accent));
+  border-color: transparent;
+  box-shadow: 0 0 16px var(--v30-glow);
+}
+
+.v30-syl-imp-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.v30-syl-paper-seg {
+  display: inline-flex;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid var(--v30-line);
+  background: var(--v30-surface-2);
+}
+
+.v30-syl-paper-seg button {
+  padding: 5px 13px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--v30-mute);
+  font-size: 11.5px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.v30-syl-paper-seg button.is-active {
+  color: var(--v30-text);
+  background: var(--v30-surface-3);
+  box-shadow: 0 0 0 1px var(--v30-line-strong);
+}
+
+@media (max-width: 760px) {
+  .v32-syl-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .v32-syl-search {
+    width: 100%;
+  }
+}

@@ -1,0 +1,3 @@
+import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
+const css=await readFile('src/styles/inward-motion.css','utf8'),app=await readFile('src/App.tsx','utf8'),entry=await readFile('src/main.tsx','utf8');
+assert.ok(entry.includes("import './styles/inward-motion.css'"));assert.ok(app.includes("y: '100vh', borderRadius: 32"));assert.ok(app.includes('y: 0, borderRadius: 0'));assert.ok(app.includes("motionMode==='calm'||!!reduceMotion"));assert.ok(app.includes('duration: calmMotion ? 0'));assert.ok(!css.includes('@keyframes sentry-enter-left'));assert.ok(!css.includes('@keyframes sentry-enter-right'));assert.match(css,/prefers-reduced-motion:reduce/);console.log('PASS: bottom-up rounded page, calm and reduced-motion controls');

@@ -1,0 +1,1128 @@
+/* ==========================================================================
+   v33 — UNIFIED SEGMENTED NAVIGATION SYSTEM + PREMIUM SURFACE POLISH
+   --------------------------------------------------------------------------
+   One single spec now drives every sub-navigation in the product:
+     • Overview  (ওভারভিউ | স্প্রিন্ট প্ল্যানার)
+     • Sprint Planner (আজকের শিডিউল | সাপ্তাহিক ভিউ | সম্পূর্ণ প্রজেক্ট)
+     • Student Suite (সাপ্তাহিক রুতিন | সিলেবাস | পরীক্ষা)
+     • Tasks (টাস্ক বোর্ড | টাইমলাইন)
+     • Study Lounge (লাইভ রুম | লিডারবোর্ড | …)
+
+   Design language (one voice, everywhere):
+     • Outline  — a DARKER, crisper border on the active chip
+     • Fill     — a slightly TRANSLUCENT accent wash (never a solid slab)
+     • Light    — an OUTER glow for depth + an INNER glow for the "lit" look
+     • No backdrop blur anywhere: hard edges, not frosted mush
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SEGMENTED NAV — container
+   -------------------------------------------------------------------------- */
+.v33-seg {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background:
+    linear-gradient(180deg, rgba(26, 33, 49, 0.94), rgba(11, 16, 27, 0.97));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+    0 10px 26px rgba(0, 0, 0, 0.32);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.v33-seg::-webkit-scrollbar {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. SEGMENTED NAV — tab
+   -------------------------------------------------------------------------- */
+.v33-seg-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #94a0b4;
+  font-size: 13px;
+  font-weight: 640;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.22s ease,
+    transform 0.2s ease;
+}
+
+.v33-seg-tab:hover:not(.is-active) {
+  color: #d3dbe8;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ACTIVE — darker outline, translucent fill, outer + inner glow */
+.v33-seg-tab.is-active {
+  color: #fde68a;
+  border-color: rgba(251, 191, 36, 0.55);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(251, 191, 36, 0.19),
+      rgba(251, 191, 36, 0.06)
+    );
+  box-shadow:
+    /* outer glow */
+    0 6px 18px rgba(251, 191, 36, 0.26),
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    /* inner glow + top sheen */
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 0 16px rgba(251, 191, 36, 0.17);
+}
+
+.v33-seg-tab.is-active:hover {
+  color: #fff1b8;
+}
+
+.v33-seg-tab:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(251, 191, 36, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.v33-seg-tab .v33-seg-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.82;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.v33-seg-tab.is-active .v33-seg-ico {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.55));
+}
+
+/* Cyan tone variant (used by Sprint Planner's blue views) */
+.v33-seg[data-tone='blue'] .v33-seg-tab.is-active {
+  color: #bae6fd;
+  border-color: rgba(56, 189, 248, 0.55);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(56, 189, 248, 0.19),
+      rgba(56, 189, 248, 0.06)
+    );
+  box-shadow:
+    0 6px 18px rgba(56, 189, 248, 0.24),
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 0 16px rgba(56, 189, 248, 0.17);
+}
+
+.v33-seg[data-tone='blue'] .v33-seg-tab.is-active .v33-seg-ico {
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.55));
+}
+
+/* Optional trailing count badge inside a tab */
+.v33-seg-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #9fb0c6;
+  font-size: 10.5px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.v33-seg-tab.is-active .v33-seg-badge {
+  background: rgba(251, 191, 36, 0.2);
+  border-color: rgba(251, 191, 36, 0.42);
+  color: #fde68a;
+}
+
+/* Full-width variant (Overview top bar) */
+.v33-seg--wide {
+  display: flex;
+  width: 100%;
+}
+
+.v33-seg--wide .v33-seg-tab {
+  flex: 1 1 0;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   3. DAILY TRACKER — "today" highlight
+   Gradient bed + outer glow + inner glow, and NO rectangular halo block.
+   -------------------------------------------------------------------------- */
+.v30-dt-table .is-today-col {
+  /* The old rule painted a hard-edged rectangle behind the whole column. */
+  background: transparent !important;
+}
+
+.v30-dt-table th.is-today-col .v30-dt-day-btn {
+  position: relative;
+  isolation: isolate;
+  border-color: rgba(251, 191, 36, 0.58);
+  background:
+    radial-gradient(
+      128% 116% at 50% -8%,
+      rgba(251, 191, 36, 0.34),
+      rgba(251, 191, 36, 0.09) 54%,
+      transparent 78%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(251, 191, 36, 0.2),
+      rgba(251, 191, 36, 0.05)
+    );
+  /* INNER glow + top sheen only — the outer glow lives on ::after so it can
+     never fight with the button background or leak as a hard rectangle. */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 18px rgba(251, 191, 36, 0.24),
+    inset 0 0 0 1px rgba(251, 191, 36, 0.14);
+  animation: none;
+}
+
+/* OUTER glow — a separate blurred layer, soft in every direction */
+.v30-dt-table th.is-today-col .v30-dt-day-btn::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  border-radius: 16px;
+  pointer-events: none;
+  background: radial-gradient(
+    58% 58% at 50% 50%,
+    rgba(251, 191, 36, 0.55),
+    rgba(251, 191, 36, 0.18) 58%,
+    transparent 78%
+  );
+  filter: blur(13px);
+  animation: v33-today-breathe 4.6s ease-in-out infinite;
+}
+
+@keyframes v33-today-breathe {
+  0%,
+  100% {
+    opacity: 0.62;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+.v30-dt-table th.is-today-col .v30-dt-day-num,
+.v30-dt-table th.is-today-col .v30-dt-day-wk {
+  color: #fde68a;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.45);
+}
+
+.v30-dt-table th.is-today-col .v30-dt-day-bar {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.45);
+}
+
+.v30-dt-table th.is-today-col .v30-dt-day-bar b {
+  background: linear-gradient(90deg, #f59e0b, #fde047);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+}
+
+/* ==========================================================================
+   4. HOME HERO — crystal medallion inside the chrono ring
+   The % sign and the Bengali digits now read as ONE premium number.
+   ========================================================================== */
+.v31-ring-pct {
+  gap: 0.04em;
+  font-size: clamp(21px, 2.3vw, 28px);
+  font-weight: 850;
+  letter-spacing: 0;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #fdf3d0 46%,
+    var(--v30-accent-bright, #fbbf24) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(251, 191, 36, 0.35));
+}
+
+.v31-ring-digits {
+  gap: 0.1em;
+}
+
+.v31-ring-pct em {
+  font-size: 0.56em;
+  font-weight: 800;
+  background: none;
+  -webkit-text-fill-color: var(--v30-accent-bright, #fbbf24);
+  color: var(--v30-accent-bright, #fbbf24);
+  transform: translateY(-0.06em);
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
+}
+
+.v31-ring-label {
+  margin-top: 5px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #a9b4c6;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.v31-ring-sub {
+  margin-top: 2px;
+  font-size: 11.5px;
+  font-weight: 750;
+  color: #dfe6f1;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   5. SYLLABUS — inline type / sub-topic / sub-type checklist
+   ========================================================================== */
+.v33-syl-expand {
+  margin-top: 9px;
+  padding-top: 9px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.v33-syl-type {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+  overflow: hidden;
+}
+
+.v33-syl-type-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  color: #dbe4f0;
+  font-size: 12.5px;
+  font-weight: 720;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.v33-syl-type-head:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.v33-syl-type-head .v33-syl-caret {
+  flex: none;
+  display: inline-flex;
+  color: #8b95a7;
+  transition: transform 0.22s ease;
+}
+
+.v33-syl-type.is-open .v33-syl-caret {
+  transform: rotate(90deg);
+  color: var(--v30-accent-bright, #fbbf24);
+}
+
+.v33-syl-type-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.v33-syl-type-count {
+  flex: none;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #93a0b5;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.v33-syl-type.is-complete .v33-syl-type-count {
+  color: #ffe3a3;
+  background: rgba(247, 202, 85, 0.14);
+  border-color: rgba(247, 202, 85, 0.34);
+}
+
+.v33-syl-type-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 2px 8px 9px;
+}
+
+.v33-syl-topic {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  width: 100%;
+  padding: 7px 8px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.v33-syl-topic:hover {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.v33-syl-topic.is-done {
+  color: #8d97a8;
+  text-decoration: line-through;
+  text-decoration-color: rgba(247, 202, 85, 0.65);
+}
+
+.v33-syl-box {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  margin-top: 1px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: all 0.18s ease;
+}
+
+.v33-syl-topic.is-done .v33-syl-box {
+  color: #052e16;
+  background: linear-gradient(180deg, #f6c969, #b9791c);
+  border-color: rgba(251, 207, 89, 0.8);
+  box-shadow: 0 0 12px rgba(247, 202, 85, 0.45);
+}
+
+.v33-syl-topic-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Level 3 — user supplied "sub type" */
+.v33-syl-subtype {
+  margin-left: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 9px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.v33-syl-subtype .v33-syl-topic {
+  font-size: 12px;
+  color: #aeb9c9;
+}
+
+.v33-syl-add {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 6px;
+}
+
+.v33-syl-add input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.28);
+  color: #e6ecf5;
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.v33-syl-add input::placeholder {
+  color: #6f7b8d;
+}
+
+.v33-syl-add input:focus {
+  border-color: rgba(251, 191, 36, 0.55);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.14);
+}
+
+.v33-syl-add button {
+  flex: none;
+  height: 30px;
+  padding: 0 11px;
+  border-radius: 9px;
+  border: 1px solid rgba(251, 191, 36, 0.38);
+  background: linear-gradient(180deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.07));
+  color: #fde68a;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.v33-syl-add button:hover {
+  background: linear-gradient(180deg, rgba(251, 191, 36, 0.3), rgba(251, 191, 36, 0.12));
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.28);
+}
+
+/* Chapter card toggle row (replaces the old 4-stage pills) */
+.v33-syl-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.035);
+  color: #aeb9c9;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.v33-syl-toggle:hover {
+  color: #e6ecf5;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.v33-syl-toggle.is-open {
+  color: #fde68a;
+  border-color: rgba(251, 191, 36, 0.5);
+  background: linear-gradient(180deg, rgba(251, 191, 36, 0.17), rgba(251, 191, 36, 0.05));
+  box-shadow:
+    0 4px 14px rgba(251, 191, 36, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 0 12px rgba(251, 191, 36, 0.15);
+}
+
+.v33-syl-toggle .v33-syl-caret {
+  transition: transform 0.22s ease;
+}
+
+.v33-syl-toggle.is-open .v33-syl-caret {
+  transform: rotate(90deg);
+}
+
+/* Meta strip under the chapter title */
+.v33-syl-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3px;
+  font-size: 11.5px;
+  font-weight: 640;
+  color: #8b95a7;
+}
+
+.v33-syl-meta b {
+  color: #b9c4d4;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   6. SPRINT PLANNER — sub-nav surroundings
+   ========================================================================== */
+.v33-sp-subnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.v33-sp-subnav-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.012));
+  color: #a7b2c4;
+  font-size: 12px;
+  font-weight: 640;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.v33-sp-subnav-note svg {
+  color: var(--v30-accent-bright, #fbbf24);
+  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.45));
+}
+
+/* ==========================================================================
+   7. Reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .v30-dt-table th.is-today-col .v30-dt-day-btn::after {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   8. SYLLABUS — chapter card footer & inline tree (finishing touches)
+   ========================================================================== */
+.v33-syl-foot {
+  margin-top: auto;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+}
+
+.v33-syl-meta-inline {
+  font-size: 11px;
+  font-weight: 800;
+  opacity: 0.85;
+  padding-left: 2px;
+}
+
+.v33-syl-empty {
+  margin: 0;
+  font-size: 12px;
+  color: #8b95a7;
+  line-height: 1.5;
+}
+
+.v33-syl-del {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  border: 1px solid rgba(239, 68, 68, 0.24);
+  background: rgba(239, 68, 68, 0.08);
+  color: #fca5a5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease;
+}
+
+.v33-syl-del:hover {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+.v33-syl-subtype {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.v33-syl-subtype li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.v33-syl-subtype li .v33-syl-topic {
+  flex: 1 1 auto;
+}
+
+.v33-syl-subtype--own {
+  margin-left: 0;
+  padding-left: 0;
+  border-left: none;
+  margin-top: 6px;
+}
+
+/* The chapter card grows to fit the inline tree without clipping */
+.v30-syl-ch-card {
+  overflow: visible;
+}
+
+.v30-syl-ch-card:has(.v33-syl-expand) {
+  grid-column: span 2;
+}
+
+@media (max-width: 1180px) {
+  .v30-syl-ch-card:has(.v33-syl-expand) {
+    grid-column: span 1;
+  }
+}
+
+/* Compact "add sub-type" row — present but never dominant */
+.v33-syl-add {
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.v33-syl-add input {
+  height: 27px;
+  font-size: 11.5px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.v33-syl-add button {
+  height: 27px;
+  padding: 0 9px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  background: linear-gradient(180deg, rgba(251, 191, 36, 0.16), rgba(251, 191, 36, 0.05));
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.v33-syl-add button:hover {
+  background: linear-gradient(180deg, rgba(251, 191, 36, 0.26), rgba(251, 191, 36, 0.1));
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.22);
+}
+
+.v33-syl-type-body {
+  gap: 2px;
+  padding: 2px 8px 8px;
+}
+
+.v33-syl-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 0;
+  font-size: 11px;
+  font-weight: 640;
+  color: #8b95a7;
+}
+
+/* ==========================================================================
+   9. HOME HERO — "first section" polish
+   The flagship hero is the app's front door: it must read instantly.
+   ========================================================================== */
+
+/* Left telemetry block: kicker → time → goal → progress rail */
+.v33-hero-rail {
+  display: block;
+  width: 100%;
+  min-width: 132px;
+  height: 5px;
+  margin-top: 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.v33-hero-rail i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f59e0b, #fde047 62%, #fff7d6);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.7);
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.v13-hero-orbital-meta {
+  gap: 2px;
+}
+
+.v13-orbital-kicker {
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8f9bb0 !important;
+}
+
+.v13-hero-orbital-meta strong {
+  font-size: 1.42rem !important;
+  font-weight: 850 !important;
+  background: linear-gradient(180deg, #ffffff, #fde68a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 12px rgba(251, 191, 36, 0.28));
+}
+
+.v13-hero-orbital-meta small {
+  font-size: 0.78rem !important;
+  font-weight: 700;
+  color: #fcd34d !important;
+}
+
+/* Crystal medallion inside the chrono ring */
+.v31-ring-medallion {
+  padding: 5px 8px !important;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.16), transparent 56%),
+    radial-gradient(circle at 50% 86%, rgba(251, 191, 36, 0.14), transparent 62%),
+    linear-gradient(165deg, rgba(21, 28, 44, 0.96), rgba(7, 10, 18, 0.99)) !important;
+  border: 1px solid rgba(251, 191, 36, 0.4) !important;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.62),
+    0 0 26px rgba(251, 191, 36, 0.16),
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 0 22px rgba(251, 191, 36, 0.14),
+    inset 0 -5px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.v31-ring-pct {
+  font-size: clamp(23px, 2.5vw, 31px) !important;
+}
+
+.v31-ring-pct em {
+  font-size: 0.62em !important;
+}
+
+/* The floating status dot only earns its place while a session is live */
+.v31-ring-dot {
+  display: none !important;
+}
+
+.v31-ring-dot.is-live {
+  display: block !important;
+  width: 7px !important;
+  height: 7px !important;
+  margin-bottom: 5px !important;
+  background: #f0c56b !important;
+  box-shadow: 0 0 0 3px rgba(247, 202, 85, 0.16), 0 0 12px rgba(247, 202, 85, 0.8) !important;
+}
+
+.v31-ring-label {
+  font-size: 9.5px !important;
+  letter-spacing: 0.12em !important;
+  color: #b6c0d0 !important;
+}
+
+.v31-ring-sub {
+  font-size: 12px !important;
+  font-weight: 780 !important;
+  color: #f1f5fb !important;
+}
+
+/* Hero CTA — solid, warm, with a light sheen */
+.bento-focus-cta {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px !important;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 12px 30px color-mix(in srgb, var(--accent, #f59e0b) 38%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
+}
+
+.bento-focus-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.34) 0%,
+    rgba(255, 255, 255, 0) 42%,
+    rgba(255, 255, 255, 0) 58%,
+    rgba(255, 255, 255, 0.16) 100%
+  );
+}
+
+.bento-focus-cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 38px color-mix(in srgb, var(--accent, #f59e0b) 48%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* ==========================================================================
+   10. SPRINT PLANNER — weekly + overall view polish
+   ========================================================================== */
+
+/* ---- Weekly day cards ---- */
+.sp-week-day-card {
+  position: relative;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.sp-week-day-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 26px rgba(0, 0, 0, 0.3);
+}
+
+.sp-week-day-card.is-today {
+  border-color: rgba(251, 191, 36, 0.5);
+  background:
+    radial-gradient(120% 130% at 0% 0%, rgba(251, 191, 36, 0.12), transparent 58%),
+    linear-gradient(180deg, rgba(251, 191, 36, 0.07), rgba(255, 255, 255, 0.014));
+  box-shadow:
+    0 0 22px rgba(251, 191, 36, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 20px rgba(251, 191, 36, 0.08);
+}
+
+.sp-wd-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sp-wd-id {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.sp-wd-dayname {
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.045);
+  color: #b6c0d0;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.sp-week-day-card.is-today .sp-wd-dayname {
+  color: #fde68a;
+  border-color: rgba(251, 191, 36, 0.42);
+  background: rgba(251, 191, 36, 0.14);
+}
+
+.sp-wd-today {
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.45);
+}
+
+.sp-wd-meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex: none;
+}
+
+.sp-wd-meter-rail {
+  display: block;
+  width: 76px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.sp-wd-meter-rail i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f59e0b, #fde047);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.65);
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sp-wd-rest {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 11px;
+  border: 1px dashed rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.015);
+  font-size: 12px;
+  color: #7e899b;
+}
+
+.sp-wd-rest-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  flex: none;
+}
+
+/* ---- Overall timeline ---- */
+.sp-overall-timeline {
+  gap: 16px;
+}
+
+.sp-tl-group {
+  position: relative;
+  grid-template-columns: 164px minmax(0, 1fr);
+  gap: 16px;
+  padding: 4px 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sp-tl-group:last-child {
+  border-bottom: none;
+}
+
+.sp-tl-group.today {
+  border-radius: 16px;
+  padding: 12px 14px 14px;
+  border-bottom: 1px solid rgba(251, 191, 36, 0.24);
+  background:
+    radial-gradient(120% 120% at 0% 0%, rgba(251, 191, 36, 0.09), transparent 56%),
+    rgba(255, 255, 255, 0.015);
+  box-shadow: 0 0 22px rgba(251, 191, 36, 0.14);
+}
+
+.sp-tl-date-col {
+  padding-left: 20px;
+  gap: 3px;
+}
+
+.sp-tl-dot {
+  left: 0;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid rgba(56, 189, 248, 0.55);
+  background: #0b1120;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.55);
+}
+
+.sp-tl-group.today .sp-tl-dot {
+  border-color: rgba(251, 191, 36, 0.85);
+  background: #fbbf24;
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.8);
+}
+
+.sp-tl-date-col strong {
+  font-size: 0.88rem;
+  color: #f8fafc;
+}
+
+.sp-tl-today {
+  align-self: flex-start;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  background: rgba(251, 191, 36, 0.16);
+  color: #fde68a;
+  font-size: 10px;
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+}
+
+.sp-tl-meter {
+  display: block;
+  width: 100%;
+  max-width: 118px;
+  height: 5px;
+  margin: 5px 0 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.sp-tl-meter i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #7dd3fc);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sp-tl-group.today .sp-tl-meter i {
+  background: linear-gradient(90deg, #f59e0b, #fde047);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.65);
+}
+
+/* ==========================================================================
+   11. OVERVIEW — first section (active sprint banner)
+   ========================================================================== */
+.v28-ov-sprint-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.v28-ov-sprint-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    70% 160% at 4% 0%,
+    rgba(251, 191, 36, 0.12),
+    transparent 62%
+  );
+}
+
+.v28-ov-sprint-emblem {
+  position: relative;
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.34),
+    0 0 22px rgba(251, 191, 36, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.v33-ov-sprint-rail {
+  display: block;
+  width: min(360px, 100%);
+  height: 5px;
+  margin-top: 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.v33-ov-sprint-rail i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f59e0b, #fde047 70%, #fff7d6);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.7);
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}

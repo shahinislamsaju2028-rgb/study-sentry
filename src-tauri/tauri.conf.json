@@ -1,0 +1,103 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Study Sentry",
+  "mainBinaryName": "Study Sentry",
+  "version": "4.0.0",
+  "identifier": "com.studysentry.desktop.personal",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:5173",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Study Sentry",
+        "width": 1400,
+        "height": 880,
+        "minWidth": 420,
+        "minHeight": 380,
+        "center": true,
+        "resizable": true,
+        "maximizable": true,
+        "minimizable": true,
+        "closable": true,
+        "decorations": true,
+        "transparent": false,
+        "shadow": true,
+        "theme": "Dark",
+        "dragDropEnabled": false,
+        "backgroundColor": "#090a0e"
+      },
+      {
+        "label": "pip",
+        "title": "Study Sentry PiP",
+        "url": "index.html?window=pip",
+        "width": 142,
+        "height": 52,
+        "minWidth": 96,
+        "minHeight": 38,
+        "maxWidth": 560,
+        "maxHeight": 260,
+        "resizable": true,
+        "decorations": false,
+        "transparent": true,
+        "shadow": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "focus": false,
+        "visible": true,
+        "dragDropEnabled": false
+      },
+      {
+        "label": "pip-menu",
+        "title": "Study Sentry PiP Menu",
+        "url": "index.html?window=pip-menu",
+        "width": 236,
+        "height": 292,
+        "minWidth": 180,
+        "minHeight": 140,
+        "maxWidth": 540,
+        "maxHeight": 620,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "shadow": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "focus": false,
+        "visible": false,
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      },
+      "nsis": {
+        "installMode": "both",
+        "installerIcon": "icons/icon.ico",
+        "displayLanguageSelector": false,
+        "installerHooks": "windows/hooks.nsh"
+      }
+    }
+  }
+}
