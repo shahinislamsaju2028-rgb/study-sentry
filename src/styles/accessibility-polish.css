@@ -1,7 +1,0 @@
-/* A reminder selector must never expand beyond its own routine cell. */
-.wr-cell { min-width:0; overflow:hidden; }
-.wr-reminder-time { display:grid !important; grid-template-columns:minmax(0,1fr); gap:4px; min-width:0; width:100%; }
-.wr-reminder-time .cp-anchor { display:block; min-width:0 !important; width:100%; max-width:100%; }
-.wr-reminder-time .cp-trigger { min-width:0 !important; width:100% !important; max-width:100%; box-sizing:border-box; }
-.wr-reminder-time .cp-trigger > span { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.wr-cell textarea { min-width:0; font-size:14px; }

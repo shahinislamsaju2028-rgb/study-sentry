@@ -1,8 +1,0 @@
-/* A vertical action tile alongside the flip clock, without decorative dots. */
-.floating-timer .pip-main,.floating-timer.dense .pip-main{inset:9px;display:grid;grid-template-columns:minmax(0,1fr) clamp(32px,18cqw,64px);grid-template-rows:minmax(0,1fr);align-items:stretch;gap:5px}
-.floating-timer .pip-digits,.floating-timer.extended .pip-digits,.floating-timer.dense .pip-digits{width:100%;height:100%;max-height:none;align-self:stretch}
-.floating-timer .pip-primary,.floating-timer.dense .pip-primary,.floating-timer.extended .pip-primary{width:100%;height:100%;min-height:0;align-self:stretch;border-radius:7px;display:flex;flex-direction:column;gap:4px;padding:3px;font-size:clamp(8px,4cqw,12px);line-height:1;letter-spacing:0}
-.floating-timer .pip-primary svg{width:clamp(13px,8cqw,22px);height:auto;flex:none}
-.floating-timer.dense .pip-primary span{display:none}
-.floating-timer.extended:not(.dense) .pip-main{inset:9px;grid-template-columns:minmax(0,1fr) clamp(32px,18cqw,64px);grid-template-rows:minmax(0,1fr) auto;gap:6px}
-.floating-timer.extended:not(.dense) .pip-extended{grid-column:1 / -1;grid-row:2}
