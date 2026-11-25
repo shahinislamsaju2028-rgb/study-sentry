@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Study Sentry",
   "mainBinaryName": "Study Sentry",
-  "version": "4.0.0",
+  "version": "4.3.5",
   "identifier": "com.studysentry.desktop.personal",
   "build": {
     "beforeDevCommand": "npm run dev",

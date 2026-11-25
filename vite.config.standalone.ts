@@ -1,7 +1,7 @@
 /**
  * Standalone (hostable) web build.
  *
- *   npm run build:web   →  dist-web/
+ *   npm run build:web   →  dist-web/  with index.html as the entry
  *
  * Differences from the Tauri build:
  *   • entry is `standalone.html` (which boots src/standalone-entry.tsx and sets
@@ -19,8 +19,17 @@ import tailwindcss from '@tailwindcss/vite';
 import fs from 'node:fs';
 import path from 'node:path';
 
-/** Serve standalone.html for / during dev and emit it as index.html on build. */
+/**
+ * Serve standalone.html for / during dev, then rename it to index.html after
+ * the build finishes.
+ *
+ * The rename has to happen in `closeBundle`, not `generateBundle`: Vite's own
+ * html plugin re-emits the processed HTML *after* the generateBundle hooks of
+ * user plugins have run, so renaming there is silently undone. Doing it on
+ * disk once the bundle is closed is deterministic.
+ */
 function standaloneEntry(): Plugin {
+  const outDir = path.resolve(process.cwd(), 'dist-web');
   return {
     name: 'studysentry-standalone-entry',
     configureServer(server) {
@@ -30,20 +39,14 @@ function standaloneEntry(): Plugin {
         next();
       });
     },
-    generateBundle(_opts, bundle) {
-      // Build: standalone.html becomes index.html at the site root.
-      const html = bundle['standalone.html'];
-      if (html && html.type === 'asset') {
-        bundle['index.html'] = { ...html, fileName: 'index.html' };
-        delete bundle['standalone.html'];
-      }
-    },
     closeBundle() {
-      // Make sure static assets that live in public/ (icons, favicon) end up
-      // beside index.html even for hosts that only serve that one file.
-      const out = path.resolve(process.cwd(), 'dist-web');
-      if (fs.existsSync(out)) {
-        // no-op placeholder — keeps the hook honest if future post-processing is needed
+      const built = path.join(outDir, 'standalone.html');
+      const root = path.join(outDir, 'index.html');
+      if (fs.existsSync(built)) {
+        fs.copyFileSync(built, root);
+        fs.unlinkSync(built);
+        // eslint-disable-next-line no-console
+        console.log('\n  ✓ dist-web/index.html created from standalone.html');
       }
     },
   };

@@ -114,6 +114,8 @@ globalThis.__mock = {
   todayKey: '2026-11-22',
   now: Date.now(),
   phaseMode: 'all5',
+  suiteTab: 'routine',
+  setSuiteTab(tab) { globalThis.__mock.suiteTab = tab; },
   activePhases: phaseObjects,
   language: 'bn',
   loaded: true,
@@ -204,7 +206,7 @@ try {
   });
   await flush();
   await click([...document.querySelectorAll('button')].find((b) => b.textContent.includes('নতুন স্প্রিন্ট')));
-  for (let i = 0; i < 40 && !document.querySelector('.v45-chp-card'); i += 1) await flush(50);
+  for (let i = 0; i < 40 && !document.querySelector('.chapter-picker-card'); i += 1) await flush(50);
 
   // ── 3. one single border ──────────────────────────────────────────────────
   await ok('the onboarding block is one border — inner sections carry no border', () => {
@@ -221,13 +223,26 @@ try {
   });
 
   // ── 1 again, inside the wizard ────────────────────────────────────────────
-  await ok('the wizard name control has no − / + buttons and no duplicate card', () => {
+  await ok('the wizard name control has no duplicate bottom box and opens preset editing on right-click', async () => {
     const dd = document.querySelector('.v45-name-dd');
     assert.ok(dd, 'the name dropdown is missing inside the wizard');
     assert.ok(!dd.querySelector('[aria-label="আগের নাম"]'), 'a − button survived');
     assert.ok(!dd.querySelector('[aria-label="পরের নাম"]'), 'a + button survived');
     assert.ok(!document.querySelector('.v29-sw-name-input'), 'the duplicate title card survived');
-    assert.ok(document.querySelector('.v45-name-custom input'), 'the custom name field is missing');
+    assert.equal(document.querySelector('.v45-name-custom input'), null,
+      'the redundant permanent custom-name box survived');
+
+    const trigger = dd.querySelector('.v45-name-dd-trigger');
+    await act(async () => {
+      trigger.dispatchEvent(new dom.window.MouseEvent('contextmenu', {
+        bubbles: true,
+        cancelable: true,
+      }));
+    });
+    await flush();
+    const editMenu = dd.querySelector('.v48-name-ctx');
+    assert.ok(editMenu, 'right-clicking the sprint-name field did not open the preset edit menu');
+    assert.ok(/এডিট/.test(editMenu.textContent), 'the edit action is missing from the preset menu');
   });
 
   // ── 4. triple row ─────────────────────────────────────────────────────────
@@ -277,42 +292,54 @@ try {
   });
 
   // ── 6/7. chapter grid ─────────────────────────────────────────────────────
-  await ok('the chapter picker is a grid of checkbox cards with subject icons', () => {
-    const grid = document.querySelector('.v45-chp-grid');
+  await ok('the chapter picker is a grid of equal checkbox cards', () => {
+    // v49: every chapter-selection surface now renders the single shared
+    // <ChapterPicker/>, so the test looks at that grid instead of the old
+    // sprint-only class names.
+    const grid = document.querySelector('.chapter-picker-grid');
     assert.ok(grid, 'the chapter grid is missing');
-    const cards = grid.querySelectorAll('.v45-chp-card');
+    const cards = grid.querySelectorAll('.chapter-picker-card');
     assert.ok(cards.length >= 5, 'too few chapter cards');
     for (const card of cards) {
       assert.equal(card.getAttribute('role'), 'checkbox', 'a card is not a checkbox');
-      assert.ok(card.querySelector('svg'), 'a card carries no subject icon');
+      assert.ok(card.querySelector('.chapter-picker-name'), 'a card carries no chapter name');
     }
-    const styles = fs.readFileSync('src/styles/v45-redesign.css', 'utf8');
-    const rule = styles.match(/\.v45-chp-grid\s*\{[^}]*\}/)?.[0] || '';
-    assert.ok(/repeat\(3,/.test(rule), 'the grid is not 3 columns wide by default');
+    // every card in the grid must be exactly the same width — the core rule
+    const widths = [...new Set([...cards].map((c) => Math.round(c.getBoundingClientRect().width)))];
+    assert.equal(widths.length, 1, `cards are not all the same width: ${widths.join(', ')}`);
+    const styles = fs.readFileSync('src/styles/v49-chapter-picker.css', 'utf8');
+    const rule = styles.match(/\.chapter-picker-grid\s*\{[^}]*\}/)?.[0] || '';
+    assert.ok(/repeat\(/.test(rule) && /--chp-track/.test(rule), 'the grid is not a fixed-track grid');
   });
 
-  await ok('the chapter card selection paints an amber border and a wash', () => {
-    const styles = fs.readFileSync('src/styles/v45-redesign.css', 'utf8');
-    const rule = styles.match(/\.v45-chp-card\.is-selected\s*\{[^}]*\}/)?.[0] || '';
-    assert.ok(/rgba\(255,\s*205,\s*104/.test(rule), 'the amber border is missing');
-    assert.ok(/background:/.test(rule), 'the light background is missing');
+  await ok('the chapter card selection paints an accent border and an outer glow', () => {
+    const styles = fs.readFileSync('src/styles/v49-chapter-picker.css', 'utf8');
+    const rule = styles.match(/\.chapter-picker-card\.is-active\s*\{[^}]*\}/)?.[0] || '';
+    assert.ok(/border-color/.test(rule), 'the accent border is missing');
+    // the student asked for the outer glow specifically
+    assert.ok(/box-shadow/.test(rule) && /var\(--chp-accent/.test(rule),
+      'the accent outer glow is missing');
   });
 
-  await ok('the chapter picker has a search box and a select-all toggle', () => {
-    assert.ok(document.querySelector('.v45-chp-search input'), 'the search input is missing');
-    const all = document.querySelector('.v45-chp-all');
+  await ok('the chapter picker offers select-all and no search box', () => {
+    // 6.txt ⓶⓪ — the brief removes "অধ্যায় খুঁজুন" (search) and "নিজে লিখুন"
+    // from chapter selectors entirely. Select-all stays.
+    assert.equal(document.querySelector('.chapter-picker-search'), null,
+      'the search box should be gone from the chapter picker');
+    const all = document.querySelector('.chapter-picker-all');
     assert.ok(all, 'the select-all button is missing');
     assert.ok(/সব সিলেক্ট/.test(all.textContent), 'the select-all label is wrong');
   });
 
   await ok('selecting a chapter marks it and the footer counts it', async () => {
-    const card = document.querySelectorAll('.v45-chp-card')[0];
+    const card = document.querySelectorAll('.chapter-picker-card')[0];
     await click(card);
-    assert.ok(card.className.includes('is-selected'), 'the card did not become selected');
+    assert.ok(card.className.includes('is-active'), 'the card did not become selected');
     assert.equal(card.getAttribute('aria-checked'), 'true', 'aria-checked did not follow');
-    assert.ok(/[১1]টি অধ্যায় নির্বাচিত/.test(document.querySelector('.v45-chp-foot').textContent), 'the footer does not count the selection');
+    assert.ok(/[১1]টি/.test(document.querySelector('.chapter-picker-summary').textContent),
+      'the summary does not count the selection');
     await click(card);
-    assert.ok(!card.className.includes('is-selected'), 'the card did not deselect');
+    assert.ok(!card.className.includes('is-active'), 'the card did not deselect');
   });
 
   await ok('the old class-count dropdown is gone', () => {
@@ -374,12 +401,15 @@ try {
   await click(addRows[0]);
   await flush(150);
 
-  await ok('the routine subject picker is one clean row with icons', () => {
-    const picker = document.querySelector('.v45-routine-subjects');
-    assert.ok(picker, 'the one-row subject picker is missing');
-    const cards = picker.querySelectorAll('.v37-routine-subject-card');
-    assert.ok(cards.length >= 3, 'the subject cards are missing');
-    for (const c of cards) assert.ok(c.querySelector('svg'), 'a routine subject card carries no icon');
+  await ok('the routine uses the same shared subject chip selector with icons', () => {
+    const picker = document.querySelector('.v36-routine-modal .premium-subject-grid.v48-subject-chips');
+    assert.ok(picker, 'the shared routine subject selector is missing');
+    const chips = picker.querySelectorAll('.premium-subject-card');
+    assert.ok(chips.length >= 3, 'the subject chips are missing');
+    for (const chip of chips) {
+      assert.ok(chip.querySelector('.premium-subject-icon svg'), 'a routine subject chip carries no icon');
+      assert.ok(chip.hasAttribute('aria-pressed'), 'a routine subject chip has no selected-state semantics');
+    }
   });
 
   await act(async () => root3.unmount());

@@ -75,6 +75,9 @@ impl Default for GuardEngine {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum BraveUrlVerdict {
     Allowed,
+    /// Allowed — the tab is never closed — but the focus timer is paused while
+    /// the student is on it (Gemini, NotebookLM, arena.ai/agent).
+    AllowedPausing,
     TransientNewTab,
     Blocked(String),
 }
@@ -132,20 +135,22 @@ pub fn evaluate_brave_url(raw_url: &str, allow_arena_agent: bool) -> BraveUrlVer
         return BraveUrlVerdict::TransientNewTab;
     }
 
-    // 1. Always allowed: Google Gemini & Google NotebookLM (+ Google Sign-In)
+    // 1. AI study tools: the tab is allowed — it is never closed — but the
+    //    focus timer pauses while one of these is the active tab, per 7.txt ①.
+    //    Google sign-in is part of that flow, so it pauses too.
     if host == "gemini.google.com"
         || host == "notebook.google.com"
         || host == "notebooklm.google.com"
         || host == "accounts.google.com"
     {
-        return BraveUrlVerdict::Allowed;
+        return BraveUrlVerdict::AllowedPausing;
     }
 
     // 2. Optionally allowed: arena.ai/agent (controlled by Settings toggle)
     if allow_arena_agent && (host == "arena.ai" || host == "www.arena.ai") {
         let path = rest.split(['?', '#']).next().unwrap_or("");
         if path == "/agent" || path.starts_with("/agent/") {
-            return BraveUrlVerdict::Allowed;
+            return BraveUrlVerdict::AllowedPausing;
         }
         return BraveUrlVerdict::Blocked(format!("{}{}", host, path.chars().take(24).collect::<String>()));
     }
@@ -364,10 +369,13 @@ impl GuardEngine {
                 }
 
                 if let Some(dom) = closed_domain_now {
+                    // 7.txt ① — the AI sites are not "blocked" any more; they
+                    // are allowed with the timer resting. So the message says
+                    // what is actually true.
                     let allowed_msg = if snapshot.allow_arena_agent {
-                        "gemini.google.com, notebook.google.com এবং arena.ai/agent"
+                        "gemini.google.com, notebooklm.google.com অথবা arena.ai/agent"
                     } else {
-                        "gemini.google.com এবং notebook.google.com"
+                        "gemini.google.com অথবা notebooklm.google.com"
                     };
                     let _ = app.emit(
                         "guard://violation",
@@ -386,7 +394,7 @@ impl GuardEngine {
                         .builder()
                         .title("Study Sentry · অনুমোদনহীন ওয়েবসাইট বন্ধ")
                         .body(format!(
-                            "{} বন্ধ করা হয়েছে। শুধুমাত্র {} ব্যবহার করুন।",
+                            "{} বন্ধ করা হয়েছে। পড়তে হলে {} খুলুন — ওখানে টাইমার নিজে থেকেই পজ থাকবে।",
                             dom, allowed_msg
                         ))
                         .show();
@@ -498,6 +506,23 @@ impl GuardEngine {
                             );
                         }
                     }
+                    ForegroundVerdict::AllowedButPausing => {
+                        // 7.txt ① — Gemini / NotebookLM / arena.ai/agent are
+                        // allowed, but the timer rests while the student is on
+                        // them. Nothing is closed; no violation is raised.
+                        last_push_notify_at = None;
+                        if !currently_paused_by_guard {
+                            currently_paused_by_guard = true;
+                            let _ = app.emit(
+                                "guard://focus-state",
+                                GuardFocusStatePayload {
+                                    should_pause: true,
+                                    reason: "ai".to_string(),
+                                    target: String::new(),
+                                },
+                            );
+                        }
+                    }
                     ForegroundVerdict::NeutralUtility => {
                         // Screenshot (Snipping Tool / Greenshot), Windows brightness flyout,
                         // taskbar, or tab switching inside allowed apps: DO NOT pause timer!
@@ -578,6 +603,8 @@ pub fn list_running_user_apps() -> Vec<RunningAppInfo> {
 #[derive(Debug, Clone)]
 enum ForegroundVerdict {
     AllowedStudyApp,
+    /// Allowed and never closed, but the timer must pause while it is in front.
+    AllowedButPausing,
     NeutralUtility,
     BlockedApp { app_name: String },
     BlockedBraveDomain { hwnd: isize, domain: String },
@@ -920,10 +947,10 @@ mod win_impl {
             || core.contains("notebook.google")
             || core.contains("sign in - google accounts")
         {
-            return BraveUrlVerdict::Allowed;
+            return BraveUrlVerdict::AllowedPausing;
         }
         if allow_arena_agent && (core.contains("arena") || core.contains("agent")) {
-            return BraveUrlVerdict::Allowed;
+            return BraveUrlVerdict::AllowedPausing;
         }
         BraveUrlVerdict::Blocked(core.chars().take(48).collect())
     }
@@ -964,6 +991,7 @@ mod win_impl {
                 };
                 return match verdict {
                     BraveUrlVerdict::Allowed => ForegroundVerdict::AllowedStudyApp,
+                    BraveUrlVerdict::AllowedPausing => ForegroundVerdict::AllowedButPausing,
                     BraveUrlVerdict::TransientNewTab => ForegroundVerdict::NeutralUtility,
                     BraveUrlVerdict::Blocked(domain) => ForegroundVerdict::BlockedBraveDomain {
                         hwnd: hwnd as isize,

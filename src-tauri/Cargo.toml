@@ -1,6 +1,6 @@
 [package]
 name = "study-sentry"
-version = "3.0.0"
+version = "4.3.5"
 description = "Study Sentry v3.0 — High-Performance Windows 11 Student Productivity & Focus Suite"
 authors = ["Study Sentry"]
 edition = "2021"

@@ -27,6 +27,8 @@ const KNOWN_PASSING = [
   'timeline-week-check.mjs',
   'v43-sprint-planner-check.mjs',
   'v45-redesign-check.mjs',
+  'v52-hierarchy-check.mjs',
+  'v59-suite-redesign-check.mjs',
   'verify_catalog.mjs',
 ];
 

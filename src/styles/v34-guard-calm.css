@@ -1,0 +1,139 @@
+/* ===========================================================================
+   v34 — FOCUS GUARD & CALM UI
+   ---------------------------------------------------------------------------
+   Loaded last so these rules always win over the older sheets.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------------------
+   9. FOCUS GUARD — always armed, browser-agnostic allow-list
+   ------------------------------------------------------------------------- */
+
+.v30-guard-always {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 720;
+  color: #ffd98a;
+  background: rgba(247, 202, 85, 0.1);
+  border: 1px solid rgba(247, 202, 85, 0.28);
+}
+
+.v30-guard-always svg {
+  color: #f0c56b;
+}
+
+.v30-guard-domain-card {
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.v30-guard-domain-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(251, 191, 36, 0.3);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.34);
+}
+
+.v30-guard-domain-card.is-optional.is-enabled {
+  border-color: rgba(247, 202, 85, 0.42);
+  background: linear-gradient(
+    140deg,
+    rgba(247, 202, 85, 0.12),
+    rgba(255, 255, 255, 0.02) 70%
+  );
+}
+
+.v30-guard-domain-card code {
+  font-size: 10.5px;
+  letter-spacing: 0.01em;
+}
+
+/* ===========================================================================
+   CALM MODE — the absolute minimum
+   ---------------------------------------------------------------------------
+   The student asked for a UI that is almost still: no drifting decoration,
+   no floating cards, nothing that could read as "lagging" or "hanging".
+
+   What SURVIVES (the "must have" motion):
+     • the analog clock hands (they are the instrument, not decoration)
+     • the focus alarm pulse + shake
+     • the live running indicator
+     • progress meters / bars filling up
+     • menu & stage reveal transitions
+   Everything else is flattened to a static, well-composed state.
+   ========================================================================= */
+
+html[data-spatial-motion='calm'] .v34-illus-floor,
+html[data-spatial-motion='calm'] .v34-illus-bulb,
+html[data-spatial-motion='calm'] .v34-illus-globe,
+html[data-spatial-motion='calm'] .v34-illus-mote,
+html[data-spatial-motion='calm'] .v34-illus-page,
+html[data-spatial-motion='calm'] .v5-stu-lamp-beam,
+html[data-spatial-motion='calm'] .v34-illus-clock-hand,
+html[data-spatial-motion='calm'] .v34-illus-clock-min {
+  animation: none !important;
+}
+
+html[data-spatial-motion='calm'] .v34-illus-floor {
+  opacity: 0.7;
+}
+html[data-spatial-motion='calm'] .v34-illus-bulb {
+  opacity: 0.9;
+}
+html[data-spatial-motion='calm'] .v34-illus-page {
+  transform: none !important;
+  opacity: 0.96;
+}
+
+/* The alarm is the one thing that must still breathe. */
+html[data-spatial-motion='calm'] .v34-dial.is-alarming .v34-dial-ring,
+html[data-spatial-motion='calm'] .v34-dial.is-alarming .v34-dial-hand,
+html[data-spatial-motion='calm'] .v34-dial.is-alarming .v34-dial-tick {
+  animation-duration: 1.4s !important;
+}
+
+/* No floating cards — a hover must never look like the page is drifting. */
+html[data-spatial-motion='calm'] .v30-syl-ch-card:hover,
+html[data-spatial-motion='calm'] .v30-my-group-card:hover,
+html[data-spatial-motion='calm'] .v30-explore-card:hover,
+html[data-spatial-motion='calm'] .v34-wr-slot-card:hover,
+html[data-spatial-motion='calm'] .v34-wr-day-card:hover,
+html[data-spatial-motion='calm'] .v34-gc-template:hover,
+html[data-spatial-motion='calm'] .v34-gc-emblem:hover,
+html[data-spatial-motion='calm'] .v34-av-tile:hover,
+html[data-spatial-motion='calm'] .v31-cp-chapter:hover,
+html[data-spatial-motion='calm'] .v34-gc-tint:hover,
+html[data-spatial-motion='calm'] .v34-gc-submit:hover:not(:disabled),
+html[data-spatial-motion='calm'] .v30-profile-avatar-edit:hover,
+html[data-spatial-motion='calm'] .nav-dock .bn-item.v13-minimal-icon-btn:hover:not(.active) .v13-dock-icon-glyph {
+  transform: none !important;
+}
+
+/* Feedback stays — it just becomes instant and colour-only. */
+html[data-spatial-motion='calm'] .v30-syl-ch-card,
+html[data-spatial-motion='calm'] .v30-my-group-card,
+html[data-spatial-motion='calm'] .v30-explore-card,
+html[data-spatial-motion='calm'] .v34-wr-slot-card,
+html[data-spatial-motion='calm'] .v34-wr-day-card,
+html[data-spatial-motion='calm'] .v34-gc-template,
+html[data-spatial-motion='calm'] .v34-gc-emblem,
+html[data-spatial-motion='calm'] .v34-av-tile,
+html[data-spatial-motion='calm'] .v31-cp-chapter,
+html[data-spatial-motion='calm'] .v31-cp-paper,
+html[data-spatial-motion='calm'] .v30-qt-row,
+html[data-spatial-motion='calm'] .v30-lounge-card {
+  transition:
+    background-color 120ms linear,
+    border-color 120ms linear,
+    color 120ms linear,
+    opacity 120ms linear !important;
+}
+
+/* Keep the essential meters alive. */
+html[data-spatial-motion='calm'] .v30-syl-ch-bar i,
+html[data-spatial-motion='calm'] .v30-syl-group-rail i,
+html[data-spatial-motion='calm'] .v30-bonus-bar i,
+html[data-spatial-motion='calm'] .v34-wr-day-dots i {
+  transition: width 220ms linear, background-color 160ms linear !important;
+}

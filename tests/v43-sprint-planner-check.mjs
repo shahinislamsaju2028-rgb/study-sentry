@@ -116,7 +116,7 @@ try {
 
   // The HSC catalog arrives through a dynamic import — give it a moment so
   // the chapter cards really exist before the assertions run.
-  for (let i = 0; i < 40 && !document.querySelector('.v45-chp-card'); i += 1) {
+  for (let i = 0; i < 40 && !document.querySelector('.chapter-picker-card'); i += 1) {
     await act(async () => {
       await new Promise((r) => setTimeout(r, 50));
     });
@@ -189,48 +189,52 @@ try {
     assert.ok(/শেষ তারিখ/.test(labels), 'the end-date column is missing');
   });
 
-  ok('subject chips hug their label instead of filling a grid cell', () => {
-    const chips = [...document.querySelectorAll('.v28-sprint-sub-chip')];
+  ok('shared subject chips hug their icon and label', () => {
+    const grid = document.querySelector('.premium-subject-grid.v48-subject-chips');
+    assert.ok(grid, 'the shared subject selector is missing');
+    const chips = [...grid.querySelectorAll('.premium-subject-card')];
     assert.ok(chips.length > 0, 'no subject chips rendered');
-    const widths = chips.map((c) => c.getBoundingClientRect().width).filter((w) => w > 0);
-    if (widths.length > 1) {
-      const spread = Math.max(...widths) - Math.min(...widths);
-      assert.ok(spread > 1, 'every chip is the same width — they are still grid-filled');
-    }
+    assert.ok(chips.every((chip) => chip.getAttribute('aria-pressed') !== null),
+      'a subject chip is missing its selected-state semantics');
   });
 
-  ok('the group subject tiles show the business group subjects', () => {
-    const grid = document.querySelector('.v28-sprint-subject-grid');
-    assert.ok(grid, 'the subject grid is missing');
+  ok('the shared selector shows only the business group subject choices', () => {
+    const grid = document.querySelector('.premium-subject-grid.v48-subject-chips');
+    assert.ok(grid, 'the subject selector is missing');
     const text = grid.textContent || '';
-    console.log('  [info] subject tiles ->', JSON.stringify(text));
-    console.log('  [info] tile count ->', grid.querySelectorAll('.v28-sprint-sub-chip').length);
     assert.ok(/হিসাববিজ্ঞান|Accounting/.test(text), 'Accounting is not offered');
-    assert.ok(!/পদার্থবিজ্ঞান|ফিজিক্স/.test(text), 'a science subject leaked into the business grid');
+    assert.ok(!/পদার্থবিজ্ঞান|ফিজিক্স|Physics/.test(text), 'a science subject leaked into the business choices');
   });
 
-  ok('every subject tile carries an icon', () => {
-    const tiles = document.querySelectorAll('.v28-sprint-subject-grid .v28-sprint-sub-chip');
-    assert.ok(tiles.length > 0, 'no subject tiles found');
-    for (const t of tiles) {
-      assert.ok(t.querySelector('svg'), 'a subject tile has no icon');
+  ok('every shared subject chip carries an icon', () => {
+    const tiles = document.querySelectorAll('.premium-subject-grid.v48-subject-chips .premium-subject-card');
+    assert.ok(tiles.length > 0, 'no subject chips found');
+    for (const tile of tiles) {
+      assert.ok(tile.querySelector('.premium-subject-icon svg'), 'a subject chip has no icon');
     }
   });
 
-  ok('the chapter picker is the multi-select grid with subject icons', () => {
-    const chp = document.querySelector('.v45-chp');
+  ok('the chapter picker is the shared multi-select grid', () => {
+    // v49: the sprint planner no longer owns a private picker — it renders the
+    // one shared <ChapterPicker/> so every screen selects chapters identically.
+    const chp = document.querySelector('.chapter-picker');
     assert.ok(chp, 'the chapter grid is missing');
-    assert.ok(chp.querySelector('.v45-chp-search input'), 'the chapter search box is missing');
+    // 6.txt ⓶⓪ — no search box inside chapter selectors.
+    assert.equal(chp.querySelector('.chapter-picker-search'), null,
+      'the chapter search box should be gone');
     assert.ok(
       [...chp.querySelectorAll('button')].some((b) => /সব সিলেক্ট|সব বাদ/.test(b.textContent)),
       'the select-all button is missing'
     );
-    const cards = chp.querySelectorAll('.v45-chp-card');
+    const cards = chp.querySelectorAll('.chapter-picker-card');
     assert.ok(cards.length > 0, 'no chapter cards were rendered');
     for (const card of cards) {
-      assert.ok(card.querySelector('svg'), 'a chapter card carries no subject icon');
-      assert.ok(!card.querySelector('.v29-icp-ch-num'), 'a chapter number badge survived');
+      assert.ok(card.querySelector('.chapter-picker-name'), 'a chapter card carries no name');
+      assert.equal(card.getAttribute('role'), 'checkbox', 'a chapter card is not a checkbox');
     }
+    // every card must share one measured width
+    const widths = [...new Set([...cards].map((c) => Math.round(c.getBoundingClientRect().width)))];
+    assert.equal(widths.length, 1, `chapter cards differ in width: ${widths.join(', ')}`);
   });
 
   await act(async () => root.unmount());

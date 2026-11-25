@@ -1,0 +1,40 @@
+/* The weekly chart gets its own full-width row, instead of half a column. */
+.insights-page .iv-layout { grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items:start; }
+.insights-page .iv-right { display:contents; }
+.insights-page .iv-weekly { grid-column:1 / -1; grid-row:1; padding:26px 28px; background:linear-gradient(135deg,#192e3d 0%,#152636 55%,#162c35 100%); border-color:#94cbbf3d; box-shadow:0 12px 32px #060f1933; }
+.insights-page .iv-daily { grid-column:1; grid-row:2; }
+.insights-page .iv-highlights { grid-column:2; grid-row:2; }
+.iv-weekly .iv-head h2 { font-size:21px; margin:7px 0 4px; }
+.iv-weekly .iv-head p { font-size:14px; }
+.iv-weekly .iv-week-total { padding:10px 15px; border:1px solid #d2bd8842; border-radius:12px; background:#35312388; }
+.iv-weekly .iv-week-total strong { font-size:17px; }
+.iv-weekly .iv-chart-scroll { margin-top:22px; padding:16px 18px 13px 10px; border:1px solid #a7c4ca22; border-radius:16px; background:linear-gradient(180deg,#0e1e2dbd,#0f202bad); scrollbar-color:#4a6470 transparent; }
+.iv-weekly .iv-week-chart { grid-template-columns:70px minmax(490px,1fr); gap:12px; height:270px; }
+.iv-weekly .iv-axis { padding:27px 0 47px; color:#a1b3bb; font-size:12px; }
+.iv-weekly .iv-bars { gap:8px; }
+.iv-weekly .iv-grid-lines { top:28px; bottom:47px; }
+.iv-weekly .iv-grid-lines i { border-color:#bcd1d621; }
+.iv-weekly .iv-day-column { grid-template-rows:28px minmax(0,1fr) 25px 22px; border:1px solid transparent; border-radius:11px; transition:background .16s,border-color .16s; }
+.iv-weekly .iv-day-column:hover { background:#82bbc812; border-color:#9bced833; }
+.iv-weekly .iv-day-column.selected { background:#e1ca8f0e; border-color:#e3ca9135; }
+.iv-weekly .iv-day-value { font-size:13px; font-weight:700; color:#d8e6ec; padding-top:2px; }
+.iv-weekly .iv-bar { width:min(48px,55%); border-radius:9px 9px 3px 3px; background:linear-gradient(180deg,#97ccd9 0%,#5994ac 100%); box-shadow:0 0 16px #6cb2bf22; }
+.iv-weekly .iv-day-column.selected .iv-bar { background:linear-gradient(180deg,#f0ddaf,#cea762); box-shadow:0 0 17px #e3c58960; }
+.iv-weekly .iv-day-name { font-size:13px; font-weight:700; align-self:center; }
+.iv-weekly .iv-day-column small { font-size:12px; align-self:start; }
+.iv-weekly .iv-chart-hint { margin-top:13px; color:#abbdc4; font-size:13px; }
+@media(max-width:1100px){
+ .insights-page .iv-layout { grid-template-columns:minmax(0,1fr); }
+ .insights-page .iv-weekly,.insights-page .iv-daily,.insights-page .iv-highlights { grid-column:1; grid-row:auto; }
+ .insights-page .iv-weekly { grid-row:1; }
+ .insights-page .iv-daily { grid-row:2; }
+ .insights-page .iv-highlights { grid-row:3; }
+}
+@media(max-width:650px){
+ .insights-page .iv-weekly { padding:17px; }
+ .iv-weekly .iv-head { flex-wrap:wrap; }
+ .iv-weekly .iv-week-total { text-align:left; padding:8px 12px; }
+ .iv-weekly .iv-chart-scroll { padding:14px 10px 10px 4px; }
+ .iv-weekly .iv-week-chart { grid-template-columns:62px minmax(490px,1fr); height:240px; gap:8px; }
+ .iv-weekly .iv-axis { font-size:11px; }
+}

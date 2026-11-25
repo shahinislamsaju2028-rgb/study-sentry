@@ -1,0 +1,618 @@
+/* ==========================================================================
+   v49 — ONE CHAPTER PICKER (the unified subject/chapter selection surface)
+   --------------------------------------------------------------------------
+   Used everywhere a subject + chapter has to be picked:
+     · Sprint Planner      (multi-select)
+     · Focus Session       (single select, inside the config dialog)
+     · Task editor         (single select)
+     · Syllabus add        (multi-select)
+     · Week routine slot   (single select)
+
+   Rules encoded here — and the reason this file exists:
+     1. ONE fixed track width per subject. The width is measured from the
+        longest chapter name and then locked, so every card in every column
+        is exactly the same size. Different subjects may need a different
+        width; the same subject never mixes sizes.
+     2. Chapter names are never truncated. Nothing is clamped, ellipsised or
+        overflow-hidden — the track grew until the longest name fit.
+     3. Selection = the subject accent on the border, the text and an OUTER
+        glow. Never a flat amber slab.
+     4. The whole surface uses the same quiet surface tone as a bento card so
+        it does not fight the page it sits on.
+   ========================================================================== */
+
+.chapter-picker {
+  --chp-accent: #fbbf24;
+  --chp-accent-2: color-mix(in srgb, var(--chp-accent) 55%, #ffffff);
+  --chp-line: rgba(148, 163, 184, 0.16);
+  --chp-line-strong: rgba(148, 163, 184, 0.26);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.chapter-picker-label {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #cbd5e1;
+}
+
+/* ── top bar ───────────────────────────────────────────────────────────── */
+.chapter-picker-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--chp-line);
+}
+
+.chapter-picker-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #f1f5f9;
+  min-width: 0;
+}
+
+.chapter-picker-title svg {
+  color: var(--chp-accent);
+  flex-shrink: 0;
+}
+
+.chapter-picker-title em {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11.5px;
+  color: #8593a8;
+}
+
+.chapter-picker-tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── paper switch — ONE pill style, identical to the app seg nav ───────── */
+.chapter-picker-papers {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 11px;
+  border: 1px solid var(--chp-line);
+  background: rgba(9, 13, 22, 0.72);
+}
+
+.chapter-picker-paper {
+  padding: 5px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #93a1b6;
+  font-size: 12px;
+  font-weight: 720;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.16s ease, background 0.16s ease, border-color 0.16s ease,
+    box-shadow 0.18s ease;
+}
+
+.chapter-picker-paper:hover {
+  color: #dbe3ee;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.chapter-picker-paper.is-active {
+  color: var(--chp-accent-2);
+  border-color: color-mix(in srgb, var(--chp-accent) 58%, transparent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--chp-accent) 20%, transparent),
+    color-mix(in srgb, var(--chp-accent) 7%, transparent)
+  );
+  box-shadow: 0 4px 13px color-mix(in srgb, var(--chp-accent) 24%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
+}
+
+/* ── search ────────────────────────────────────────────────────────────── */
+.chapter-picker-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border-radius: 10px;
+  border: 1px solid var(--chp-line);
+  background: rgba(9, 13, 22, 0.72);
+  color: #8b98ad;
+  transition: border-color 0.16s ease, box-shadow 0.18s ease;
+}
+
+.chapter-picker-search:focus-within {
+  border-color: color-mix(in srgb, var(--chp-accent) 46%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--chp-accent) 13%, transparent);
+}
+
+.chapter-picker-search input {
+  width: 142px;
+  border: 0;
+  background: transparent;
+  color: #f1f5f9;
+  font: inherit;
+  font-size: 12px;
+  padding: 0;
+  outline: none;
+}
+
+.chapter-picker-search input::placeholder {
+  color: #6f7d93;
+}
+
+.chapter-picker-search button {
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+/* ── small action buttons ──────────────────────────────────────────────── */
+.chapter-picker-all,
+.chapter-picker-manual {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 10px;
+  border: 1px solid var(--chp-line);
+  background: rgba(255, 255, 255, 0.035);
+  color: #c4cfe0;
+  font-size: 11.5px;
+  font-weight: 720;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+
+.chapter-picker-all:hover,
+.chapter-picker-manual:hover {
+  color: #eef4ff;
+  border-color: var(--chp-line-strong);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.chapter-picker-all.is-all,
+.chapter-picker-manual.is-active {
+  color: var(--chp-accent-2);
+  border-color: color-mix(in srgb, var(--chp-accent) 50%, transparent);
+  background: color-mix(in srgb, var(--chp-accent) 13%, transparent);
+}
+
+/* ── custom input ──────────────────────────────────────────────────────── */
+.chapter-picker-manual-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--chp-line-strong);
+  background: rgba(9, 13, 22, 0.8);
+  color: #f8fafc;
+  font: inherit;
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.16s ease, box-shadow 0.18s ease;
+}
+
+.chapter-picker-manual-box input:focus {
+  border-color: color-mix(in srgb, var(--chp-accent) 52%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--chp-accent) 13%, transparent);
+}
+
+/* ── probe (invisible measuring row) ───────────────────────────────────── */
+.chapter-picker-probe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.chapter-picker-probe > span {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 12.8px;
+  font-weight: 640;
+  font-family: inherit;
+  letter-spacing: 0.005em;
+}
+
+/* ── THE GRID — one fixed track per subject, wrapped, never stretched ──── */
+.chapter-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--chp-track, 224px), var(--chp-track, 224px))
+  );
+  justify-content: start;
+  align-content: start;
+  gap: 8px;
+  max-height: 288px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 2px 6px 2px 2px;
+  scrollbar-width: thin;
+}
+
+.chapter-picker.is-compact .chapter-picker-grid {
+  max-height: 216px;
+}
+
+.chapter-picker-grid::-webkit-scrollbar {
+  width: 7px;
+}
+
+.chapter-picker-grid::-webkit-scrollbar-thumb {
+  border-radius: 99px;
+  background: rgba(148, 163, 184, 0.28);
+}
+
+/* ── THE CARD — identical size for every chapter of a subject ──────────── */
+.chapter-picker-card {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  padding: 9px 11px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid var(--chp-line);
+  background: rgba(16, 22, 36, 0.72);
+  color: #dbe3ee;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease,
+    box-shadow 0.2s ease, transform 0.16s ease;
+}
+
+.chapter-picker-card:hover {
+  border-color: color-mix(in srgb, var(--chp-accent) 42%, transparent);
+  background: rgba(22, 30, 47, 0.88);
+  transform: translateY(-1px);
+}
+
+/* SELECTED — accent border + accent text + OUTER glow (the ask) */
+.chapter-picker-card.is-active {
+  border-color: color-mix(in srgb, var(--chp-accent) 78%, transparent);
+  background: color-mix(in srgb, var(--chp-accent) 14%, rgba(14, 20, 33, 0.94));
+  color: #ffffff;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--chp-accent) 32%, transparent),
+    0 7px 20px color-mix(in srgb, var(--chp-accent) 30%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.chapter-picker-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--chp-accent) 40%, transparent);
+}
+
+/* number badge */
+.chapter-picker-num {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #b8c4d6;
+  font-size: 10.5px;
+  font-weight: 800;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.chapter-picker-card.is-active .chapter-picker-num {
+  background: var(--chp-accent);
+  color: #10151f;
+}
+
+/* the name — never truncated, never clamped */
+.chapter-picker-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 12.8px;
+  font-weight: 640;
+  line-height: 1.35;
+  letter-spacing: 0.005em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* tick */
+.chapter-picker-tick {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--chp-line-strong);
+  background: transparent;
+  color: transparent;
+  transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+
+.chapter-picker-card.is-active .chapter-picker-tick {
+  border-color: transparent;
+  background: var(--chp-accent);
+  color: #10151f;
+}
+
+/* ── empty / loading notes ─────────────────────────────────────────────── */
+.chapter-picker-hint,
+.chapter-picker-empty {
+  margin: 0;
+  padding: 14px 4px;
+  font-size: 12.5px;
+  color: #93a1b6;
+  text-align: center;
+}
+
+.chapter-picker-empty {
+  grid-column: 1 / -1;
+}
+
+.chapter-picker-hint.is-warn {
+  color: #fca5a5;
+  text-align: left;
+}
+
+/* ── footer: summary + optional refine toggle ──────────────────────────── */
+.chapter-picker-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  border-top: 1px solid var(--chp-line);
+}
+
+.chapter-picker-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-size: 12px;
+  color: #9aa8bd;
+}
+
+.chapter-picker-summary svg {
+  color: var(--chp-accent);
+  flex-shrink: 0;
+}
+
+.chapter-picker-summary b {
+  color: var(--chp-accent-2);
+  font-weight: 800;
+}
+
+.chapter-picker-detail-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--chp-line);
+  background: rgba(255, 255, 255, 0.035);
+  color: #c4cfe0;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+
+.chapter-picker-detail-toggle:hover,
+.chapter-picker-detail-toggle.is-open {
+  color: var(--chp-accent-2);
+  border-color: color-mix(in srgb, var(--chp-accent) 45%, transparent);
+  background: color-mix(in srgb, var(--chp-accent) 11%, transparent);
+}
+
+.chapter-picker-caret {
+  transition: transform 0.18s ease;
+}
+
+.chapter-picker-detail-toggle.is-open .chapter-picker-caret {
+  transform: rotate(180deg);
+}
+
+/* ── type / topic chips ────────────────────────────────────────────────── */
+.chapter-picker-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 11px;
+  border-radius: 13px;
+  border: 1px solid var(--chp-line);
+  background: rgba(9, 13, 22, 0.6);
+}
+
+.chapter-picker-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chapter-picker-chip {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--chp-line);
+  background: rgba(255, 255, 255, 0.035);
+  color: #b9c5d6;
+  font-size: 11.5px;
+  font-weight: 640;
+  cursor: pointer;
+  transition: color 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+
+.chapter-picker-chip:hover {
+  color: #e6edf8;
+  border-color: var(--chp-line-strong);
+}
+
+.chapter-picker-chip.is-active {
+  color: var(--chp-accent-2);
+  border-color: color-mix(in srgb, var(--chp-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--chp-accent) 16%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--chp-accent) 18%, transparent);
+}
+
+.chapter-picker-chips.is-soft .chapter-picker-chip.is-active {
+  color: #bae6fd;
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.14);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.16);
+}
+
+/* ── narrow screens ────────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .chapter-picker-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  }
+
+  .chapter-picker-search input {
+    width: 108px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ১ম পত্র / ২য় পত্র  —  from text toggles to paper cards
+   ──────────────────────────────────────────────────────────────────────────
+   These two buttons decide *which half of a subject* you are about to study,
+   yet they were the smallest controls in the picker: 12px text in a 24px pill.
+   Now each is a small card — a numeral chip plus a two-line label — so the
+   choice reads as a step, and the active one carries the subject's own accent.
+   ══════════════════════════════════════════════════════════════════════════ */
+.chapter-picker-papers {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 13px;
+  border: 1px solid var(--chp-line);
+  background: rgba(9, 13, 22, 0.72);
+}
+
+.chapter-picker-paper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 6px;
+  border-radius: 9px;
+  text-align: left;
+}
+
+.chp-paper-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 850;
+  color: rgba(203, 213, 225, 0.66);
+  background: rgba(15, 21, 33, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  transition: color 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+
+.chp-paper-copy {
+  display: grid;
+  gap: 1px;
+  line-height: 1.1;
+}
+
+.chp-paper-copy b {
+  font-size: 11.5px;
+  font-weight: 780;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.chp-paper-copy em {
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 640;
+  letter-spacing: 0.3px;
+  color: rgba(148, 163, 184, 0.6);
+  white-space: nowrap;
+}
+
+.chapter-picker-paper.is-active .chp-paper-mark {
+  color: #0b0f17;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--chp-accent) 92%, #ffffff),
+    var(--chp-accent)
+  );
+  border-color: color-mix(in srgb, var(--chp-accent) 70%, transparent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--chp-accent) 45%, transparent);
+}
+
+.chapter-picker-paper.is-active .chp-paper-copy em {
+  color: color-mix(in srgb, var(--chp-accent-2) 82%, transparent);
+}
+
+/* ── chapter cards: a little more sculpture, same fixed size ───────────── */
+.chapter-picker-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.chapter-picker-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--chp-accent) 60%, transparent),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.chapter-picker-card:hover::before,
+.chapter-picker-card.is-active::before {
+  opacity: 1;
+}
+
+/* the numerals read as a rank, not as punctuation */
+.chapter-picker-card .chp-num,
+.chapter-picker-card [class*='num'] {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.2px;
+}

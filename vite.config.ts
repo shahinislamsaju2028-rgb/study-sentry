@@ -110,6 +110,24 @@ const host = process.env.TAURI_DEV_HOST || '0.0.0.0';
 export default defineConfig({
   base: './',
   clearScreen: false,
+  /**
+   * Interaction latency fix.
+   *
+   * A navigation profile showed dev was spending ~175ms per click where the
+   * same click in the production bundle cost ~69ms. The gap was not the app:
+   * `exports.jsxDEV` alone burned 70ms, because Vite compiles JSX to the
+   * development runtime in dev, which validates every prop of every element
+   * and stamps each node with `__source`/`__self`. The style engine then has
+   * extra attributes to diff on each re-render.
+   *
+   * `jsxDev: false` compiles JSX to the production runtime in dev too. React
+   * Refresh keeps working (it is a Babel transform, independent of the JSX
+   * runtime), HMR is unaffected, and the dev server now behaves like the app
+   * people actually run.
+   */
+  esbuild: {
+    jsxDev: false,
+  },
   plugins: [react(), tailwindcss(), localDevStoragePlugin()],
   envPrefix: ['VITE_', 'TAURI_ENV_*'],
   server: {

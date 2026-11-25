@@ -1,0 +1,4 @@
+/* Smooth rounded sheet, no lateral movement, shake or stagger. */
+.v12-view-stage{background:#10121b;overflow:clip}
+.v12-view-stage .view-page,.v12-view-stage .clean-view-stage{animation:none!important}
+@media(prefers-reduced-motion:reduce){.v12-view-stage{animation:none!important;transition:none!important}}

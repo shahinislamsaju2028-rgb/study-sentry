@@ -1,0 +1,91 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { installDesktopBridge } from './bridge/desktopBridge';
+
+// Load all styles cleanly BEFORE mounting React to eliminate FOUC & mid-render style cascades
+import './styles/app.css';
+import './styles/desktop.css';
+import './styles/study-preview.css';
+import './styles/focus-preview.css';
+import './styles/todo-preview.css';
+import './styles/insights-preview.css';
+import './styles/global-preview.css';
+import './styles/motivation-preview.css';
+import './styles/deep-goal-preview.css';
+import './styles/bottom-premium-preview.css';
+import './styles/clean-focus-preview.css';
+import './styles/aurora-bangla-preview.css';
+import './styles/merged-task-preview.css';
+import './styles/goal-overview.css';
+import './styles/sprint-preview.css';
+import './styles/student-rank-badges.css';
+import './styles/custom-pickers.css';
+import './styles/tasks-navigation.css';
+import './styles/pip-refined.css';
+import './styles/focus-task-details.css';
+import './styles/sprint-dashboard.css';
+import './styles/insights-readable.css';
+import './styles/home-subject-graph.css';
+import './styles/compact-progress-sprint-days.css';
+import './styles/overview-sprint-tabs.css';
+import './styles/custom-select.css';
+import './styles/sprint-friendly.css';
+import './styles/suite-connected.css';
+import './styles/routine-polish.css';
+import './styles/desktop-integration.css';
+import './styles/home-brief-dock.css';
+import './styles/home-navigation-summary.css';
+import './styles/accessibility-polish.css';
+import './styles/insights-weekly-polish.css';
+import './styles/vibrant-dark-theme.css';
+import './styles/glass-motion.css';
+import './styles/living-motion.css';
+import './styles/performance-tuning.css';
+import './styles/study-campus-theme.css';
+import './styles/windows11-tauri.css';
+import './styles/navigation-glass.css';
+import './styles/connected-suite-v2.css';
+import './styles/v2-clean-suite.css';
+import './styles/v3-smooth-master.css';
+import './styles/v4-vip-refinements.css';
+import './styles/v5-illustrative-pip-tracker.css';
+import './styles/v6-ultra-pip-infographic.css';
+import './styles/v7-spatial-3d-motion.css';
+
+import App from './App';
+
+installDesktopBridge();
+
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(<App />);
+}
+import './styles/v8-living-refinement.css';
+import './styles/study-circle.css';
+import './styles/inward-motion.css';
+
+import './styles/minimal-motion.css';
+import './styles/pip-startup-refinement.css';
+import './styles/v28-upgrades.css';
+import './styles/v29-studio-polish.css';
+import './styles/v30-lounge-tracker.css';
+import './styles/v31-hero-polish.css';
+import './styles/v32-syllabus-studio.css';
+import './styles/v32-ui-modes.css';
+import './styles/v33-nav-harmony.css';
+import './styles/v34-focus-analog.css';
+import './styles/v34-insights-harmony.css';
+import './styles/v34-suite-groups-lounge.css';
+import './styles/v34-guard-calm.css';
+import './styles/v35-refinement.css';
+import './styles/v36-refinement.css';
+import './styles/v43-user-polish.css';
+import './styles/v45-redesign.css';
+import './styles/v49-chapter-picker.css';
+import './styles/v49-sprint-unify.css';
+import './styles/v52-hierarchy.css';
+import './styles/v54-task-focus-layout.css';
+import './styles/v56-redesign.css';
+import './styles/v57-redesign.css';
+import './styles/v58-sprint-planner.css';
+import './styles/v59-suite-redesign.css';

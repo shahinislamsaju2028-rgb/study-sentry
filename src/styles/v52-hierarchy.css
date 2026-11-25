@@ -1,0 +1,1323 @@
+/* ============================================================================
+   STUDY SENTRY — v52 "MEASURED" LAYER
+   ────────────────────────────────────────────────────────────────────────────
+   A hierarchy + spacing pass, not a restyle.
+
+   Five things get fixed here, and only these five:
+
+     1. HERO      — the banner breathes. Padding and gaps grow so the greeting,
+                    the pills, the telemetry stack, the ring and the CTA stop
+                    crowding each other. Three clearly different magnitudes:
+                    headline ≫ telemetry number ≫ caption.
+     2. CARDS     — card padding and inter-card rhythm move to an 8px scale so
+                    bento tiles stop being cramped. Internal spacing follows
+                    the same scale.
+     3. TYPE      — one ladder for every card: title, subtitle, metric, body,
+                    caption. Weights 700/500/800/500/600. Metric numbers get
+                    tabular figures so they never jitter.
+     4. POPOVER   — anchored menus (CustomSelect, pickers, minute presets,
+                    context menus) get real glass: heavier blur, a visible
+                    hairline, a cast shadow with a soft ambient skirt, and
+                    unambiguous hover / selected / focus states.
+     5. DOCK      — the floating bottom bar gets a stronger blur, a brighter
+                    edge and a literal halo so it separates from the scrolling
+                    content behind it. Hover and active states are made
+                    distinct instead of merely tinted.
+     6. CALLOUT   — the alarm / guard / mentor banners no longer float on top
+                    of the page content. Fixed banners reserve space at the top
+                    of the shell; the toast stack moves clear of the dock and
+                    stacks upward with a readable surface.
+
+   Nothing here renames a class, changes a colour identity, or touches layout
+   geometry outside the named components. Everything is additive.
+   ========================================================================== */
+
+:root {
+  /* spacing scale — 4-based, named by intent rather than by number */
+  --v52-s1: 4px;
+  --v52-s2: 8px;
+  --v52-s3: 12px;
+  --v52-s4: 16px;
+  --v52-s5: 20px;
+  --v52-s6: 24px;
+  --v52-s7: 32px;
+
+  /* one hairline colour, three strengths */
+  --v52-edge-soft: rgba(255, 255, 255, 0.075);
+  --v52-edge: rgba(255, 255, 255, 0.115);
+  --v52-edge-strong: rgba(255, 255, 255, 0.17);
+
+  /* the ring-light used on glass edges: a white top lip, nothing on the sides */
+  --v52-lip: inset 0 1px 0 rgba(255, 255, 255, 0.075);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   1. HERO BANNER — room to breathe
+   ──────────────────────────────────────────────────────────────────────────
+   The hero had 14px of vertical padding against a 150px instrument inside it,
+   so the content pressed against the top and bottom edges. Padding goes to
+   26/32 and the two internal clusters get their own gaps.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.v48-home .v48-hero,
+.bento-hero-banner.v12-spatial-hero-banner.v48-hero {
+  padding: 26px 32px !important;
+  gap: 28px !important;
+  align-items: center !important;
+  min-height: 196px !important;
+  border-radius: 22px !important;
+}
+
+/* left cluster: the badge and the copy block need a real gutter */
+.v48-home .v48-hero .bento-hero-identity {
+  gap: 20px !important;
+  align-items: center;
+}
+
+.v48-home .v48-hero .bento-hero-copy {
+  gap: 12px;
+  min-width: 0;
+}
+
+/* the headline is the one thing at this size on the page */
+.v48-home .v48-hero .bento-hero-copy h2 {
+  margin: 0 !important;
+  font-size: 25px !important;
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.022em !important;
+  color: #ffffff !important;
+}
+
+/* pills: looser track, taller chip, so three of them read as a row not a run-on */
+.v48-home .v48-hero .bento-hero-pills {
+  gap: 9px;
+  max-width: 100%;
+}
+
+.v48-home .v48-hero .bh-pill {
+  padding: 5px 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.005em;
+  gap: 6px;
+  border-radius: 999px;
+}
+
+/* the rank medallion gets a size step that matches the bigger left gutter */
+.v48-home .v48-hero .bento-rank-orb {
+  width: 66px;
+  height: 66px;
+  border-radius: 20px;
+}
+
+/* right cluster: telemetry column · instrument · primary action */
+.v48-home .v48-hero .v13-hero-orbital-showcase {
+  gap: 26px !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+
+.v48-home .v48-hero .v13-hero-orbital-meta {
+  gap: 6px !important;
+  align-items: flex-end;
+  text-align: right;
+  padding-right: 4px;
+}
+
+.v48-home .v48-hero .v13-orbital-kicker {
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.13em !important;
+  color: #8b96ab !important;
+}
+
+/* the telemetry figure sits one full step below the greeting, not two */
+.v48-home .v48-hero .v13-hero-orbital-meta strong {
+  font-size: 26px !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.v48-home .v48-hero .v13-hero-orbital-meta small {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  color: #e3c07a !important;
+  opacity: 0.95;
+}
+
+/* the rail needs air above it and must not stretch past its column */
+.v48-home .v48-hero .v33-hero-rail {
+  margin-top: 8px;
+  width: 100%;
+  max-width: 168px;
+  min-width: 132px;
+  height: 5px;
+  align-self: flex-end;
+}
+
+.v48-home .v48-hero .bento-focus-cta {
+  height: 48px;
+  padding: 0 22px;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 800;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+/* ── hero at narrower widths: stack the clusters instead of letting them
+      collide. The right cluster keeps its row; the left keeps its gutter. ── */
+@media (max-width: 1180px) {
+  .v48-home .v48-hero,
+  .bento-hero-banner.v12-spatial-hero-banner.v48-hero {
+    padding: 22px 24px !important;
+    gap: 20px !important;
+  }
+  .v48-home .v48-hero .v13-hero-orbital-showcase {
+    gap: 18px !important;
+  }
+  .v48-home .v48-hero .bento-hero-copy h2 {
+    font-size: 22px !important;
+  }
+  .v48-home .v48-hero .v13-hero-orbital-meta strong {
+    font-size: 22px !important;
+  }
+}
+
+/* Once the banner can no longer hold both clusters, switch to a deliberate
+   two-row layout: identity across the top, then a full-width instrument row
+   (telemetry · ring · action) spaced evenly across it. An accidental wrap
+   leaves the greeting stranded in a field of empty space. */
+@media (max-width: 1080px) {
+  .v48-home .v48-hero,
+  .bento-hero-banner.v12-spatial-hero-banner.v48-hero {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+    min-height: 0 !important;
+  }
+
+  .v48-home .v48-hero .bento-hero-identity {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .v48-home .v48-hero .bento-hero-actions,
+  .v48-home .v48-hero .v13-hero-orbital-showcase {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* telemetry reads left-to-right here, not right-aligned against the ring */
+  .v48-home .v48-hero .v13-hero-orbital-meta {
+    align-items: flex-start;
+    text-align: left;
+    padding-right: 0;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .v48-home .v48-hero .v13-hero-orbital-meta .v33-hero-rail {
+    align-self: stretch;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 960px) {
+  .v48-home .v48-hero,
+  .bento-hero-banner.v12-spatial-hero-banner.v48-hero {
+    padding: 20px !important;
+    gap: 18px !important;
+  }
+  .v48-home .v48-hero .v13-hero-orbital-showcase {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    gap: 18px !important;
+  }
+  .v48-home .v48-hero .bento-focus-cta {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .v48-home .v48-hero,
+  .bento-hero-banner.v12-spatial-hero-banner.v48-hero {
+    padding: 18px !important;
+  }
+  .v48-home .v48-hero .bento-hero-copy h2 {
+    font-size: 20px !important;
+  }
+  .v48-home .v48-hero .v13-hero-orbital-showcase {
+    gap: 14px !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   2. CARD SPACING — one rhythm across the bento grid
+   ──────────────────────────────────────────────────────────────────────────
+   The grid was on a 14px gutter with 18/20px padding, so cards looked tight
+   against each other while looking loose inside. Both move to the 8px scale.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.bento-nav-grid.v12-bento-3d-grid {
+  gap: 18px !important;
+}
+
+.bento-nav-grid .bento-card {
+  padding: 22px 24px !important;
+  gap: 16px !important;
+  border-radius: 20px !important;
+  border-color: var(--v52-edge) !important;
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.40),
+    var(--v52-lip) !important;
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.2s ease,
+    box-shadow 0.24s ease !important;
+}
+
+.bento-nav-grid .bento-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--vd-accent, #fbbf24) 30%, var(--v52-edge-strong)) !important;
+  box-shadow:
+    0 22px 46px rgba(0, 0, 0, 0.48),
+    0 0 0 1px color-mix(in srgb, var(--vd-accent, #fbbf24) 12%, transparent),
+    var(--v52-lip) !important;
+}
+
+/* the header row is the card's anchor: give it its own bottom gutter */
+.bento-card .bento-card-head {
+  gap: 13px;
+  padding-bottom: 2px;
+  align-items: center;
+}
+
+.bento-card .bento-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+/* internal stacks: one consistent 12px between a section and the next */
+.bento-card .bento-focus-body,
+.bento-card .bento-sprint-bars {
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card .bento-suite-split,
+.bento-card .v29-circle-bento-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* the last line of every card is a caption — align it with the card's padding
+   instead of letting it drag the metric row around */
+.bento-card .bento-next-item,
+.bento-card .bento-muted-hint {
+  min-height: 18px;
+  align-items: center;
+}
+
+/* compact rows inside the cans (kanban stats, tracker matrix) get a gutter */
+.bento-card .bento-kanban-pills {
+  gap: 10px;
+}
+
+.bento-card .bk-stat {
+  padding: 10px 12px;
+  gap: 4px;
+  border-radius: 12px;
+  border-color: var(--v52-edge-soft);
+}
+
+.bento-card .bento-tracker-matrix {
+  gap: 8px;
+}
+
+/* the quick-control dock at the bottom of the page follows the same scale */
+.bento-quick-dock {
+  padding: 20px 22px !important;
+  gap: 14px !important;
+  border-radius: 20px !important;
+  border-color: var(--v52-edge) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.34), var(--v52-lip) !important;
+}
+
+.bento-quick-dock .bento-dock-buttons {
+  gap: 14px;
+}
+
+.bento-quick-dock .bento-sub-action {
+  padding: 14px 16px;
+  gap: 13px;
+  border-radius: 16px;
+  border-color: var(--v52-edge-soft);
+  transition:
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.bento-quick-dock .bento-sub-action:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--vd-accent, #fbbf24) 26%, var(--v52-edge));
+  background-color: rgba(255, 255, 255, 0.045);
+}
+
+.bento-quick-dock .bento-dock-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #94a1b8;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   3. TYPOGRAPHY HIERARCHY — one ladder, used everywhere
+   ──────────────────────────────────────────────────────────────────────────
+        card title      14.5px / 700 / #f8fafc   (was 14.7 / 800 / #fff)
+        card subtitle   11.5px / 500 / #8e9bb2   (was 10.95 / 400 / #6f7989)
+        metric pill     12px   / 800 / tabular
+        big metric      30px   / 800 / -0.02em
+        metric caption  11.5px / 500
+        body line       12.5px / 500
+        caption         11px   / 600 / letterspaced uppercase
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.bento-card .bento-title-group h3 {
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.28 !important;
+  letter-spacing: -0.005em !important;
+  color: #f8fafc !important;
+}
+
+.bento-card .bento-title-group small {
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.002em !important;
+  color: #8e9bb2 !important;
+  margin-top: 2px;
+}
+
+/* metrics: bigger, tabular, and clearly a different voice from the title */
+.bento-card .bento-metric-pill,
+.bento-card .bento-live-pill {
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.005em;
+  padding: 5px 11px !important;
+  border-color: var(--v52-edge) !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  color: #f1f5f9 !important;
+}
+
+.bento-card .bento-big-stat strong {
+  font-size: 30px !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.028em !important;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff !important;
+}
+
+.bento-card .bento-big-stat span {
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  color: #93a0b6 !important;
+}
+
+/* the small stat tiles read label-then-number, top to bottom */
+.bento-card .bk-stat span {
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.045em !important;
+  text-transform: uppercase;
+  color: #8b97ad !important;
+}
+
+.bento-card .bk-stat strong {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.015em;
+  color: #f1f5f9 !important;
+}
+
+/* per-card tinted numbers keep their identity but gain the same weight */
+.bento-card .bk-stat.doing strong {
+  color: #f7c76a !important;
+}
+
+.bento-card .bk-stat.done strong {
+  color: #7cc8ef !important;
+}
+
+/* body-level lines inside cards */
+.bento-card .bento-next-item strong,
+.bento-card .bento-xp-strip {
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  color: #cfd8e6 !important;
+}
+
+.bento-card .bento-xp-strip strong {
+  font-weight: 800 !important;
+  font-variant-numeric: tabular-nums;
+  color: #f5cd72 !important;
+}
+
+/* captions and hints sit one step below body, dimmer but not invisible */
+.bento-card .bento-muted-hint {
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  color: #8592a8 !important;
+}
+
+/* tags inside cards (slot chips, subject chips) get room and weight */
+.bento-card .bento-slot-tag,
+.bento-card .bento-subj-pill {
+  padding: 4px 10px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.004em;
+}
+
+.bento-card .bento-subj-pill {
+  font-weight: 500 !important;
+  color: #d5dfec !important;
+}
+
+.bento-card .bento-subj-pill b {
+  font-weight: 600;
+}
+
+/* two thinner rails: they read as instruments, not as content */
+.bento-card .bento-meter-track,
+.bento-card .bento-xp-mini-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.075);
+  border-radius: 999px;
+}
+
+.bento-card .bento-segmented-bar {
+  height: 5px;
+  gap: 3px;
+}
+
+/* quick-dock rows use the same ladder at one size down */
+.bento-quick-dock .bsa-copy strong {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #f6f9fd;
+}
+
+.bento-quick-dock .bsa-copy small {
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #8b97ad;
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   4. POPOVERS — real glass, real edges, unmistakable states
+   ──────────────────────────────────────────────────────────────────────────
+   Every anchored menu in the app (CustomSelect lists, the date and time
+   pickers, the minute presets, the context menus) shares these five traits:
+   a heavier blur so the page behind it dissolves, a brighter hairline so the
+   panel's boundary is visible, a two-part shadow (tight cast + wide ambient),
+   a clear hover tint, and a selected state that is a fill, not a tint.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Popovers use the same *language* as the dock — a coloured wash over a sheer
+   pane — but a tighter one: a menu has text at 12–13px and sits inches from the
+   pointer, so it needs more body and less colour. 0.60–0.70 alpha with a
+   single accent wash keeps the blur visible while the copy stays crisp. */
+.cs-menu,
+.cs-menu.cs-anchored-menu,
+.cp-popover,
+.minute-popover,
+.v37-minute-popover,
+.v30-dt-date-popover,
+.kb-context-menu {
+  background-color: rgba(17, 20, 29, 0.66) !important;
+  background-image:
+    radial-gradient(
+      130% 120% at 0% 0%,
+      rgba(251, 191, 36, 0.11) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      120% 130% at 100% 100%,
+      rgba(56, 189, 248, 0.09) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      168deg,
+      rgba(30, 34, 45, 0.34) 0%,
+      rgba(16, 19, 27, 0.44) 62%,
+      rgba(11, 13, 20, 0.52) 100%
+    ) !important;
+  -webkit-backdrop-filter: blur(34px) saturate(175%) !important;
+  backdrop-filter: blur(34px) saturate(175%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.34),
+    0 18px 44px rgba(0, 0, 0, 0.58),
+    0 34px 90px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11) !important;
+  border-radius: 14px !important;
+  padding: 6px !important;
+  color: #eef3fa !important;
+}
+
+/* a one-pixel inner keyline: the trick that makes glass read as a pane
+   rather than a painted rectangle */
+.cs-menu::before,
+.cp-popover::before,
+.minute-popover::before,
+.v37-minute-popover::before,
+.v30-dt-date-popover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+/* option rows: roomier, and three distinct states */
+.cs-menu .cs-option,
+.cs-anchored-menu .cs-option {
+  min-height: 40px !important;
+  padding: 9px 12px !important;
+  border-radius: 9px !important;
+  border: 1px solid transparent !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  color: #cdd8e6 !important;
+  background: transparent !important;
+  transition: background-color 0.13s ease, border-color 0.13s ease, color 0.13s ease;
+}
+
+.cs-menu .cs-option:hover,
+.cs-menu .cs-option:focus-visible,
+.cs-anchored-menu .cs-option:hover,
+.cs-anchored-menu .cs-option:focus-visible {
+  background: rgba(255, 255, 255, 0.085) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  color: #ffffff !important;
+  outline: none !important;
+}
+
+.cs-menu .cs-option.selected,
+.cs-anchored-menu .cs-option.selected {
+  background: linear-gradient(
+    100deg,
+    rgba(251, 191, 36, 0.20),
+    rgba(251, 191, 36, 0.10)
+  ) !important;
+  border-color: rgba(251, 191, 36, 0.42) !important;
+  color: #ffeec3 !important;
+  font-weight: 700 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.cs-menu .cs-option.selected svg {
+  color: #fbbf24 !important;
+}
+
+.cs-menu .cs-option:active:not(.selected) {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* active-descendant highlight from keyboard navigation */
+.cs-menu .cs-option.active:not(.selected) {
+  background: rgba(255, 255, 255, 0.07) !important;
+  color: #eaf1f9 !important;
+}
+
+/* search field inside a menu */
+.cs-menu .cs-search {
+  position: sticky;
+  top: -6px;
+  z-index: 2;
+  padding: 8px 8px 6px !important;
+  margin: -6px -6px 4px !important;
+  background: linear-gradient(180deg, rgba(22, 26, 36, 0.98), rgba(22, 26, 36, 0.86));
+  border-radius: 13px 13px 0 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #8fa0b6;
+}
+
+.cs-menu .cs-search input {
+  width: 100%;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  background: rgba(0, 0, 0, 0.30) !important;
+  color: #f1f5f9 !important;
+  font-size: 12.5px;
+  outline: none;
+}
+
+.cs-menu .cs-search input:focus {
+  border-color: rgba(251, 191, 36, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.13);
+}
+
+.cs-menu .cs-empty {
+  padding: 14px 12px !important;
+  font-size: 12px;
+  color: #8794a9 !important;
+  text-align: center;
+}
+
+/* ── the date / time pickers already carry their own chrome; give them the
+      same edge treatment without flattening their internal structure ── */
+.cp-popover {
+  padding: 14px !important;
+}
+
+/* The month / year row inside the calendar. The trigger was inheriting
+   `display:grid` from a generic button reset, which stacked the label and
+   the chevron on two lines and squeezed the button to 32px. It becomes a
+   proper flex row with the label taking the free width. */
+.cp-popover .cp-month-nav {
+  display: grid !important;
+  grid-template-columns: 32px minmax(0, 1fr) minmax(0, 84px) 32px !important;
+  align-items: center !important;
+  gap: 7px !important;
+}
+
+.cp-popover .cp-month-nav .cs-anchor {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.cp-popover .cp-month-nav .cs-trigger {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 6px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 34px !important;
+  padding: 6px 8px !important;
+  border-radius: 9px !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  background: rgba(0, 0, 0, 0.26) !important;
+  color: #eaf1f9 !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+}
+
+.cp-popover .cp-month-nav .cs-trigger:hover {
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.cp-popover .cp-month-nav .cs-value {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.cp-popover .cp-month-nav .cs-arrow {
+  flex: 0 0 auto !important;
+  width: 14px;
+  height: 14px;
+  color: #93a1b6;
+}
+
+.cp-popover .cp-pop-head strong {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.cp-popover .cp-days button {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.cp-popover .cp-days button:hover {
+  background: rgba(255, 255, 255, 0.10) !important;
+}
+
+.cp-popover .cp-days button.selected {
+  background: linear-gradient(160deg, #d8ac63, #b9873c) !important;
+  color: #1a1206 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* minute preset grids: same three-state grammar as the menus */
+.minute-popover .minute-grid button,
+.v37-minute-popover .v37-minute-presets button {
+  border-radius: 9px !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  color: #e7eef7 !important;
+  font-weight: 700;
+  transition: background-color 0.12s ease, border-color 0.12s ease, transform 0.12s ease;
+}
+
+.minute-popover .minute-grid button:hover,
+.v37-minute-popover .v37-minute-presets button:hover {
+  background: rgba(255, 255, 255, 0.085) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  transform: translateY(-1px);
+}
+
+.minute-popover .minute-grid button.is-selected,
+.v37-minute-popover .v37-minute-presets button.is-selected {
+  background: linear-gradient(160deg, rgba(251, 191, 36, 0.26), rgba(251, 191, 36, 0.12)) !important;
+  border-color: rgba(251, 191, 36, 0.55) !important;
+  color: #fff3d2 !important;
+}
+
+/* context menus (right-click) */
+.kb-context-menu {
+  padding: 5px !important;
+  border-radius: 13px !important;
+}
+
+.kb-context-menu button {
+  border-radius: 8px !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  padding: 9px 10px !important;
+  color: #dfe7f1 !important;
+}
+
+.kb-context-menu button:hover,
+.kb-context-menu button:focus-visible {
+  background: rgba(255, 255, 255, 0.09) !important;
+}
+
+/* the select trigger itself should look like it belongs to the menu it opens */
+.cs-trigger {
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cs-trigger[aria-expanded='true'] {
+  border-color: rgba(251, 191, 36, 0.55) !important;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.12);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   5. FLOATING BOTTOM DOCK — heavier glass, brighter edge, real states
+   ──────────────────────────────────────────────────────────────────────────
+   The dock floats over scrolling cards, so it must be unambiguous that it is
+   in front. Three levers: blur strength, edge brightness, and a drop shadow
+   that has direction (down, away from the content it covers).
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── the plate ────────────────────────────────────────────────────────────
+   Not a solid slab. The dock is a pane the page shows *through*: the blur is
+   the body, and colour comes from three wide radial washes (amber top-left,
+   cyan bottom-right, a violet hint at the top edge) layered over a very sheer
+   base. Opacity stays low on purpose — a dense fill would hide the blur, which
+   is the thing the user asked to see more of.
+
+   The old solid look came from two places: this gradient sat at 0.80–0.90
+   alpha, and `body[data-ui-mode='campus']` puts a flat `--v30-surface` behind
+   it. Both are neutralised below.
+
+   The selector carries `.v6-complete-fade-dock` because an existing rule at
+   that weight (v5-illustrative, 26px blur + its own background) would otherwise
+   win on specificity — equal weight + later load order is what lets this apply. */
+.nav-dock .bottom-navigation.liquid-glass-dock,
+.nav-dock.v6-complete-fade-dock .bottom-navigation.liquid-glass-dock {
+  -webkit-backdrop-filter: blur(40px) saturate(210%) brightness(1.14) !important;
+  backdrop-filter: blur(40px) saturate(210%) brightness(1.14) !important;
+  background-color: rgba(14, 17, 27, 0.34) !important;
+  background-image:
+    radial-gradient(
+      118% 170% at 6% 0%,
+      rgba(251, 191, 36, 0.34) 0%,
+      rgba(251, 191, 36, 0.13) 36%,
+      transparent 62%
+    ),
+    radial-gradient(
+      110% 160% at 96% 108%,
+      rgba(56, 189, 248, 0.32) 0%,
+      rgba(56, 189, 248, 0.11) 40%,
+      transparent 66%
+    ),
+    radial-gradient(
+      70% 130% at 52% 118%,
+      rgba(167, 139, 250, 0.22) 0%,
+      transparent 66%
+    ),
+    linear-gradient(
+      168deg,
+      rgba(30, 34, 45, 0.30) 0%,
+      rgba(16, 19, 28, 0.36) 52%,
+      rgba(10, 12, 19, 0.42) 100%
+    ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.20) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.42),
+    0 18px 42px rgba(0, 0, 0, 0.52),
+    0 36px 86px rgba(0, 0, 0, 0.34),
+    0 0 60px rgba(251, 191, 36, 0.10) !important;
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.26s ease,
+    transform 0.22s ease !important;
+}
+
+/* The ui-mode layer paints a flat surface behind the dock. Removing it is what
+   lets the blurred page actually reach the plate. `background` alone is not
+   enough here: campus mode sets `background-color` on the element itself. */
+body[data-ui-mode] .nav-dock .bottom-navigation.liquid-glass-dock,
+body[data-ui-mode='campus'] .nav-dock .bottom-navigation.liquid-glass-dock,
+body[data-ui-mode='studio'] .nav-dock .bottom-navigation.liquid-glass-dock {
+  background-color: rgba(14, 17, 27, 0.34) !important;
+}
+
+/* the sheen already exists; sharpen it so the top lip catches light */
+.nav-dock .liquid-glass-sheen {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.035) 38%,
+    rgba(255, 255, 255, 0) 58%
+  );
+  opacity: 0.95;
+}
+
+/* when the pointer is over the dock, the whole plate firms up */
+.nav-dock .bottom-navigation.liquid-glass-dock.is-awake,
+.nav-dock.v6-complete-fade-dock .bottom-navigation.liquid-glass-dock.is-awake {
+  border-color: rgba(255, 255, 255, 0.30) !important;
+  background-image:
+    radial-gradient(
+      118% 170% at 6% 0%,
+      rgba(251, 191, 36, 0.42) 0%,
+      rgba(251, 191, 36, 0.16) 36%,
+      transparent 62%
+    ),
+    radial-gradient(
+      110% 160% at 96% 108%,
+      rgba(56, 189, 248, 0.40) 0%,
+      rgba(56, 189, 248, 0.14) 40%,
+      transparent 66%
+    ),
+    radial-gradient(
+      70% 130% at 52% 118%,
+      rgba(167, 139, 250, 0.28) 0%,
+      transparent 66%
+    ),
+    linear-gradient(
+      168deg,
+      rgba(30, 34, 45, 0.34) 0%,
+      rgba(16, 19, 28, 0.40) 52%,
+      rgba(10, 12, 19, 0.46) 100%
+    ) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.26) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.45),
+    0 22px 52px rgba(0, 0, 0, 0.58),
+    0 42px 100px rgba(0, 0, 0, 0.40),
+    0 0 76px rgba(251, 191, 36, 0.14) !important;
+}
+
+/* fade-to-rest still has to be legible: it dims, it never becomes invisible */
+@media (hover: hover) and (pointer: fine) {
+  .nav-dock .bottom-navigation.liquid-glass-dock.is-focus-fade {
+    opacity: 0.62;
+  }
+}
+
+/* hover on an icon: a soft well appears under it, the glyph lifts */
+.nav-dock .bn-item.v13-minimal-icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.16s ease, transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.nav-dock .bn-item.v13-minimal-icon-btn:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-dock .bn-item.v13-minimal-icon-btn:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+  border-color: rgba(251, 191, 36, 0.5);
+}
+
+/* press: the well collapses so the button feels physical */
+.nav-dock .bn-item.v13-minimal-icon-btn:active::before {
+  transform: scale(0.94);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* the active orb gets a halo ring so selected ≠ merely hovered */
+.v13-dock-single-orb {
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(251, 191, 36, 0.45),
+    0 0 20px rgba(251, 191, 36, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30) !important;
+}
+
+/* the tooltip above the dock: same glass language, small */
+.nav-dock .bn-item.v13-minimal-icon-btn::after {
+  background: rgba(12, 15, 23, 0.94) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  font-weight: 600 !important;
+  letter-spacing: 0.005em;
+}
+
+/* the dock sits above the last card: reserve a comfortable landing strip */
+.view-container {
+  padding-bottom: 128px !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   6. CALLOUT BANNERS — placed, not overlaid
+   ──────────────────────────────────────────────────────────────────────────
+   The alarm / guard banners are part of the shell, not a sticker on the page,
+   so the shell reserves their height and the content starts below them.
+   The generic toast stack is moved clear of the dock and made readable.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.global-alarm-banner {
+  position: relative;
+  z-index: 1200;
+  padding: 12px 20px;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.40);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.002em;
+}
+
+.global-alarm-banner .global-alarm-copy {
+  gap: 11px;
+  min-width: 0;
+}
+
+.global-alarm-banner .global-alarm-copy strong {
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.global-alarm-banner .alarm-neg-clock {
+  padding: 3px 9px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.global-alarm-banner .global-alarm-stop {
+  padding: 7px 16px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  transition: transform 0.14s ease, box-shadow 0.18s ease, background-color 0.16s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.30);
+}
+
+.global-alarm-banner .global-alarm-stop:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.38);
+}
+
+.global-alarm-banner .global-alarm-stop:active {
+  transform: translateY(0);
+}
+
+.global-guard-banner {
+  position: relative;
+  z-index: 1190;
+  padding: 11px 18px;
+  gap: 11px;
+  font-size: 12.5px;
+  font-weight: 500;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.36);
+}
+
+.global-guard-banner strong {
+  font-weight: 700;
+}
+
+/* The mentor / routine callout used to float at top: 52px directly over the
+   hero card. It becomes a *reserved* rail: the banner stays pinned under the
+   shell banners, and the scrolling content gets matching top padding so
+   nothing is ever hidden behind it. */
+.v4-ai-mentor-banner {
+  top: 56px !important;
+  z-index: 9850;
+  padding: 16px 18px;
+  border-radius: 16px;
+  gap: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.30),
+    0 20px 48px rgba(0, 0, 0, 0.58),
+    0 40px 100px rgba(0, 0, 0, 0.38);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+  background: linear-gradient(
+    150deg,
+    rgba(24, 28, 39, 0.95),
+    rgba(12, 15, 23, 0.97)
+  ) !important;
+}
+
+/* when the alarm / guard banner is also up, the callout sits beneath it */
+body:has(.global-alarm-banner) .v4-ai-mentor-banner,
+body:has(.global-guard-banner) .v4-ai-mentor-banner {
+  top: 108px !important;
+}
+
+/* …and the content makes room, so the banner never covers the first row */
+body:has(.v4-ai-mentor-banner) .view-container {
+  padding-top: 116px !important;
+}
+
+body:has(.global-alarm-banner):has(.v4-ai-mentor-banner) .view-container,
+body:has(.global-guard-banner):has(.v4-ai-mentor-banner) .view-container {
+  padding-top: 168px !important;
+}
+
+.v4-ai-mentor-banner .v4-ai-mentor-eyebrow {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.v4-ai-mentor-banner .v4-ai-mentor-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.v4-ai-mentor-banner .v4-ai-mentor-msg {
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #a4b1c5;
+}
+
+/* ── toast stack: clear of the dock, stacked upward, legible ───────────── */
+.toast-stack {
+  bottom: 96px !important;
+  right: 24px !important;
+  gap: 9px !important;
+  z-index: 9860;
+  pointer-events: none;
+  max-width: min(420px, calc(100vw - 48px));
+}
+
+.toast {
+  pointer-events: auto;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0.002em;
+  color: #f2f6fb !important;
+  background: linear-gradient(
+    160deg,
+    rgba(26, 30, 41, 0.96),
+    rgba(15, 18, 26, 0.98)
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.32),
+    0 16px 38px rgba(0, 0, 0, 0.54) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+}
+
+/* ── the floating PiP timer never lands on top of a banner ─────────────.
+      It is draggable, so this only fixes its first paint. ───────────────── */
+.v9-web-pip-floating {
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45));
+}
+
+@media (max-width: 700px) {
+  .toast-stack {
+    left: 14px;
+    right: 14px !important;
+    bottom: 88px !important;
+    max-width: none;
+  }
+  .v4-ai-mentor-banner {
+    bottom: 92px;
+    left: 14px;
+    right: 14px;
+    width: auto;
+    transform: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MOTION / ACCESSIBILITY GUARDS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-nav-grid .bento-card,
+  .bento-quick-dock .bento-sub-action,
+  .nav-dock .bn-item.v13-minimal-icon-btn::before,
+  .global-alarm-banner .global-alarm-stop {
+    transition: none !important;
+  }
+  .bento-nav-grid .bento-card:hover,
+  .bento-quick-dock .bento-sub-action:hover {
+    transform: none !important;
+  }
+}
+
+/* the dock and popovers already sit above everything; keep focus visible */
+.cs-menu .cs-option:focus-visible,
+.bento-nav-grid .bento-card:focus-visible {
+  outline: 2px solid rgba(251, 191, 36, 0.65);
+  outline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   7. ROUTE PAINT — the view appears on the next frame, not after a measure
+   ──────────────────────────────────────────────────────────────────────────
+   The route swap used to go through <AnimatePresence mode="popLayout">, which
+   waits for the outgoing subtree to be measured and re-positioned before the
+   incoming view is allowed to paint. That is the single biggest reason a dock
+   click felt slow: motion's measureScroll() appeared in every profile.
+
+   This is the same visual gesture — the new view fades in and lifts 6px — done
+   as a compositor-only keyframe. The element gets a fresh `key` on navigation,
+   so the animation restarts by itself. No layout read, no transform on a 3D
+   layer, no exiting DOM tree.
+
+   Rules of the gesture:
+     • opacity + translate3d only → the compositor can do it alone
+     • 170ms, ease-out → the eye reads it as "instant", not as a transition
+     • prefers-reduced-motion / calm mode → no animation at all
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.v12-view-stage.v37-route-motion {
+  animation: v52-route-in 0.17s cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* no will-change here: the stage is long-lived per route and a permanent
+     compositing layer costs memory for the whole visit */
+}
+
+@keyframes v52-route-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* calm mode, and any user who asked the OS for less motion: paint immediately */
+.v12-view-stage.v37-route-motion.is-calm-route {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v12-view-stage.v37-route-motion {
+    animation: none !important;
+  }
+}
+
+/* the old preserve-3d hint is no longer needed — nothing 3D happens during a
+   route swap any more, and a preserved 3D context forces the browser to keep
+   a separate rendering surface for the whole subtree */
+html[data-spatial-motion='ultra'] .v12-view-stage.v37-route-motion {
+  transform-style: flat;
+  will-change: auto;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   8. CARD ENTRANCE — one compositor animation instead of eight JS drivers
+   ──────────────────────────────────────────────────────────────────────────
+   Every SpatialTiltCard mounts a Motion transition from opacity 0 / y 5 /
+   scale 0.994. The home screen has eight, so a view mount used to start eight
+   animation graphs and write eight inline styles per frame. They all now share
+   a single class; `--v52-stagger` (set inline from delayIndex) is the only
+   per-card value, and nothing is written after mount.
+
+   Kept deliberately shorter than before (170ms vs 220ms) and free of scale —
+   scaling a card that contains text forces a re-raster of the text layer,
+   whereas opacity + a 5px translate stays on the compositor.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.v52-card-in {
+  animation: v52-card-in 0.17s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--v52-stagger, 0ms);
+}
+
+@keyframes v52-card-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* calm mode asks for stillness; reduced-motion users get the content at once */
+html[data-spatial-motion='calm'] .v52-card-in {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v52-card-in {
+    animation: none;
+  }
+}

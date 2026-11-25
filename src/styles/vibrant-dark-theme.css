@@ -1,0 +1,399 @@
+/* ============================================================================
+   Study Sentry — 8 Handcrafted Eye-Comfort Dark Themes
+   1. obsidian-amber (Default): Matte Carbon Obsidian + Champagne Gold + Indigo
+   2. aurora-emerald (New): Deep Forest Onyx + Emerald Jade + Mint Teal
+   3. nordic-teal (New): Abyssal Slate + Arctic Cyan + Sky Aqua
+   4. espresso-bronze (New): Warm Mocha Noir + Copper Bronze + Sand Gold
+   5. sapphire: Deep Midnight Navy + Electric Indigo + Luminous Sky Cyan
+   6. crimson-noir: Velvet Onyx + Rose Crimson + Warm Sunset Coral
+   7. amethyst: Cosmic Plum-Black + Royal Violet + Orchid Pink
+   8. titanium-ice: Neutral Graphite Charcoal + Glacial Cobalt + Silver Ice
+   ============================================================================ */
+
+/* 1. OBSIDIAN GOLD & INDIGO (Default — Warm Matte Carbon Dark) */
+:root,
+html[data-theme="obsidian-amber"],
+html[data-theme="emerald"] {
+  --bg-root: #090a0e;
+  --bg-titlebar: #07080c;
+  --bg-sidebar: #0d0f15;
+  --bg-card: #12141d;
+  --bg-card-bottom: #0d0f16;
+  --bg-card-elevated: #171a26;
+  --bg-tile: #141722;
+  --bg-tile-bottom: #0f111a;
+  --bg-input: #0c0e15;
+
+  --border-subtle: rgba(255, 255, 255, 0.085);
+  --border-strong: rgba(251, 191, 36, 0.30);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #a1a9b8;
+  --text-muted: #6e7787;
+
+  --accent-primary: #f59e0b;
+  --accent-primary-bright: #fbbf24;
+  --accent-primary-soft: rgba(245, 158, 11, 0.14);
+  --accent-secondary: #6366f1;
+  --accent-secondary-bright: #818cf8;
+  --accent-tertiary: #38bdf8;
+  --accent-warm: #fbbf24;
+  --accent-danger: #fb7185;
+
+  --btn-primary-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 55%, #d97706 100%);
+  --btn-primary-ink: #0b0c10;
+  --btn-primary-border: rgba(253, 230, 138, 0.55);
+  --btn-primary-shadow: rgba(245, 158, 11, 0.28);
+
+  --chart-bar-top: #fbbf24;
+  --chart-bar-bottom: #d97706;
+  --chart-highlight-top: #a5b4fc;
+  --chart-highlight-bottom: #6366f1;
+
+  --emerald: #f59e0b;
+  --emerald-bright: #fbbf24;
+  --amber: #fbbf24;
+  --violet: #818cf8;
+  --blue: #38bdf8;
+  --danger: #fb7185;
+
+  --glow-rim-main: rgba(251, 191, 36, 0.72);
+  --glow-rim-sub: rgba(129, 140, 248, 0.34);
+  --glass-tint-top: rgba(34, 32, 42, 0.48);
+  --glass-tint-mid: rgba(18, 19, 28, 0.40);
+  --glass-tint-bot: rgba(12, 13, 20, 0.52);
+}
+
+/* 2. AURORA EMERALD & MINT JADE (Calm Botanical Study Dark) */
+html[data-theme="aurora-emerald"] {
+  --bg-root: #070c0a;
+  --bg-titlebar: #050908;
+  --bg-sidebar: #0a1310;
+  --bg-card: #0e1915;
+  --bg-card-bottom: #0a120f;
+  --bg-card-elevated: #14241e;
+  --bg-tile: #111f1a;
+  --bg-tile-bottom: #0c1613;
+  --bg-input: #09110e;
+
+  --border-subtle: rgba(259, 220, 100, 0.11);
+  --border-strong: rgba(247, 202, 85, 0.34);
+
+  --text-primary: #f0fdf8;
+  --text-secondary: #9bb8ae;
+  --text-muted: #68857b;
+
+  --accent-primary: #d99125;
+  --accent-primary-bright: #f0c56b;
+  --accent-primary-soft: rgba(239, 189, 74, 0.15);
+  --accent-secondary: #14b8a6;
+  --accent-secondary-bright: #ffe3a3;
+  --accent-tertiary: #38bdf8;
+  --accent-warm: #fbbf24;
+  --accent-danger: #fb7185;
+
+  --btn-primary-bg: linear-gradient(135deg, #f0c56b 0%, #d99125 55%, #b9791c 100%);
+  --btn-primary-ink: #05130e;
+  --btn-primary-border: rgba(259, 220, 100, 0.52);
+  --btn-primary-shadow: rgba(239, 189, 74, 0.30);
+
+  --chart-bar-top: #ffd98a;
+  --chart-bar-bottom: #b9791c;
+  --chart-highlight-top: #99f6e4;
+  --chart-highlight-bottom: #c98a22;
+
+  --emerald: #d99125;
+  --emerald-bright: #f0c56b;
+
+  --glow-rim-main: rgba(247, 202, 85, 0.74);
+  --glow-rim-sub: rgba(45, 212, 191, 0.34);
+  --glass-tint-top: rgba(18, 48, 39, 0.48);
+  --glass-tint-mid: rgba(11, 28, 23, 0.40);
+  --glass-tint-bot: rgba(7, 18, 15, 0.52);
+}
+
+/* 3. NORDIC OCEAN TEAL & ARCTIC CYAN */
+html[data-theme="nordic-teal"] {
+  --bg-root: #070b10;
+  --bg-titlebar: #05090d;
+  --bg-sidebar: #0a1119;
+  --bg-card: #0e1721;
+  --bg-card-bottom: #0a1119;
+  --bg-card-elevated: #14212f;
+  --bg-tile: #111c28;
+  --bg-tile-bottom: #0c141d;
+  --bg-input: #091017;
+
+  --border-subtle: rgba(165, 243, 252, 0.11);
+  --border-strong: rgba(34, 211, 238, 0.34);
+
+  --text-primary: #f0f9ff;
+  --text-secondary: #98b2c4;
+  --text-muted: #657f92;
+
+  --accent-primary: #06b6d4;
+  --accent-primary-bright: #22d3ee;
+  --accent-primary-soft: rgba(6, 182, 212, 0.15);
+  --accent-secondary: #38bdf8;
+  --accent-secondary-bright: #7dd3fc;
+  --accent-tertiary: #f0c56b;
+  --accent-warm: #fbbf24;
+  --accent-danger: #fb7185;
+
+  --btn-primary-bg: linear-gradient(135deg, #22d3ee 0%, #06b6d4 55%, #0284c7 100%);
+  --btn-primary-ink: #04131a;
+  --btn-primary-border: rgba(165, 243, 252, 0.52);
+  --btn-primary-shadow: rgba(6, 182, 212, 0.30);
+
+  --chart-bar-top: #67e8f9;
+  --chart-bar-bottom: #0891b2;
+  --chart-highlight-top: #bae6fd;
+  --chart-highlight-bottom: #0284c7;
+
+  --emerald: #06b6d4;
+  --emerald-bright: #22d3ee;
+
+  --glow-rim-main: rgba(34, 211, 238, 0.74);
+  --glow-rim-sub: rgba(56, 189, 248, 0.34);
+  --glass-tint-top: rgba(18, 44, 62, 0.48);
+  --glass-tint-mid: rgba(11, 25, 37, 0.40);
+  --glass-tint-bot: rgba(7, 16, 25, 0.52);
+}
+
+/* 4. ESPRESSO BRONZE & WARM LIBRARY GOLD (Low Blue-Light Night Study) */
+html[data-theme="espresso-bronze"] {
+  --bg-root: #0c0908;
+  --bg-titlebar: #090706;
+  --bg-sidebar: #130e0c;
+  --bg-card: #191310;
+  --bg-card-bottom: #120d0b;
+  --bg-card-elevated: #231a15;
+  --bg-tile: #1e1612;
+  --bg-tile-bottom: #15100d;
+  --bg-input: #100c0a;
+
+  --border-subtle: rgba(253, 224, 185, 0.11);
+  --border-strong: rgba(234, 138, 63, 0.35);
+
+  --text-primary: #fdf8f3;
+  --text-secondary: #bca999;
+  --text-muted: #877567;
+
+  --accent-primary: #ea8a3f;
+  --accent-primary-bright: #f5a662;
+  --accent-primary-soft: rgba(234, 138, 63, 0.15);
+  --accent-secondary: #eab308;
+  --accent-secondary-bright: #facc15;
+  --accent-tertiary: #f0c56b;
+  --accent-warm: #f3c677;
+  --accent-danger: #fb7185;
+
+  --btn-primary-bg: linear-gradient(135deg, #f5a662 0%, #ea8a3f 55%, #c26422 100%);
+  --btn-primary-ink: #120b07;
+  --btn-primary-border: rgba(254, 215, 170, 0.52);
+  --btn-primary-shadow: rgba(234, 138, 63, 0.30);
+
+  --chart-bar-top: #fdba74;
+  --chart-bar-bottom: #c2410c;
+  --chart-highlight-top: #fde68a;
+  --chart-highlight-bottom: #d97706;
+
+  --emerald: #ea8a3f;
+  --emerald-bright: #f5a662;
+
+  --glow-rim-main: rgba(245, 166, 98, 0.72);
+  --glow-rim-sub: rgba(243, 198, 119, 0.34);
+  --glass-tint-top: rgba(52, 36, 26, 0.48);
+  --glass-tint-mid: rgba(28, 20, 15, 0.42);
+  --glass-tint-bot: rgba(18, 13, 10, 0.54);
+}
+
+/* 5. MIDNIGHT SAPPHIRE & SKY CYAN */
+html[data-theme="sapphire"] {
+  --bg-root: #080b13;
+  --bg-titlebar: #070910;
+  --bg-sidebar: #0c101d;
+  --bg-card: #101626;
+  --bg-card-bottom: #0b101d;
+  --bg-card-elevated: #161e34;
+  --bg-tile: #131a2e;
+  --bg-tile-bottom: #0e1323;
+  --bg-input: #0b0f1c;
+
+  --border-subtle: rgba(148, 163, 196, 0.13);
+  --border-strong: rgba(129, 140, 248, 0.32);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #9aa8bf;
+  --text-muted: #6c7a93;
+
+  --accent-primary: #6366f1;
+  --accent-primary-bright: #818cf8;
+  --accent-primary-soft: rgba(99, 102, 241, 0.15);
+  --accent-secondary: #38bdf8;
+  --accent-secondary-bright: #7dd3fc;
+  --accent-tertiary: #a78bfa;
+  --accent-warm: #fbbf24;
+
+  --btn-primary-bg: linear-gradient(135deg, #6366f1 0%, #4f46e5 55%, #0284c7 100%);
+  --btn-primary-ink: #ffffff;
+  --btn-primary-border: rgba(165, 180, 252, 0.50);
+  --btn-primary-shadow: rgba(99, 102, 241, 0.32);
+
+  --chart-bar-top: #7dd3fc;
+  --chart-bar-bottom: #6366f1;
+  --chart-highlight-top: #fde68a;
+  --chart-highlight-bottom: #f59e0b;
+
+  --emerald: #6366f1;
+  --emerald-bright: #818cf8;
+
+  --glow-rim-main: rgba(129, 140, 248, 0.76);
+  --glow-rim-sub: rgba(56, 189, 248, 0.34);
+  --glass-tint-top: rgba(30, 42, 78, 0.46);
+  --glass-tint-mid: rgba(15, 22, 44, 0.38);
+  --glass-tint-bot: rgba(10, 16, 34, 0.50);
+}
+
+/* 6. CRIMSON NOIR & SUNSET CORAL */
+html[data-theme="crimson-noir"] {
+  --bg-root: #0b090c;
+  --bg-titlebar: #09070a;
+  --bg-sidebar: #110d14;
+  --bg-card: #16111a;
+  --bg-card-bottom: #100c14;
+  --bg-card-elevated: #1e1724;
+  --bg-tile: #1a1420;
+  --bg-tile-bottom: #120e17;
+  --bg-input: #0f0b12;
+
+  --border-subtle: rgba(244, 214, 224, 0.10);
+  --border-strong: rgba(251, 113, 133, 0.32);
+
+  --text-primary: #faf5f7;
+  --text-secondary: #b3a3ad;
+  --text-muted: #7e6e78;
+
+  --accent-primary: #f43f5e;
+  --accent-primary-bright: #fb7185;
+  --accent-primary-soft: rgba(244, 63, 94, 0.15);
+  --accent-secondary: #fb923c;
+  --accent-secondary-bright: #fdba74;
+  --accent-tertiary: #c084fc;
+  --accent-warm: #fbbf24;
+
+  --btn-primary-bg: linear-gradient(135deg, #f43f5e 0%, #e11d48 56%, #ea580c 100%);
+  --btn-primary-ink: #ffffff;
+  --btn-primary-border: rgba(253, 164, 175, 0.48);
+  --btn-primary-shadow: rgba(244, 63, 94, 0.32);
+
+  --chart-bar-top: #fb7185;
+  --chart-bar-bottom: #be123c;
+  --chart-highlight-top: #fed7aa;
+  --chart-highlight-bottom: #f97316;
+
+  --emerald: #f43f5e;
+  --emerald-bright: #fb7185;
+
+  --glow-rim-main: rgba(251, 113, 133, 0.74);
+  --glow-rim-sub: rgba(251, 146, 60, 0.34);
+  --glass-tint-top: rgba(54, 26, 38, 0.46);
+  --glass-tint-mid: rgba(26, 15, 24, 0.40);
+  --glass-tint-bot: rgba(18, 10, 17, 0.52);
+}
+
+/* 7. ROYAL AMETHYST & ORCHID */
+html[data-theme="amethyst"],
+html[data-theme="violet"] {
+  --bg-root: #0a0812;
+  --bg-titlebar: #08060f;
+  --bg-sidebar: #100c1d;
+  --bg-card: #151026;
+  --bg-card-bottom: #0f0b1c;
+  --bg-card-elevated: #1d1634;
+  --bg-tile: #19132d;
+  --bg-tile-bottom: #120d21;
+  --bg-input: #0e0a1a;
+
+  --border-subtle: rgba(216, 180, 254, 0.12);
+  --border-strong: rgba(192, 132, 252, 0.34);
+
+  --text-primary: #f6f3ff;
+  --text-secondary: #afa6c9;
+  --text-muted: #7a7096;
+
+  --accent-primary: #8b5cf6;
+  --accent-primary-bright: #a78bfa;
+  --accent-primary-soft: rgba(139, 92, 246, 0.16);
+  --accent-secondary: #ec4899;
+  --accent-secondary-bright: #f472b6;
+  --accent-tertiary: #38bdf8;
+  --accent-warm: #fbbf24;
+
+  --btn-primary-bg: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 55%, #db2777 100%);
+  --btn-primary-ink: #ffffff;
+  --btn-primary-border: rgba(216, 180, 254, 0.50);
+  --btn-primary-shadow: rgba(139, 92, 246, 0.34);
+
+  --chart-bar-top: #c4b5fd;
+  --chart-bar-bottom: #7c3aed;
+  --chart-highlight-top: #fbcfe8;
+  --chart-highlight-bottom: #ec4899;
+
+  --emerald: #8b5cf6;
+  --emerald-bright: #a78bfa;
+
+  --glow-rim-main: rgba(192, 132, 252, 0.76);
+  --glow-rim-sub: rgba(244, 114, 182, 0.34);
+  --glass-tint-top: rgba(46, 28, 76, 0.46);
+  --glass-tint-mid: rgba(22, 15, 40, 0.40);
+  --glass-tint-bot: rgba(15, 10, 28, 0.52);
+}
+
+/* 8. TITANIUM ICE & GLACIAL BLUE (Neutral Pro Graphite) */
+html[data-theme="titanium-ice"],
+html[data-theme="ocean"] {
+  --bg-root: #0a0b0e;
+  --bg-titlebar: #08090c;
+  --bg-sidebar: #0e1015;
+  --bg-card: #14161d;
+  --bg-card-bottom: #0f1117;
+  --bg-card-elevated: #1a1d26;
+  --bg-tile: #171a22;
+  --bg-tile-bottom: #11131a;
+  --bg-input: #0d0f14;
+
+  --border-subtle: rgba(226, 232, 240, 0.10);
+  --border-strong: rgba(96, 165, 250, 0.32);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #9ca6b5;
+  --text-muted: #6c7585;
+
+  --accent-primary: #3b82f6;
+  --accent-primary-bright: #60a5fa;
+  --accent-primary-soft: rgba(59, 130, 246, 0.15);
+  --accent-secondary: #38bdf8;
+  --accent-secondary-bright: #93c5fd;
+  --accent-tertiary: #cbd5e1;
+  --accent-warm: #eab308;
+
+  --btn-primary-bg: linear-gradient(135deg, #3b82f6 0%, #2563eb 58%, #0284c7 100%);
+  --btn-primary-ink: #ffffff;
+  --btn-primary-border: rgba(147, 197, 253, 0.50);
+  --btn-primary-shadow: rgba(59, 130, 246, 0.30);
+
+  --chart-bar-top: #93c5fd;
+  --chart-bar-bottom: #2563eb;
+  --chart-highlight-top: #fef08a;
+  --chart-highlight-bottom: #eab308;
+
+  --emerald: #3b82f6;
+  --emerald-bright: #60a5fa;
+
+  --glow-rim-main: rgba(96, 165, 250, 0.74);
+  --glow-rim-sub: rgba(147, 197, 253, 0.30);
+  --glass-tint-top: rgba(32, 38, 52, 0.48);
+  --glass-tint-mid: rgba(19, 22, 30, 0.40);
+  --glass-tint-bot: rgba(13, 15, 21, 0.52);
+}

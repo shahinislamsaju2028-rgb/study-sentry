@@ -1,7 +1,7 @@
 {
   "name": "study-sentry-tauri",
   "productName": "Study Sentry",
-  "version": "4.0.0",
+  "version": "4.3.5",
   "description": "Study Sentry v4.0 — Student productivity, Focus, Insights, Sprint Planner and Daily Tracker",
   "type": "module",
   "private": true,
@@ -16,7 +16,8 @@
     "tauri": "tauri",
     "tauri:dev": "tauri dev",
     "tauri:build": "tauri build",
-    "dist:win": "tauri build --bundles nsis"
+    "dist:win": "tauri build --bundles nsis",
+    "test:hierarchy": "node tests/v52-hierarchy-check.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",
