@@ -16,7 +16,6 @@ const dom = new JSDOM('<!doctype html><html><body><div id="root"></div></body></
 Object.assign(globalThis, {
   window: dom.window,
   document: dom.window.document,
-  navigator: dom.window.navigator,
   HTMLElement: dom.window.HTMLElement,
   SVGElement: dom.window.SVGElement,
   Element: dom.window.Element,
@@ -25,6 +24,7 @@ Object.assign(globalThis, {
   cancelAnimationFrame: clearTimeout,
   IS_REACT_ACT_ENVIRONMENT: true,
 });
+try{globalThis.navigator=dom.window.navigator}catch{}
 dom.window.HTMLElement.prototype.scrollIntoView = function () {};
 dom.window.matchMedia = (q) => ({
   matches: false,

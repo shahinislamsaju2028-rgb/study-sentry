@@ -1,7 +1,7 @@
 import {JSDOM} from 'jsdom';
 import assert from 'node:assert/strict';
 import {createServer} from 'vite';
-const dom=new JSDOM('<div id="root"></div>',{url:'http://localhost/'});globalThis.window=dom.window;globalThis.document=dom.window.document;globalThis.navigator=dom.window.navigator;globalThis.HTMLElement=dom.window.HTMLElement;globalThis.requestAnimationFrame=fn=>setTimeout(fn,0);globalThis.IS_REACT_ACT_ENVIRONMENT=true;
+const dom=new JSDOM('<div id="root"></div>',{url:'http://localhost/'});globalThis.window=dom.window;globalThis.document=dom.window.document;try{globalThis.navigator=dom.window.navigator}catch{}globalThis.HTMLElement=dom.window.HTMLElement;globalThis.requestAnimationFrame=fn=>setTimeout(fn,0);globalThis.IS_REACT_ACT_ENVIRONMENT=true;
 const React=(await import('react')).default;const {act}=await import('react');const {createRoot}=await import('react-dom/client');
 const vite=await createServer({server:{middlewareMode:true,hmr:false},appType:'custom'});
 try {
