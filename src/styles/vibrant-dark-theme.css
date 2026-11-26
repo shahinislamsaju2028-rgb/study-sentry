@@ -1,67 +1,69 @@
 /* ============================================================================
    Study Sentry — 8 Handcrafted Eye-Comfort Dark Themes
-   1. obsidian-amber (Default): Matte Carbon Obsidian + Champagne Gold + Indigo
+   1. obsidian-amber (Default): Midnight Prism navy, teal, gold, violet and magenta
    2. aurora-emerald (New): Deep Forest Onyx + Emerald Jade + Mint Teal
    3. nordic-teal (New): Abyssal Slate + Arctic Cyan + Sky Aqua
-   4. espresso-bronze (New): Warm Mocha Noir + Copper Bronze + Sand Gold
+   4. legacy espresso-bronze selector: mapped to the active Midnight Prism palette
    5. sapphire: Deep Midnight Navy + Electric Indigo + Luminous Sky Cyan
    6. crimson-noir: Velvet Onyx + Rose Crimson + Warm Sunset Coral
    7. amethyst: Cosmic Plum-Black + Royal Violet + Orchid Pink
    8. titanium-ice: Neutral Graphite Charcoal + Glacial Cobalt + Silver Ice
    ============================================================================ */
 
-/* 1. OBSIDIAN GOLD & INDIGO (Default — Warm Matte Carbon Dark) */
+/* 1. MIDNIGHT PRISM (Default — supplied app-wide palette) */
 :root,
 html[data-theme="obsidian-amber"],
 html[data-theme="emerald"] {
-  --bg-root: #090a0e;
-  --bg-titlebar: #07080c;
-  --bg-sidebar: #0d0f15;
-  --bg-card: #12141d;
-  --bg-card-bottom: #0d0f16;
-  --bg-card-elevated: #171a26;
-  --bg-tile: #141722;
-  --bg-tile-bottom: #0f111a;
-  --bg-input: #0c0e15;
+  --bg-root: #0b132b;
+  --bg-titlebar: #0b132b;
+  --bg-sidebar: #0b132b;
+  --bg-card: #202940;
+  --bg-card-bottom: #092635;
+  --bg-card-elevated: #202940;
+  --bg-card-hover: #03346e;
+  --bg-tile: #092635;
+  --bg-tile-bottom: #0b132b;
+  --bg-input: #092635;
 
-  --border-subtle: rgba(255, 255, 255, 0.085);
-  --border-strong: rgba(251, 191, 36, 0.30);
+  --border-subtle: rgba(186, 197, 223, 0.14);
+  --border-strong: rgba(255, 211, 105, 0.36);
 
-  --text-primary: #f8fafc;
-  --text-secondary: #a1a9b8;
-  --text-muted: #6e7787;
+  --text-primary: #f3f5ff;
+  --text-secondary: #bac5df;
+  --text-muted: #8996b6;
 
-  --accent-primary: #f59e0b;
-  --accent-primary-bright: #fbbf24;
-  --accent-primary-soft: rgba(245, 158, 11, 0.14);
-  --accent-secondary: #6366f1;
-  --accent-secondary-bright: #818cf8;
-  --accent-tertiary: #38bdf8;
-  --accent-warm: #fbbf24;
-  --accent-danger: #fb7185;
+  --accent-primary: #ffd369;
+  --accent-primary-bright: #ff9808;
+  --accent-primary-soft: rgba(255, 211, 105, 0.16);
+  --accent-secondary: #7a1cac;
+  --accent-secondary-bright: #a91079;
+  --accent-tertiary: #03346e;
+  --accent-warm: #ff9808;
+  --accent-danger: #a91079;
 
-  --btn-primary-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 55%, #d97706 100%);
-  --btn-primary-ink: #0b0c10;
-  --btn-primary-border: rgba(253, 230, 138, 0.55);
-  --btn-primary-shadow: rgba(245, 158, 11, 0.28);
+  --btn-primary-bg: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
+  --btn-primary-ink: #0b132b;
+  --btn-primary-border: rgba(255, 211, 105, 0.64);
+  --btn-primary-shadow: rgba(255, 152, 8, 0.3);
 
-  --chart-bar-top: #fbbf24;
-  --chart-bar-bottom: #d97706;
-  --chart-highlight-top: #a5b4fc;
-  --chart-highlight-bottom: #6366f1;
+  --chart-bar-top: #ffd369;
+  --chart-bar-bottom: #ff9808;
+  --chart-highlight-top: #a91079;
+  --chart-highlight-bottom: #7a1cac;
 
-  --emerald: #f59e0b;
-  --emerald-bright: #fbbf24;
-  --amber: #fbbf24;
-  --violet: #818cf8;
-  --blue: #38bdf8;
-  --danger: #fb7185;
+  --emerald: #255f38;
+  --emerald-bright: color-mix(in srgb, #255f38 48%, #f3f5ff);
+  --amber: #ffd369;
+  --amber-deep: #ff9808;
+  --violet: #7a1cac;
+  --blue: #03346e;
+  --danger: #a91079;
 
-  --glow-rim-main: rgba(251, 191, 36, 0.72);
-  --glow-rim-sub: rgba(129, 140, 248, 0.34);
-  --glass-tint-top: rgba(34, 32, 42, 0.48);
-  --glass-tint-mid: rgba(18, 19, 28, 0.40);
-  --glass-tint-bot: rgba(12, 13, 20, 0.52);
+  --glow-rim-main: rgba(255, 211, 105, 0.68);
+  --glow-rim-sub: rgba(122, 28, 172, 0.4);
+  --glass-tint-top: rgba(32, 41, 64, 0.56);
+  --glass-tint-mid: rgba(11, 19, 43, 0.48);
+  --glass-tint-bot: rgba(9, 38, 53, 0.62);
 }
 
 /* 2. AURORA EMERALD & MINT JADE (Calm Botanical Study Dark) */
@@ -76,34 +78,34 @@ html[data-theme="aurora-emerald"] {
   --bg-tile-bottom: #0c1613;
   --bg-input: #09110e;
 
-  --border-subtle: rgba(259, 220, 100, 0.11);
+  --border-subtle: rgba(255, 211, 105, 0.11);
   --border-strong: rgba(247, 202, 85, 0.34);
 
   --text-primary: #f0fdf8;
   --text-secondary: #9bb8ae;
   --text-muted: #68857b;
 
-  --accent-primary: #d99125;
-  --accent-primary-bright: #f0c56b;
+  --accent-primary: #ff9808;
+  --accent-primary-bright: #ffd369;
   --accent-primary-soft: rgba(239, 189, 74, 0.15);
   --accent-secondary: #14b8a6;
   --accent-secondary-bright: #ffe3a3;
   --accent-tertiary: #38bdf8;
-  --accent-warm: #fbbf24;
+  --accent-warm: #ffd369;
   --accent-danger: #fb7185;
 
-  --btn-primary-bg: linear-gradient(135deg, #f0c56b 0%, #d99125 55%, #b9791c 100%);
+  --btn-primary-bg: linear-gradient(135deg, #ffd369 0%, #ff9808 55%, #ff9808 100%);
   --btn-primary-ink: #05130e;
-  --btn-primary-border: rgba(259, 220, 100, 0.52);
+  --btn-primary-border: rgba(255, 211, 105, 0.52);
   --btn-primary-shadow: rgba(239, 189, 74, 0.30);
 
-  --chart-bar-top: #ffd98a;
-  --chart-bar-bottom: #b9791c;
+  --chart-bar-top: #ffd369;
+  --chart-bar-bottom: #ff9808;
   --chart-highlight-top: #99f6e4;
   --chart-highlight-bottom: #c98a22;
 
-  --emerald: #d99125;
-  --emerald-bright: #f0c56b;
+  --emerald: #ff9808;
+  --emerald-bright: #ffd369;
 
   --glow-rim-main: rgba(247, 202, 85, 0.74);
   --glow-rim-sub: rgba(45, 212, 191, 0.34);
@@ -136,8 +138,8 @@ html[data-theme="nordic-teal"] {
   --accent-primary-soft: rgba(6, 182, 212, 0.15);
   --accent-secondary: #38bdf8;
   --accent-secondary-bright: #7dd3fc;
-  --accent-tertiary: #f0c56b;
-  --accent-warm: #fbbf24;
+  --accent-tertiary: #ffd369;
+  --accent-warm: #ffd369;
   --accent-danger: #fb7185;
 
   --btn-primary-bg: linear-gradient(135deg, #22d3ee 0%, #06b6d4 55%, #0284c7 100%);
@@ -160,52 +162,57 @@ html[data-theme="nordic-teal"] {
   --glass-tint-bot: rgba(7, 16, 25, 0.52);
 }
 
-/* 4. ESPRESSO BRONZE & WARM LIBRARY GOLD (Low Blue-Light Night Study) */
+/* 4. Legacy selector alias — now uses the active Midnight Prism palette. */
 html[data-theme="espresso-bronze"] {
-  --bg-root: #0c0908;
-  --bg-titlebar: #090706;
-  --bg-sidebar: #130e0c;
-  --bg-card: #191310;
-  --bg-card-bottom: #120d0b;
-  --bg-card-elevated: #231a15;
-  --bg-tile: #1e1612;
-  --bg-tile-bottom: #15100d;
-  --bg-input: #100c0a;
+  --bg-root: #0b132b;
+  --bg-titlebar: #0b132b;
+  --bg-sidebar: #0b132b;
+  --bg-card: #202940;
+  --bg-card-bottom: #092635;
+  --bg-card-elevated: #202940;
+  --bg-card-hover: #03346e;
+  --bg-tile: #092635;
+  --bg-tile-bottom: #0b132b;
+  --bg-input: #092635;
 
-  --border-subtle: rgba(253, 224, 185, 0.11);
-  --border-strong: rgba(234, 138, 63, 0.35);
+  --border-subtle: rgba(186, 197, 223, 0.14);
+  --border-strong: rgba(255, 211, 105, 0.36);
+  --text-primary: #f3f5ff;
+  --text-secondary: #bac5df;
+  --text-muted: #8996b6;
 
-  --text-primary: #fdf8f3;
-  --text-secondary: #bca999;
-  --text-muted: #877567;
+  --accent-primary: #ffd369;
+  --accent-primary-bright: #ff9808;
+  --accent-primary-soft: rgba(255, 211, 105, 0.16);
+  --accent-secondary: #7a1cac;
+  --accent-secondary-bright: #a91079;
+  --accent-tertiary: #03346e;
+  --accent-warm: #ff9808;
+  --accent-danger: #a91079;
 
-  --accent-primary: #ea8a3f;
-  --accent-primary-bright: #f5a662;
-  --accent-primary-soft: rgba(234, 138, 63, 0.15);
-  --accent-secondary: #eab308;
-  --accent-secondary-bright: #facc15;
-  --accent-tertiary: #f0c56b;
-  --accent-warm: #f3c677;
-  --accent-danger: #fb7185;
+  --btn-primary-bg: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
+  --btn-primary-ink: #0b132b;
+  --btn-primary-border: rgba(255, 211, 105, 0.64);
+  --btn-primary-shadow: rgba(255, 152, 8, 0.3);
 
-  --btn-primary-bg: linear-gradient(135deg, #f5a662 0%, #ea8a3f 55%, #c26422 100%);
-  --btn-primary-ink: #120b07;
-  --btn-primary-border: rgba(254, 215, 170, 0.52);
-  --btn-primary-shadow: rgba(234, 138, 63, 0.30);
+  --chart-bar-top: #ffd369;
+  --chart-bar-bottom: #ff9808;
+  --chart-highlight-top: #a91079;
+  --chart-highlight-bottom: #7a1cac;
 
-  --chart-bar-top: #fdba74;
-  --chart-bar-bottom: #c2410c;
-  --chart-highlight-top: #fde68a;
-  --chart-highlight-bottom: #d97706;
+  --emerald: #255f38;
+  --emerald-bright: color-mix(in srgb, #255f38 48%, #f3f5ff);
+  --amber: #ffd369;
+  --amber-deep: #ff9808;
+  --violet: #7a1cac;
+  --blue: #03346e;
+  --danger: #a91079;
 
-  --emerald: #ea8a3f;
-  --emerald-bright: #f5a662;
-
-  --glow-rim-main: rgba(245, 166, 98, 0.72);
-  --glow-rim-sub: rgba(243, 198, 119, 0.34);
-  --glass-tint-top: rgba(52, 36, 26, 0.48);
-  --glass-tint-mid: rgba(28, 20, 15, 0.42);
-  --glass-tint-bot: rgba(18, 13, 10, 0.54);
+  --glow-rim-main: rgba(255, 211, 105, 0.68);
+  --glow-rim-sub: rgba(122, 28, 172, 0.4);
+  --glass-tint-top: rgba(32, 41, 64, 0.56);
+  --glass-tint-mid: rgba(11, 19, 43, 0.48);
+  --glass-tint-bot: rgba(9, 38, 53, 0.62);
 }
 
 /* 5. MIDNIGHT SAPPHIRE & SKY CYAN */
@@ -233,7 +240,7 @@ html[data-theme="sapphire"] {
   --accent-secondary: #38bdf8;
   --accent-secondary-bright: #7dd3fc;
   --accent-tertiary: #a78bfa;
-  --accent-warm: #fbbf24;
+  --accent-warm: #ffd369;
 
   --btn-primary-bg: linear-gradient(135deg, #6366f1 0%, #4f46e5 55%, #0284c7 100%);
   --btn-primary-ink: #ffffff;
@@ -242,8 +249,8 @@ html[data-theme="sapphire"] {
 
   --chart-bar-top: #7dd3fc;
   --chart-bar-bottom: #6366f1;
-  --chart-highlight-top: #fde68a;
-  --chart-highlight-bottom: #f59e0b;
+  --chart-highlight-top: #ffd369;
+  --chart-highlight-bottom: #ff9808;
 
   --emerald: #6366f1;
   --emerald-bright: #818cf8;
@@ -277,12 +284,12 @@ html[data-theme="crimson-noir"] {
   --accent-primary: #f43f5e;
   --accent-primary-bright: #fb7185;
   --accent-primary-soft: rgba(244, 63, 94, 0.15);
-  --accent-secondary: #fb923c;
+  --accent-secondary: #ff9808;
   --accent-secondary-bright: #fdba74;
   --accent-tertiary: #c084fc;
-  --accent-warm: #fbbf24;
+  --accent-warm: #ffd369;
 
-  --btn-primary-bg: linear-gradient(135deg, #f43f5e 0%, #e11d48 56%, #ea580c 100%);
+  --btn-primary-bg: linear-gradient(135deg, #f43f5e 0%, #e11d48 56%, #ff9808 100%);
   --btn-primary-ink: #ffffff;
   --btn-primary-border: rgba(253, 164, 175, 0.48);
   --btn-primary-shadow: rgba(244, 63, 94, 0.32);
@@ -290,7 +297,7 @@ html[data-theme="crimson-noir"] {
   --chart-bar-top: #fb7185;
   --chart-bar-bottom: #be123c;
   --chart-highlight-top: #fed7aa;
-  --chart-highlight-bottom: #f97316;
+  --chart-highlight-bottom: #ff9808;
 
   --emerald: #f43f5e;
   --emerald-bright: #fb7185;
@@ -328,7 +335,7 @@ html[data-theme="violet"] {
   --accent-secondary: #ec4899;
   --accent-secondary-bright: #f472b6;
   --accent-tertiary: #38bdf8;
-  --accent-warm: #fbbf24;
+  --accent-warm: #ffd369;
 
   --btn-primary-bg: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 55%, #db2777 100%);
   --btn-primary-ink: #ffffff;
@@ -385,7 +392,7 @@ html[data-theme="ocean"] {
 
   --chart-bar-top: #93c5fd;
   --chart-bar-bottom: #2563eb;
-  --chart-highlight-top: #fef08a;
+  --chart-highlight-top: #ffd369;
   --chart-highlight-bottom: #eab308;
 
   --emerald: #3b82f6;

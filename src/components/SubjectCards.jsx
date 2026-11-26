@@ -1,5 +1,4 @@
 import React from 'react';
-import { Check } from 'lucide-react';
 import {
   PREMADE_SUBJECTS,
   SUBJECT_PALETTES,
@@ -91,7 +90,6 @@ export default function SubjectCards({
                 </small>
               )}
             </span>
-            {selected && <Check className="premium-subject-check" size={14} />}
             {showStats && (
               <i className="premium-subject-track" title="সময় তুলনা">
                 <i style={{ width: `${Math.min(100, (seconds / maxSeconds) * 100)}%` }} />

@@ -4,8 +4,10 @@ import { loadCurriculum } from './CurriculumPicker';
 import { sprintChapterName } from '../utils/sprintSchedule';
 import { bnChapterName, bnNum, bnSubject } from '../utils/bangla';
 import { getAcademicGroup } from '../utils/groupSubjects';
-import { subjectColor } from '../utils/subjectColors';
 import { useOptionalStudy } from '../context/StudyContext';
+
+const CHAPTER_ACCENTS = { first: '#73D3E8', second: '#B3A2F4' };
+const INDEXED_CHAPTER_SUBJECTS = new Set(['physics', 'chemistry', 'biology', 'ict']);
 
 /**
  * The single chapter-selection surface used across tasks, Focus, syllabus,
@@ -27,7 +29,6 @@ export default function ChapterPicker({
   stepIndex = '',
   label = '',
   emptyHint = '',
-  accent = null,
 }) {
   const study = useOptionalStudy();
   const academicGroup = getAcademicGroup(study?.state?.profile || {});
@@ -164,21 +165,19 @@ export default function ChapterPicker({
   const allPicked =
     multi && filtered.length > 0 && filtered.every((c) => isPicked(c.name));
 
-  // Chapter states inherit the subject's own color. Paper two shifts that
-  // same hue toward a cool sky tone, keeping the pair distinct without
-  // losing the subject's visual identity.
-  const subjectBaseAccent = accent || (subject ? subjectColor(subject) : '#d1b36a');
-  const subjectAccent = chosenPaper === '2'
-    ? `color-mix(in srgb, ${subjectBaseAccent} 72%, #58c9e8)`
-    : subjectBaseAccent;
+  // Chapter selection has its own cool, consistent palette: it never borrows
+  // the selected subject's color. Paper two gets a lilac shift so the shared
+  // segmented control stays recognisable without inheriting subject hues.
+  const chapterAccent = chosenPaper === '2' ? CHAPTER_ACCENTS.second : CHAPTER_ACCENTS.first;
+  const indexedSubject = INDEXED_CHAPTER_SUBJECTS.has(String(subject).trim().toLowerCase());
 
   /* ══════════════════════════════════════════════════════════════════════ */
   return (
     <div
       className={`chapter-picker ${compact ? 'is-compact' : ''}`}
       style={{
-        '--chp-accent': subjectAccent,
-        '--chp-subject-accent': subjectBaseAccent,
+        '--chp-accent': chapterAccent,
+        '--chp-paper-accent': chapterAccent,
         '--chp-paper': chosenPaper || '1',
       }}
     >
@@ -203,10 +202,11 @@ export default function ChapterPicker({
               aria-label="পত্র নির্বাচন"
               data-paper={chosenPaper === '2' ? '2' : '1'}
             >
+              <span className="chapter-picker-paper-indicator" aria-hidden="true" />
               {[
-                ['1', '১ম পত্র', 'প্রথম'],
-                ['2', '২য় পত্র', 'দ্বিতীয়'],
-              ].map(([p, lbl, ordinal]) => (
+                ['1', '১ম পত্র'],
+                ['2', '২য় পত্র'],
+              ].map(([p, lbl]) => (
                 <button
                   key={p}
                   type="button"
@@ -217,13 +217,7 @@ export default function ChapterPicker({
                   }`}
                   onClick={() => pickPaper(p)}
                 >
-                  <span className="chp-paper-mark" aria-hidden="true">
-                    {p === '1' ? '১' : '২'}
-                  </span>
-                  <span className="chp-paper-copy">
-                    <b>{lbl}</b>
-                    <em>{ordinal} অংশ</em>
-                  </span>
+                  <span className="chp-paper-copy"><b>{lbl}</b></span>
                 </button>
               ))}
             </div>
@@ -262,7 +256,7 @@ export default function ChapterPicker({
             role={multi ? 'group' : 'radiogroup'}
             aria-label="অধ্যায় তালিকা"
           >
-            {filtered.map((c) => {
+            {filtered.map((c, index) => {
               const active = isPicked(c.name);
               return (
                 <button
@@ -274,7 +268,14 @@ export default function ChapterPicker({
                   onClick={() => toggleChapter(c.name)}
                   title={c.label}
                 >
-                  <span className="chapter-picker-name">{c.label}</span>
+                  <span className="chapter-picker-content">
+                    {indexedSubject && (
+                      <span className="chapter-picker-index" aria-hidden="true">
+                        {index + 1}
+                      </span>
+                    )}
+                    <span className="chapter-picker-name">{c.label}</span>
+                  </span>
                 </button>
               );
             })}

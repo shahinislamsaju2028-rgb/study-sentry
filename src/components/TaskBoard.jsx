@@ -253,7 +253,7 @@ export default function TaskBoard({ embedded = false }) {
         className={`kb-card ${status} ${draggingId === task.id ? 'dragging' : ''} ${
           isRunningPhase && status !== 'done' ? 'kb-card-running' : ''
         }`}
-        style={isRunningPhase ? { '--phase-tone': slotMeta?.tone || '#fbbf24' } : undefined}
+        style={isRunningPhase ? { '--phase-tone': slotMeta?.tone || '#ffd369' } : undefined}
         onPointerDown={(e) => handleCardPointerDown(e, task, displayTitle, subjLabel)}
         onContextMenu={e=>{e.preventDefault();showContext(task,e.clientX,e.clientY,e.currentTarget)}}
         tabIndex={0}

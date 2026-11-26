@@ -51,13 +51,13 @@
 .clean-primary {
   background: linear-gradient(
     135deg,
-    var(--accent, #fbbf24),
-    color-mix(in srgb, var(--accent, #f59e0b) 78%, var(--accent-2, #38bdf8))
+    var(--accent, #ffd369),
+    color-mix(in srgb, var(--accent, #ff9808) 78%, var(--accent-2, #38bdf8))
   ) !important;
-  border: 1px solid color-mix(in srgb, var(--accent, #fbbf24) 70%, #ffffff) !important;
+  border: 1px solid color-mix(in srgb, var(--accent, #ffd369) 70%, #ffffff) !important;
   color: #090a0e !important;
   font-weight: 800 !important;
-  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent, #f59e0b) 28%, transparent) !important;
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent, #ff9808) 28%, transparent) !important;
 }
 
 /* TopBar PiP Button -> Theme Accent instead of Mint Green */
@@ -73,8 +73,8 @@
 
 .topbar-pip:hover {
   transform: translateY(-1px);
-  border-color: var(--accent, #fbbf24) !important;
-  color: var(--accent, #fbbf24) !important;
+  border-color: var(--accent, #ffd369) !important;
+  color: var(--accent, #ffd369) !important;
 }
 
 /* ============================================================================
@@ -91,10 +91,10 @@
   padding: 22px 24px !important;
   border-radius: 22px !important;
   background:
-    radial-gradient(110% 120% at 15% 0%, color-mix(in srgb, var(--accent, #fbbf24) 15%, transparent), transparent 56%),
+    radial-gradient(110% 120% at 15% 0%, color-mix(in srgb, var(--accent, #ffd369) 15%, transparent), transparent 56%),
     radial-gradient(110% 120% at 90% 100%, color-mix(in srgb, var(--accent-2, #38bdf8) 15%, transparent), transparent 58%),
     var(--bg-card, #10131d) !important;
-  border: 1px solid color-mix(in srgb, var(--accent, #fbbf24) 28%, rgba(255, 255, 255, 0.1)) !important;
+  border: 1px solid color-mix(in srgb, var(--accent, #ffd369) 28%, rgba(255, 255, 255, 0.1)) !important;
   box-shadow:
     0 20px 44px rgba(0, 0, 0, 0.46),
     inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
@@ -132,14 +132,14 @@
 
 .focus-mode-chip:hover,
 .focus-expand:hover {
-  border-color: color-mix(in srgb, var(--accent, #fbbf24) 55%, transparent) !important;
+  border-color: color-mix(in srgb, var(--accent, #ffd369) 55%, transparent) !important;
   color: #ffffff !important;
 }
 
 .clean-segments button[aria-pressed='true'] {
-  background: color-mix(in srgb, var(--accent, #fbbf24) 20%, rgba(255, 255, 255, 0.03)) !important;
-  border-color: color-mix(in srgb, var(--accent, #fbbf24) 58%, transparent) !important;
-  color: #fef3c7 !important;
+  background: color-mix(in srgb, var(--accent, #ffd369) 20%, rgba(255, 255, 255, 0.03)) !important;
+  border-color: color-mix(in srgb, var(--accent, #ffd369) 58%, transparent) !important;
+  color: #ffd369 !important;
   font-weight: 800;
 }
 
@@ -168,8 +168,8 @@
 }
 
 .focus-live-status i {
-  background: var(--accent, #fbbf24) !important;
-  box-shadow: 0 0 8px var(--accent, #fbbf24) !important;
+  background: var(--accent, #ffd369) !important;
+  box-shadow: 0 0 8px var(--accent, #ffd369) !important;
 }
 
 .focus-live-status.running {
@@ -206,12 +206,12 @@
 .focus-play {
   width: 58px !important;
   height: 58px !important;
-  border: 1px solid color-mix(in srgb, var(--accent, #fbbf24) 75%, #ffffff) !important;
-  background: linear-gradient(135deg, var(--accent, #fbbf24), #f59e0b) !important;
+  border: 1px solid color-mix(in srgb, var(--accent, #ffd369) 75%, #ffffff) !important;
+  background: linear-gradient(135deg, var(--accent, #ffd369), #ff9808) !important;
   color: #090a0e !important;
   box-shadow:
-    0 10px 28px color-mix(in srgb, var(--accent, #fbbf24) 42%, transparent),
-    0 0 0 4px color-mix(in srgb, var(--accent, #fbbf24) 12%, transparent) !important;
+    0 10px 28px color-mix(in srgb, var(--accent, #ffd369) 42%, transparent),
+    0 0 0 4px color-mix(in srgb, var(--accent, #ffd369) 12%, transparent) !important;
   transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
@@ -257,12 +257,12 @@
 .focus-report-status button.selected {
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--accent, #fbbf24) 22%, transparent),
+    color-mix(in srgb, var(--accent, #ffd369) 22%, transparent),
     color-mix(in srgb, var(--accent-2, #38bdf8) 18%, transparent)
   ) !important;
-  border-color: var(--accent, #fbbf24) !important;
-  color: #fef3c7 !important;
-  box-shadow: 0 0 16px color-mix(in srgb, var(--accent, #fbbf24) 18%, transparent);
+  border-color: var(--accent, #ffd369) !important;
+  color: #ffd369 !important;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent, #ffd369) 18%, transparent);
 }
 
 .focus-context-fields input,
@@ -295,7 +295,7 @@
 }
 
 .focus-summary-grid > div:nth-child(odd) strong {
-  color: var(--accent, #fbbf24) !important;
+  color: var(--accent, #ffd369) !important;
 }
 
 .focus-summary-grid > div:nth-child(even) strong {
@@ -351,8 +351,8 @@
 }
 
 .tasks-v3-tabs button.active {
-  background: color-mix(in srgb, var(--accent, #fbbf24) 18%, rgba(255, 255, 255, 0.04));
-  border-color: color-mix(in srgb, var(--accent, #fbbf24) 48%, transparent);
+  background: color-mix(in srgb, var(--accent, #ffd369) 18%, rgba(255, 255, 255, 0.04));
+  border-color: color-mix(in srgb, var(--accent, #ffd369) 48%, transparent);
   color: #ffffff;
 }
 
@@ -383,7 +383,7 @@
 .tk-pill.yellow {
   background: rgba(251, 191, 36, 0.14);
   border: 1px solid rgba(251, 191, 36, 0.32);
-  color: #fde68a;
+  color: #ffd369;
 }
 .tk-pill.done {
   background: rgba(129, 140, 248, 0.14);
@@ -398,13 +398,13 @@
   height: 38px;
   padding: 0 15px;
   border-radius: 11px;
-  border: 1px solid color-mix(in srgb, var(--accent, #fbbf24) 70%, #ffffff);
-  background: linear-gradient(135deg, var(--accent, #fbbf24), #f59e0b);
+  border: 1px solid color-mix(in srgb, var(--accent, #ffd369) 70%, #ffffff);
+  background: linear-gradient(135deg, var(--accent, #ffd369), #ff9808);
   color: #090a0e;
   font-size: 0.83rem;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent, #fbbf24) 28%, transparent);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent, #ffd369) 28%, transparent);
 }
 
 /* Kanban Task Board V3 */
@@ -438,8 +438,8 @@
 }
 
 .kb-column.is-over {
-  border-color: var(--accent, #fbbf24);
-  background: color-mix(in srgb, var(--accent, #fbbf24) 6%, var(--bg-card, #11141d));
+  border-color: var(--accent, #ffd369);
+  background: color-mix(in srgb, var(--accent, #ffd369) 6%, var(--bg-card, #11141d));
 }
 
 .kb-column.drop-locked {
@@ -482,7 +482,7 @@
 }
 .kb-col-icon.yellow {
   background: rgba(251, 191, 36, 0.16);
-  color: #fbbf24;
+  color: #ffd369;
 }
 .kb-col-icon.blue {
   background: rgba(129, 140, 248, 0.16);
@@ -522,8 +522,8 @@
   cursor: pointer;
 }
 .kb-col-add:hover {
-  border-color: var(--accent, #fbbf24);
-  color: var(--accent, #fbbf24);
+  border-color: var(--accent, #ffd369);
+  color: var(--accent, #ffd369);
 }
 
 .kb-col-cards {
@@ -609,7 +609,7 @@
 }
 .kb-prio-pill.medium {
   background: rgba(251, 191, 36, 0.15);
-  color: #fde68a;
+  color: #ffd369;
 }
 .kb-prio-pill.high {
   background: rgba(244, 63, 94, 0.16);
@@ -661,9 +661,9 @@
   gap: 4px;
   padding: 2px 8px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--slot-tone, #fbbf24) 16%, transparent);
-  border: 1px solid color-mix(in srgb, var(--slot-tone, #fbbf24) 44%, transparent);
-  color: var(--slot-tone, #fbbf24);
+  background: color-mix(in srgb, var(--slot-tone, #ffd369) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--slot-tone, #ffd369) 44%, transparent);
+  color: var(--slot-tone, #ffd369);
   font-size: 0.7rem;
   font-weight: 800;
 }
@@ -685,15 +685,15 @@
   height: 29px;
   padding: 0 11px;
   border-radius: 8px;
-  border: 1px solid color-mix(in srgb, var(--accent, #fbbf24) 60%, transparent);
-  background: color-mix(in srgb, var(--accent, #fbbf24) 18%, transparent);
-  color: #fef3c7;
+  border: 1px solid color-mix(in srgb, var(--accent, #ffd369) 60%, transparent);
+  background: color-mix(in srgb, var(--accent, #ffd369) 18%, transparent);
+  color: #ffd369;
   font-size: 0.75rem;
   font-weight: 800;
   cursor: pointer;
 }
 .kb-focus-btn:hover {
-  background: var(--accent, #fbbf24);
+  background: var(--accent, #ffd369);
   color: #090a0e;
 }
 
@@ -758,7 +758,7 @@
   padding: 11px 14px;
   border-radius: 13px;
   background: rgba(15, 19, 30, 0.95);
-  border: 1.5px solid var(--accent, #fbbf24);
+  border: 1.5px solid var(--accent, #ffd369);
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
@@ -766,7 +766,7 @@
 }
 .kb-drag-ghost small {
   font-size: 0.68rem;
-  color: var(--accent, #fbbf24);
+  color: var(--accent, #ffd369);
 }
 .kb-drag-ghost strong {
   font-size: 0.84rem;
@@ -820,8 +820,8 @@
 }
 .tl-step-btn:hover,
 .tl-today-pill:hover {
-  border-color: var(--accent, #fbbf24);
-  color: var(--accent, #fbbf24);
+  border-color: var(--accent, #ffd369);
+  color: var(--accent, #ffd369);
 }
 
 .tl-week-days-grid {
@@ -866,9 +866,9 @@
 }
 
 .tl-day-btn.selected {
-  background: color-mix(in srgb, var(--accent, #fbbf24) 18%, rgba(255, 255, 255, 0.03));
-  border-color: var(--accent, #fbbf24);
-  color: #fef3c7;
+  background: color-mix(in srgb, var(--accent, #ffd369) 18%, rgba(255, 255, 255, 0.03));
+  border-color: var(--accent, #ffd369);
+  color: #ffd369;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
@@ -925,7 +925,7 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent, #fbbf24), var(--accent-2, #38bdf8));
+  background: linear-gradient(90deg, var(--accent, #ffd369), var(--accent-2, #38bdf8));
 }
 
 .tl-rows-stack {
@@ -959,9 +959,9 @@
   width: 100%;
   padding: 6px 8px;
   border-radius: 10px;
-  background: color-mix(in srgb, var(--slot-tone, #fbbf24) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--slot-tone, #fbbf24) 42%, transparent);
-  color: var(--slot-tone, #fbbf24);
+  background: color-mix(in srgb, var(--slot-tone, #ffd369) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--slot-tone, #ffd369) 42%, transparent);
+  color: var(--slot-tone, #ffd369);
   font-size: 0.75rem;
   font-weight: 800;
 }
@@ -982,7 +982,7 @@
   height: 10px;
   border-radius: 50%;
   background: #0d1018;
-  border: 2.5px solid var(--accent, #fbbf24);
+  border: 2.5px solid var(--accent, #ffd369);
 }
 .tl-rail-node.done {
   background: var(--accent-2, #38bdf8);
@@ -1012,7 +1012,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent, #fbbf24);
+  color: var(--accent, #ffd369);
   flex-shrink: 0;
 }
 
@@ -1101,7 +1101,7 @@
 }
 .tp-field > input:focus {
   outline: none;
-  border-color: var(--accent, #fbbf24);
+  border-color: var(--accent, #ffd369);
 }
 
 .tp-two {
@@ -1133,9 +1133,9 @@
   cursor: pointer;
 }
 .tp-chip-row button.selected {
-  background: color-mix(in srgb, var(--accent, #fbbf24) 20%, transparent);
-  border-color: var(--accent, #fbbf24);
-  color: #fef3c7;
+  background: color-mix(in srgb, var(--accent, #ffd369) 20%, transparent);
+  border-color: var(--accent, #ffd369);
+  color: #ffd369;
 }
 
 .tp-modal-actions {
@@ -1204,7 +1204,7 @@
 }
 
 .iv-anim-bar.is-active {
-  filter: drop-shadow(0 0 10px var(--iv-tone-mid, #f59e0b));
+  filter: drop-shadow(0 0 10px var(--iv-tone-mid, #ff9808));
 }
 
 @keyframes ivBarRise {
@@ -1403,7 +1403,7 @@
 }
 
 .sp-tl-group.today .sp-tl-dot {
-  background: #fbbf24;
+  background: #ffd369;
   box-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
 }
 
@@ -1470,7 +1470,7 @@
   gap: 5px;
   font-size: 0.74rem;
   font-weight: 800;
-  color: var(--accent, #fbbf24);
+  color: var(--accent, #ffd369);
 }
 
 .guard-premade-grid {
@@ -1570,9 +1570,9 @@
 }
 
 .guard-site-pill.allowed {
-  background: color-mix(in srgb, var(--accent, #fbbf24) 15%, transparent);
-  border-color: color-mix(in srgb, var(--accent, #fbbf24) 48%, transparent);
-  color: #fde68a;
+  background: color-mix(in srgb, var(--accent, #ffd369) 15%, transparent);
+  border-color: color-mix(in srgb, var(--accent, #ffd369) 48%, transparent);
+  color: #ffd369;
 }
 
 .guard-custom-drawer {
@@ -1628,7 +1628,7 @@
   padding: 14px;
   border-radius: 16px;
   background: rgba(7, 10, 17, 0.78);
-  border: 1px solid color-mix(in srgb, var(--accent, #fbbf24) 30%, rgba(255, 255, 255, 0.1));
+  border: 1px solid color-mix(in srgb, var(--accent, #ffd369) 30%, rgba(255, 255, 255, 0.1));
 }
 
 .jn-compose-glass textarea {
@@ -1665,8 +1665,8 @@
   height: 35px;
   padding: 0 14px;
   border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--accent, #fbbf24) 68%, #ffffff);
-  background: linear-gradient(135deg, var(--accent, #fbbf24), #f59e0b);
+  border: 1px solid color-mix(in srgb, var(--accent, #ffd369) 68%, #ffffff);
+  background: linear-gradient(135deg, var(--accent, #ffd369), #ff9808);
   color: #090a0e;
   font-size: 0.8rem;
   font-weight: 800;
@@ -1821,8 +1821,8 @@
 }
 
 .st-theme-card.selected {
-  background: color-mix(in srgb, var(--accent, #fbbf24) 14%, rgba(255, 255, 255, 0.03));
-  border-color: var(--accent, #fbbf24);
+  background: color-mix(in srgb, var(--accent, #ffd369) 14%, rgba(255, 255, 255, 0.03));
+  border-color: var(--accent, #ffd369);
 }
 
 .st-swatches {
@@ -1855,7 +1855,7 @@
   color: #94a3b8;
 }
 .st-check {
-  color: var(--accent, #fbbf24);
+  color: var(--accent, #ffd369);
 }
 
 .st-pip-version-toggle {
@@ -1908,8 +1908,8 @@
 }
 
 .st-clock-card.selected {
-  border-color: var(--accent, #fbbf24);
-  background: color-mix(in srgb, var(--accent, #fbbf24) 10%, rgba(255, 255, 255, 0.02));
+  border-color: var(--accent, #ffd369);
+  background: color-mix(in srgb, var(--accent, #ffd369) 10%, rgba(255, 255, 255, 0.02));
 }
 
 .st-clock-mini-preview {
@@ -1960,7 +1960,7 @@
 .mini-start-pill {
   padding: 2px 18px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--accent, #fbbf24) 85%, #ffffff);
+  background: color-mix(in srgb, var(--accent, #ffd369) 85%, #ffffff);
   color: #090a0e;
   font-size: 0.6rem;
   font-weight: 900;
@@ -1987,7 +1987,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent, #fbbf24);
+  background: var(--accent, #ffd369);
 }
 .mini-classic-row {
   display: flex;
@@ -2002,7 +2002,7 @@
   width: 20px;
   height: 20px;
   border-radius: 6px;
-  background: var(--accent, #fbbf24);
+  background: var(--accent, #ffd369);
   color: #090a0e;
   font-size: 0.62rem;
   display: inline-flex;
@@ -2023,7 +2023,7 @@
   width: 24px;
   height: 28px;
   border-radius: 6px;
-  background: var(--accent, #fbbf24);
+  background: var(--accent, #ffd369);
   color: #090a0e;
   font-size: 0.68rem;
   font-weight: 900;
@@ -2055,8 +2055,8 @@
   gap: 4px;
   padding: 3px 8px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--accent, #fbbf24) 22%, transparent);
-  color: var(--accent, #fbbf24);
+  background: color-mix(in srgb, var(--accent, #ffd369) 22%, transparent);
+  color: var(--accent, #ffd369);
   font-size: 0.69rem;
   font-weight: 800;
   white-space: nowrap;
@@ -2390,8 +2390,8 @@
   border: 0;
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--accent, #fbbf24) 88%, #ffffff),
-    var(--accent, #f59e0b)
+    color-mix(in srgb, var(--accent, #ffd369) 88%, #ffffff),
+    var(--accent, #ff9808)
   );
   color: #090a0e;
   font-size: 0.72rem;
@@ -2402,7 +2402,7 @@
   justify-content: center;
   gap: 5px;
   cursor: pointer;
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent, #fbbf24) 30%, transparent);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent, #ffd369) 30%, transparent);
 }
 
 .pip-flip-start-pill.narrow {
@@ -2419,7 +2419,7 @@
 /* STYLE 2: Original Study Sentry PiP — Snug, Zero Empty Space, No Enlarge Button */
 .pip-v3-shell.style-classic {
   border-radius: 16px !important;
-  border-color: color-mix(in srgb, var(--accent, #fbbf24) 48%, rgba(255, 255, 255, 0.16)) !important;
+  border-color: color-mix(in srgb, var(--accent, #ffd369) 48%, rgba(255, 255, 255, 0.16)) !important;
 }
 
 .pip-classic-snug {
@@ -2508,7 +2508,7 @@
   height: 32px;
   border-radius: 10px;
   border: 0;
-  background: linear-gradient(135deg, var(--accent, #fbbf24), #f59e0b);
+  background: linear-gradient(135deg, var(--accent, #ffd369), #ff9808);
   color: #090a0e;
   display: inline-flex;
   align-items: center;
@@ -2559,9 +2559,9 @@
   cursor: pointer;
 }
 .pcs-subj-strip button.active {
-  border-color: var(--accent, #fbbf24);
-  color: #fef3c7;
-  background: color-mix(in srgb, var(--accent, #fbbf24) 18%, transparent);
+  border-color: var(--accent, #ffd369);
+  color: #ffd369;
+  background: color-mix(in srgb, var(--accent, #ffd369) 18%, transparent);
 }
 
 .pcs-step-mini {
@@ -2598,7 +2598,7 @@
 .pcs-progress-line i {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, var(--accent, #fbbf24), var(--accent-2, #38bdf8));
+  background: linear-gradient(90deg, var(--accent, #ffd369), var(--accent-2, #38bdf8));
 }
 
 /* STYLE 3: Horizontal Inline Flip Strip (Image 4 Reference — Neon Border + Yellow Side Action) */
@@ -2648,13 +2648,13 @@
 .pis-action-block {
   position: relative;
   border-radius: 11px;
-  background: linear-gradient(180deg, var(--accent, #fbbf24), color-mix(in srgb, var(--accent, #f59e0b) 88%, #d97706));
+  background: linear-gradient(180deg, var(--accent, #ffd369), color-mix(in srgb, var(--accent, #ff9808) 88%, #ff9808));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent, #fbbf24) 32%, transparent);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent, #ffd369) 32%, transparent);
 }
 
 .pis-action-block.alarm {
@@ -2746,8 +2746,8 @@
 }
 
 .pcp-item:hover .pcp-icon {
-  border-color: color-mix(in srgb, var(--accent, #fbbf24) 55%, transparent);
-  color: var(--accent, #fbbf24);
+  border-color: color-mix(in srgb, var(--accent, #ffd369) 55%, transparent);
+  color: var(--accent, #ffd369);
 }
 
 .pcp-goal-dots {
@@ -2766,9 +2766,9 @@
 }
 
 .pcp-goal-dots i.filled {
-  background: var(--accent, #fbbf24);
-  border-color: var(--accent, #fbbf24);
-  box-shadow: 0 0 6px var(--accent, #fbbf24);
+  background: var(--accent, #ffd369);
+  border-color: var(--accent, #ffd369);
+  box-shadow: 0 0 6px var(--accent, #ffd369);
 }
 
 .pcp-divider {
@@ -2810,6 +2810,6 @@
 }
 .pcp-sub-item:hover,
 .pcp-sub-item.selected {
-  background: color-mix(in srgb, var(--accent, #fbbf24) 18%, transparent);
-  color: #fef3c7;
+  background: color-mix(in srgb, var(--accent, #ffd369) 18%, transparent);
+  color: #ffd369;
 }

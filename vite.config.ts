@@ -129,6 +129,11 @@ export default defineConfig({
     jsxDev: false,
   },
   plugins: [react(), tailwindcss(), localDevStoragePlugin()],
+  optimizeDeps: {
+    // Scan the active app entry only; generated dist-web bundles contain
+    // optional peer imports that are intentionally absent from the desktop app.
+    entries: ['index.html'],
+  },
   envPrefix: ['VITE_', 'TAURI_ENV_*'],
   server: {
     host,

@@ -183,7 +183,7 @@ export default function FocusSessionView() {
     <div className="view-page focus-session-page v4-focus-page">
       {/* MAIN ILLUSTRATIVE + BODONI FOCUS STUDIO CARD */}
       <section
-        className={`card compact-focus v4-focus-studio ${
+        className={`card compact-focus v4-focus-studio v61-focus-shell ${
           isAlarm ? 'focus-alarm-active' : ''
         } ${isBreak ? 'is-break-stage' : ''} ${isPaused ? 'is-paused-stage' : ''}`}
         aria-label="Focus Studio"
@@ -316,7 +316,7 @@ export default function FocusSessionView() {
                       <AnalogFocusDial
                         remainingSec={dialRemainingSec}
                         totalSec={dialTotalSec}
-                        size={230}
+                        size={250}
                         isAlarm={isAlarm}
                         isPaused={isPaused}
                         isRunning={isRunning}
@@ -598,7 +598,7 @@ export default function FocusSessionView() {
                     সংযুক্ত কাজ সরান
                   </button>
                 )}
-                <button type="button" className="action-btn primary-emerald" onClick={() => setConfigDialog(false)}>
+                <button type="button" className="action-btn primary-emerald" data-modal-default-action onClick={() => setConfigDialog(false)}>
                   ঠিক আছে
                 </button>
               </div>
@@ -606,15 +606,10 @@ export default function FocusSessionView() {
           </div>
         </ModalShell>,document.body)}
 
-      </section>
-
-      {/* The configuration summary now belongs to the Focus page, not the
-          editor. It remains visible below the session card after the sheet is
-          closed, exactly where the student can review it before starting. */}
-      {!isBreak && (
+        {/* Keep the live controls and the current configuration in one rounded Focus card. */}
         <section className="v54-focus-summary-card" aria-label="ফোকাস সেশনের সারাংশ">
           <header className="v54-focus-summary-heading">
-            <span className="v54-focus-summary-icon"><SummaryActivityIcon size={17} /></span>
+            <span className="v54-focus-summary-icon"><SummaryActivityIcon size={20} /></span>
             <div>
               <small>ফোকাস সেশন</small>
               <strong>আপনার বর্তমান কনফিগারেশন</strong>
@@ -622,28 +617,28 @@ export default function FocusSessionView() {
           </header>
           <div className="v54-focus-summary-grid">
             <div className="v54-focus-summary-item">
-              <Clock3 size={15} />
+              <Clock3 size={19} />
               <span>ফোকাস সময়</span>
               <b>{mode === 'stopwatch' ? 'স্টপওয়াচ' : `${bnNum(prefs.focusMin || 50)} মিনিট`}</b>
             </div>
             <div className="v54-focus-summary-item">
-              <Timer size={15} />
+              <Timer size={19} />
               <span>বিরতি</span>
               <b>{bnNum(prefs.breakMin || 10)} মিনিট</b>
             </div>
             <div className="v54-focus-summary-item">
-              <BookOpen size={15} />
+              <BookOpen size={19} />
               <span>বিষয় ও অধ্যায়</span>
               <b>{selectedSubject ? bnSubject(selectedSubject.name) : 'বিষয় বাছুন'}{draft.chapter ? ` · ${bnChapterName(draft.chapter)}` : ''}</b>
             </div>
             <div className="v54-focus-summary-item">
-              <SummaryActivityIcon size={15} />
+              <SummaryActivityIcon size={19} />
               <span>পড়ার ধরন</span>
               <b>{summaryActivityLabel}</b>
             </div>
           </div>
         </section>
-      )}
+      </section>
 
       {/* ILLUSTRATION FULLSCREEN - the Study Lounge scene, edge to edge */}
       {illumFullscreen &&

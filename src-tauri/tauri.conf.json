@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Study Sentry",
   "mainBinaryName": "Study Sentry",
-  "version": "4.3.5",
+  "version": "4.3.6",
   "identifier": "com.studysentry.desktop.personal",
   "build": {
     "beforeDevCommand": "npm run dev",
@@ -29,7 +29,7 @@
         "shadow": true,
         "theme": "Dark",
         "dragDropEnabled": false,
-        "backgroundColor": "#090a0e"
+        "backgroundColor": "#0b132b"
       },
       {
         "label": "pip",

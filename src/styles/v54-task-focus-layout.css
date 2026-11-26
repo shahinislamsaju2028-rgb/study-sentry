@@ -137,21 +137,21 @@
 
 /* The active subject is identified by its own colour, never a white outline. */
 .premium-subject-grid.v48-subject-chips .premium-subject-card.selected {
-  border-color: color-mix(in srgb, var(--sc-color, #fbbf24) 82%, #ffffff 12%) !important;
+  border-color: color-mix(in srgb, var(--sc-color, #ffd369) 82%, #ffffff 12%) !important;
   background:
-    radial-gradient(125% 150% at 0% 0%, color-mix(in srgb, var(--sc-color, #fbbf24) 21%, transparent), transparent 68%),
-    linear-gradient(145deg, color-mix(in srgb, var(--sc-bg, #222b3a) 78%, var(--sc-color, #fbbf24) 13%), #111722) !important;
+    radial-gradient(125% 150% at 0% 0%, color-mix(in srgb, var(--sc-color, #ffd369) 21%, transparent), transparent 68%),
+    linear-gradient(145deg, color-mix(in srgb, var(--sc-bg, #222b3a) 78%, var(--sc-color, #ffd369) 13%), #111722) !important;
   box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--sc-color, #fbbf24) 42%, transparent),
-    0 0 18px -5px color-mix(in srgb, var(--sc-color, #fbbf24) 72%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--sc-color, #ffd369) 42%, transparent),
+    0 0 18px -5px color-mix(in srgb, var(--sc-color, #ffd369) 72%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
   color: #fffaf0 !important;
 }
 
 .premium-subject-grid.v48-subject-chips .premium-subject-card.selected .premium-subject-icon {
   box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--sc-color, #fbbf24) 50%, transparent),
-    0 0 12px -3px color-mix(in srgb, var(--sc-color, #fbbf24) 70%, transparent);
+    0 0 0 1px color-mix(in srgb, var(--sc-color, #ffd369) 50%, transparent),
+    0 0 12px -3px color-mix(in srgb, var(--sc-color, #ffd369) 70%, transparent);
 }
 
 /* ── One shared chapter selector everywhere ────────────────────────────── */
@@ -178,7 +178,7 @@
   flex: 0 0 auto;
   width: 15px;
   height: 15px;
-  color: var(--chp-accent, #fbbf24) !important;
+  color: var(--chp-accent, #ffd369) !important;
 }
 
 .chapter-picker-subject-name {
@@ -258,11 +258,11 @@
   height: auto !important;
   padding: 6px 10px !important;
   border-radius: 999px !important;
-  border: 1px solid color-mix(in srgb, var(--chp-accent, #fbbf24) 24%, rgba(148, 163, 184, 0.16)) !important;
+  border: 1px solid color-mix(in srgb, var(--chp-accent, #ffd369) 24%, rgba(148, 163, 184, 0.16)) !important;
   background:
     linear-gradient(135deg,
-      color-mix(in srgb, var(--chp-accent, #fbbf24) 12%, #202633) 0%,
-      color-mix(in srgb, var(--chp-accent, #fbbf24) 6%, #121821) 58%,
+      color-mix(in srgb, var(--chp-accent, #ffd369) 12%, #202633) 0%,
+      color-mix(in srgb, var(--chp-accent, #ffd369) 6%, #121821) 58%,
       #111720 100%) !important;
   color: #dbe4ef !important;
   box-shadow:
@@ -287,9 +287,9 @@
   width: 20px;
   height: 20px;
   border-radius: 7px;
-  color: color-mix(in srgb, var(--chp-accent, #fbbf24) 78%, #ffffff);
-  background: color-mix(in srgb, var(--chp-accent, #fbbf24) 17%, rgba(14, 19, 28, 0.68));
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--chp-accent, #fbbf24) 28%, transparent);
+  color: color-mix(in srgb, var(--chp-accent, #ffd369) 78%, #ffffff);
+  background: color-mix(in srgb, var(--chp-accent, #ffd369) 17%, rgba(14, 19, 28, 0.68));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--chp-accent, #ffd369) 28%, transparent);
 }
 
 .chapter-picker .chapter-picker-name {
@@ -309,34 +309,34 @@
 
 .chapter-picker .chapter-picker-card:hover {
   transform: translateY(-1px) !important;
-  border-color: color-mix(in srgb, var(--chp-accent, #fbbf24) 52%, transparent) !important;
+  border-color: color-mix(in srgb, var(--chp-accent, #ffd369) 52%, transparent) !important;
   background:
     linear-gradient(135deg,
-      color-mix(in srgb, var(--chp-accent, #fbbf24) 19%, #202633),
-      color-mix(in srgb, var(--chp-accent, #fbbf24) 9%, #121821)) !important;
+      color-mix(in srgb, var(--chp-accent, #ffd369) 19%, #202633),
+      color-mix(in srgb, var(--chp-accent, #ffd369) 9%, #121821)) !important;
   box-shadow:
-    0 5px 15px -8px color-mix(in srgb, var(--chp-accent, #fbbf24) 55%, transparent),
+    0 5px 15px -8px color-mix(in srgb, var(--chp-accent, #ffd369) 55%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
 }
 
 .chapter-picker .chapter-picker-card.is-active {
-  border-color: color-mix(in srgb, var(--chp-accent, #fbbf24) 82%, #ffffff 8%) !important;
+  border-color: color-mix(in srgb, var(--chp-accent, #ffd369) 82%, #ffffff 8%) !important;
   background:
     linear-gradient(132deg,
-      color-mix(in srgb, var(--chp-accent, #fbbf24) 34%, #202633) 0%,
-      color-mix(in srgb, var(--chp-accent, #fbbf24) 19%, #171c27) 56%,
-      color-mix(in srgb, var(--chp-accent, #fbbf24) 11%, #101720) 100%) !important;
+      color-mix(in srgb, var(--chp-accent, #ffd369) 34%, #202633) 0%,
+      color-mix(in srgb, var(--chp-accent, #ffd369) 19%, #171c27) 56%,
+      color-mix(in srgb, var(--chp-accent, #ffd369) 11%, #101720) 100%) !important;
   color: #fff8e9 !important;
   box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--chp-accent, #fbbf24) 36%, transparent),
-    0 0 19px -5px color-mix(in srgb, var(--chp-accent, #fbbf24) 72%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--chp-accent, #ffd369) 36%, transparent),
+    0 0 19px -5px color-mix(in srgb, var(--chp-accent, #ffd369) 72%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
 }
 
 .chapter-picker .chapter-picker-card.is-active .chapter-picker-leading {
   color: #17120a;
-  background: color-mix(in srgb, var(--chp-accent, #fbbf24) 92%, #ffffff 8%);
-  box-shadow: 0 0 12px -2px color-mix(in srgb, var(--chp-accent, #fbbf24) 82%, transparent);
+  background: color-mix(in srgb, var(--chp-accent, #ffd369) 92%, #ffffff 8%);
+  box-shadow: 0 0 12px -2px color-mix(in srgb, var(--chp-accent, #ffd369) 82%, transparent);
 }
 
 .chapter-picker .chapter-picker-card.is-active .chapter-picker-name {
@@ -347,7 +347,7 @@
   flex: 0 0 auto;
   margin-left: 1px;
   color: #fff4d5;
-  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--chp-accent, #fbbf24) 68%, transparent));
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--chp-accent, #ffd369) 68%, transparent));
 }
 
 /* ── New Task full-screen composer: two balanced working columns ────────── */
@@ -553,10 +553,10 @@
 }
 
 .v54-slot-picker .premade-slot-btn.selected {
-  border-color: color-mix(in srgb, var(--slot-tone, #fbbf24) 78%, #ffffff 7%) !important;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--slot-tone, #fbbf24) 31%, #202633), color-mix(in srgb, var(--slot-tone, #fbbf24) 12%, #121821)) !important;
+  border-color: color-mix(in srgb, var(--slot-tone, #ffd369) 78%, #ffffff 7%) !important;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--slot-tone, #ffd369) 31%, #202633), color-mix(in srgb, var(--slot-tone, #ffd369) 12%, #121821)) !important;
   color: #fffaf0;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--slot-tone, #fbbf24) 25%, transparent), 0 0 17px -7px color-mix(in srgb, var(--slot-tone, #fbbf24) 72%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--slot-tone, #ffd369) 25%, transparent), 0 0 17px -7px color-mix(in srgb, var(--slot-tone, #ffd369) 72%, transparent) !important;
 }
 
 .v54-task-datetime-grid {
@@ -660,19 +660,19 @@
 
 .v54-choice-pill svg {
   flex: 0 0 auto;
-  color: color-mix(in srgb, var(--choice-tone, #fbbf24) 80%, #ffffff);
+  color: color-mix(in srgb, var(--choice-tone, #ffd369) 80%, #ffffff);
 }
 
 .v54-choice-pill:hover:not(:disabled) {
   color: #e8eff8;
-  background: color-mix(in srgb, var(--choice-tone, #fbbf24) 9%, transparent);
+  background: color-mix(in srgb, var(--choice-tone, #ffd369) 9%, transparent);
 }
 
 .v54-choice-pill.is-active {
   color: #fffaf0;
-  border-color: color-mix(in srgb, var(--choice-tone, #fbbf24) 68%, transparent);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--choice-tone, #fbbf24) 25%, #18202b), color-mix(in srgb, var(--choice-tone, #fbbf24) 10%, #111720));
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--choice-tone, #fbbf24) 22%, transparent), 0 0 15px -7px color-mix(in srgb, var(--choice-tone, #fbbf24) 72%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.13);
+  border-color: color-mix(in srgb, var(--choice-tone, #ffd369) 68%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--choice-tone, #ffd369) 25%, #18202b), color-mix(in srgb, var(--choice-tone, #ffd369) 10%, #111720));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--choice-tone, #ffd369) 22%, transparent), 0 0 15px -7px color-mix(in srgb, var(--choice-tone, #ffd369) 72%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.13);
 }
 
 .v54-task-actions {

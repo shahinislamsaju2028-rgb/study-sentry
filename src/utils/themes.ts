@@ -12,25 +12,24 @@ export interface DarkThemeOption {
 
 /**
  * One complete full-atmosphere studio theme.
- *
- * The student asked for a single, unmistakable identity — Obsidian Gold —
- * so the palette is deliberately locked to it across the whole workspace.
+ * The stable ID preserves saved preferences while the visible theme uses the
+ * supplied navy, slate, ocean, forest, violet, magenta, gold, orange, and plum palette.
  */
 export const DARK_THEMES: DarkThemeOption[] = [
   {
     id: 'obsidian-amber',
-    name: 'Obsidian Gold',
-    bnName: 'কার্বন অবসিডিয়ান ও গোল্ড',
-    subtitle: 'Deep Carbon · Champagne Gold',
-    swatches: ['#090a0f', '#151822', '#f59e0b', '#fbbf24'],
+    name: 'Midnight Prism',
+    bnName: 'মিডনাইট প্রিজম · রঙিন রাত',
+    subtitle: 'Navy · Forest · Teal · Violet · Magenta · Gold',
+    swatches: ['#0b132b', '#202940', '#ffd369', '#7a1cac'],
   },
 ];
 
 export const DEFAULT_THEME_ID: DarkThemeId = 'obsidian-amber';
 
 /**
- * Obsidian Gold is the only theme — any legacy value resolves back to it so
- * an older saved preference can never resurrect a removed palette.
+ * Midnight Prism is the single active theme. The stable ID keeps existing
+ * saved preferences compatible while legacy values resolve safely.
  */
 export function resolveThemeId(raw?: string | null): DarkThemeId {
   return DEFAULT_THEME_ID;

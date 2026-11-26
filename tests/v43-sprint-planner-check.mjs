@@ -2,9 +2,9 @@
  * SPRINT PLANNER — RENDER CHECK
  *
  * Mounts the real SprintView with a mocked study context and asserts the
- * redesigned first section really is one horizontal row of four columns,
- * that no class-count dropdown survived, and that the group-aware subject
- * tiles show the selected group's subjects.
+ * redesigned first section has its plan fields in one row and its workload
+ * controls in a separate horizontal row of five, that no class-count dropdown
+ * survived, and that group-aware subject tiles show the selected group's subjects.
  */
 import { JSDOM } from 'jsdom';
 import assert from 'node:assert/strict';
@@ -162,14 +162,15 @@ try {
     assert.ok(/ক্লাস সংখ্যা/.test(html), 'the class-count stepper is missing');
   });
 
-  ok('class count, class time, sheet review and practice share ONE row of four', () => {
+  ok('class count, class time, sheet, review, and practice share ONE row of five', () => {
     const quad = document.querySelector('.v45-quad');
-    assert.ok(quad, 'the four-column stepper row is missing');
-    assert.equal(quad.children.length, 4, 'the row must hold exactly four cells');
+    assert.ok(quad, 'the workload-control row is missing');
+    assert.equal(quad.children.length, 5, 'the row must hold exactly five controls');
     const labels = quad.textContent || '';
     assert.ok(/ক্লাস সংখ্যা/.test(labels), 'class count is missing from the row');
     assert.ok(/প্রতি ক্লাসের সময়/.test(labels), 'class time is missing from the row');
-    assert.ok(/শিট রিভিউ/.test(labels), 'sheet review is missing from the row');
+    assert.ok(/শিট/.test(labels), 'sheet duration is missing from the row');
+    assert.ok(/রিভিউ/.test(labels), 'review duration is missing from the row');
     assert.ok(/প্র্যাকটিস/.test(labels), 'practice is missing from the row');
   });
 

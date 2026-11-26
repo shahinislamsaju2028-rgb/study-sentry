@@ -156,7 +156,7 @@ export function FloatingTimer(props = {}) {
         state?.subjects?.find((s) => s.id === timer.subjectId || s.name === timer.subjectName) || {
           id: timer.subjectId || 'active',
           name: timer.subjectName,
-          color: '#fbbf24',
+          color: '#ffd369',
         }
       );
     }

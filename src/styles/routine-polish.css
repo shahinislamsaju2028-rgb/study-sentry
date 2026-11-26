@@ -115,12 +115,12 @@
 
 .dt-cell:hover {
   transform: translate3d(0, -2px, 0) scale(1.07);
-  border-color: var(--accent-primary-bright, #fbbf24) !important;
+  border-color: var(--accent-primary-bright, #ffd369) !important;
 }
 
 .dt-cell.done {
-  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 28%, var(--bg-card-elevated, #171a26)) !important;
-  border-color: var(--accent-primary-bright, #fbbf24) !important;
+  background: color-mix(in srgb, var(--accent-primary, #ff9808) 28%, var(--bg-card-elevated, #171a26)) !important;
+  border-color: var(--accent-primary-bright, #ffd369) !important;
   color: #ffffff !important;
 }
 
@@ -155,7 +155,7 @@
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: var(--accent-primary-bright, #fbbf24);
+  color: var(--accent-primary-bright, #ffd369);
 }
 
 .wr-hero-copy h3 {
@@ -213,9 +213,9 @@
   border-radius: 999px;
   font-size: 12px;
   font-weight: 650;
-  color: var(--accent-primary-bright, #fbbf24);
-  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 28%, transparent);
+  color: var(--accent-primary-bright, #ffd369);
+  background: color-mix(in srgb, var(--accent-primary, #ff9808) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #ffd369) 28%, transparent);
 }
 
 .wr-save-pill.error {
@@ -280,11 +280,11 @@
 .wr-mode-toggle button.active {
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--accent-primary, #f59e0b) 24%, var(--bg-card-elevated, #171a26)),
+    color-mix(in srgb, var(--accent-primary, #ff9808) 24%, var(--bg-card-elevated, #171a26)),
     color-mix(in srgb, var(--accent-secondary, #6366f1) 18%, var(--bg-card, #12141d))
   );
   color: var(--text-primary, #f8fafc);
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 48%, transparent);
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 48%, transparent);
 }
 
 .wr-copy-day-btn {
@@ -303,7 +303,7 @@
 }
 
 .wr-copy-day-btn:hover {
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 48%, transparent);
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 48%, transparent);
   background: var(--bg-card-elevated, #171a26);
 }
 
@@ -342,12 +342,12 @@
 .wr-day-pill.selected {
   background: linear-gradient(
     145deg,
-    color-mix(in srgb, var(--accent-primary, #f59e0b) 22%, var(--bg-card-elevated, #171a26)),
+    color-mix(in srgb, var(--accent-primary, #ff9808) 22%, var(--bg-card-elevated, #171a26)),
     var(--bg-card, #12141d)
   );
-  border-color: var(--accent-primary-bright, #fbbf24);
+  border-color: var(--accent-primary-bright, #ffd369);
   color: var(--text-primary, #f8fafc);
-  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent-primary, #f59e0b) 18%, transparent);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent-primary, #ff9808) 18%, transparent);
   transform: translate3d(0, -2px, 0);
 }
 
@@ -369,7 +369,7 @@
   padding: 1px 6px;
   border-radius: 999px;
   color: var(--btn-primary-ink, #0b0c10);
-  background: var(--accent-primary-bright, #fbbf24);
+  background: var(--accent-primary-bright, #ffd369);
 }
 
 .wr-day-dots {
@@ -402,13 +402,13 @@
   gap: 11px;
   padding: 16px 18px !important;
   border-radius: 17px !important;
-  border-top: 2px solid color-mix(in srgb, var(--period-tone, #fbbf24) 55%, transparent) !important;
+  border-top: 2px solid color-mix(in srgb, var(--period-tone, #ffd369) 55%, transparent) !important;
 }
 
 .wr-period-card.has-plan {
   background: linear-gradient(
     165deg,
-    color-mix(in srgb, var(--period-tone, #fbbf24) 7%, var(--bg-card-elevated, #171a26)) 0%,
+    color-mix(in srgb, var(--period-tone, #ffd369) 7%, var(--bg-card-elevated, #171a26)) 0%,
     var(--bg-card-bottom, #0d0f16) 100%
   ) !important;
 }
@@ -426,9 +426,9 @@
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  color: var(--period-tone, #fbbf24);
-  background: color-mix(in srgb, var(--period-tone, #fbbf24) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--period-tone, #fbbf24) 34%, transparent);
+  color: var(--period-tone, #ffd369);
+  background: color-mix(in srgb, var(--period-tone, #ffd369) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--period-tone, #ffd369) 34%, transparent);
 }
 
 .wr-period-title {
@@ -482,8 +482,8 @@
 
 .wr-subj-chip:hover {
   color: var(--text-primary, #f8fafc);
-  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 16%, transparent);
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 42%, transparent);
+  background: color-mix(in srgb, var(--accent-primary, #ff9808) 16%, transparent);
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 42%, transparent);
 }
 
 .wr-modern-textarea {
@@ -500,7 +500,7 @@
 }
 
 .wr-modern-textarea:focus {
-  border-color: color-mix(in srgb, var(--period-tone, #fbbf24) 65%, transparent) !important;
+  border-color: color-mix(in srgb, var(--period-tone, #ffd369) 65%, transparent) !important;
   outline: none !important;
 }
 
@@ -524,8 +524,8 @@
 }
 
 .wr-bell-picker.active {
-  border-color: color-mix(in srgb, var(--period-tone, #fbbf24) 48%, transparent);
-  background: color-mix(in srgb, var(--period-tone, #fbbf24) 9%, var(--bg-input, #0c0e15));
+  border-color: color-mix(in srgb, var(--period-tone, #ffd369) 48%, transparent);
+  background: color-mix(in srgb, var(--period-tone, #ffd369) 9%, var(--bg-input, #0c0e15));
 }
 
 .wr-bell-label {
@@ -539,7 +539,7 @@
 }
 
 .wr-bell-picker.active .wr-bell-label {
-  color: var(--period-tone, #fbbf24);
+  color: var(--period-tone, #ffd369);
 }
 
 .wr-bell-picker .cp-anchor {
@@ -611,7 +611,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--period-tone, #fbbf24);
+  color: var(--period-tone, #ffd369);
 }
 
 .wr-matrix-rows {
@@ -643,8 +643,8 @@
 }
 
 .wr-matrix-row.is-today .wr-matrix-day {
-  border-color: var(--accent-primary-bright, #fbbf24);
-  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 14%, var(--bg-tile, #141722));
+  border-color: var(--accent-primary-bright, #ffd369);
+  background: color-mix(in srgb, var(--accent-primary, #ff9808) 14%, var(--bg-tile, #141722));
 }
 
 .wr-matrix-day strong {
@@ -667,7 +667,7 @@
 }
 
 .wr-matrix-cell.filled {
-  border-color: color-mix(in srgb, var(--period-tone, #fbbf24) 32%, rgba(255, 255, 255, 0.08));
+  border-color: color-mix(in srgb, var(--period-tone, #ffd369) 32%, rgba(255, 255, 255, 0.08));
 }
 
 .wr-matrix-cell textarea {
@@ -696,7 +696,7 @@
 }
 
 .wr-matrix-bell.active {
-  color: var(--period-tone, #fbbf24);
+  color: var(--period-tone, #ffd369);
 }
 
 .wr-matrix-bell .cp-anchor {

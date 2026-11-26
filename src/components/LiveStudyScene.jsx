@@ -24,7 +24,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
   const palettes = [
     ['#818cf8', '#4f46e5'],
     ['#34d399', '#059669'],
-    ['#fbbf24', '#d97706'],
+    ['#ffd369', '#ff9808'],
     ['#38bdf8', '#0284c7'],
     ['#f472b6', '#db2777'],
     ['#a78bfa', '#7c3aed'],
@@ -89,14 +89,14 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
         </linearGradient>
 
         <radialGradient id={`beam-${uid}`} cx="52%" cy="10%" r="78%">
-          <stop offset="0%" stopColor="#fde68a" stopOpacity="0.58" />
-          <stop offset="45%" stopColor="#f59e0b" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
+          <stop offset="0%" stopColor="#ffd369" stopOpacity="0.58" />
+          <stop offset="45%" stopColor="#ff9808" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#ff9808" stopOpacity="0" />
         </radialGradient>
 
         <radialGradient id={`breakGlow-${uid}`} cx="50%" cy="50%" r="55%">
-          <stop offset="0%" stopColor="#fb923c" stopOpacity="0.32" />
-          <stop offset="100%" stopColor="#fb923c" stopOpacity="0" />
+          <stop offset="0%" stopColor="#ff9808" stopOpacity="0.32" />
+          <stop offset="100%" stopColor="#ff9808" stopOpacity="0" />
         </radialGradient>
 
         <linearGradient id={`screen-${uid}`} x1="0" y1="0" x2="1" y2="1">
@@ -118,7 +118,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
       <g opacity={isStudying ? '0.65' : '0.35'}>
         <rect x="92" y="34" width="66" height="3.5" rx="1.75" fill="#334155" />
         <rect x="98" y="21" width="6" height="13" rx="1.2" fill="#6366f1" />
-        <rect x="106" y="23" width="5" height="11" rx="1.2" fill="#f59e0b" />
+        <rect x="106" y="23" width="5" height="11" rx="1.2" fill="#ff9808" />
         <rect x="113" y="19" width="6.5" height="15" rx="1.2" fill="#10b981" />
         <rect x="142" y="25" width="9" height="9" rx="2" fill="#475569" />
       </g>
@@ -132,16 +132,16 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
           height="54"
           rx="10"
           fill={`url(#win-${uid})`}
-          stroke={isBreak ? '#fb923c' : '#475569'}
+          stroke={isBreak ? '#ff9808' : '#475569'}
           strokeOpacity={isBreak ? '0.38' : '0.45'}
           strokeWidth="1.5"
         />
         {isBreak ? (
           /* Warm Sunset Horizon & Soft Clouds */
           <>
-            <circle cx="46" cy="54" r="10" fill="#fde68a" opacity="0.82" />
+            <circle cx="46" cy="54" r="10" fill="#ffd369" opacity="0.82" />
             <rect x="24" y="42" width="20" height="3.5" rx="1.75" fill="#fbcfe8" opacity="0.45" />
-            <rect x="46" y="34" width="18" height="3" rx="1.5" fill="#fde68a" opacity="0.38" />
+            <rect x="46" y="34" width="18" height="3" rx="1.5" fill="#ffd369" opacity="0.38" />
           </>
         ) : (
           /* Night Crescent Moon & Twinkling Stars */
@@ -150,7 +150,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
               cx="35"
               cy="32"
               r="6.8"
-              fill={isStudying ? '#fde68a' : '#cbd5e1'}
+              fill={isStudying ? '#ffd369' : '#cbd5e1'}
               opacity={isStudying ? '0.92' : '0.7'}
             />
             <circle cx="38.5" cy="29.8" r="6" fill={isStudying ? '#12213b' : '#0b1222'} />
@@ -175,14 +175,14 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
               ? 'rgba(251, 146, 60, 0.22)'
               : 'rgba(51, 65, 85, 0.45)'
           }
-          stroke={isStudying ? '#34d399' : isBreak ? '#fb923c' : '#64748b'}
+          stroke={isStudying ? '#34d399' : isBreak ? '#ff9808' : '#64748b'}
           strokeOpacity="0.65"
         />
         <circle
           cx="13"
           cy="11"
           r="3.6"
-          fill={isStudying ? '#34d399' : isBreak ? '#fb923c' : '#94a3b8'}
+          fill={isStudying ? '#34d399' : isBreak ? '#ff9808' : '#94a3b8'}
           className={isStudying ? 'v30-scene-pulse' : ''}
         />
         <text
@@ -209,7 +209,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
         />
         <path
           d="M213 80l14-8 6 11-16 6z"
-          fill={isStudying ? '#f59e0b' : isBreak ? '#d97706' : '#334155'}
+          fill={isStudying ? '#ff9808' : isBreak ? '#ff9808' : '#334155'}
         />
         {isStudying && (
           <>
@@ -218,7 +218,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
               fill={`url(#beam-${uid})`}
               className="v30-lamp-cone"
             />
-            <circle cx="221" cy="84" r="3.8" fill="#fef3c7" />
+            <circle cx="221" cy="84" r="3.8" fill="#ffd369" />
           </>
         )}
       </g>
@@ -231,7 +231,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
           width="15"
           height="10"
           rx="3"
-          fill={isStudying || isBreak ? '#b45309' : '#475569'}
+          fill={isStudying || isBreak ? '#ff9808' : '#475569'}
         />
         <path
           d="M33.5 116c-2-9-8-13-10-18M33.5 116c0-10 2-15 1-20M33.5 116c3-9 8-12 10-17"
@@ -343,7 +343,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
           <path
             d="M108 66c3-9 11-14 20-13"
             fill="none"
-            stroke="#fbbf24"
+            stroke="#ffd369"
             strokeWidth="2.8"
             strokeLinecap="round"
           />
@@ -353,9 +353,9 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
             rx="4.4"
             ry="6.6"
             transform="rotate(12 130 72)"
-            fill="#f59e0b"
+            fill="#ff9808"
           />
-          <ellipse cx="112" cy="70" rx="3" ry="4.6" fill="#f59e0b" opacity="0.75" />
+          <ellipse cx="112" cy="70" rx="3" ry="4.6" fill="#ff9808" opacity="0.75" />
 
           {/* the working arm: it comes from the near shoulder, which is why it
               starts high and short instead of stretching across the chest */}
@@ -369,7 +369,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
           />
           <path
             d="M157 118l8-12"
-            stroke="#fef08a"
+            stroke="#ffd369"
             strokeWidth="2.3"
             strokeLinecap="round"
             className="v30-pen-write"
@@ -378,8 +378,8 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
           {/* Open Illuminated Book */}
           <path
             d="M144 122l17-4.5 17 4.5v4l-17-3-17 3z"
-            fill="#fef3c7"
-            stroke="#d97706"
+            fill="#ffd369"
+            stroke="#ff9808"
             strokeWidth="1"
           />
 
@@ -417,7 +417,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
           )}
 
           {/* Floating Focus Sparkles */}
-          <circle cx="152" cy="64" r="1.8" fill="#fde68a" className="v30-mote-1" />
+          <circle cx="152" cy="64" r="1.8" fill="#ffd369" className="v30-mote-1" />
           <circle cx="172" cy="76" r="1.4" fill="#34d399" className="v30-mote-2" />
         </g>
       )}
@@ -436,7 +436,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
             fill={`url(#hoodie-${uid})`}
           />
           {/* Headphones Resting Around Neck */}
-          <ellipse cx="103" cy="93" rx="11" ry="4" fill="none" stroke="#fbbf24" strokeWidth="2.5" />
+          <ellipse cx="103" cy="93" rx="11" ry="4" fill="none" stroke="#ffd369" strokeWidth="2.5" />
 
           {/* Cheerful Relaxed Head */}
           <circle cx="102" cy="72" r="15" fill="#dca686" />
@@ -472,17 +472,17 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
 
           {/* Warm Ceramic Tea/Coffee Mug + Rising Steam Curls */}
           <g>
-            <rect x="145" y="111" width="15" height="15" rx="3.5" fill="#fb923c" />
+            <rect x="145" y="111" width="15" height="15" rx="3.5" fill="#ff9808" />
             <path
               d="M160 114.5h3.2a3.2 3.2 0 0 1 0 6.4H160"
               fill="none"
-              stroke="#fb923c"
+              stroke="#ff9808"
               strokeWidth="2"
             />
             <path
               d="M149 107c-2-4 2-7 0-11"
               fill="none"
-              stroke="#fde68a"
+              stroke="#ffd369"
               strokeWidth="1.5"
               strokeLinecap="round"
               className="v30-steam-1"
@@ -499,7 +499,7 @@ export default function LiveStudyScene({ status = 'offline', device = null, seed
 
           {/* Closed Book with Bookmark Ribbon */}
           <rect x="176" y="119" width="36" height="7" rx="2" fill="#4c1d95" />
-          <rect x="178" y="121" width="32" height="3" rx="1" fill="#fde68a" opacity="0.8" />
+          <rect x="178" y="121" width="32" height="3" rx="1" fill="#ffd369" opacity="0.8" />
           <path d="M196 122v9l3-2 3 2v-9" fill="#fb7185" />
         </g>
       )}

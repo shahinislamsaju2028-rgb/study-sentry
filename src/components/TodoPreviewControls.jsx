@@ -84,7 +84,7 @@ export const ALL_TASK_TIME_SLOTS = [
     compactRange: '5:30–10:00',
     fullLabel: 'ভোর (5:30–10:00)',
     time: '05:30',
-    tone: '#fb923c',
+    tone: '#ff9808',
     Icon: Sunrise,
   },
   {
@@ -97,7 +97,7 @@ export const ALL_TASK_TIME_SLOTS = [
     compactRange: '10:01–2:00',
     fullLabel: 'সকাল (10:01–2:00)',
     time: '10:01',
-    tone: '#fbbf24',
+    tone: '#ffd369',
     Icon: Sun,
   },
   {

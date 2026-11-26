@@ -1,32 +1,32 @@
 /* ==========================================================================
-   STUDY SENTRY — ELECTRON + REACT WINDOWS 11 DESKTOP PRO DESIGN SYSTEM
-   Inspired by MK Shaon's Social Sentry UI/UX (Dark Obsidian + Emerald & Amber)
+   STUDY SENTRY — MIDNIGHT PRISM DESIGN FOUNDATION
+   These are first-paint fallbacks; the final palette layer is v61.
    ========================================================================== */
 
 :root {
-  --bg-root: #080a12;
-  --bg-titlebar: #070910;
-  --bg-sidebar: #0c101d;
-  --bg-card: #101526;
-  --bg-card-elevated: #151c32;
-  --bg-card-hover: #19223c;
-  --bg-input: #0b0f1c;
+  --bg-root: #0b132b;
+  --bg-titlebar: #0b132b;
+  --bg-sidebar: #0b132b;
+  --bg-card: #202940;
+  --bg-card-elevated: #202940;
+  --bg-card-hover: #03346e;
+  --bg-input: #092635;
 
-  --border-subtle: rgba(148, 163, 196, 0.12);
-  --border-strong: rgba(165, 180, 252, 0.24);
+  --border-subtle: rgba(186, 197, 223, 0.14);
+  --border-strong: rgba(255, 211, 105, 0.36);
 
-  --text-primary: #f1f5f9;
-  --text-secondary: #9aa7bd;
-  --text-muted: #67758d;
+  --text-primary: #f3f5ff;
+  --text-secondary: #bac5df;
+  --text-muted: #8996b6;
 
-  --brand-pink: #f43f5e;
-  --emerald: #6366f1;
-  --emerald-bright: #818cf8;
-  --amber: #f59e0b;
-  --amber-deep: #d97706;
-  --violet: #a78bfa;
-  --blue: #38bdf8;
-  --danger: #f43f5e;
+  --brand-pink: #a91079;
+  --emerald: #255f38;
+  --emerald-bright: color-mix(in srgb, #255f38 48%, #f3f5ff);
+  --amber: #ffd369;
+  --amber-deep: #ff9808;
+  --violet: #7a1cac;
+  --blue: #03346e;
+  --danger: #a91079;
 
   --radius-md: 14px;
   --radius-lg: 18px;
@@ -397,7 +397,7 @@ body[data-ambient="violet"] .ambient-glow {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #d99125, #b9791c);
+  background: linear-gradient(135deg, #ff9808, #ff9808);
   display: grid;
   place-items: center;
   font-weight: 800;
@@ -465,13 +465,13 @@ body[data-ambient="violet"] .ambient-glow {
 .pill-badge.streak {
   background: rgba(245, 158, 11, 0.12);
   border-color: rgba(245, 158, 11, 0.32);
-  color: #fbbf24;
+  color: #ffd369;
 }
 
 .pill-badge.sync-ok {
   background: rgba(239, 189, 74, 0.1);
   border-color: rgba(239, 189, 74, 0.25);
-  color: #f0c56b;
+  color: #ffd369;
   font-size:13px;
 }
 
@@ -497,7 +497,7 @@ body[data-ambient="violet"] .ambient-glow {
 }
 
 .action-btn.primary-emerald {
-  background: linear-gradient(135deg, #d99125, #b9791c);
+  background: linear-gradient(135deg, #ff9808, #ff9808);
   border-color: rgba(247, 202, 85, 0.5);
   color: #03150e;
   font-weight: 700;
@@ -505,7 +505,7 @@ body[data-ambient="violet"] .ambient-glow {
 }
 
 .action-btn.primary-amber {
-  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  background: linear-gradient(135deg, #ff9808, #ff9808);
   border-color: rgba(251, 191, 36, 0.5);
   color: #160a02;
   font-weight: 700;
@@ -660,7 +660,7 @@ body[data-ambient="violet"] .ambient-glow {
   height: 88px;
   border-radius: 50%;
   border: 2px solid rgba(242, 194, 77, 0.65);
-  background: radial-gradient(circle at 35% 30%, #e0a52e, #b9791c 75%);
+  background: radial-gradient(circle at 35% 30%, #e0a52e, #ff9808 75%);
   color: #03150e;
   display: flex;
   flex-direction: column;
@@ -677,7 +677,7 @@ body[data-ambient="violet"] .ambient-glow {
 
 .radar-button-wrap.active-focus .radar-core-btn {
   border-color: rgba(251, 191, 36, 0.85);
-  background: radial-gradient(circle at 35% 30%, #fbbf24, #d97706 78%);
+  background: radial-gradient(circle at 35% 30%, #ffd369, #ff9808 78%);
   box-shadow: 0 0 46px rgba(245, 158, 11, 0.6);
 }
 
@@ -766,7 +766,7 @@ body[data-ambient="violet"] .ambient-glow {
 }
 
 .streak-seg.lit {
-  background: linear-gradient(90deg, #d99125, #f0c56b);
+  background: linear-gradient(90deg, #ff9808, #ffd369);
   box-shadow: 0 0 8px rgba(239, 189, 74, 0.45);
 }
 
@@ -840,7 +840,7 @@ body[data-ambient="violet"] .ambient-glow {
 
 .mini-bar-fill {
   width: 100%;
-  background: linear-gradient(180deg, #fbbf24, #ea580c);
+  background: linear-gradient(180deg, #ffd369, #ff9808);
   border-radius: 99px;
 }
 
@@ -871,8 +871,8 @@ body[data-ambient="violet"] .ambient-glow {
 
 .pomo-pill.active {
   background: rgba(239, 189, 74, 0.14);
-  border-color: #d99125;
-  color: #f0c56b;
+  border-color: #ff9808;
+  color: #ffd369;
   box-shadow: 0 0 14px rgba(239, 189, 74, 0.18);
 }
 
@@ -1103,7 +1103,7 @@ body[data-ambient="violet"] .ambient-glow {
 .tool-mini-btn:hover {
   background: rgba(245, 158, 11, 0.15);
   border-color: rgba(245, 158, 11, 0.45);
-  color: #fbbf24;
+  color: #ffd369;
 }
 
 /* ==========================================================================
@@ -1137,8 +1137,8 @@ body[data-ambient="violet"] .ambient-glow {
 }
 
 .week-day-pill.selected {
-  background: linear-gradient(180deg, #e0a52e, #d99125);
-  border-color: #f0c56b;
+  background: linear-gradient(180deg, #e0a52e, #ff9808);
+  border-color: #ffd369;
   color: #03150e;
   box-shadow: 0 6px 20px rgba(239, 189, 74, 0.35);
 }
@@ -1182,8 +1182,8 @@ body[data-ambient="violet"] .ambient-glow {
 
 .filter-chip.active {
   background: rgba(239, 189, 74, 0.18);
-  border-color: #d99125;
-  color: #f0c56b;
+  border-color: #ff9808;
+  color: #ffd369;
 }
 
 .timeline-spine-list {
@@ -1233,7 +1233,7 @@ body[data-ambient="violet"] .ambient-glow {
 
 .timeline-task-item.done .timeline-node-icon {
   background: rgba(239, 189, 74, 0.18);
-  border-color: #d99125;
+  border-color: #ff9808;
 }
 
 .timeline-task-body {
@@ -1291,8 +1291,8 @@ body[data-ambient="violet"] .ambient-glow {
 }
 
 .timeline-task-item.done .task-check-ring {
-  background: #d99125;
-  border-color: #d99125;
+  background: #ff9808;
+  border-color: #ff9808;
   color: #03150e;
 }
 
@@ -1303,7 +1303,7 @@ body[data-ambient="violet"] .ambient-glow {
   border-radius: 6px;
 }
 .prio-High { background: rgba(239, 68, 68, 0.16); color: #f87171; }
-.prio-Medium { background: rgba(245, 158, 11, 0.16); color: #fbbf24; }
+.prio-Medium { background: rgba(245, 158, 11, 0.16); color: #ffd369; }
 .prio-Low { background: rgba(59, 130, 246, 0.16); color: #60a5fa; }
 
 /* ==========================================================================
@@ -1430,7 +1430,7 @@ body[data-ambient="violet"] .ambient-glow {
 .gh-lv1 { background: rgba(239, 189, 74, 0.25); }
 .gh-lv2 { background: rgba(239, 189, 74, 0.48); }
 .gh-lv3 { background: rgba(239, 189, 74, 0.72); }
-.gh-lv4 { background: #d99125; box-shadow: 0 0 6px rgba(239, 189, 74, 0.4); }
+.gh-lv4 { background: #ff9808; box-shadow: 0 0 6px rgba(239, 189, 74, 0.4); }
 
 /* ==========================================================================
    COMMITMENT, STUDENT SUITE, MODALS, CALCULATOR & MINI WIDGET
@@ -1466,7 +1466,7 @@ body[data-ambient="violet"] .ambient-glow {
 }
 
 .flashcard-box:hover {
-  border-color: #d99125;
+  border-color: #ff9808;
   transform: translateY(-2px);
 }
 
@@ -1595,7 +1595,7 @@ body[data-ambient="violet"] .ambient-glow {
 
 .calc-key.op {
   background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
+  color: #ffd369;
 }
 
 .calc-key.eq {

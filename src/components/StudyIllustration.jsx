@@ -32,17 +32,17 @@ export function StudyIllustration({ width = 260, studying = false, className = '
     >
       <defs>
         <radialGradient id={`${id}glow`}>
-          <stop stopColor="#f59e0b" stopOpacity={active ? '0.40' : '0.16'} />
+          <stop stopColor="#ff9808" stopOpacity={active ? '0.40' : '0.16'} />
           <stop offset="0.6" stopColor="#3b82f6" stopOpacity={active ? '0.14' : '0.07'} />
           <stop offset="1" stopColor="#090d16" stopOpacity="0" />
         </radialGradient>
         <radialGradient id={`${id}floor`} cx="50%" cy="0%" r="80%">
-          <stop stopColor="#f59e0b" stopOpacity={active ? '0.20' : '0.07'} />
+          <stop stopColor="#ff9808" stopOpacity={active ? '0.20' : '0.07'} />
           <stop offset="1" stopColor="#090d16" stopOpacity="0" />
         </radialGradient>
         <linearGradient id={`${id}lampCone`} x1="0" y1="0" x2="0" y2="1">
-          <stop stopColor="#fde68a" stopOpacity={active ? '0.46' : '0.12'} />
-          <stop offset="1" stopColor="#fde68a" stopOpacity="0.01" />
+          <stop stopColor="#ffd369" stopOpacity={active ? '0.46' : '0.12'} />
+          <stop offset="1" stopColor="#ffd369" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient id={`${id}hoodie`} x1="0" y1="0" x2="0" y2="1">
           <stop stopColor="#2563eb" />
@@ -73,7 +73,7 @@ export function StudyIllustration({ width = 260, studying = false, className = '
 
       {/* Wall clock — creeps forward while studying */}
       <g className="v34-illus-wallclock" transform="translate(58 26)">
-        <circle cx="0" cy="0" r="17" fill="#0d1220" stroke="#f59e0b" strokeOpacity="0.45" strokeWidth="1.6" />
+        <circle cx="0" cy="0" r="17" fill="#0d1220" stroke="#ff9808" strokeOpacity="0.45" strokeWidth="1.6" />
         <circle cx="0" cy="0" r="13" fill="none" stroke="#ffffff" strokeOpacity="0.08" />
         {Array.from({ length: 12 }, (_, i) => {
           const a = (i * 30 * Math.PI) / 180;
@@ -85,7 +85,7 @@ export function StudyIllustration({ width = 260, studying = false, className = '
               y1={-Math.cos(a) * r1}
               x2={Math.sin(a) * 12}
               y2={-Math.cos(a) * 12}
-              stroke={i % 3 === 0 ? '#fcd34d' : '#64748b'}
+              stroke={i % 3 === 0 ? '#ffd369' : '#64748b'}
               strokeWidth={i % 3 === 0 ? 1.5 : 0.8}
               strokeLinecap="round"
             />
@@ -97,7 +97,7 @@ export function StudyIllustration({ width = 260, studying = false, className = '
         <g className="v34-illus-clock-min">
           <line x1="0" y1="0" x2="0" y2="-11" stroke="#f8fafc" strokeWidth="1.2" strokeLinecap="round" />
         </g>
-        <circle cx="0" cy="0" r="1.7" fill="#fbbf24" />
+        <circle cx="0" cy="0" r="1.7" fill="#ffd369" />
       </g>
 
       {/* Globe on the shelf (slow spin) */}
@@ -167,7 +167,7 @@ export function StudyIllustration({ width = 260, studying = false, className = '
               y1="144"
               x2="164"
               y2="132"
-              stroke="#fbbf24"
+              stroke="#ffd369"
               strokeWidth="2.8"
               strokeLinecap="round"
               className="v5-stu-pen"
@@ -191,7 +191,7 @@ export function StudyIllustration({ width = 260, studying = false, className = '
             cx={x}
             cy={y}
             r={r}
-            fill="#fde68a"
+            fill="#ffd369"
             className="v34-illus-mote"
             style={{ animationDelay: `${delay}s` }}
           />
@@ -215,12 +215,12 @@ export function StudyIllustration({ width = 260, studying = false, className = '
       </g>
 
       {/* Stacked reference books */}
-      <rect x="76" y="141" width="36" height="8" rx="2.5" fill="#f59e0b" />
+      <rect x="76" y="141" width="36" height="8" rx="2.5" fill="#ff9808" />
       <rect x="80" y="133" width="28" height="8" rx="2.5" fill="#3b82f6" />
       <line x1="83" y1="137" x2="104" y2="137" stroke="#dbeafe" strokeWidth="1.4" opacity="0.7" />
 
       {/* Desk plant */}
-      <path d="M54 138 H70 L67 150 H57 Z" fill="#b45309" />
+      <path d="M54 138 H70 L67 150 H57 Z" fill="#ff9808" />
       <path
         d="M62 138 C61 127 54 122 52 118 C58 120 62 125 62 138 M62 138 C63 126 70 121 73 118 C69 125 66 130 62 138"
         stroke="#38bdf8"
@@ -232,8 +232,8 @@ export function StudyIllustration({ width = 260, studying = false, className = '
       {/* Architect desk lamp */}
       <rect x="214" y="146" width="34" height="4" rx="2" fill="#64748b" />
       <path d="M232 146 L252 64 L239 52" stroke="#94a3b8" strokeWidth="3.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M231 45 Q244 36 254 49 L240 60 Q230 53 231 45 Z" fill="#f59e0b" />
-      <circle cx="243" cy="54" r="3.5" fill={active ? '#fef08a' : '#fde68a'} opacity={active ? '1' : '0.45'} className="v34-illus-bulb" />
+      <path d="M231 45 Q244 36 254 49 L240 60 Q230 53 231 45 Z" fill="#ff9808" />
+      <circle cx="243" cy="54" r="3.5" fill={active ? '#ffd369' : '#ffd369'} opacity={active ? '1' : '0.45'} className="v34-illus-bulb" />
 
       {/* Coffee mug */}
       <rect x="262" y="134" width="14" height="16" rx="3" fill="#e2e8f0" />
@@ -241,15 +241,15 @@ export function StudyIllustration({ width = 260, studying = false, className = '
 
       {/* Desk surface */}
       <line x1="36" y1="151" x2="300" y2="151" stroke="#1e293b" strokeWidth="6" strokeLinecap="round" />
-      <line x1="38" y1="149" x2="298" y2="149" stroke="#f59e0b" strokeWidth="1.4" strokeOpacity={active ? '0.55' : '0.2'} />
+      <line x1="38" y1="149" x2="298" y2="149" stroke="#ff9808" strokeWidth="1.4" strokeOpacity={active ? '0.55' : '0.2'} />
       <path d="M62 154 L56 178 M274 154 L280 178" stroke="#334155" strokeWidth="4" strokeLinecap="round" />
 
       {/* Focus sparkles */}
       {active && (
         <g className="v5-stu-sparkles">
-          <circle cx="112" cy="66" r="2" fill="#fbbf24" />
+          <circle cx="112" cy="66" r="2" fill="#ffd369" />
           <circle cx="204" cy="58" r="1.8" fill="#60a5fa" />
-          <path d="M98 86 v6 m-3 -3 h6 M214 80 v6 m-3 -3 h6" stroke="#fbbf24" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M98 86 v6 m-3 -3 h6 M214 80 v6 m-3 -3 h6" stroke="#ffd369" strokeWidth="1.4" strokeLinecap="round" />
         </g>
       )}
     </svg>

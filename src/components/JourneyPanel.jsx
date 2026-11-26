@@ -99,11 +99,9 @@ export default function JourneyPanel({
             <span className="jp-current-kicker v57-tier-eyebrow">
               <Sparkles size={12} aria-hidden="true" />
               <span>CURRENT TIER</span>
-              <i aria-hidden="true" />
-              <small>{String(rank.tier).padStart(2, '0')}</small>
             </span>
-            <h3 className="v57-rank-title">
-              <span>{curMeta.enTitle}</span>
+            <h3 className="v57-rank-title v60-current-rank-box">
+              <span>Tier {String(rank.tier).padStart(2, '0')} · {curMeta.enTitle}</span>
               <small>{curMeta.bnTitle}</small>
             </h3>
             <div className="jp-quick-pills v57-quick-pills">

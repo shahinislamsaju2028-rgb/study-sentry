@@ -61,14 +61,14 @@ const ALL_PERIODS = [
     key: 'dawn',
     label: 'ভোর',
     hint: '5:30 AM – 10:00 AM',
-    tone: '#fb923c',
+    tone: '#ff9808',
     Icon: Sunrise,
   },
   {
     key: 'morning',
     label: 'সকাল',
     hint: '10:01 AM – 2:00 PM',
-    tone: '#fbbf24',
+    tone: '#ffd369',
     Icon: Sun,
   },
   {

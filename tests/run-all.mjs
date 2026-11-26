@@ -29,6 +29,10 @@ const KNOWN_PASSING = [
   'v45-redesign-check.mjs',
   'v52-hierarchy-check.mjs',
   'v59-suite-redesign-check.mjs',
+  'v60-redesign-check.mjs',
+  'v61-focus-redesign-check.mjs',
+  'v62-home-palette-check.mjs',
+  'v63-midnight-prism-palette-check.mjs',
   'verify_catalog.mjs',
 ];
 

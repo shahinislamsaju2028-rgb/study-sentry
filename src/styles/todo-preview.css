@@ -21,7 +21,7 @@
 .tp-week-strip { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:7px; margin-top:13px; }
 .tp-week-strip button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; min-width:0; height:65px; padding:6px 2px; color:#94a5b2; border:1px solid #ffffff10; border-radius:12px; background:#ffffff06; }
 .tp-week-strip button:hover { border-color:#6edaba70; background:#ffffff0d; }
-.tp-week-strip button.selected { background:linear-gradient(150deg,#143c31,#153226); color:#84edc8; border-color:#31c99b9c; box-shadow:inset 0 0 20px #d991250a; }
+.tp-week-strip button.selected { background:linear-gradient(150deg,#143c31,#153226); color:#84edc8; border-color:#31c99b9c; box-shadow:inset 0 0 20px #ff98080a; }
 .tp-week-strip button span { font-size:13px; font-weight:700; }
 .tp-week-strip button strong { color:#edf4f3; font-size:15px; line-height:1; }
 .tp-week-strip button.selected strong { color:#c0ffe6; }
@@ -44,7 +44,7 @@
 .tp-timeline-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .tp-timeline-heading h2 { margin:0 0 4px; font-size:16px; letter-spacing:-.025em; }
 .tp-timeline-heading>div>span { color:#899ca8; font-size:13px; }
-.tp-now-button { display:flex; align-items:center; gap:6px; border:1px solid #36d8ad33; border-radius:9px; padding:7px 9px; color:#9fe8d1; background:#d991250c; font-size:13px; font-weight:700; white-space:nowrap; }
+.tp-now-button { display:flex; align-items:center; gap:6px; border:1px solid #36d8ad33; border-radius:9px; padding:7px 9px; color:#9fe8d1; background:#ff98080c; font-size:13px; font-weight:700; white-space:nowrap; }
 .tp-now-button span { width:6px; height:6px; background:#43ddb0; border-radius:50%; box-shadow:0 0 8px #4feac5; }
 .tp-now-button b { color:#def7ee; font-variant-numeric:tabular-nums; }
 .tp-filter-row { display:flex; flex-wrap:wrap; gap:6px; margin:16px 0 13px; }

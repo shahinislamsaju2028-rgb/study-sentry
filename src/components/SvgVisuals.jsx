@@ -6,14 +6,14 @@ import { dateFromKey, dayBounds, sessionIntervals, timerIntervals } from '../uti
 export function RadarPowerRing({ active = false, running = false, onClick }) {
   return <div className={`radar-button-wrap ${active ? 'active-focus' : ''}`}>
     <svg className="radar-svg" viewBox="0 0 214 214" aria-hidden="true">
-      <defs><radialGradient id="powerGlow"><stop stopColor="var(--accent-primary, #f59e0b)" stopOpacity=".26"/><stop offset="1" stopColor="var(--accent-primary, #f59e0b)" stopOpacity="0"/></radialGradient></defs>
+      <defs><radialGradient id="powerGlow"><stop stopColor="var(--accent-primary, #ff9808)" stopOpacity=".26"/><stop offset="1" stopColor="var(--accent-primary, #ff9808)" stopOpacity="0"/></radialGradient></defs>
       <circle cx="107" cy="107" r="107" fill="url(#powerGlow)" />
-      <circle cx="107" cy="107" r="103" fill="none" stroke="var(--accent-primary-bright, #fbbf24)" strokeOpacity=".13" />
-      <circle cx="107" cy="107" r="88" fill="none" stroke="var(--accent-primary-bright, #fbbf24)" strokeOpacity=".26" strokeWidth="1.5" />
+      <circle cx="107" cy="107" r="103" fill="none" stroke="var(--accent-primary-bright, #ffd369)" strokeOpacity=".13" />
+      <circle cx="107" cy="107" r="88" fill="none" stroke="var(--accent-primary-bright, #ffd369)" strokeOpacity=".26" strokeWidth="1.5" />
       <circle cx="107" cy="107" r="72" fill="none" stroke="var(--accent-secondary, #818cf8)" strokeOpacity=".22" strokeWidth="1" />
-      <circle className="radar-ring-spin" cx="107" cy="107" r="88" fill="none" stroke="var(--accent-primary-bright, #fbbf24)" strokeOpacity=".52" strokeWidth="2" strokeDasharray="8 15" />
+      <circle className="radar-ring-spin" cx="107" cy="107" r="88" fill="none" stroke="var(--accent-primary-bright, #ffd369)" strokeOpacity=".52" strokeWidth="2" strokeDasharray="8 15" />
       <circle className="radar-ring-spin" cx="107" cy="107" r="58" fill="none" stroke="var(--accent-secondary-bright, #a5b4fc)" strokeOpacity=".6" strokeWidth="2.4" strokeDasharray="38 20 16 23" style={{animationDirection:'reverse'}} />
-      <circle cx="107" cy="19" r="3" fill="var(--accent-primary-bright, #fbbf24)"/><circle cx="30" cy="148" r="2" fill="var(--accent-secondary-bright, #a5b4fc)" opacity=".75"/>
+      <circle cx="107" cy="19" r="3" fill="var(--accent-primary-bright, #ffd369)"/><circle cx="30" cy="148" r="2" fill="var(--accent-secondary-bright, #a5b4fc)" opacity=".75"/>
     </svg>
     <button className="radar-core-btn" onClick={onClick} aria-label={active ? (running ? 'Pause focus timer' : 'Resume focus timer') : 'Start focus timer'}>
       {active && running ? <Pause size={27} fill="currentColor"/> : <Play size={27} fill="currentColor" style={{marginLeft:3}}/>}
@@ -38,13 +38,13 @@ export function StudyIllustration({ width = 260, studying = false, className = '
     >
       <defs>
         <radialGradient id={`${id}glow`}>
-          <stop stopColor="#f59e0b" stopOpacity={studying ? '0.34' : '0.14'} />
+          <stop stopColor="#ff9808" stopOpacity={studying ? '0.34' : '0.14'} />
           <stop offset="0.6" stopColor="#3b82f6" stopOpacity={studying ? '0.12' : '0.06'} />
           <stop offset="1" stopColor="#090d16" stopOpacity="0" />
         </radialGradient>
         <linearGradient id={`${id}lampCone`} x1="0" y1="0" x2="0" y2="1">
-          <stop stopColor="#fde68a" stopOpacity={studying ? '0.38' : '0.10'} />
-          <stop offset="1" stopColor="#fde68a" stopOpacity="0.01" />
+          <stop stopColor="#ffd369" stopOpacity={studying ? '0.38' : '0.10'} />
+          <stop offset="1" stopColor="#ffd369" stopOpacity="0.01" />
         </linearGradient>
         <linearGradient id={`${id}hoodie`} x1="0" y1="0" x2="0" y2="1">
           <stop stopColor="#2563eb" />
@@ -125,7 +125,7 @@ export function StudyIllustration({ width = 260, studying = false, className = '
               y1="142"
               x2="156"
               y2="130"
-              stroke="#fbbf24"
+              stroke="#ffd369"
               strokeWidth="2.8"
               strokeLinecap="round"
               className="v5-stu-pen"
@@ -144,12 +144,12 @@ export function StudyIllustration({ width = 260, studying = false, className = '
       </g>
 
       {/* Stacked Reference Books (Left) */}
-      <rect x="68" y="139" width="34" height="8" rx="2.5" fill="#f59e0b" />
+      <rect x="68" y="139" width="34" height="8" rx="2.5" fill="#ff9808" />
       <rect x="72" y="131" width="28" height="8" rx="2.5" fill="#3b82f6" />
       <line x1="75" y1="135" x2="96" y2="135" stroke="#dbeafe" strokeWidth="1.4" opacity="0.7" />
 
       {/* Small Desk Plant (Left) */}
-      <path d="M46 136 H62 L59 148 H49 Z" fill="#b45309" />
+      <path d="M46 136 H62 L59 148 H49 Z" fill="#ff9808" />
       <path
         d="M54 136 C53 125 46 120 44 116 C50 118 54 123 54 136 M54 136 C55 124 62 119 65 116 C61 123 58 128 54 136"
         stroke="#38bdf8"
@@ -161,8 +161,8 @@ export function StudyIllustration({ width = 260, studying = false, className = '
       {/* Architect Desk Lamp (Right) */}
       <rect x="206" y="144" width="32" height="4" rx="2" fill="#64748b" />
       <path d="M224 144 L244 62 L231 50" stroke="#94a3b8" strokeWidth="3.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M223 43 Q236 34 246 47 L232 58 Q222 51 223 43 Z" fill="#f59e0b" />
-      <circle cx="235" cy="52" r="3.5" fill={studying ? '#fef08a' : '#fde68a'} opacity={studying ? '1' : '0.45'} />
+      <path d="M223 43 Q236 34 246 47 L232 58 Q222 51 223 43 Z" fill="#ff9808" />
+      <circle cx="235" cy="52" r="3.5" fill={studying ? '#ffd369' : '#ffd369'} opacity={studying ? '1' : '0.45'} />
 
       {/* Warm Coffee Mug */}
       <rect x="252" y="132" width="14" height="16" rx="3" fill="#e2e8f0" />
@@ -170,15 +170,15 @@ export function StudyIllustration({ width = 260, studying = false, className = '
 
       {/* Study Desk Surface & Legs */}
       <line x1="30" y1="149" x2="290" y2="149" stroke="#1e293b" strokeWidth="6" strokeLinecap="round" />
-      <line x1="32" y1="147" x2="288" y2="147" stroke="#f59e0b" strokeWidth="1.4" strokeOpacity={studying ? '0.55' : '0.2'} />
+      <line x1="32" y1="147" x2="288" y2="147" stroke="#ff9808" strokeWidth="1.4" strokeOpacity={studying ? '0.55' : '0.2'} />
       <path d="M56 152 L50 176 M264 152 L270 176" stroke="#334155" strokeWidth="4" strokeLinecap="round" />
 
       {/* Subtle Floating Focus Sparkles when Actively Studying */}
       {studying && (
         <g className="v5-stu-sparkles">
-          <circle cx="104" cy="64" r="2" fill="#fbbf24" />
+          <circle cx="104" cy="64" r="2" fill="#ffd369" />
           <circle cx="196" cy="56" r="1.8" fill="#60a5fa" />
-          <path d="M90 84 v6 m-3 -3 h6 M206 78 v6 m-3 -3 h6" stroke="#fbbf24" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M90 84 v6 m-3 -3 h6 M206 78 v6 m-3 -3 h6" stroke="#ffd369" strokeWidth="1.4" strokeLinecap="round" />
         </g>
       )}
     </svg>
@@ -189,14 +189,14 @@ export function AnalogClock({ now = Date.now(), size = 170 }) {
   const d = new Date(now+6*3600000);
   const sec = d.getUTCSeconds(); const min = d.getUTCMinutes() + sec / 60; const hour = (d.getUTCHours() % 12) + min / 60;
   return <svg width={size} height={size} viewBox="0 0 180 180" aria-label={`Dhaka time ${String(d.getUTCHours()).padStart(2,'0')}:${String(d.getUTCMinutes()).padStart(2,'0')}`} role="img">
-    <circle cx="90" cy="90" r="84" fill="#111820" stroke="#f59e0b" strokeOpacity=".35" strokeWidth="2"/>
+    <circle cx="90" cy="90" r="84" fill="#111820" stroke="#ff9808" strokeOpacity=".35" strokeWidth="2"/>
     <circle cx="90" cy="90" r="75" fill="none" stroke="#fff" strokeOpacity=".06"/>
     {Array.from({length:60}, (_,i) => { const angle=i*6*Math.PI/180; const r1=i%5===0?65:69; const r2=73; return <line key={i} x1={90+Math.sin(angle)*r1} y1={90-Math.cos(angle)*r1} x2={90+Math.sin(angle)*r2} y2={90-Math.cos(angle)*r2} stroke={i%5===0?'#e5edf5':'#66717f'} strokeWidth={i%5===0?2:1}/>; })}
     {[12,3,6,9].map((v,i) => <text key={v} x={[90,148,90,32][i]} y={[34,95,151,95][i]} fill="#aeb9c7" fontSize="10" fontWeight="700" textAnchor="middle">{v}</text>)}
     <line x1="90" y1="90" x2="90" y2="52" transform={`rotate(${hour*30} 90 90)`} stroke="#eef2f6" strokeWidth="5" strokeLinecap="round"/>
     <line x1="90" y1="90" x2="90" y2="39" transform={`rotate(${min*6} 90 90)`} stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
-    <line x1="90" y1="100" x2="90" y2="32" transform={`rotate(${sec*6} 90 90)`} stroke="#f59e0b" strokeWidth="1.5" strokeLinecap="round"/>
-    <circle cx="90" cy="90" r="5" fill="#f59e0b"/><circle cx="90" cy="90" r="2" fill="#fff"/>
+    <line x1="90" y1="100" x2="90" y2="32" transform={`rotate(${sec*6} 90 90)`} stroke="#ff9808" strokeWidth="1.5" strokeLinecap="round"/>
+    <circle cx="90" cy="90" r="5" fill="#ff9808"/><circle cx="90" cy="90" r="2" fill="#fff"/>
   </svg>;
 }
 
@@ -228,7 +228,7 @@ export function SubjectRadar({ subjects, sessions }) {
   return <svg viewBox="0 0 500 350" style={{width:'100%',maxHeight:350,display:'block'}} role="img" aria-label="Subject study balance radar">
     {[.25,.5,.75,1].map(r=><polygon key={r} points={poly(radius*r)} fill="none" stroke="#ffffff" strokeOpacity=".10"/>)}
     {entries.map((e,i)=><line key={e.id} x1={cx} y1={cy} x2={point(i,radius)[0]} y2={point(i,radius)[1]} stroke="#fff" strokeOpacity=".09"/>)}
-    <polygon points={valuePoints} fill="var(--accent-primary, #f59e0b)" fillOpacity=".22" stroke="var(--accent-primary-bright, #fbbf24)" strokeWidth="2.5"/>
+    <polygon points={valuePoints} fill="var(--accent-primary, #ff9808)" fillOpacity=".22" stroke="var(--accent-primary-bright, #ffd369)" strokeWidth="2.5"/>
     {entries.map((e,i)=>{const [x,y]=point(i,e.value*radius); const [lx,ly]=point(i,radius+24); const anchor = i===0?'middle':i<3?'start':'end'; return <g key={e.id}><circle cx={x} cy={y} r="3.5" fill="var(--accent-secondary-bright, #a5b4fc)"/><text x={lx} y={ly - (i===0?3:0)} textAnchor={anchor} fill="#cad4de" fontSize="11" fontWeight="650">{wrap(e.name).map((line,j)=><tspan x={lx} dy={j?13:0} key={j}>{line}</tspan>)}</text><title>{`${e.name}: ${formatHM(e.seconds)}`}</title></g>;})}
   </svg>;
 }
@@ -246,7 +246,7 @@ export function DayTimeline({ dateKey, sessions, subjects, timer, now }) {
         const start=dayBounds(dateKey)[0]+(hour*60+col*10)*60000, end=start+600000;
         let best=null, overlap=0;
         blocks.forEach(b => { const ms=b.intervals.reduce((sum,seg)=>sum+Math.max(0,Math.min(end,seg.end)-Math.max(start,seg.start)),0); if(ms>overlap){best=b;overlap=ms;} });
-        const subject=subjects.find(s=>s.id===best?.subjectId); const color=subject?.color || '#f59e0b';
+        const subject=subjects.find(s=>s.id===best?.subjectId); const color=subject?.color || '#ff9808';
         const label=`${String(hour).padStart(2,'0')}:${String(col*10).padStart(2,'0')}`;
         return <div key={col} className={`ten-min-cell ${best?'filled':''}`} style={best?{backgroundColor:color,opacity:.4+.6*Math.min(1,overlap/600000)}:{}} title={best ? `${label} — ${best.name}: ${Math.max(1,Math.round(overlap/60000))} min` : `${label} — no study`}/>;
       })}

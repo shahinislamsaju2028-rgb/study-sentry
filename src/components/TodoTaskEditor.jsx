@@ -321,7 +321,7 @@ export default function TodoTaskEditor({
 
         <div className="tp-modal-actions v54-task-actions">
           <button type="button" className="action-btn" onClick={onClose}>বাতিল</button>
-          <button type="submit" className="action-btn primary-emerald">
+          <button type="submit" className="action-btn primary-emerald" data-modal-default-action>
             {task ? 'সংরক্ষণ' : 'টাস্ক যোগ করুন'}
           </button>
         </div>

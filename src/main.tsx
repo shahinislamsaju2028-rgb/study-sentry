@@ -2,7 +2,8 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { installDesktopBridge } from './bridge/desktopBridge';
 
-// Load all styles cleanly BEFORE mounting React to eliminate FOUC & mid-render style cascades
+// CSS imports intentionally remain in cascade order. v61 is the final shared
+// palette layer; keep every stylesheet above the App import and React mount.
 import './styles/app.css';
 import './styles/desktop.css';
 import './styles/study-preview.css';
@@ -51,19 +52,9 @@ import './styles/v4-vip-refinements.css';
 import './styles/v5-illustrative-pip-tracker.css';
 import './styles/v6-ultra-pip-infographic.css';
 import './styles/v7-spatial-3d-motion.css';
-
-import App from './App';
-
-installDesktopBridge();
-
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  createRoot(rootElement).render(<App />);
-}
 import './styles/v8-living-refinement.css';
 import './styles/study-circle.css';
 import './styles/inward-motion.css';
-
 import './styles/minimal-motion.css';
 import './styles/pip-startup-refinement.css';
 import './styles/v28-upgrades.css';
@@ -89,3 +80,14 @@ import './styles/v56-redesign.css';
 import './styles/v57-redesign.css';
 import './styles/v58-sprint-planner.css';
 import './styles/v59-suite-redesign.css';
+import './styles/v60-redesign-polish.css';
+import './styles/v61-focus-redesign.css';
+
+import App from './App';
+
+installDesktopBridge();
+
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(<App />);
+}

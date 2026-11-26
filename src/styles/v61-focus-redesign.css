@@ -1,0 +1,903 @@
+/*
+ * v61 — Focus studio refresh + app-wide supplied palette
+ * Keep the stable theme ID `obsidian-amber` for saved-preference compatibility.
+ * Shared surfaces and accents use the supplied navy, ocean, forest, violet,
+ * magenta, gold, slate, and plum colors with neutral text for legibility.
+ */
+:root,
+html[data-theme='obsidian-amber'] {
+  --palette-orange: #ff9808;
+  --palette-navy: #0b132b;
+  --palette-green: #255f38;
+  --palette-purple: #7a1cac;
+  --palette-blue: #03346e;
+  --palette-magenta: #a91079;
+  --palette-teal-deep: #092635;
+  --palette-teal: #12544f;
+  --palette-gold: #ffd369;
+  --palette-slate: #202940;
+  --palette-plum: #210f37;
+
+  --home-canvas: #0b132b;
+  --home-surface: #202940;
+  --home-blue: #03346e;
+  --home-green: #255f38;
+  --home-violet: #7a1cac;
+  --home-magenta: #a91079;
+  --home-teal: #12544f;
+  --home-teal-deep: #092635;
+  --home-gold: #ffd369;
+  --home-orange: #ff9808;
+  --home-plum: #210f37;
+
+  /* Shared component-system surfaces. */
+  --v30-canvas: #0b132b;
+  --v30-canvas-2: #092635;
+  --v30-rail: #0b132b;
+  --v30-surface: #202940;
+  --v30-surface-2: #210f37;
+  --v30-surface-3: #03346e;
+  --v30-input: #092635;
+  --v30-line: rgba(186, 197, 223, 0.14);
+  --v30-line-strong: rgba(255, 211, 105, 0.36);
+  --v30-text: #f3f5ff;
+  --v30-dim: #bac5df;
+  --v30-mute: #8996b6;
+  --v30-accent: #ffd369;
+  --v30-accent-bright: #ff9808;
+  --v30-accent-2: #7a1cac;
+  --v30-accent-3: #03346e;
+  --v30-good: #255f38;
+  --v30-warn: #ff9808;
+  --v30-bad: #a91079;
+  --v30-glow: rgba(255, 152, 8, 0.26);
+  --v30-glow-soft: rgba(122, 28, 172, 0.2);
+  --v30-sheen: rgba(235, 239, 255, 0.06);
+
+  --bg-root: #0b132b;
+  --bg-titlebar: #0b132b;
+  --bg-sidebar: #0b132b;
+  --bg-card: #202940;
+  --bg-card-bottom: #092635;
+  --bg-card-elevated: #202940;
+  --bg-card-hover: #03346e;
+  --bg-tile: #092635;
+  --bg-tile-bottom: #0b132b;
+  --bg-input: #092635;
+  --bg-void: #0b132b;
+
+  --border-subtle: rgba(186, 197, 223, 0.14);
+  --border-strong: rgba(255, 211, 105, 0.36);
+  --text-primary: #f3f5ff;
+  --text-secondary: #bac5df;
+  --text-muted: #8996b6;
+  --text-dim: #bac5df;
+  --text-strong: #f3f5ff;
+
+  --brand-pink: #a91079;
+  --accent-yellow: #ffd369;
+  --accent-gold: #ffd369;
+  --accent-light: #f3f5ff;
+  --accent-orange: #ff9808;
+  --accent-neon-blue: #03346e;
+  --accent-violet: #7a1cac;
+  --accent-violet-pink: #a91079;
+  --accent: #ffd369;
+  --accent-2: #7a1cac;
+  --accent-primary: #ffd369;
+  --accent-primary-bright: #ff9808;
+  --accent-primary-soft: rgba(255, 211, 105, 0.16);
+  --accent-secondary: #7a1cac;
+  --accent-secondary-bright: #a91079;
+  --accent-tertiary: #03346e;
+  --accent-warm: #ff9808;
+  --accent-danger: #a91079;
+  --vd-accent: #ffd369;
+  --vd-accent-2: #7a1cac;
+  --vd-accent-rgb: 255, 211, 105;
+  --vd-accent-strong: #ff9808;
+  --vd-btn-grad: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
+  --vd-btn-ink: #0b132b;
+  --vd-muted: #8996b6;
+  --vd-surface-1: #202940;
+  --vd-bg-1: #0b132b;
+  --vd-border: rgba(186, 197, 223, 0.14);
+  --vd-text: #f3f5ff;
+  --vd-text-soft: #bac5df;
+
+  --emerald: #255f38;
+  --emerald-bright: color-mix(in srgb, #255f38 48%, #f3f5ff);
+  --amber: #ffd369;
+  --amber-deep: #ff9808;
+  --violet: #7a1cac;
+  --blue: #03346e;
+  --danger: #a91079;
+  --glow-rim-main: rgba(255, 211, 105, 0.68);
+  --glow-rim-sub: rgba(122, 28, 172, 0.4);
+  --glass-tint-top: rgba(32, 41, 64, 0.56);
+  --glass-tint-mid: rgba(11, 19, 43, 0.48);
+  --glass-tint-bot: rgba(9, 38, 53, 0.62);
+
+  --btn-primary-bg: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
+  --btn-primary-ink: #0b132b;
+  --btn-primary-border: rgba(255, 211, 105, 0.64);
+  --btn-primary-shadow: rgba(255, 152, 8, 0.3);
+  --chart-bar-top: #ffd369;
+  --chart-bar-bottom: #ff9808;
+  --chart-highlight-top: #a91079;
+  --chart-highlight-bottom: #7a1cac;
+}
+
+/* ── Focus: larger cinematic room, clock and configuration in one card ── */
+.focus-session-page {
+  width: min(100%, 1200px) !important;
+  max-width: 1200px !important;
+  gap: 18px !important;
+}
+
+.focus-session-page .v61-focus-shell {
+  display: flex !important;
+  flex-direction: column;
+  gap: clamp(14px, 1.8vw, 22px) !important;
+  width: 100%;
+  padding: clamp(14px, 2.2vw, 28px) !important;
+  border: 1px solid rgba(122, 28, 172, 0.42) !important;
+  border-radius: 27px !important;
+  background:
+    radial-gradient(100% 95% at 2% 0%, rgba(122, 28, 172, 0.2), transparent 56%),
+    radial-gradient(75% 80% at 98% 45%, rgba(18, 84, 79, 0.22), transparent 62%),
+    linear-gradient(145deg, #202940 0%, #121d35 62%, #0b132b 100%) !important;
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(235, 239, 255, 0.075),
+    0 0 34px -27px rgba(122, 28, 172, 0.46) !important;
+}
+
+.focus-session-page .v48-focus-stage {
+  gap: 18px !important;
+  margin-top: 0 !important;
+}
+
+.focus-session-page .v48-scene-card {
+  border: 1px solid rgba(37, 95, 56, 0.42) !important;
+  border-radius: 23px !important;
+  background: #0b132b !important;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.focus-session-page .v48-scene-frame {
+  aspect-ratio: 16 / 9 !important;
+  min-height: 390px !important;
+  max-height: 570px !important;
+  height: auto !important;
+  border-radius: 22px !important;
+  background: #092635 !important;
+}
+
+.focus-session-page .v48-scene-frame .focus-room-scene {
+  z-index: 0;
+  object-fit: cover;
+}
+
+.focus-session-page .v48-scene-frame::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 42%, rgba(11, 19, 43, 0.12) 68%, rgba(11, 19, 43, 0.24)),
+    linear-gradient(0deg, rgba(11, 19, 43, 0.2), transparent 26%);
+}
+
+.focus-session-page .v48-wall-clock {
+  z-index: 3;
+  right: clamp(18px, 3.2vw, 42px) !important;
+  filter: none !important;
+}
+
+.focus-session-page .v48-wall-clock-inner {
+  gap: 12px !important;
+}
+
+.focus-session-page .v48-wall-clock .v35-clock-wrap:has(.v35-digital-readout) {
+  width: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  display: block !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.focus-session-page .v48-wall-clock .v35-clock-wrap:has(.v35-digital-readout)::before {
+  display: none !important;
+}
+
+/* The analog and digital clock each receive the same thick, beveled progress rail. */
+.focus-session-page .v48-wall-clock .v48-wall-rail {
+  position: relative;
+  width: min(276px, 100%) !important;
+  height: 11px !important;
+  margin: 16px auto 0 !important;
+  border: 1px solid rgba(37, 95, 56, 0.48);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #202940 0%, #092635 48%, #0b132b 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.92),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 3px 0 #0b132b,
+    0 6px 12px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden;
+}
+
+.focus-session-page .v48-wall-clock .v48-wall-rail span {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #255f38 0%, #255f38 46%, #03346e 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(235, 239, 255, 0.64),
+    0 0 12px rgba(37, 95, 56, 0.62) !important;
+}
+
+/* Focus controls: the main action uses the palette gold-to-orange gradient in every state. */
+.focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary {
+  min-height: 60px !important;
+  margin-top: 0 !important;
+  border: 1px solid rgba(255, 211, 105, 0.78) !important;
+  border-radius: 15px !important;
+  color: #0b132b !important;
+  background: linear-gradient(180deg, #ffd369 0%, #ff9808 72%, #ff9808 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.76),
+    inset 0 -3px 0 rgba(11, 19, 43, 0.28),
+    0 8px 18px -7px rgba(255, 152, 8, 0.62) !important;
+  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease !important;
+}
+
+.focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary.is-running,
+.focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary.is-break,
+.focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary.is-alarm {
+  color: #0b132b !important;
+  border-color: rgba(255, 211, 105, 0.78) !important;
+  background: linear-gradient(180deg, #ffd369 0%, #ff9808 72%, #ff9808 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.76),
+    inset 0 -3px 0 rgba(11, 19, 43, 0.28),
+    0 8px 18px -7px rgba(255, 152, 8, 0.62) !important;
+}
+
+.focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.07) saturate(1.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 12px 24px -8px rgba(255, 152, 8, 0.72) !important;
+}
+
+/* Larger, brighter configuration summary — aligned under the live stage inside its parent card. */
+.focus-session-page .v61-focus-shell .v54-focus-summary-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(205px, 0.78fr) minmax(0, 2.2fr);
+  align-items: center;
+  gap: clamp(14px, 2vw, 24px);
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box;
+  margin: 0 !important;
+  padding: clamp(16px, 2.1vw, 24px) !important;
+  border: 1px solid rgba(122, 28, 172, 0.4) !important;
+  border-radius: 21px !important;
+  background:
+    radial-gradient(110% 150% at 0% 0%, rgba(122, 28, 172, 0.2), transparent 55%),
+    radial-gradient(80% 130% at 100% 100%, rgba(18, 84, 79, 0.2), transparent 66%),
+    radial-gradient(45% 90% at 100% 0%, rgba(255, 152, 8, 0.1), transparent 72%),
+    linear-gradient(140deg, rgba(32, 41, 64, 0.96), rgba(11, 19, 43, 0.98)) !important;
+  box-shadow:
+    0 13px 34px rgba(0, 0, 0, 0.3),
+    0 0 34px -23px rgba(122, 28, 172, 0.58),
+    inset 0 1px 0 rgba(235, 239, 255, 0.1) !important;
+  animation: v61-summary-arrive 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-card::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -70%;
+  left: -38%;
+  width: 42%;
+  height: 250%;
+  transform: rotate(22deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 211, 105, 0.1), transparent);
+  animation: v61-summary-sheen 8s ease-in-out 1.2s infinite;
+  pointer-events: none;
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-heading,
+.focus-session-page .v61-focus-shell .v54-focus-summary-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-heading {
+  gap: 13px;
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-icon {
+  flex-basis: 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  color: #ffd369;
+  background: linear-gradient(145deg, rgba(122, 28, 172, 0.26), rgba(37, 95, 56, 0.2));
+  border-color: rgba(122, 28, 172, 0.48);
+  box-shadow: 0 0 22px -9px rgba(122, 28, 172, 0.76), inset 0 1px 0 rgba(235, 239, 255, 0.12);
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-heading small {
+  color: #ffd369;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-heading strong {
+  color: #f3f5ff;
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.35;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 10px;
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-item {
+  min-height: 94px;
+  padding: 13px 13px 12px;
+  grid-template-columns: 23px minmax(0, 1fr);
+  column-gap: 9px;
+  row-gap: 5px;
+  border: 1px solid rgba(37, 95, 56, 0.34);
+  border-radius: 15px;
+  background: linear-gradient(145deg, rgba(32, 41, 64, 0.8), rgba(9, 38, 53, 0.82));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 5px 14px rgba(0, 0, 0, 0.17);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  animation: v61-summary-item-arrive 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(1) { animation-delay: 60ms; }
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(2) { animation-delay: 120ms; }
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(3) { animation-delay: 180ms; }
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(4) { animation-delay: 240ms; }
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(122, 28, 172, 0.58);
+  background: linear-gradient(145deg, rgba(122, 28, 172, 0.24), rgba(3, 52, 110, 0.52));
+  box-shadow: 0 10px 24px -14px rgba(122, 28, 172, 0.6), inset 0 1px 0 rgba(235, 239, 255, 0.09);
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-item svg {
+  width: 20px;
+  height: 20px;
+  color: #ffd369;
+  filter: drop-shadow(0 0 6px rgba(122, 28, 172, 0.36));
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(2) svg { color: #ff9808; }
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(3) svg { color: #255f38; }
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(4) svg { color: #a91079; }
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-item span {
+  color: #bac5df;
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.focus-session-page .v61-focus-shell .v54-focus-summary-item b {
+  align-self: start;
+  color: #f3f5ff;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 760;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+}
+
+@keyframes v61-summary-arrive {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes v61-summary-item-arrive {
+  from { opacity: 0; transform: translateY(12px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes v61-summary-sheen {
+  0%, 66%, 100% { left: -42%; opacity: 0; }
+  72% { opacity: 1; }
+  88% { left: 115%; opacity: 0; }
+}
+
+/* ── Digital LCD treatment: a recessed instrument face, bright neutral digits, and violet glow ── */
+.v35-clock-wrap .v35-digital-readout {
+  position: relative;
+  isolation: isolate;
+  display: grid !important;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  column-gap: 0.12em;
+  row-gap: 5px;
+  box-sizing: border-box;
+  width: min(320px, calc(100vw - 44px)) !important;
+  min-height: 150px !important;
+  padding: 22px 27px 19px !important;
+  overflow: hidden;
+  border: 2px solid rgba(122, 28, 172, 0.82) !important;
+  border-radius: 25px !important;
+  background:
+    linear-gradient(180deg, rgba(235, 239, 255, 0.09), transparent 26%),
+    radial-gradient(130% 120% at 50% 0%, rgba(122, 28, 172, 0.2), transparent 62%),
+    linear-gradient(150deg, #202940 0%, #101a31 56%, #0b132b 100%) !important;
+  box-shadow:
+    0 0 0 5px rgba(11, 19, 43, 0.96),
+    0 0 0 7px rgba(122, 28, 172, 0.32),
+    0 12px 26px rgba(0, 0, 0, 0.52),
+    inset 0 3px 10px rgba(0, 0, 0, 0.88),
+    inset 0 -1px 0 rgba(235, 239, 255, 0.08) !important;
+  filter: drop-shadow(0 0 15px rgba(122, 28, 172, 0.28));
+  animation: v34DialIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.v35-clock-wrap .v35-digital-readout::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 6px;
+  border: 1px solid rgba(255, 211, 105, 0.18);
+  border-radius: 18px;
+  background: linear-gradient(165deg, rgba(235, 239, 255, 0.05), transparent 38%);
+  pointer-events: none;
+}
+
+.v35-clock-wrap .v35-digital-readout .v61-digital-caption {
+  grid-column: 1 / -1;
+  justify-self: center;
+  color: rgba(255, 211, 105, 0.72);
+  font: 800 9px/1.2 'Hind Siliguri', system-ui, sans-serif !important;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-shadow: none !important;
+}
+
+.v35-clock-wrap .v35-digital-readout .v61-digital-value {
+  color: #f3f5ff !important;
+  font-family: 'Roboto Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace !important;
+  font-size: clamp(2.55rem, 4vw, 3.55rem) !important;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.045em !important;
+  text-shadow: 0 0 7px rgba(122, 28, 172, 0.82), 0 0 22px rgba(169, 16, 121, 0.48) !important;
+}
+
+.v35-clock-wrap .v35-digital-readout > i {
+  color: #ffd369 !important;
+  font-family: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace !important;
+  font-size: clamp(2.3rem, 3.7vw, 3.2rem) !important;
+  line-height: 1 !important;
+  font-style: normal;
+  opacity: 0.9;
+  text-shadow: 0 0 14px rgba(255, 211, 105, 0.58);
+  animation: v61-lcd-colon 1s steps(2, end) infinite;
+}
+
+@keyframes v61-lcd-colon { 50% { opacity: 0.35; } }
+
+.v35-clock-wrap .v35-digital-readout.is-paused .v61-digital-value,
+.v35-clock-wrap .v35-digital-readout.is-paused > i {
+  color: #f3f5ff !important;
+  text-shadow: 0 0 12px rgba(122, 28, 172, 0.62) !important;
+}
+
+.v35-clock-wrap .v35-digital-readout.is-alarm {
+  border-color: rgba(169, 16, 121, 0.86) !important;
+  filter: drop-shadow(0 0 17px rgba(169, 16, 121, 0.4));
+}
+
+.v35-clock-wrap .v35-digital-readout.is-alarm .v61-digital-value,
+.v35-clock-wrap .v35-digital-readout.is-alarm > i {
+  color: #f3f5ff !important;
+  text-shadow: 0 0 12px rgba(169, 16, 121, 0.78) !important;
+}
+
+.focus-session-page .v48-wall-clock .v48-wall-rail {
+  margin-top: 23px !important;
+}
+
+/* Zen mode: bigger analog dial, no cast shadow, and a persistent digital/analog toggle. */
+.v51-zen {
+  background: #0b132b !important;
+}
+
+.v51-zen-scene {
+  position: absolute !important;
+  inset: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.v51-zen-scene > svg {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.v61-zen-wall-clock {
+  display: grid;
+  grid-template-rows: auto minmax(248px, 1fr) auto;
+  justify-items: center;
+  align-items: center;
+  gap: 13px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 14px 12px 20px;
+  overflow: visible;
+  pointer-events: auto;
+}
+
+.v61-zen-clock-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid rgba(255, 211, 105, 0.25);
+  border-radius: 13px;
+  background: rgba(11, 19, 43, 0.84);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.v61-zen-clock-toggle button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: #bac5df;
+  background: transparent;
+  font: 750 11px/1 'Hind Siliguri', system-ui, sans-serif;
+  cursor: pointer;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  pointer-events: auto;
+}
+
+.v61-zen-clock-toggle button:hover {
+  transform: translateY(-1px);
+  color: #ffd369;
+}
+
+.v61-zen-clock-toggle button.is-active {
+  color: #ffd369;
+  border-color: rgba(255, 211, 105, 0.42);
+  background: linear-gradient(145deg, rgba(255, 211, 105, 0.22), rgba(122, 28, 172, 0.18));
+  box-shadow: inset 0 1px 0 rgba(235, 239, 255, 0.12), 0 0 18px -9px rgba(255, 152, 8, 0.7);
+}
+
+.v61-zen-clock-readout {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  width: 100%;
+  min-height: 248px;
+}
+
+.v61-zen-clock-readout .v61-zen-dial {
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+.v61-zen-clock-readout .v35-digital-readout {
+  width: min(302px, calc(100vw - 48px)) !important;
+  min-height: 140px !important;
+}
+
+.v61-clock-depth-line {
+  position: relative;
+  width: min(270px, 92%);
+  height: 11px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 211, 105, 0.3);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #202940 0%, #092635 52%, #0b132b 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.94),
+    inset 0 1px 0 rgba(235, 239, 255, 0.13),
+    0 3px 0 #0b132b,
+    0 7px 13px rgba(0, 0, 0, 0.48);
+}
+
+.v61-clock-depth-line i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #255f38 0%, #ffd369 52%, #ff9808 100%);
+  box-shadow: inset 0 1px 0 rgba(235, 239, 255, 0.7), 0 0 13px rgba(255, 152, 8, 0.4);
+  transition: width 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.v51-zen-btn.is-primary,
+.v51-zen-btn.is-live {
+  color: #0b132b !important;
+  border-color: rgba(255, 211, 105, 0.72) !important;
+  background: linear-gradient(180deg, #ffd369 0%, #ff9808 100%) !important;
+  box-shadow: 0 8px 22px -9px rgba(255, 152, 8, 0.58), inset 0 1px 0 rgba(235, 239, 255, 0.62) !important;
+}
+
+/* Smaller displays preserve the room without shrinking labels or clipping the controls. */
+@media (max-width: 980px) {
+  .focus-session-page .v61-focus-shell .v54-focus-summary-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .focus-session-page .v61-focus-shell .v54-focus-summary-heading {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 232, 190, 0.12);
+  }
+}
+
+@media (max-width: 760px) {
+  .focus-session-page .v48-scene-frame {
+    aspect-ratio: 4 / 3 !important;
+    min-height: 260px !important;
+    max-height: 430px !important;
+  }
+
+  .focus-session-page .v48-wall-clock {
+    top: 50% !important;
+    right: 5px !important;
+    transform: translateY(-50%) scale(0.76) !important;
+    transform-origin: right center !important;
+  }
+
+  .focus-session-page .v61-focus-shell .v54-focus-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .focus-session-page .v61-focus-shell .v54-focus-summary-item {
+    min-height: 86px;
+    padding: 11px 10px;
+  }
+
+  .focus-session-page .v61-focus-shell .v54-focus-summary-item b {
+    font-size: 13px;
+  }
+
+  .v61-zen-wall-clock {
+    gap: 10px;
+    padding: 12px 9px 18px;
+  }
+
+  .v61-zen-clock-toggle button {
+    min-height: 32px;
+    padding-inline: 8px;
+    font-size: 10px;
+  }
+
+  .v61-zen-clock-readout,
+  .v61-zen-wall-clock {
+    grid-template-rows: auto minmax(220px, 1fr) auto;
+  }
+
+  .v61-zen-clock-readout .v61-zen-dial {
+    transform: scale(0.88);
+  }
+}
+
+@media (max-width: 430px) {
+  .focus-session-page .v61-focus-shell .v54-focus-summary-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .focus-session-page .v61-focus-shell .v54-focus-summary-item {
+    min-height: 76px;
+  }
+
+  .v61-zen-clock-toggle button span {
+    display: none;
+  }
+
+  .v61-zen-clock-readout .v61-zen-dial {
+    transform: scale(0.76);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focus-session-page .v61-focus-shell .v54-focus-summary-card,
+  .focus-session-page .v61-focus-shell .v54-focus-summary-item,
+  .v61-zen-clock-toggle button,
+  .v61-zen-clock-readout .v35-digital-readout {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .focus-session-page .v61-focus-shell .v54-focus-summary-card::before {
+    animation: none !important;
+  }
+}
+
+/* ── Home Navigation: unified supplied palette ── */
+body:has(.v48-home) .topbar.clean-topbar.v12-spatial-topbar {
+  background: linear-gradient(105deg, rgba(32, 41, 64, 0.98), rgba(3, 52, 110, 0.94) 54%, rgba(9, 38, 53, 0.97)) !important;
+  border-bottom-color: rgba(255, 211, 105, 0.24) !important;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(122, 28, 172, 0.28) !important;
+}
+
+body:has(.v48-home) .topbar.clean-topbar.v12-spatial-topbar .page-heading {
+  color: #f3f5ff !important;
+}
+
+body:has(.v48-home) .topbar.clean-topbar.v12-spatial-topbar .topbar-pip {
+  color: #ffd369 !important;
+  background: linear-gradient(145deg, rgba(255, 211, 105, 0.16), rgba(122, 28, 172, 0.28)) !important;
+  border-color: rgba(255, 211, 105, 0.3) !important;
+}
+
+.v48-home .v48-hero {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgba(255, 211, 105, 0.27) !important;
+  background:
+    radial-gradient(48% 150% at 7% 0%, rgba(255, 152, 8, 0.2), transparent 66%),
+    radial-gradient(37% 130% at 88% 4%, rgba(122, 28, 172, 0.26), transparent 68%),
+    radial-gradient(30% 110% at 3% 100%, rgba(18, 84, 79, 0.22), transparent 72%),
+    radial-gradient(31% 105% at 100% 100%, rgba(169, 16, 121, 0.16), transparent 72%),
+    linear-gradient(112deg, #03346e 0%, #202940 48%, #210f37 100%) !important;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.45),
+    0 0 30px -22px rgba(255, 152, 8, 0.48),
+    inset 0 1px 0 rgba(235, 239, 255, 0.16) !important;
+}
+
+.v48-home .v48-hero .bento-hero-copy h2 {
+  color: #f3f5ff !important;
+}
+
+.v48-home .v48-hero .v13-hero-orbital-meta small {
+  color: #ffd369 !important;
+}
+
+.v48-home .bento-nav-grid .bento-card {
+  color: #f3f5ff !important;
+  border: 1px solid rgba(255, 211, 105, 0.18) !important;
+  background:
+    radial-gradient(120% 120% at 2% 0%, rgba(122, 28, 172, 0.16), transparent 65%),
+    linear-gradient(145deg, #202940 0%, #092635 58%, #0b132b 100%) !important;
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(235, 239, 255, 0.075) !important;
+}
+
+.v48-home .bento-nav-grid .bento-card .bento-title-group h3,
+.v48-home .bento-nav-grid .bento-card .bento-big-stat strong,
+.v48-home .bento-nav-grid .bento-card .bento-metric-pill,
+.v48-home .bento-nav-grid .bento-card .bento-go-arrow {
+  color: #f3f5ff !important;
+}
+
+.v48-home .bento-nav-grid .bento-card .bento-title-group small,
+.v48-home .bento-nav-grid .bento-card .bento-big-stat > span,
+.v48-home .bento-nav-grid .bento-card .bento-muted-hint {
+  color: #bac5df !important;
+}
+
+.v48-home .bento-nav-grid .bento-card.tone-amber {
+  border-color: rgba(255, 152, 8, 0.48) !important;
+  background:
+    radial-gradient(130% 140% at 0% 0%, rgba(255, 152, 8, 0.2), transparent 59%),
+    radial-gradient(80% 100% at 100% 100%, rgba(255, 211, 105, 0.11), transparent 70%),
+    linear-gradient(145deg, #202940 0%, #092635 55%, #0b132b 100%) !important;
+}
+
+.v48-home .bento-nav-grid .bento-card.tone-violet {
+  border-color: rgba(122, 28, 172, 0.48) !important;
+  background:
+    radial-gradient(125% 130% at 100% 0%, rgba(122, 28, 172, 0.25), transparent 60%),
+    radial-gradient(90% 100% at 0% 100%, rgba(169, 16, 121, 0.12), transparent 68%),
+    linear-gradient(145deg, #202940 0%, #210f37 57%, #0b132b 100%) !important;
+}
+
+.v48-home .bento-nav-grid .bento-card.tone-sky {
+  border-color: rgba(3, 52, 110, 0.72) !important;
+  background:
+    radial-gradient(130% 130% at 0% 0%, rgba(3, 52, 110, 0.42), transparent 61%),
+    radial-gradient(80% 110% at 100% 100%, rgba(18, 84, 79, 0.2), transparent 70%),
+    linear-gradient(145deg, #202940 0%, #092635 57%, #0b132b 100%) !important;
+}
+
+.v48-home .bento-nav-grid .bento-card.tone-orange {
+  border-color: rgba(255, 152, 8, 0.4) !important;
+  background:
+    radial-gradient(125% 125% at 0% 0%, rgba(255, 211, 105, 0.14), transparent 60%),
+    radial-gradient(100% 130% at 100% 100%, rgba(169, 16, 121, 0.17), transparent 64%),
+    linear-gradient(145deg, #202940 0%, #210f37 56%, #0b132b 100%) !important;
+}
+
+.v48-home .bento-nav-grid .bento-card.tone-sprint-yb {
+  border-color: rgba(37, 95, 56, 0.6) !important;
+  background:
+    radial-gradient(125% 130% at 0% 0%, rgba(37, 95, 56, 0.3), transparent 58%),
+    radial-gradient(100% 130% at 100% 100%, rgba(255, 211, 105, 0.12), transparent 65%),
+    linear-gradient(145deg, #202940 0%, #12544f 48%, #0b132b 100%) !important;
+}
+
+.v48-home .bento-nav-grid .bento-card.tone-purple {
+  border-color: rgba(169, 16, 121, 0.44) !important;
+  background:
+    radial-gradient(125% 130% at 100% 0%, rgba(169, 16, 121, 0.22), transparent 60%),
+    radial-gradient(90% 110% at 0% 100%, rgba(122, 28, 172, 0.16), transparent 68%),
+    linear-gradient(145deg, #202940 0%, #210f37 57%, #0b132b 100%) !important;
+}
+
+.v48-home .bento-nav-grid .bento-card.tone-emerald {
+  border-color: rgba(37, 95, 56, 0.56) !important;
+  background:
+    radial-gradient(125% 135% at 0% 0%, rgba(37, 95, 56, 0.24), transparent 60%),
+    radial-gradient(95% 120% at 100% 100%, rgba(18, 84, 79, 0.18), transparent 68%),
+    linear-gradient(145deg, #202940 0%, #092635 57%, #0b132b 100%) !important;
+}
+
+.v48-home .bento-nav-grid .bento-card:hover {
+  border-color: rgba(255, 211, 105, 0.58) !important;
+  box-shadow:
+    0 22px 46px rgba(0, 0, 0, 0.48),
+    0 0 26px -14px rgba(122, 28, 172, 0.52),
+    inset 0 1px 0 rgba(235, 239, 255, 0.11) !important;
+}
+
+.v48-home .bento-quick-dock {
+  border-color: rgba(255, 211, 105, 0.24) !important;
+  background:
+    radial-gradient(95% 140% at 0% 0%, rgba(18, 84, 79, 0.2), transparent 64%),
+    radial-gradient(75% 120% at 100% 100%, rgba(122, 28, 172, 0.18), transparent 66%),
+    linear-gradient(145deg, #202940 0%, #0b132b 100%) !important;
+}
+
+.v48-home .bento-quick-dock .bento-sub-action {
+  border-color: rgba(255, 211, 105, 0.2) !important;
+  background: linear-gradient(145deg, rgba(32, 41, 64, 0.76), rgba(9, 38, 53, 0.88)) !important;
+}
+
+.v48-home .bento-quick-dock .bento-sub-action:hover {
+  border-color: rgba(255, 152, 8, 0.5) !important;
+  background: linear-gradient(145deg, rgba(255, 152, 8, 0.15), rgba(122, 28, 172, 0.24)) !important;
+}

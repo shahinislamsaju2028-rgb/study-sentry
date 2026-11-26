@@ -4,17 +4,17 @@ import { bnNum } from '../utils/bangla';
 
 /* 12 pre-made avatars — a student can swap their profile picture in one click. */
 export const AVATAR_PRESETS = [
-  { id: 'owl', emoji: '🦉', from: '#fbbf24', to: '#f59e0b' },
+  { id: 'owl', emoji: '🦉', from: '#ffd369', to: '#ff9808' },
   { id: 'cap', emoji: '🎓', from: '#60a5fa', to: '#3b82f6' },
   { id: 'rocket', emoji: '🚀', from: '#f472b6', to: '#ec4899' },
   { id: 'book', emoji: '📚', from: '#34d399', to: '#10b981' },
   { id: 'flask', emoji: '🔬', from: '#a78bfa', to: '#8b5cf6' },
   { id: 'code', emoji: '💻', from: '#22d3ee', to: '#06b6d4' },
-  { id: 'sun', emoji: '🌞', from: '#fb923c', to: '#f97316' },
+  { id: 'sun', emoji: '🌞', from: '#ff9808', to: '#ff9808' },
   { id: 'moon', emoji: '🌙', from: '#818cf8', to: '#6366f1' },
   { id: 'leaf', emoji: '🌿', from: '#4ade80', to: '#22c55e' },
   { id: 'brain', emoji: '🧠', from: '#f9a8d4', to: '#ec4899' },
-  { id: 'star', emoji: '⭐', from: '#fde047', to: '#eab308' },
+  { id: 'star', emoji: '⭐', from: '#ffd369', to: '#eab308' },
   { id: 'wolf', emoji: '🐺', from: '#94a3b8', to: '#64748b' },
 ];
 

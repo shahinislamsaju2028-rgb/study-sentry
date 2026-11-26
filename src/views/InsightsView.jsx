@@ -13,11 +13,7 @@ import {
   Flame,
   LayoutDashboard,
   LayoutGrid,
-  MoonStar,
   Sparkles,
-  Sun,
-  SunMedium,
-  Sunrise,
   Timer,
   TrendingUp,
 } from 'lucide-react';
@@ -42,34 +38,27 @@ const shortSubjectName = (name) => {
 };
 
 const PALETTE = [
-  '#fbbf24',
+  '#ffd369',
   '#38bdf8',
   '#a78bfa',
   '#34d399',
   '#fb7185',
-  '#fb923c',
+  '#ff9808',
   '#60a5fa',
   '#f472b6',
 ];
 
 const RADAR_AXES = [
-  { key: 'physics', label: 'পদার্থ', enLabel: 'Physics', aliases: ['physics', 'পদার্থ', 'পদার্থবিজ্ঞান'], color: subjectColor('Physics') },
-  { key: 'math', label: 'গণিত', enLabel: 'Mathematics', aliases: ['math', 'higher math', 'mathematics', 'গণিত', 'উচ্চতর গণিত'], color: subjectColor('Math') },
-  { key: 'chemistry', label: 'রসায়ন', enLabel: 'Chemistry', aliases: ['chemistry', 'রসায়ন'], color: subjectColor('Chemistry') },
-  { key: 'biology', label: 'জীববিজ্ঞান', enLabel: 'Biology', aliases: ['biology', 'জীববিজ্ঞান', 'জীব'], color: subjectColor('Biology') },
-  { key: 'ict', label: 'আইসিটি', enLabel: 'ICT', aliases: ['ict', 'ict & eng', 'ict & coding', 'আইসিটি'], color: subjectColor('ICT') },
-  { key: 'english', label: 'ইংরেজি', enLabel: 'English', aliases: ['english', 'ইংরেজি'], color: subjectColor('English') },
-  { key: 'bangla', label: 'বাংলা', enLabel: 'Bangla', aliases: ['bangla', 'bengali', 'বাংলা'], color: subjectColor('Bangla') },
+  { key: 'physics', label: 'পদার্থ', aliases: ['physics', 'পদার্থ', 'পদার্থবিজ্ঞান'], color: subjectColor('Physics') },
+  { key: 'math', label: 'গণিত', aliases: ['math', 'higher math', 'mathematics', 'গণিত', 'উচ্চতর গণিত'], color: subjectColor('Math') },
+  { key: 'chemistry', label: 'রসায়ন', aliases: ['chemistry', 'রসায়ন', 'রসায়ন'], color: subjectColor('Chemistry') },
+  { key: 'biology', label: 'জীববিজ্ঞান', aliases: ['biology', 'জীববিজ্ঞান', 'জীব'], color: subjectColor('Biology') },
+  { key: 'ict', label: 'আইসিটি', aliases: ['ict', 'ict & eng', 'ict & coding', 'আইসিটি'], color: subjectColor('ICT') },
+  { key: 'english', label: 'ইংরেজি', aliases: ['english', 'ইংরেজি'], color: subjectColor('English') },
+  { key: 'bangla', label: 'বাংলা', aliases: ['bangla', 'bengali', 'বাংলা'], color: subjectColor('Bangla') },
 ];
 
 const WEEKDAY_HEADERS_MON_FIRST = ['সোম', 'মঙ্গল', 'বুধ', 'বৃহঃ', 'শুক্র', 'শনি', 'রবি'];
-const INSIGHTS_PHASE_ICONS = {
-  dawn: Sunrise,
-  morning: Sun,
-  noon: SunMedium,
-  night: MoonStar,
-  late_night: Sparkles,
-};
 
 const readable = (seconds) => {
   const n = Math.max(0, Math.floor(seconds || 0));
@@ -302,10 +291,6 @@ const CleanSubjectBreakdown = React.memo(function CleanSubjectBreakdown({ items 
       <div className="v35-subj-bottom">
         {layout.bottom.map((seg) => renderChip(seg, 'bottom'))}
       </div>
-
-      {/* 4-2.txt ④ — the ranked strip that used to sit under the donut is gone.
-          It repeated every subject's minutes and percent a second time, right
-          below the chips that already carry both. The chips are the row. */}
     </div>
   );
 });
@@ -377,37 +362,39 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
         <div className="v11-weekly-stage">
           <svg viewBox={`0 0 ${W} ${H}`} className="v11-weekly-svg v12-3d-weekly-svg">
             <defs>
-              {/* Warm espresso faces with a soft brass bevel */}
+              {/* Front Sunlit Face */}
               <linearGradient id="v12FrontGold" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0%" stopColor="#1b1510" stopOpacity="0.98" />
-                <stop offset="56%" stopColor="#493523" stopOpacity="0.98" />
-                <stop offset="100%" stopColor="#9b7951" stopOpacity="1" />
+                <stop offset="0%" stopColor="#210f37" stopOpacity="0.88" />
+                <stop offset="55%" stopColor="#ff9808" stopOpacity="0.96" />
+                <stop offset="100%" stopColor="#ffd369" stopOpacity="1" />
               </linearGradient>
+              {/* Top Bevel Highlight Cap */}
               <linearGradient id="v12TopCapGold" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#b99a70" />
-                <stop offset="100%" stopColor="#59412c" />
+                <stop offset="0%" stopColor="#f3f5ff" />
+                <stop offset="100%" stopColor="#ffd369" />
               </linearGradient>
+              {/* Right Extruded 3D Side Wall */}
               <linearGradient id="v12SideWallGold" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#60462e" stopOpacity="0.96" />
-                <stop offset="100%" stopColor="#170f0a" stopOpacity="0.98" />
+                <stop offset="0%" stopColor="#ff9808" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#0b132b" stopOpacity="0.92" />
               </linearGradient>
-              {/* Selected day: a lighter coffee-metal face, never cyan/violet */}
+              {/* Active Cyan-Gold Highlight Front */}
               <linearGradient id="v12FrontActive" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0%" stopColor="#2b2017" stopOpacity="0.98" />
-                <stop offset="54%" stopColor="#6d4f32" stopOpacity="0.98" />
-                <stop offset="100%" stopColor="#d0ad7c" stopOpacity="1" />
+                <stop offset="0%" stopColor="#0369a1" stopOpacity="0.92" />
+                <stop offset="52%" stopColor="#38bdf8" stopOpacity="0.96" />
+                <stop offset="100%" stopColor="#ffd369" stopOpacity="1" />
               </linearGradient>
               <linearGradient id="v12SideActive" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#765637" />
-                <stop offset="100%" stopColor="#21170f" />
+                <stop offset="0%" stopColor="#0ea5e9" />
+                <stop offset="100%" stopColor="#082f49" />
               </linearGradient>
             </defs>
 
             {/* 3D Isometric Perspective Floor Platform */}
             <polygon
               points={`${PAD_X - 24},${bottomY} ${PAD_X - 24 + DX},${bottomY - DY} ${W - PAD_X + 24 + DX},${bottomY - DY} ${W - PAD_X + 24},${bottomY}`}
-              fill="rgba(142, 107, 69, 0.055)"
-              stroke="rgba(205, 176, 136, 0.14)"
+              fill="rgba(56, 189, 248, 0.055)"
+              stroke="rgba(255, 255, 255, 0.09)"
               strokeWidth="1"
             />
 
@@ -420,7 +407,8 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
                   y1={gy - DY}
                   x2={W - PAD_X + 18 + DX}
                   y2={gy - DY}
-                  stroke="rgba(221,203,180,0.075)"
+                  stroke="rgba(255,255,255,0.065)"
+                  strokeDasharray={step === 1 ? undefined : '4 6'}
                 />
               );
             })}
@@ -431,9 +419,10 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
                 y1={goalY}
                 x2={W - PAD_X + 20 + DX}
                 y2={goalY - DY}
-                stroke="#c2a17a"
-                strokeOpacity="0.42"
-                strokeWidth="1.1"
+                stroke="#38bdf8"
+                strokeOpacity="0.5"
+                strokeWidth="1.3"
+                strokeDasharray="6 5"
               />
             )}
 
@@ -459,7 +448,6 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
 
                   {pt.barH > 0 && (
                     <motion.g
-                      className="v56-chart-bar-motion"
                       initial={{ opacity: 0, y: 18 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
@@ -474,7 +462,7 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
                         cy={bottomY + 2}
                         rx={barWidth * 0.65}
                         ry="4"
-                        fill={isActive ? 'rgba(191,157,112,0.25)' : 'rgba(116,82,49,0.18)'}
+                        fill={isActive ? 'rgba(56,189,248,0.34)' : 'rgba(251,191,36,0.22)'}
                       />
 
                       {/* 1. Front 3D Prism Face */}
@@ -506,12 +494,10 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
 
             {/* Floating 3D Ribbon Curve Above Columns */}
             <path
-              className="v56-weekly-curve"
               d={linePath}
-              pathLength="1"
               fill="none"
-              stroke="rgba(218, 193, 157, 0.88)"
-              strokeWidth="2.1"
+              stroke="rgba(253, 230, 138, 0.92)"
+              strokeWidth="2.3"
               strokeLinecap="round"
             />
 
@@ -536,7 +522,7 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
                     cy={sy}
                     r={active ? 5 : 3.5}
                     fill={active ? '#ffffff' : '#0b0e17'}
-                    stroke={active ? '#ddc7a4' : '#9b7852'}
+                    stroke={active ? '#38bdf8' : '#ffd369'}
                     strokeWidth="2.2"
                   />
                   {active && (
@@ -548,7 +534,7 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
                         height="19"
                         rx="6"
                         fill="rgba(9, 13, 24, 0.96)"
-                        stroke="rgba(196, 164, 124, 0.55)"
+                        stroke="rgba(56, 189, 248, 0.72)"
                       />
                       <text
                         x="0"
@@ -691,10 +677,6 @@ const FriendlySubjectRadarCard = React.memo(function FriendlySubjectRadarCard({
   sessions,
 }) {
   const [hoverAxisIdx, setHoverAxisIdx] = useState(null);
-  const radarUid = React.useId().replace(/:/g, '');
-  const fillId = `v57RadarFill-${radarUid}`;
-  const planeId = `v57RadarPlane-${radarUid}`;
-  const glowId = `v57RadarGlow-${radarUid}`;
 
   const radarData = useMemo(() => {
     const totals = new Map(RADAR_AXES.map((a) => [a.key, 0]));
@@ -705,14 +687,20 @@ const FriendlySubjectRadarCard = React.memo(function FriendlySubjectRadarCard({
       if (sec <= 0) continue;
       const rawName = String(s.subjectName || subjById.get(s.subjectId) || '').trim().toLowerCase();
       const matched = RADAR_AXES.find((ax) => ax.aliases.includes(rawName));
-      if (matched) totals.set(matched.key, (totals.get(matched.key) || 0) + sec);
+      if (matched) {
+        totals.set(matched.key, (totals.get(matched.key) || 0) + sec);
+      }
     }
 
-    const rawValues = RADAR_AXES.map((ax) => ({ ...ax, sec: totals.get(ax.key) || 0 }));
+    const rawValues = RADAR_AXES.map((ax) => ({
+      ...ax,
+      sec: totals.get(ax.key) || 0,
+    }));
     const maxSec = Math.max(3600, ...rawValues.map((x) => x.sec));
     const sortedAsc = [...rawValues].sort((a, b) => a.sec - b.sec);
     const weakest = sortedAsc[0];
     const strongest = sortedAsc[sortedAsc.length - 1];
+
     const CX = 160;
     const CY = 154;
     const R = 106;
@@ -733,121 +721,70 @@ const FriendlySubjectRadarCard = React.memo(function FriendlySubjectRadarCard({
       };
     });
 
-    // Five outer-to-inner levels read like a shallow, beveled instrument plate.
-    const rings = [1, 0.8, 0.6, 0.4, 0.2].map((lv) =>
+    const rings = [0.25, 0.5, 0.75, 1].map((lv) =>
       points
         .map((p) => `${(CX + Math.cos(p.angle) * R * lv).toFixed(1)},${(CY + Math.sin(p.angle) * R * lv).toFixed(1)}`)
         .join(' ')
     );
+
     const dataPolygon = points.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
     return { CX, CY, points, rings, dataPolygon, weakest, strongest };
   }, [subjects, sessions]);
 
   return (
-    <SpatialTiltCard
-      maxTilt={4.5}
-      delayIndex={1}
-      className="card v11-radar-friendly-card v57-radar-card"
-      ariaLabel="বিষয় ভারসাম্য রাডার"
-    >
+    <SpatialTiltCard maxTilt={4.5} delayIndex={1} className="card v11-radar-friendly-card" ariaLabel="বিষয় ভারসাম্য রাডার">
       <div className="v11-card-head">
         <div className="v11-card-title">
           <Compass size={19} className="v11-ico-gold" />
           <div>
             <h2>৩ডি বিষয় ভারসাম্য চার্ট</h2>
-            <small>বিষয়ভিত্তিক সময়ের ভারসাম্য — হোভার করলে বিস্তারিত দেখুন</small>
+            <small>কোন বিষয়ে বেশি ও কোন বিষয়ে কম সময় দেওয়া হচ্ছে এক নজরে দেখুন</small>
           </div>
         </div>
       </div>
 
-      <div className="v10-radar-svg-wrap v12-3d-radar-stage v57-radar-stage">
-        <svg
-          viewBox="0 0 320 308"
-          className="v10-radar-svg v57-radar-svg"
-          role="img"
-          aria-label="বিষয়ভিত্তিক পড়ার সময়ের ত্রিমাত্রিক রাডার চার্ট"
-        >
+      <div className="v10-radar-svg-wrap v12-3d-radar-stage">
+        <svg viewBox="0 0 320 308" className="v10-radar-svg" role="img" aria-label="Subject Balance Radar">
           <defs>
-            <radialGradient id={planeId} cx="50%" cy="42%" r="68%">
-              <stop offset="0%" stopColor="#c7e4d4" stopOpacity="0.14" />
-              <stop offset="72%" stopColor="#6c8f93" stopOpacity="0.065" />
-              <stop offset="100%" stopColor="#10151a" stopOpacity="0.01" />
-            </radialGradient>
-            <linearGradient id={fillId} x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#a7dfd0" stopOpacity="0.43" />
-              <stop offset="52%" stopColor="#83b9bd" stopOpacity="0.31" />
-              <stop offset="100%" stopColor="#d8b981" stopOpacity="0.32" />
+            <linearGradient id="v11RadarFill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#ffd369" stopOpacity="0.42" />
+              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.34" />
             </linearGradient>
-            <filter id={glowId} x="-80%" y="-80%" width="260%" height="260%">
-              <feGaussianBlur stdDeviation="3" result="soft" />
-              <feMerge>
-                <feMergeNode in="soft" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
+            <linearGradient id="v11RadarStroke" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#ffd369" />
+              <stop offset="100%" stopColor="#38bdf8" />
+            </linearGradient>
           </defs>
-
-          <rect x="3" y="3" width="314" height="302" rx="24" className="v57-radar-canvas" />
-          <ellipse cx={radarData.CX} cy="275" rx="110" ry="16" className="v57-radar-floor-shadow" />
-
-          {/* Extruded outer deck and subtle down-facing edges */}
-          <polygon
-            points={radarData.rings[0]}
-            transform="translate(0 8)"
-            className="v57-radar-deck-side"
-          />
-          {radarData.points.map((p) => (
-            <line
-              key={`deck-edge-${p.key}`}
-              x1={p.outerX}
-              y1={p.outerY}
-              x2={p.outerX}
-              y2={p.outerY + 8}
-              className="v57-radar-depth-edge"
-            />
-          ))}
-          <polygon points={radarData.rings[0]} fill={`url(#${planeId})`} className="v57-radar-deck-top" />
 
           {radarData.rings.map((pts, idx) => (
             <polygon
-              key={`ring-${idx}`}
+              key={`r-${idx}`}
               points={pts}
-              className={`v57-radar-ring ring-${idx}`}
-              fill={idx === 0 ? 'rgba(184, 206, 195, 0.025)' : 'rgba(216, 231, 222, 0.018)'}
+              fill="none"
+              stroke="rgba(255,255,255,0.09)"
+              strokeWidth="1"
+              strokeDasharray={idx < 3 ? '3 3' : undefined}
             />
           ))}
 
-          {radarData.points.map((p, idx) => (
+          {radarData.points.map((p) => (
             <line
-              key={`spoke-${p.key}`}
+              key={`sp-${p.key}`}
               x1={radarData.CX}
               y1={radarData.CY}
               x2={p.outerX}
               y2={p.outerY}
-              className={`v57-radar-spoke ${hoverAxisIdx === idx ? 'is-highlighted' : ''}`}
+              stroke="rgba(255,255,255,0.08)"
+              strokeWidth="1"
             />
           ))}
 
-          {/* A small translated side face gives the data polygon a tangible bevel. */}
           <polygon
             points={radarData.dataPolygon}
-            transform="translate(0 8)"
-            className="v57-radar-data-side"
-          />
-          {radarData.points.map((p) => (
-            <line
-              key={`data-edge-${p.key}`}
-              x1={p.x}
-              y1={p.y}
-              x2={p.x}
-              y2={p.y + 8}
-              className="v57-radar-data-edge"
-            />
-          ))}
-          <polygon
-            points={radarData.dataPolygon}
-            fill={`url(#${fillId})`}
-            className="v57-radar-data-top"
+            fill="url(#v11RadarFill)"
+            stroke="url(#v11RadarStroke)"
+            strokeWidth="2.4"
+            strokeLinejoin="round"
           />
 
           {radarData.points.map((p, idx) => {
@@ -855,42 +792,28 @@ const FriendlySubjectRadarCard = React.memo(function FriendlySubjectRadarCard({
             return (
               <g
                 key={p.key}
-                tabIndex={0}
-                aria-label={`${p.enLabel}: ${readable(p.sec)}`}
-                data-active={hovered ? 'true' : 'false'}
-                className="v57-radar-axis"
+                style={{ cursor: 'pointer' }}
                 onMouseEnter={() => setHoverAxisIdx(idx)}
                 onMouseLeave={() => setHoverAxisIdx(null)}
-                onFocus={() => setHoverAxisIdx(idx)}
-                onBlur={() => setHoverAxisIdx(null)}
               >
                 <circle
                   cx={p.x}
                   cy={p.y}
-                  r={hovered ? 12 : 9}
-                  fill={p.color}
-                  className="v57-radar-node-aura"
-                  filter={`url(#${glowId})`}
+                  r={hovered ? 5.2 : 4}
+                  fill="#0b132b"
+                  stroke={hovered ? '#ffffff' : '#ffd369'}
+                  strokeWidth="2.2"
                 />
-                <circle
-                  cx={p.x}
-                  cy={p.y}
-                  r={hovered ? 5.8 : 4.6}
-                  fill="#11191d"
-                  stroke={p.color}
-                  className="v57-radar-node"
-                />
-                <circle cx={p.x} cy={p.y} r="1.75" fill="#fff8e9" className="v57-radar-node-core" />
                 <text
                   x={p.labelX}
                   y={p.labelY}
                   textAnchor="middle"
                   dominantBaseline="middle"
-                  className={`v57-radar-axis-label ${hovered ? 'is-active' : ''}`}
+                  fill={hovered ? '#ffffff' : '#cbd5e1'}
+                  fontSize="11.5"
+                  fontWeight={hovered ? '700' : '600'}
                 >
-                  <tspan x={p.labelX} dy="-0.22em">{p.label}</tspan>
-                  <tspan x={p.labelX} dy="1.18em" className="v57-radar-axis-en">{p.enLabel}</tspan>
-                  <title>{p.enLabel} · {readable(p.sec)}</title>
+                  {p.label}
                 </text>
               </g>
             );
@@ -898,34 +821,23 @@ const FriendlySubjectRadarCard = React.memo(function FriendlySubjectRadarCard({
         </svg>
       </div>
 
-      <div className="v57-radar-subject-grid" role="list" aria-label="বিষয়ভিত্তিক পড়ার সময়">
+      <div className="v10-radar-Readout-grid">
         {radarData.points.map((p, idx) => (
           <div
             key={p.key}
-            role="listitem"
-            tabIndex={0}
-            aria-label={`${p.enLabel}: ${readable(p.sec)}`}
-            className={`v57-radar-subject-card ${hoverAxisIdx === idx ? 'is-hovered' : ''}`}
-            style={{ '--radar-color': p.color }}
+            className={`v10-radar-mini-chip ${hoverAxisIdx === idx ? 'is-hovered' : ''}`}
             onMouseEnter={() => setHoverAxisIdx(idx)}
             onMouseLeave={() => setHoverAxisIdx(null)}
-            onFocus={() => setHoverAxisIdx(idx)}
-            onBlur={() => setHoverAxisIdx(null)}
           >
-            <span className="v57-radar-subject-icon" aria-hidden="true">
-              <PreviewSubjectIcon subject={{ id: p.key, name: p.enLabel }} size={17} />
-            </span>
-            <span className="v57-radar-subject-copy">
-              <strong>{p.enLabel}</strong>
-              <small>{p.label}</small>
-            </span>
-            <b>{compactHM(p.sec)}</b>
+            <i style={{ background: p.color }} />
+            <span>{p.label}</span>
+            <strong>{compactHM(p.sec)}</strong>
           </div>
         ))}
       </div>
 
       {radarData.strongest?.sec > 0 && radarData.weakest && (
-        <div className="v11-friendly-tip-banner v57-radar-tip">
+        <div className="v11-friendly-tip-banner">
           <Sparkles size={15} className="v11-ico-gold" />
           <span>
             সবচেয়ে এগিয়ে <strong>{radarData.strongest.label}</strong> ({readable(radarData.strongest.sec)}) — সুষম প্রস্তুতির জন্য পরবর্তী সেশনে{' '}
@@ -998,6 +910,8 @@ export default function InsightsView() {
     [weekly, dayTotalsMap]
   );
   const weeklyTotal = useMemo(() => values.reduce((a, b) => a + b, 0), [values]);
+  const bestValue = Math.max(0, ...values);
+  const bestIndex = values.indexOf(bestValue);
 
   const subjectTotals = useMemo(() => {
     const subjectMap = new Map();
@@ -1230,11 +1144,15 @@ export default function InsightsView() {
     for (let i = 0; i < startOffset; i++) {
       cells.push({ empty: true, id: `pad-${i}` });
     }
+    let monthTotalSec = 0;
+    let monthActiveDays = 0;
     for (let dayNum = 1; dayNum <= daysInMonth; dayNum++) {
       const d = new Date(viewMonth.year, viewMonth.month, dayNum);
       d.__civilDate = true;
       const key = toDateKey(d);
       const sec = dayTotalsMap.get(key) || 0;
+      monthTotalSec += sec;
+      if (sec > 0) monthActiveDays += 1;
       cells.push({
         empty: false,
         dayNum,
@@ -1244,7 +1162,7 @@ export default function InsightsView() {
         level: resolveHeatmapLevel(sec, dailyGoalSec),
       });
     }
-    return { firstOfMonth, cells };
+    return { firstOfMonth, cells, monthTotalSec, monthActiveDays };
   }, [viewMonth, dayTotalsMap, dailyGoalSec]);
 
   const activeSec = activeSecondsOnDay(timer, selectedDate, now);
@@ -1253,6 +1171,7 @@ export default function InsightsView() {
     ...sessions.map((s) => sessionSecondsOnDay(s, selectedDate)),
     activeSec
   );
+  const dailyGoalPct = Math.min(100, Math.round((total / dailyGoalSec) * 100));
   const step = (days) => setSelectedDate(toDateKey(addDays(date, days)));
   const totalXp = Math.max(0, Math.round(Number(state.profile?.xp) || 0));
 
@@ -1264,7 +1183,7 @@ export default function InsightsView() {
   };
 
   return (
-    <div className="view-page v11-insights-root insights-page">
+    <div className="view-page v11-insights-root">
       {/* CLEAN FRIENDLY TOP HEADER + SPRING 3-VIEW SWITCHER (NO EXTRA ORBITAL) */}
       <header className="v11-ins-topbar v12-ins-spatial-topbar">
         <div className="v11-ins-brand-title">
@@ -1287,30 +1206,39 @@ export default function InsightsView() {
             <span>· {bnNum(totalXp)} XP</span>
           </button>
 
-          {/* Sub-navigation — identical segmented control to Overview /
-              Sprint / Tasks / Settings so every tab row in the product reads
-              as the same widget. */}
-          <div className="v33-seg" role="tablist" aria-label="ইনসাইটস ভিউ">
-            {[
-              { id: 'overview', label: 'সার্বিক রিপোর্ট', Icon: LayoutDashboard },
-              { id: 'monthly', label: 'মাসিক ক্যালেন্ডার', Icon: CalendarDays },
-              { id: 'balance', label: 'বিষয় ভারসাম্য ও র‍্যাঙ্ক', Icon: Compass },
-            ].map(({ id, label, Icon }) => (
-              <button
-                key={id}
-                type="button"
-                role="tab"
-                aria-selected={activeTab === id}
-                className={`v33-seg-tab ${activeTab === id ? 'is-active' : ''}`}
-                onClick={() => setActiveTab(id)}
-              >
-                <span className="v33-seg-ico">
-                  <Icon size={16} />
-                </span>
-                {label}
-              </button>
-            ))}
-          </div>
+          <LayoutGroup id="v13-insights-tabs">
+            <div className="v11-ins-tabs" role="tablist" aria-label="ইনসাইটস ভিউ">
+              {[
+                { id: 'overview', label: 'সার্বিক রিপোর্ট', Icon: LayoutDashboard },
+                { id: 'monthly', label: 'মাসিক ক্যালেন্ডার', Icon: CalendarDays },
+                { id: 'balance', label: 'বিষয় ভারসাম্য ও র‍্যাঙ্ক', Icon: Compass },
+              ].map(({ id, label, Icon }) => {
+                const isActive = activeTab === id;
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    className={`v11-ins-tab v13-spring-tab ${isActive ? 'is-active' : ''}`}
+                    onClick={() => setActiveTab(id)}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="v13-ins-tab-capsule"
+                        className="v13-tab-spring-bg"
+                        transition={{ type: 'spring', stiffness: 450, damping: 33 }}
+                      />
+                    )}
+                    <div className="v13-tab-inner">
+                      <Icon size={15} />
+                      <span>{label}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </LayoutGroup>
         </div>
       </header>
       {activeTab==='overview' && <PhaseInsights/>}
@@ -1331,6 +1259,7 @@ export default function InsightsView() {
                   {selectedDate === todayKey ? 'আজকের মোট পড়া' : 'নির্বাচিত দিনের পড়া'}
                 </small>
                 <strong>{readable(total)}</strong>
+                <span>দৈনিক লক্ষ্যের {bnNum(dailyGoalPct)}% সম্পন্ন</span>
               </div>
             </div>
 
@@ -1341,6 +1270,7 @@ export default function InsightsView() {
               <div className="v11-kpi-copy">
                 <small>গত ৭ দিনে মোট পড়া</small>
                 <strong>{readable(weeklyTotal)}</strong>
+                <span>দৈনিক গড় {readable(weeklyTotal / 7)}</span>
               </div>
             </div>
 
@@ -1351,6 +1281,12 @@ export default function InsightsView() {
               <div className="v11-kpi-copy">
                 <small>একটানা ধারাবাহিকতা</small>
                 <strong>{bnNum(streak)} দিন</strong>
+                <span>
+                  সেরা দিন:{' '}
+                  {bestValue > 0
+                    ? `${bnDate(weekly[bestIndex], { weekday: 'short' })} (${compactHM(bestValue)})`
+                    : '—'}
+                </span>
               </div>
             </div>
 
@@ -1361,6 +1297,7 @@ export default function InsightsView() {
               <div className="v11-kpi-copy">
                 <small>একটানা সর্বোচ্চ ফোকাস</small>
                 <strong>{readable(longest)}</strong>
+                <span>মোট {bnNum(sessions.length)}টি ফোকাস সেশন</span>
               </div>
             </div>
           </div>
@@ -1488,6 +1425,10 @@ export default function InsightsView() {
 
               <div className="v10-month-title-block">
                 <h3>{bnDate(monthlyCalendar.firstOfMonth, { month: 'long', year: 'numeric' })}</h3>
+                <small>
+                  এই মাসে মোট পড়া: {readable(monthlyCalendar.monthTotalSec)} · সক্রিয় দিন:{' '}
+                  {bnNum(monthlyCalendar.monthActiveDays)}টি
+                </small>
               </div>
 
               <button
@@ -1535,6 +1476,7 @@ export default function InsightsView() {
                   <h2>
                     {bnDate(date, { weekday: 'long', day: 'numeric', month: 'long' })}
                   </h2>
+                  <small>নির্বাচিত দিনের সম্পূর্ণ স্টাডি রিপোর্ট</small>
                 </div>
               </div>
               <span className="v10-studio-badge">{bnNum(sessions.length)} সেশন</span>
@@ -1569,23 +1511,19 @@ export default function InsightsView() {
               aria-label="প্রহর অনুযায়ী নির্বাচিত দিনের সমান বিভক্ত টাইমলাইন"
             >
               <div className="v29-cal-tl-head-row">
-                {activePhases.map((p) => {
-                  const PhaseIcon = INSIGHTS_PHASE_ICONS[p.id] || Timer;
-                  return (
-                    <div
-                      key={p.id}
-                      className="v29-cal-tl-col-head"
-                      style={{ '--p-col': p.accent || '#fbbf24' }}
-                    >
-                      <span className="v29-cal-tl-name">
-                        <span className="v29-cal-tl-phase-icon" aria-hidden="true">
-                          <PhaseIcon size={13} strokeWidth={2.1} />
-                        </span>
-                        {p.label}
-                      </span>
-                    </div>
-                  );
-                })}
+                {activePhases.map((p) => (
+                  <div
+                    key={p.id}
+                    className="v29-cal-tl-col-head"
+                    style={{ '--p-col': p.accent || '#ffd369' }}
+                  >
+                    <span className="v29-cal-tl-name">
+                      <i aria-hidden="true" />
+                      {p.label}
+                    </span>
+                    <small>{dayMeta.phaseWindows?.[p.id]?.shortWin || ''}</small>
+                  </div>
+                ))}
               </div>
 
               <div className="v29-cal-tl-unified-box">
@@ -1598,7 +1536,7 @@ export default function InsightsView() {
                       className={`v29-cal-tl-compartment tone-${p.id} ${
                         secInPhase > 0 ? 'has-study' : ''
                       }`}
-                      style={{ '--p-col': p.accent || '#fbbf24' }}
+                      style={{ '--p-col': p.accent || '#ffd369' }}
                       title={`${p.label} (${p.windowLabel}) · মোট ${readable(secInPhase)}`}
                     >
                       <div className="v29-cal-tl-lane">
@@ -1628,7 +1566,7 @@ export default function InsightsView() {
                     <div
                       key={p.id}
                       className={`v29-cal-tl-col-foot ${secInPhase > 0 ? 'active' : ''}`}
-                      style={{ '--p-col': p.accent || '#fbbf24' }}
+                      style={{ '--p-col': p.accent || '#ffd369' }}
                     >
                       <strong>{secInPhase > 0 ? compactHM(secInPhase) : '—'}</strong>
                     </div>

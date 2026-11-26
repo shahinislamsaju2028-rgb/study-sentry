@@ -27,10 +27,10 @@
   padding: 22px 26px !important;
   gap: 22px !important;
   background:
-    radial-gradient(85% 120% at 72% 50%, color-mix(in srgb, var(--vd-accent, #fbbf24) 15%, transparent), transparent 62%),
+    radial-gradient(85% 120% at 72% 50%, color-mix(in srgb, var(--vd-accent, #ffd369) 15%, transparent), transparent 62%),
     radial-gradient(75% 110% at 8% 0%, color-mix(in srgb, var(--vd-accent-2, #38bdf8) 12%, transparent), transparent 58%),
     linear-gradient(145deg, rgba(19, 25, 40, 0.96), rgba(11, 15, 26, 0.97)) !important;
-  border: 1px solid color-mix(in srgb, var(--vd-accent, #fbbf24) 28%, rgba(255, 255, 255, 0.1)) !important;
+  border: 1px solid color-mix(in srgb, var(--vd-accent, #ffd369) 28%, rgba(255, 255, 255, 0.1)) !important;
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
@@ -60,7 +60,7 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    color-mix(in srgb, var(--vd-accent, #fbbf24) 24%, transparent) 0%,
+    color-mix(in srgb, var(--vd-accent, #ffd369) 24%, transparent) 0%,
     color-mix(in srgb, var(--vd-accent-2, #38bdf8) 12%, transparent) 48%,
     transparent 74%
   );
@@ -118,7 +118,7 @@
   background:
     radial-gradient(circle at 35% 24%, rgba(255, 255, 255, 0.13), transparent 52%),
     linear-gradient(155deg, rgba(22, 30, 48, 0.96), rgba(9, 13, 23, 0.98)) !important;
-  border: 1px solid color-mix(in srgb, var(--vd-accent, #fbbf24) 32%, rgba(255, 255, 255, 0.14)) !important;
+  border: 1px solid color-mix(in srgb, var(--vd-accent, #ffd369) 32%, rgba(255, 255, 255, 0.14)) !important;
   box-shadow:
     0 10px 24px rgba(0, 0, 0, 0.55),
     inset 0 1px 1px rgba(255, 255, 255, 0.14),
@@ -130,15 +130,15 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--vd-accent, #fbbf24);
+  background: var(--vd-accent, #ffd369);
   opacity: 0.75;
   margin-bottom: 1px;
 }
 
 .v29-ring-status-dot.is-live {
-  background: #f0c56b;
+  background: #ffd369;
   opacity: 1;
-  box-shadow: 0 0 10px #f0c56b;
+  box-shadow: 0 0 10px #ffd369;
 }
 
 .v29-ring-pct-value {
@@ -150,14 +150,14 @@
   line-height: 1 !important;
   letter-spacing: -0.03em;
   color: #ffffff !important;
-  text-shadow: 0 2px 12px color-mix(in srgb, var(--vd-accent, #fbbf24) 35%, transparent);
+  text-shadow: 0 2px 12px color-mix(in srgb, var(--vd-accent, #ffd369) 35%, transparent);
 }
 
 .v29-ring-pct-value em {
   font-style: normal;
   font-size: 14px;
   font-weight: 700;
-  color: var(--vd-accent, #fbbf24);
+  color: var(--vd-accent, #ffd369);
   margin-left: 1px;
 }
 
@@ -189,10 +189,10 @@
 }
 
 .bento-nav-grid .bento-card:hover {
-  border-color: color-mix(in srgb, var(--vd-accent, #fbbf24) 42%, rgba(255, 255, 255, 0.18)) !important;
+  border-color: color-mix(in srgb, var(--vd-accent, #ffd369) 42%, rgba(255, 255, 255, 0.18)) !important;
   box-shadow:
     0 18px 38px rgba(0, 0, 0, 0.44),
-    0 0 0 1px color-mix(in srgb, var(--vd-accent, #fbbf24) 16%, transparent) !important;
+    0 0 0 1px color-mix(in srgb, var(--vd-accent, #ffd369) 16%, transparent) !important;
 }
 
 .bento-card .bento-icon-box {
@@ -202,7 +202,7 @@
 .bento-icon-box.v29-emerald-ico {
   background: rgba(239, 189, 74, 0.15) !important;
   border: 1px solid rgba(247, 202, 85, 0.34) !important;
-  color: #f0c56b !important;
+  color: #ffd369 !important;
 }
 
 .v29-suite-compact {
@@ -239,7 +239,7 @@
 }
 
 .v29-cb-chip.gold {
-  color: #fde68a;
+  color: #ffd369;
   background: rgba(245, 158, 11, 0.12);
   border-color: rgba(251, 191, 36, 0.28);
 }
@@ -273,7 +273,7 @@
 
 .v29-focus-summary-dock.is-open {
   padding: 14px 16px 16px;
-  border-color: color-mix(in srgb, var(--vd-accent, #fbbf24) 26%, rgba(148, 163, 184, 0.2));
+  border-color: color-mix(in srgb, var(--vd-accent, #ffd369) 26%, rgba(148, 163, 184, 0.2));
 }
 
 .v29-focus-summary-bar {
@@ -316,7 +316,7 @@
 }
 
 .v29-fs-chip.gold strong {
-  color: var(--vd-accent, #fbbf24);
+  color: var(--vd-accent, #ffd369);
 }
 
 .v29-fs-chip.sky strong {
@@ -329,8 +329,8 @@
   gap: 7px;
   padding: 7px 14px;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--vd-accent, #fbbf24) 36%, rgba(255, 255, 255, 0.14));
-  background: color-mix(in srgb, var(--vd-accent, #fbbf24) 12%, rgba(15, 23, 42, 0.85));
+  border: 1px solid color-mix(in srgb, var(--vd-accent, #ffd369) 36%, rgba(255, 255, 255, 0.14));
+  background: color-mix(in srgb, var(--vd-accent, #ffd369) 12%, rgba(15, 23, 42, 0.85));
   color: #f8fafc;
   font-size: 12.5px;
   font-weight: 700;
@@ -339,8 +339,8 @@
 }
 
 .v29-focus-summary-btn:hover {
-  border-color: var(--vd-accent, #fbbf24);
-  background: color-mix(in srgb, var(--vd-accent, #fbbf24) 22%, rgba(15, 23, 42, 0.92));
+  border-color: var(--vd-accent, #ffd369);
+  background: color-mix(in srgb, var(--vd-accent, #ffd369) 22%, rgba(15, 23, 42, 0.92));
 }
 
 .v29-fs-chevron {
@@ -367,13 +367,13 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--stage-tone, #f0c56b);
-  box-shadow: 0 0 9px var(--stage-tone, #f0c56b);
+  background: var(--stage-tone, #ffd369);
+  box-shadow: 0 0 9px var(--stage-tone, #ffd369);
 }
 
 .v10-tl-stage-pill.is-now-phase {
-  border-color: color-mix(in srgb, var(--stage-tone, #fbbf24) 60%, transparent) !important;
-  box-shadow: 0 0 16px color-mix(in srgb, var(--stage-tone, #fbbf24) 18%, transparent);
+  border-color: color-mix(in srgb, var(--stage-tone, #ffd369) 60%, transparent) !important;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--stage-tone, #ffd369) 18%, transparent);
 }
 
 .v29-tl-groups-stack {
@@ -398,20 +398,20 @@
   background:
     linear-gradient(
       145deg,
-      color-mix(in srgb, var(--phase-tone, #fbbf24) 13%, rgba(16, 23, 38, 0.96)),
+      color-mix(in srgb, var(--phase-tone, #ffd369) 13%, rgba(16, 23, 38, 0.96)),
       rgba(12, 18, 31, 0.96) 55%,
       color-mix(in srgb, var(--vd-accent-2, #38bdf8) 11%, rgba(14, 21, 36, 0.96))
     ) padding-box,
     linear-gradient(
       130deg,
-      var(--phase-tone, #fbbf24) 0%,
-      color-mix(in srgb, var(--phase-tone, #fbbf24) 65%, #ffffff) 36%,
+      var(--phase-tone, #ffd369) 0%,
+      color-mix(in srgb, var(--phase-tone, #ffd369) 65%, #ffffff) 36%,
       var(--vd-accent-2, #38bdf8) 72%,
-      var(--phase-tone, #fbbf24) 100%
+      var(--phase-tone, #ffd369) 100%
     ) border-box !important;
   box-shadow:
     0 16px 38px rgba(0, 0, 0, 0.42),
-    0 0 28px color-mix(in srgb, var(--phase-tone, #fbbf24) 22%, transparent),
+    0 0 28px color-mix(in srgb, var(--phase-tone, #ffd369) 22%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
 }
 
@@ -442,7 +442,7 @@
 }
 
 .v29-tl-phase-box.is-current-phase .v29-tl-phase-head {
-  border-bottom-color: color-mix(in srgb, var(--phase-tone, #fbbf24) 30%, rgba(255, 255, 255, 0.1));
+  border-bottom-color: color-mix(in srgb, var(--phase-tone, #ffd369) 30%, rgba(255, 255, 255, 0.1));
 }
 
 .v29-tl-phase-title {
@@ -458,9 +458,9 @@
   border-radius: 10px;
   display: grid;
   place-items: center;
-  color: var(--phase-tone, #fbbf24);
-  background: color-mix(in srgb, var(--phase-tone, #fbbf24) 18%, rgba(15, 23, 42, 0.88));
-  border: 1px solid color-mix(in srgb, var(--phase-tone, #fbbf24) 40%, transparent);
+  color: var(--phase-tone, #ffd369);
+  background: color-mix(in srgb, var(--phase-tone, #ffd369) 18%, rgba(15, 23, 42, 0.88));
+  border: 1px solid color-mix(in srgb, var(--phase-tone, #ffd369) 40%, transparent);
 }
 
 .v29-tl-phase-title strong {
@@ -488,10 +488,10 @@
   color: #0b1120;
   background: linear-gradient(
     135deg,
-    var(--phase-tone, #fbbf24),
-    color-mix(in srgb, var(--phase-tone, #fbbf24) 68%, #ffffff)
+    var(--phase-tone, #ffd369),
+    color-mix(in srgb, var(--phase-tone, #ffd369) 68%, #ffffff)
   );
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--phase-tone, #fbbf24) 38%, transparent);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--phase-tone, #ffd369) 38%, transparent);
 }
 
 .v29-tl-phase-count {
@@ -505,18 +505,18 @@
 }
 
 .tl-task-card.v29-tl-card-highlighted {
-  border: 1px solid color-mix(in srgb, var(--phase-tone, #fbbf24) 44%, rgba(255, 255, 255, 0.14)) !important;
+  border: 1px solid color-mix(in srgb, var(--phase-tone, #ffd369) 44%, rgba(255, 255, 255, 0.14)) !important;
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--phase-tone, #fbbf24) 11%, rgba(20, 28, 45, 0.96)),
+    color-mix(in srgb, var(--phase-tone, #ffd369) 11%, rgba(20, 28, 45, 0.96)),
     rgba(15, 22, 36, 0.96)
   ) !important;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3) !important;
 }
 
 .tl-rail-node.live-phase {
-  background: var(--phase-tone, #fbbf24) !important;
-  box-shadow: 0 0 10px var(--phase-tone, #fbbf24) !important;
+  background: var(--phase-tone, #ffd369) !important;
+  box-shadow: 0 0 10px var(--phase-tone, #ffd369) !important;
 }
 
 /* ============================================================================
@@ -541,7 +541,7 @@
   padding: 14px;
   border-radius: 18px;
   background:
-    radial-gradient(110% 90% at 0% 0%, color-mix(in srgb, var(--p-accent, #f59e0b) 12%, transparent), transparent 60%),
+    radial-gradient(110% 90% at 0% 0%, color-mix(in srgb, var(--p-accent, #ff9808) 12%, transparent), transparent 60%),
     linear-gradient(155deg, rgba(19, 26, 42, 0.94), rgba(11, 16, 27, 0.96));
   border: 1px solid rgba(148, 163, 184, 0.16);
   transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
@@ -549,10 +549,10 @@
 
 .v29-phase-card.is-active,
 .v29-phase-card.is-running {
-  border-color: color-mix(in srgb, var(--p-accent, #f59e0b) 62%, transparent);
+  border-color: color-mix(in srgb, var(--p-accent, #ff9808) 62%, transparent);
   box-shadow:
     0 12px 26px rgba(0, 0, 0, 0.34),
-    0 0 22px color-mix(in srgb, var(--p-accent, #f59e0b) 18%, transparent);
+    0 0 22px color-mix(in srgb, var(--p-accent, #ff9808) 18%, transparent);
 }
 
 .v29-phase-card.is-done {
@@ -580,9 +580,9 @@
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  color: var(--p-accent, #fbbf24);
-  background: color-mix(in srgb, var(--p-accent, #fbbf24) 17%, rgba(15, 23, 42, 0.85));
-  border: 1px solid color-mix(in srgb, var(--p-accent, #fbbf24) 36%, transparent);
+  color: var(--p-accent, #ffd369);
+  background: color-mix(in srgb, var(--p-accent, #ffd369) 17%, rgba(15, 23, 42, 0.85));
+  border: 1px solid color-mix(in srgb, var(--p-accent, #ffd369) 36%, transparent);
 }
 
 .v29-phase-id h4 {
@@ -613,7 +613,7 @@
 }
 
 .v29-phase-badge.done {
-  color: #ffd98a;
+  color: #ffd369;
   background: rgba(239, 189, 74, 0.16);
   border: 1px solid rgba(247, 202, 85, 0.35);
 }
@@ -621,8 +621,8 @@
 .v29-phase-badge.live,
 .v29-phase-badge.active {
   color: #fff;
-  background: color-mix(in srgb, var(--p-accent, #f59e0b) 28%, rgba(15, 23, 42, 0.85));
-  border: 1px solid color-mix(in srgb, var(--p-accent, #f59e0b) 56%, transparent);
+  background: color-mix(in srgb, var(--p-accent, #ff9808) 28%, rgba(15, 23, 42, 0.85));
+  border: 1px solid color-mix(in srgb, var(--p-accent, #ff9808) 56%, transparent);
 }
 
 /* Sculpted Glass Progress Box */
@@ -637,7 +637,7 @@
 }
 
 .v29-phase-meter-box.has-study {
-  border-color: color-mix(in srgb, var(--p-accent, #f59e0b) 38%, rgba(255, 255, 255, 0.12));
+  border-color: color-mix(in srgb, var(--p-accent, #ff9808) 38%, rgba(255, 255, 255, 0.12));
 }
 
 .v29-phase-meter-fill {
@@ -647,11 +647,11 @@
   border-radius: 10px;
   background: linear-gradient(
     95deg,
-    color-mix(in srgb, var(--p-accent, #f59e0b) 42%, rgba(15, 23, 42, 0.65)) 0%,
-    color-mix(in srgb, var(--p-accent, #f59e0b) 72%, rgba(255, 255, 255, 0.12)) 100%
+    color-mix(in srgb, var(--p-accent, #ff9808) 42%, rgba(15, 23, 42, 0.65)) 0%,
+    color-mix(in srgb, var(--p-accent, #ff9808) 72%, rgba(255, 255, 255, 0.12)) 100%
   );
-  border-right: 1.5px solid color-mix(in srgb, var(--p-accent, #f59e0b) 88%, #ffffff);
-  box-shadow: 0 0 18px color-mix(in srgb, var(--p-accent, #f59e0b) 28%, transparent);
+  border-right: 1.5px solid color-mix(in srgb, var(--p-accent, #ff9808) 88%, #ffffff);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--p-accent, #ff9808) 28%, transparent);
   transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -725,8 +725,8 @@
   width: 100%;
   padding: 7px 10px;
   border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--p-accent, #f59e0b) 32%, rgba(255, 255, 255, 0.1));
-  background: color-mix(in srgb, var(--p-accent, #f59e0b) 11%, rgba(15, 23, 42, 0.72));
+  border: 1px solid color-mix(in srgb, var(--p-accent, #ff9808) 32%, rgba(255, 255, 255, 0.1));
+  background: color-mix(in srgb, var(--p-accent, #ff9808) 11%, rgba(15, 23, 42, 0.72));
   color: #f8fafc;
   font-size: 12px;
   font-weight: 700;
@@ -735,8 +735,8 @@
 }
 
 .v29-phase-start-btn:hover {
-  background: color-mix(in srgb, var(--p-accent, #f59e0b) 24%, rgba(15, 23, 42, 0.9));
-  border-color: var(--p-accent, #f59e0b);
+  background: color-mix(in srgb, var(--p-accent, #ff9808) 24%, rgba(15, 23, 42, 0.9));
+  border-color: var(--p-accent, #ff9808);
 }
 
 /* ============================================================================
@@ -783,8 +783,8 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--p-col, #fbbf24);
-  box-shadow: 0 0 7px var(--p-col, #fbbf24);
+  background: var(--p-col, #ffd369);
+  box-shadow: 0 0 7px var(--p-col, #ffd369);
   flex-shrink: 0;
 }
 
@@ -822,7 +822,7 @@
   width: 100%;
   height: 100%;
   border-right: 1.5px solid rgba(148, 163, 184, 0.22);
-  background: color-mix(in srgb, var(--p-col, #fbbf24) 5%, transparent);
+  background: color-mix(in srgb, var(--p-col, #ffd369) 5%, transparent);
   display: flex;
   align-items: center;
 }
@@ -832,7 +832,7 @@
 }
 
 .v29-cal-tl-compartment.has-study {
-  background: color-mix(in srgb, var(--p-col, #fbbf24) 11%, rgba(15, 23, 42, 0.4));
+  background: color-mix(in srgb, var(--p-col, #ffd369) 11%, rgba(15, 23, 42, 0.4));
 }
 
 .v29-cal-tl-lane {
@@ -851,11 +851,11 @@
   border-radius: 7px;
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--p-col, #fbbf24) 85%, #ffffff),
-    var(--p-col, #fbbf24)
+    color-mix(in srgb, var(--p-col, #ffd369) 85%, #ffffff),
+    var(--p-col, #ffd369)
   );
   box-shadow:
-    0 0 12px color-mix(in srgb, var(--p-col, #fbbf24) 58%, transparent),
+    0 0 12px color-mix(in srgb, var(--p-col, #ffd369) 58%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.42);
   transition: transform 0.15s ease, filter 0.15s ease;
 }
@@ -889,7 +889,7 @@
 }
 
 .v29-cal-tl-col-foot.active strong {
-  color: var(--p-col, #fde68a);
+  color: var(--p-col, #ffd369);
 }
 
 .v29-cal-outside-note {
@@ -938,8 +938,8 @@
   font-size: 15px;
   font-weight: 850;
   color: #0b1120;
-  background: linear-gradient(135deg, var(--vd-accent, #fbbf24), #fde68a);
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--vd-accent, #fbbf24) 30%, transparent);
+  background: linear-gradient(135deg, var(--vd-accent, #ffd369), #ffd369);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--vd-accent, #ffd369) 30%, transparent);
 }
 
 .v29-sw-step-badge.blue {
@@ -996,7 +996,7 @@
 
 .v29-sw-name-input:focus {
   outline: none;
-  border-color: var(--vd-accent, #fbbf24);
+  border-color: var(--vd-accent, #ffd369);
 }
 
 .v29-sw-link-toggle {
@@ -1049,26 +1049,26 @@
 }
 
 .v29-sw-day-card:hover {
-  border-color: color-mix(in srgb, var(--vd-accent, #fbbf24) 55%, transparent);
+  border-color: color-mix(in srgb, var(--vd-accent, #ffd369) 55%, transparent);
   transform: translateY(-1px);
 }
 
 .v29-sw-day-card.active {
-  border-color: var(--vd-accent, #fbbf24);
+  border-color: var(--vd-accent, #ffd369);
   background: linear-gradient(
     145deg,
-    color-mix(in srgb, var(--vd-accent, #fbbf24) 26%, rgba(15, 23, 42, 0.92)),
-    color-mix(in srgb, var(--vd-accent, #fbbf24) 10%, rgba(15, 23, 42, 0.95))
+    color-mix(in srgb, var(--vd-accent, #ffd369) 26%, rgba(15, 23, 42, 0.92)),
+    color-mix(in srgb, var(--vd-accent, #ffd369) 10%, rgba(15, 23, 42, 0.95))
   );
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--vd-accent, #fbbf24) 22%, transparent);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--vd-accent, #ffd369) 22%, transparent);
 }
 
 .v29-sw-day-card.active strong {
-  color: var(--vd-accent, #fde68a);
+  color: var(--vd-accent, #ffd369);
 }
 
 .v29-sw-day-card.active span {
-  color: #fef3c7;
+  color: #ffd369;
 }
 
 .v29-sw-auto-date-banner {
@@ -1109,7 +1109,7 @@
 }
 
 .v29-sw-date-pill.gold strong {
-  color: #fde68a;
+  color: #ffd369;
 }
 
 .v29-sw-date-arrow {
@@ -1123,7 +1123,7 @@
   border-radius: 999px;
   font-size: 12px;
   font-weight: 800;
-  color: #ffd98a;
+  color: #ffd369;
   background: rgba(239, 189, 74, 0.14);
   border: 1px solid rgba(247, 202, 85, 0.32);
 }
@@ -1171,7 +1171,7 @@
 }
 
 .v29-icp-label svg {
-  color: var(--vd-accent, #fbbf24);
+  color: var(--vd-accent, #ffd369);
 }
 
 .v29-icp-papers {
@@ -1196,7 +1196,7 @@
 }
 
 .v29-icp-paper-btn.active {
-  background: var(--vd-accent, #fbbf24);
+  background: var(--vd-accent, #ffd369);
   color: #0b1120;
 }
 
@@ -1283,15 +1283,15 @@
 }
 
 .v29-icp-ch-card:hover {
-  border-color: color-mix(in srgb, var(--vd-accent, #fbbf24) 50%, transparent);
+  border-color: color-mix(in srgb, var(--vd-accent, #ffd369) 50%, transparent);
   background: rgba(24, 34, 56, 0.9);
 }
 
 .v29-icp-ch-card.active {
-  border-color: var(--vd-accent, #fbbf24);
-  background: color-mix(in srgb, var(--vd-accent, #fbbf24) 18%, rgba(15, 23, 42, 0.95));
+  border-color: var(--vd-accent, #ffd369);
+  background: color-mix(in srgb, var(--vd-accent, #ffd369) 18%, rgba(15, 23, 42, 0.95));
   color: #ffffff;
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--vd-accent, #fbbf24) 18%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--vd-accent, #ffd369) 18%, transparent);
 }
 
 .v29-icp-ch-num {
@@ -1308,7 +1308,7 @@
 }
 
 .v29-icp-ch-card.active .v29-icp-ch-num {
-  background: var(--vd-accent, #fbbf24);
+  background: var(--vd-accent, #ffd369);
   color: #0b1120;
 }
 
@@ -1328,7 +1328,7 @@
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  background: #d99125;
+  background: #ff9808;
   color: #052e16;
 }
 
@@ -1365,7 +1365,7 @@
 }
 
 .v29-icp-subhead strong {
-  color: var(--vd-accent, #fde68a);
+  color: var(--vd-accent, #ffd369);
 }
 
 .v29-icp-subtoggle {
@@ -1445,9 +1445,9 @@
 }
 
 .v29-sw-quick-pill.active {
-  border-color: var(--vd-accent, #fbbf24);
-  background: color-mix(in srgb, var(--vd-accent, #fbbf24) 22%, rgba(15, 23, 42, 0.9));
-  color: #fef3c7;
+  border-color: var(--vd-accent, #ffd369);
+  background: color-mix(in srgb, var(--vd-accent, #ffd369) 22%, rgba(15, 23, 42, 0.9));
+  color: #ffd369;
 }
 
 .v29-sw-quick-pill.sky.active {
@@ -1482,7 +1482,7 @@
 }
 
 .v29-sw-draft-preview b {
-  color: var(--vd-accent, #fde68a);
+  color: var(--vd-accent, #ffd369);
 }
 
 .v29-sw-add-btn {
@@ -1516,7 +1516,7 @@
 .v29-sw-queue-title {
   font-size: 12.5px;
   font-weight: 800;
-  color: #ffd98a;
+  color: #ffd369;
 }
 
 .v29-sw-queue-grid {
@@ -1545,7 +1545,7 @@
   font-size: 12px;
   font-weight: 850;
   background: rgba(245, 158, 11, 0.18);
-  color: #fde68a;
+  color: #ffd369;
 }
 
 .v29-sw-mod-info {
@@ -1584,8 +1584,8 @@
   font-weight: 750;
   padding: 1px 7px;
   border-radius: 999px;
-  color: var(--slot-tone, #fbbf24);
-  background: color-mix(in srgb, var(--slot-tone, #fbbf24) 15%, rgba(15, 23, 42, 0.85));
+  color: var(--slot-tone, #ffd369);
+  background: color-mix(in srgb, var(--slot-tone, #ffd369) 15%, rgba(15, 23, 42, 0.85));
 }
 
 .v29-sw-mod-info strong {
@@ -1607,7 +1607,7 @@
   border-radius: 24px !important;
   padding: 20px 22px !important;
   background:
-    radial-gradient(90% 100% at 0% 0%, color-mix(in srgb, var(--vd-accent, #fbbf24) 11%, transparent), transparent 55%),
+    radial-gradient(90% 100% at 0% 0%, color-mix(in srgb, var(--vd-accent, #ffd369) 11%, transparent), transparent 55%),
     radial-gradient(90% 100% at 100% 100%, color-mix(in srgb, var(--vd-accent-2, #38bdf8) 10%, transparent), transparent 55%),
     linear-gradient(155deg, rgba(16, 22, 36, 0.96), rgba(10, 14, 24, 0.98)) !important;
   border: 1px solid rgba(148, 163, 184, 0.18) !important;
@@ -1648,7 +1648,7 @@
 }
 
 .v29-ov-kicker svg {
-  color: var(--vd-accent, #fbbf24);
+  color: var(--vd-accent, #ffd369);
 }
 
 .v29-ov-box-head small {
@@ -1683,7 +1683,7 @@
 }
 
 .v29-ov-time-tile.gold strong {
-  color: var(--vd-accent, #fde68a);
+  color: var(--vd-accent, #ffd369);
 }
 
 .v29-ov-time-tile.sky strong {
@@ -1706,7 +1706,7 @@
   text-align: center;
   font-size: 13px;
   font-weight: 750;
-  color: #fde68a;
+  color: #ffd369;
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(251, 191, 36, 0.28);
 }
@@ -1740,7 +1740,7 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--vd-accent, #fbbf24), var(--vd-accent-2, #38bdf8));
+  background: linear-gradient(90deg, var(--vd-accent, #ffd369), var(--vd-accent-2, #38bdf8));
   transition: width 0.5s ease;
 }
 
@@ -1801,7 +1801,7 @@
 .v29-ov-ring-center em {
   font-style: normal;
   font-size: 13px;
-  color: var(--vd-accent, #fbbf24);
+  color: var(--vd-accent, #ffd369);
   margin-left: 1px;
 }
 
@@ -1837,9 +1837,9 @@
   color: #94a3b8;
 }
 
-.v29-ov-stat-card.gold .v29-ov-sc-head svg { color: #fbbf24; }
+.v29-ov-stat-card.gold .v29-ov-sc-head svg { color: #ffd369; }
 .v29-ov-stat-card.sky .v29-ov-sc-head svg { color: #38bdf8; }
-.v29-ov-stat-card.emerald .v29-ov-sc-head svg { color: #f0c56b; }
+.v29-ov-stat-card.emerald .v29-ov-sc-head svg { color: #ffd369; }
 .v29-ov-stat-card.violet .v29-ov-sc-head svg { color: #a78bfa; }
 
 .v29-ov-stat-card strong {
@@ -1868,7 +1868,7 @@
   border-radius: 999px;
 }
 
-.v29-ov-stat-card.gold .v29-ov-sc-bar i { background: #fbbf24; }
+.v29-ov-stat-card.gold .v29-ov-sc-bar i { background: #ffd369; }
 .v29-ov-stat-card.sky .v29-ov-sc-bar i { background: #38bdf8; }
 .v29-ov-stat-card.violet .v29-ov-sc-bar i { background: #a78bfa; }
 

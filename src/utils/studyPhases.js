@@ -44,7 +44,7 @@ export const ALL_STUDY_PHASES = [
     minTargetMin: PHASE_MIN_GOAL_MIN,
     targetMin: PHASE_AVG_GOAL_MIN,
     maxTargetMin: PHASE_MAX_GOAL_MIN,
-    accent: '#fb923c',
+    accent: '#ff9808',
   },
   {
     id: 'morning',
@@ -64,7 +64,7 @@ export const ALL_STUDY_PHASES = [
     minTargetMin: PHASE_MIN_GOAL_MIN,
     targetMin: PHASE_AVG_GOAL_MIN,
     maxTargetMin: PHASE_MAX_GOAL_MIN,
-    accent: '#fbbf24',
+    accent: '#ffd369',
   },
   {
     id: 'noon',

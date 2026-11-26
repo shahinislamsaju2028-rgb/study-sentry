@@ -36,6 +36,7 @@ import {
   Rocket,
   Sparkles,
   Trash2,
+  X,
   Zap,
 } from 'lucide-react';
 import { useStudy } from '../context/StudyContext';
@@ -186,18 +187,6 @@ export default function SprintView({ embedded = false, editSprintId = null, onEd
   const [viewMode, setViewMode] = useState('today');
   const [weekOffset, setWeekOffset] = useState(0);
 
-  // Measured width of the chapter columns → the phase rail claims the rest.
-  // 3 columns on a wide screen, 2 when the window gets tight (per the brief:
-  // 2–3 columns, every box as wide as the longest chapter in it).
-  const [chpCol, setChpCol] = useState(210);
-  const [chpPerRow, setChpPerRow] = useState(3);
-  useEffect(() => {
-    const fit = () => setChpPerRow(window.innerWidth >= 1320 ? 3 : 2);
-    fit();
-    window.addEventListener('resize', fit);
-    return () => window.removeEventListener('resize', fit);
-  }, []);
-
   // Right-click menu on a sprint + the sprint currently being edited.
   const [ctxMenu, setCtxMenu] = useState(null);
   const [editingSprintId, setEditingSprintId] = useState(null);
@@ -252,7 +241,8 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
     curriculumTopic: '',
     classCount: 5,
     classMin: 60,
-    reviewMin: 30,
+    sheetMin: 30,
+    reviewMin: 45,
     practiceMin: 45,
     phaseId: defaultPhaseSlot,
   }));
@@ -317,6 +307,7 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
         curriculumTopic: moduleDraft.curriculumTopic,
         classCount: Math.max(1, Math.min(300, Math.floor(Number(moduleDraft.classCount) || 1))),
         classMin: moduleDraft.classMin ? Math.max(5, Math.min(720, Number(moduleDraft.classMin) || 50)) : null,
+        sheetMin: Math.max(0, Math.min(240, Number(moduleDraft.sheetMin) || 0)),
         reviewMin: Math.max(0, Math.min(240, Number(moduleDraft.reviewMin) || 0)),
         practiceMin: Math.max(0, Math.min(240, Number(moduleDraft.practiceMin) || 0)),
         phaseId: moduleDraft.phaseId,
@@ -359,6 +350,7 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
         curriculumTopic: moduleDraft.curriculumTopic,
         classCount: perChapter,
         classMin: moduleDraft.classMin ? Math.max(5, Math.min(720, Number(moduleDraft.classMin) || 50)) : null,
+        sheetMin: Math.max(0, Math.min(240, Number(moduleDraft.sheetMin) || 0)),
         reviewMin: Math.max(0, Math.min(240, Number(moduleDraft.reviewMin) || 0)),
         practiceMin: Math.max(0, Math.min(240, Number(moduleDraft.practiceMin) || 0)),
         phaseId: moduleDraft.phaseId,
@@ -379,7 +371,14 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
       return;
     }
 
-    const over = selectedModules.filter((m) => Number(m.classMin || 0) + Number(m.reviewMin ?? 30) + Number(m.practiceMin ?? 45) > 240);
+    const over = selectedModules.filter(
+      (m) =>
+        Number(m.classMin || 0) +
+          Number(m.sheetMin ?? m.reviewMin ?? 30) +
+          Number(m.reviewMin ?? 45) +
+          Number(m.practiceMin ?? 45) >
+        240
+    );
     if (over.length) {
       toast(`প্রহর-সীমা অতিক্রম করছে: ${over.map((m) => m.chapter).join(', ')}। সময় কমিয়ে আবার তৈরি করুন।`);
       return;
@@ -419,7 +418,7 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
       start: form.start,
       end: form.end,
       endTime: '23:59',
-      scheduleVersion: 4,
+      scheduleVersion: 5,
       sessionsPerDay,
       modules: selectedModules,
       classes,
@@ -508,7 +507,20 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
     setSessionsPerDay(Number(target.sessionsPerDay) || 3);
     setShowCustomDates(false);
     setDraftCurriculum(
-      Array.isArray(target.modules) ? target.modules.map((m) => ({ ...m })) : []
+      Array.isArray(target.modules)
+        ? target.modules.map((m) => {
+            const hasSeparatedSheetDuration = m.sheetMin != null;
+            return {
+              ...m,
+              // v4 stored the lecture-sheet duration in reviewMin. Split it
+              // once on edit while preserving its original sheet timing.
+              sheetMin: Number(m.sheetMin ?? m.reviewMin ?? 30),
+              reviewMin: Number(
+                hasSeparatedSheetDuration ? m.reviewMin ?? 45 : m.revisionMin ?? 45
+              ),
+            };
+          })
+        : []
     );
     setModuleDraft((prev) => ({
       ...prev,
@@ -528,6 +540,26 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
     setJustUnlockedName(true);
     window.setTimeout(() => setJustUnlockedName(false), 2400);
   };
+
+  const exitSprintPlanner = () => {
+    if (editingSprintId) closeSprintEditor();
+    else setViewMode('today');
+  };
+
+  // The new-plan sheet is portalled directly to the viewport, not wrapped by
+  // ModalShell, so it owns its Escape shortcut. The edit sheet is handled by
+  // ModalShell's fullscreen listener and is deliberately excluded here.
+  useEffect(() => {
+    if (viewMode !== 'onboarding' || editingSprintId) return undefined;
+    const onEscape = (event) => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      event.stopPropagation();
+      setViewMode('today');
+    };
+    document.addEventListener('keydown', onEscape, true);
+    return () => document.removeEventListener('keydown', onEscape, true);
+  }, [viewMode, editingSprintId]);
 
   // The hero dropdown closes on outside click, Escape or scroll.
   useEffect(() => {
@@ -759,14 +791,11 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
   // The whole creation wizard, reused inline for a NEW sprint and inside
   // the wide edit dialog when an existing sprint is being edited.
   //
-  // v45 layout:
-  //   · ONE full-width name dropdown (no − / +, no duplicate title card)
-  //   · One single border around the whole onboarding block
-  //   · Class time · Sheet review · Practice sit in ONE row of three equal
-  //     columns; the class-count stepper owns a row of its own
-  //   · The overload warning only appears above 240 minutes
+  // v61 layout keeps all five workload controls on one measured row.
+  // The warning considers every time-bearing task, not the class count.
   const workloadMinutes =
     Number(moduleDraft.classMin || 0) +
+    Number(moduleDraft.sheetMin || 0) +
     Number(moduleDraft.reviewMin || 0) +
     Number(moduleDraft.practiceMin || 0);
 
@@ -800,6 +829,27 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
         className="v29-sprint-wizard clean-view-stage"
         onSubmit={launchSprintFromOnboarding}
       >
+        <div className="v60-sprint-topbar">
+          <div className="v60-sprint-topbar-copy">
+            <button
+              type="button"
+              className="v60-sprint-close"
+              aria-label="স্প্রিন্ট প্ল্যানার বন্ধ করুন"
+              title="বন্ধ করুন · Esc"
+              onClick={exitSprintPlanner}
+            >
+              <X size={18} />
+            </button>
+            <span className="v60-sprint-topbar-icon"><Rocket size={17} /></span>
+            <div><strong>স্প্রিন্ট পরিকল্পনা</strong><small>প্রজেক্ট থেকে দৈনিক শিডিউল সাজান</small></div>
+          </div>
+          <button type="submit" className="sp-yb-submit-btn v60-sprint-create-primary" data-modal-default-action>
+            <Rocket size={16} /> {editingSprintId ? 'স্প্রিন্ট আপডেট করো' : 'স্প্রিন্ট তৈরি করো'}
+          </button>
+        </div>
+
+        <div className="v60-sprint-columns">
+          <div className="v60-sprint-left">
         {/* STEP 1 — sprint name, paired compact steppers, deadline, and dates */}
         <div className="v29-sw-section v38-sprint-plan-section v45-plan-section">
           <div className="v29-sw-step-head">
@@ -901,7 +951,9 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
             </div>
           )}
         </div>
+          </div>
 
+          <div className="v60-sprint-right">
         {/* STEP 2 — SUBJECT, CHAPTERS, CLASS LOAD, PHASE */}
         <div className="v29-sw-section">
           <div className="v29-sw-step-head">
@@ -936,13 +988,8 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
             />
           </div>
 
-          {/* CHAPTERS (left, 2–3 measured columns) + the phase stack (right).
-              Nothing is stretched to fill: the phase rail simply occupies the
-              space the chapter columns leave behind. */}
-          <div
-            className="v48-step2-split v48-step2"
-            style={{ '--chp-split': `${chpCol * chpPerRow + (chpPerRow - 1) * 8 + 34}px` }}
-          >
+          {/* Full-width chapter selector, followed by its own phase row. */}
+          <div className="v48-step2-split v48-step2">
             <div className="v48-step2-chapters">
               <SprintChapterMultiPicker
                 subject={moduleDraft.subject}
@@ -950,7 +997,6 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
                 selected={moduleDraft.chapters}
                 onToggle={toggleChapter}
                 onSetAll={setAllChapters}
-                onMetrics={(w) => setChpCol(w)}
                 onPaperChange={(paper) =>
                   setModuleDraft((prev) => ({ ...prev, paper, chapter: '', chapters: [] }))
                 }
@@ -968,8 +1014,8 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
             </aside>
           </div>
 
-          {/* ONE ROW · FOUR COLUMNS — class count, class time, sheet review,
-              practice. The overload chip rides the same row. */}
+          {/* ONE ROW · FIVE CONTROLS — class count, class time, sheet, review,
+              and practice. The row scrolls horizontally on narrow screens. */}
           <div className="v29-sw-block v45-quad-wrap">
             <div className="v45-quad">
               <div className="v45-quad-cell">
@@ -1005,9 +1051,17 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
               </div>
               <div className="v45-quad-cell">
                 <SprintMinutesControl
-                  label="শিট রিভিউ"
+                  label="শিট"
+                  value={moduleDraft.sheetMin}
+                  presets={[10, 15, 20, 25, 30, 45, 60, 90]}
+                  onChange={(sheetMin) => setModuleDraft((prev) => ({ ...prev, sheetMin }))}
+                />
+              </div>
+              <div className="v45-quad-cell">
+                <SprintMinutesControl
+                  label="রিভিউ"
                   value={moduleDraft.reviewMin}
-                  presets={[15, 20, 25, 30, 45, 60, 90]}
+                  presets={[15, 20, 30, 45, 60, 75, 90]}
                   onChange={(reviewMin) => setModuleDraft((prev) => ({ ...prev, reviewMin }))}
                 />
               </div>
@@ -1070,7 +1124,7 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
                           )}
                           <span
                             className="phase"
-                            style={{ '--slot-tone': sl?.tone || '#fbbf24' }}
+                            style={{ '--slot-tone': sl?.tone || '#ffd369' }}
                           >
                             <SlIcon size={11.5} /> {sl?.bnLabel || mod.phaseId}
                           </span>
@@ -1078,7 +1132,10 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
                         <strong>{mod.chapter}</strong>
                         <small>
                           {bnNum(mod.classCount)}টি ক্লাস
-                          {mod.classMin ? ` · প্রতি ক্লাস ${bnNum(mod.classMin)} মিনিট` : ''}
+                          {mod.classMin ? ` · ক্লাস ${bnNum(mod.classMin)} মি.` : ''}
+                          {` · শিট ${bnNum(mod.sheetMin ?? mod.reviewMin ?? 30)} মি.`}
+                          {` · রিভিউ ${bnNum(mod.reviewMin ?? 45)} মি.`}
+                          {` · প্র্যাকটিস ${bnNum(mod.practiceMin ?? 45)} মি.`}
                         </small>
                       </div>
                       <button
@@ -1097,22 +1154,9 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
             </div>
           )}
         </div>
-
-        <div className="sp-yb-form-footer v29-sw-footer">
-          {sprint && (
-            <button
-              type="button"
-              className="action-btn"
-              onClick={() => (editingSprintId ? closeSprintEditor() : setViewMode('today'))}
-            >
-              {editingSprintId ? 'বাতিল করুন' : 'ফিরে যান'}
-            </button>
-          )}
-          <button type="submit" className="sp-yb-submit-btn">
-            <Rocket size={15} />{' '}
-            {editingSprintId ? 'স্প্রিন্ট আপডেট করুন' : 'স্প্রিন্ট তৈরি ও শিডিউল সাজান'}
-          </button>
+          </div>
         </div>
+
       </form>
     </section>
   );

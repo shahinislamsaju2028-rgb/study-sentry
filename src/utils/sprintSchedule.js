@@ -214,7 +214,14 @@ export function generateSprintSchedule({ start, end, modules = [], phaseMode = '
     chapter: sprintChapterName(mod.chapter),
     phase: normModPhase(mod.phaseId),
     classMin: Math.max(5, Number(mod.classMin) || 60),
-    reviewMin: Math.max(0, Number(mod.reviewMin ?? 30)),
+    // v5 separates Lecture Sheet duration (sheetMin) from Revision duration
+    // (reviewMin). Legacy modules used reviewMin for the sheet and a fixed
+    // 45-minute revision, so preserve that mapping when sheetMin is absent.
+    sheetMin: Math.max(0, Number(mod.sheetMin ?? mod.reviewMin ?? 30)),
+    reviewMin: Math.max(
+      0,
+      Number(mod.sheetMin == null ? mod.revisionMin ?? 45 : mod.reviewMin ?? 45)
+    ),
     practiceMin: Math.max(0, Number(mod.practiceMin ?? 45)),
     extraCount: 0,
     targetExtras: 0,
@@ -261,7 +268,7 @@ export function generateSprintSchedule({ start, end, modules = [], phaseMode = '
       kind: 'Lecture Sheet Review',
       name: 'লেকচার শিট রিভিউ',
       title: `${w.chapter} · লেকচার শিট রিভিউ ${n}`,
-      duration: w.reviewMin,
+      duration: w.sheetMin,
       date: date(day),
       done: false,
     });
@@ -334,7 +341,7 @@ export function generateSprintSchedule({ start, end, modules = [], phaseMode = '
         kind: 'Revision',
         name: 'রিভিশন',
         title: `${w.chapter} · রিভিশন ${day + 1}`,
-        duration: 45,
+        duration: w.reviewMin,
         date: date(day),
         done: false,
       });

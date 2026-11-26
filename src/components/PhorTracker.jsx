@@ -76,8 +76,8 @@ const LATE_NIGHT_DEFAULTS = BASE_ITEMS.filter((x) => x.phase === 'late_night');
  *   গভীর রাত → গাঢ় ইন্ডিগো
  */
 const PHASE_VISUALS = {
-  dawn: { Icon: Sunrise, accent: '#fb923c' },
-  morning: { Icon: Sun, accent: '#fbbf24' },
+  dawn: { Icon: Sunrise, accent: '#ff9808' },
+  morning: { Icon: Sun, accent: '#ffd369' },
   afternoon: { Icon: SunMedium, accent: '#38bdf8' },
   noon: { Icon: SunMedium, accent: '#38bdf8' },
   night: { Icon: MoonStar, accent: '#a78bfa' },
@@ -113,7 +113,7 @@ export default function PhorTracker() {
         id: p.slotId,
         label: p.label,
         windowLabel: p.windowLabel,
-        accent: p.accent || PHASE_VISUALS[p.slotId]?.accent || '#fbbf24',
+        accent: p.accent || PHASE_VISUALS[p.slotId]?.accent || '#ffd369',
         Icon: PHASE_VISUALS[p.slotId]?.Icon || Sparkles,
       })),
     [activePhases]
@@ -215,14 +215,17 @@ export default function PhorTracker() {
       return { ...prev, phorTracker: fn(old) };
     });
 
-  const setMark = (id, day, value) =>
+  const setMark = (id, day, value) => {
+    if (day !== todayKey) return;
     mutate((d) => ({
       ...d,
       marks: { ...d.marks, [day]: { ...(d.marks[day] || {}), [id]: value } },
     }));
+  };
 
   // Effortless 1-click toggle: empty -> done -> missed -> empty (right-click -> missed, middle -> clear)
   const cycleMark = (id, day, current) => {
+    if (day !== todayKey) return;
     const next = current === 'done' ? 'missed' : current === 'missed' ? 'none' : 'done';
     setMark(id, day, next);
   };
@@ -624,7 +627,9 @@ export default function PhorTracker() {
                                       : mark === 'missed'
                                       ? 'is-missed'
                                       : 'is-empty'
-                                  }`}
+                                  } ${!isToday ? 'is-locked' : ''}`}
+                                  disabled={!isToday}
+                                  title={isToday ? 'আজকের কাজ চিহ্নিত করুন' : 'শুধু আজকের কাজ চিহ্নিত করা যাবে'}
                                   onClick={() => cycleMark(item.id, day, mark)}
                                   onContextMenu={(e) => {
                                     e.preventDefault();
@@ -639,7 +644,7 @@ export default function PhorTracker() {
                                       setMark(item.id, day, 'none');
                                     }
                                   }}
-                                  aria-label={`${item.name} (${day})`}
+                                  aria-label={`${item.name} (${day})${isToday ? '' : ' — শুধু আজ চিহ্নিত করা যাবে'}`}
                                 >
                                   {mark === 'done' ? (
                                     <Check size={15} strokeWidth={2.9} />

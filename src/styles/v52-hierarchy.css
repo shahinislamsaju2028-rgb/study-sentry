@@ -287,10 +287,10 @@
 
 .bento-nav-grid .bento-card:hover {
   transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--vd-accent, #fbbf24) 30%, var(--v52-edge-strong)) !important;
+  border-color: color-mix(in srgb, var(--vd-accent, #ffd369) 30%, var(--v52-edge-strong)) !important;
   box-shadow:
     0 22px 46px rgba(0, 0, 0, 0.48),
-    0 0 0 1px color-mix(in srgb, var(--vd-accent, #fbbf24) 12%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--vd-accent, #ffd369) 12%, transparent),
     var(--v52-lip) !important;
 }
 
@@ -372,7 +372,7 @@
 
 .bento-quick-dock .bento-sub-action:hover {
   transform: translateY(-1px);
-  border-color: color-mix(in srgb, var(--vd-accent, #fbbf24) 26%, var(--v52-edge));
+  border-color: color-mix(in srgb, var(--vd-accent, #ffd369) 26%, var(--v52-edge));
   background-color: rgba(255, 255, 255, 0.045);
 }
 
@@ -646,7 +646,7 @@
 }
 
 .cs-menu .cs-option.selected svg {
-  color: #fbbf24 !important;
+  color: #ffd369 !important;
 }
 
 .cs-menu .cs-option:active:not(.selected) {

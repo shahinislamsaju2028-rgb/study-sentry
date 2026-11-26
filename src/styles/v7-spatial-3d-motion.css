@@ -22,7 +22,7 @@
 }
 
 .v12-spatial-tilt-owned:hover {
-  border-color: color-mix(in srgb, var(--accent, #fbbf24) 48%, rgba(56, 189, 248, 0.35)) !important;
+  border-color: color-mix(in srgb, var(--accent, #ffd369) 48%, rgba(56, 189, 248, 0.35)) !important;
   box-shadow:
     0 20px 44px rgba(0, 0, 0, 0.5),
     0 0 26px rgba(251, 191, 36, 0.08),
@@ -129,7 +129,7 @@ html[data-spatial-motion='calm'] .ambient-glow::after {
 .v12-motion-mode-btn.is-ultra {
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.16), rgba(56, 189, 248, 0.14));
   border-color: rgba(251, 191, 36, 0.42);
-  color: #fef08a;
+  color: #ffd369;
 }
 
 .v12-motion-mode-btn:hover {
@@ -268,7 +268,7 @@ html[data-spatial-motion='calm'] .ambient-glow::after {
 
 .nav-dock .bn-item.v13-minimal-icon-btn.active .v13-dock-icon-glyph,
 .nav-dock .bn-item.v13-minimal-icon-btn.active .v13-dock-icon-glyph svg {
-  color: #fde68a !important;
+  color: #ffd369 !important;
   transform: scale(1.06);
 }
 
@@ -309,8 +309,8 @@ html[data-spatial-motion='calm'] .ambient-glow::after {
   width: 6.5px;
   height: 6.5px;
   border-radius: 50%;
-  background: #fbbf24;
-  box-shadow: 0 0 8px #fbbf24;
+  background: #ffd369;
+  box-shadow: 0 0 8px #ffd369;
 }
 
 .v13-dock-timer-dot.is-running {
@@ -362,7 +362,7 @@ html[data-spatial-motion='calm'] .ambient-glow::after {
 
 .v13-hero-orbital-meta small {
   font-size: 0.74rem;
-  color: #fde68a;
+  color: #ffd369;
 }
 
 .v12-chrono-core-scene.v13-hero-astrolabe {
@@ -455,8 +455,8 @@ html[data-spatial-motion='calm'] .ambient-glow::after {
 }
 
 .v12-gyro-satellite.sat-gold {
-  background: #fef08a;
-  box-shadow: 0 0 12px #fbbf24;
+  background: #ffd369;
+  box-shadow: 0 0 12px #ffd369;
 }
 
 .v12-gyro-satellite.sat-cyan {
@@ -518,7 +518,7 @@ html[data-spatial-motion='calm'] .ambient-glow::after {
 .v13-astro-pct-num {
   font-size: 0.96rem;
   font-weight: 800;
-  color: #fef08a;
+  color: #ffd369;
   line-height: 1.05;
   margin-top: 1px;
 }
@@ -832,7 +832,7 @@ html[data-spatial-motion='calm'] .ambient-glow::after {
   border-radius: 12px;
   background: rgba(251, 191, 36, 0.1);
   border: 1px solid rgba(251, 191, 36, 0.28);
-  color: #fde68a;
+  color: #ffd369;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -897,7 +897,7 @@ html[data-spatial-motion='calm'] .ambient-glow::after {
   flex: 1;
   height: 34px;
   border-radius: 9px;
-  background: linear-gradient(135deg, #fde047, #f59e0b);
+  background: linear-gradient(135deg, #ffd369, #ff9808);
   border: none;
   color: #090a0e;
   font-size: 0.79rem;

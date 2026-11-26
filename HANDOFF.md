@@ -1,6 +1,6 @@
 # Study Sentry — Handoff
 
-**Version:** 4.3.5
+**Version:** 4.3.6
 **Date:** 2026-11-22
 **Stack:** Vite + React 18 + TypeScript (strict on the shell, JSX components) · Tauri v2 shell for Windows · Supabase for the Study Lounge
 
@@ -23,8 +23,8 @@ npx tauri build --target x86_64-pc-windows-gnu --bundles nsis   # Windows instal
 ```
 
 `tests/run-all.mjs` lists the live checks. `v45-redesign-check` (20/20),
-`v43-sprint-planner-check` (13/13), `group-redesign-check` (PASS), and
-`v59-suite-redesign-check` are the focused gates; the rest are historical and
+`v43-sprint-planner-check` (13/13), `group-redesign-check` (PASS),
+`v59-suite-redesign-check` and `v60-redesign-check` are the focused gates; the rest are historical and
 documented as stale in the test runner.
 
 ---
@@ -419,7 +419,7 @@ and `StudySentry-v58-portable.zip`.
   progress remains visible in its topic count.
 - Restyled `অধ্যায় যোগ` to match the subject/chapter selector accent language.
 - Added `src/styles/v59-suite-redesign.css` as the final imported style layer
-  and `tests/v59-suite-redesign-check.mjs` as a blocking regression check.
+  at v4.3.5 and `tests/v59-suite-redesign-check.mjs` as a blocking regression check.
 
 **Verification:** `npm run build` passes. `npm test` → 12 passing, 14 known-stale,
 0 blocking. `npm run test:hierarchy` → 27/27. The Windows x64 NSIS target built
@@ -433,3 +433,22 @@ successfully; source and portable archives passed `unzip -t`.
   `e0d645032ce28ef602169ffd46e83756e48fccbf216afde74a503c12c0448f34`
 
 The Windows build is cross-compiled and unsigned; Windows SmartScreen may warn.
+
+## v4.3.6 — Full-screen selectors, sprint planner & Insights polish (`uploads/7.md`)
+
+- Rebuilt the shared chapter picker as four-column, larger accent-filled cards; subject cards and first/second-paper selected states now read more clearly.
+- Full-screen Task and Focus Config sheets respond to **Escape** and **Enter**, with an always-visible, high-contrast top-right close button.
+- Restyled compact period selectors and priority/category choices with hue-matched fills, embossed highlights, clear active states and non-black hover behavior.
+- Aligned New Task and Focus Config step badges to the Sprint Planner language. Sprint setup now places project name/duration on the left, subject/chapter/period controls on the right, and a sticky primary create/update action at the top.
+- Reworked Sprint Planner periods into icon-led rounded boxes. Integrated the linked Drive phase-card visual into the active v60 theme: phase-window/status badges and a sculpted fill chamber retain the elapsed/target minutes and completion percentage. The monthly calendar and selectable 3D focus heatmap remain wired into Insights; strengthened the 3D balance radar and placed the current tier/name together inside its rounded box.
+- Daily Tracker marks remain visible for context but are disabled and guarded against edits on every date except today. Home dawn and late-night tiles now use stronger matching icon-hue backgrounds.
+- Added responsive/reduced-motion handling and shorter, state-specific control transitions in `src/styles/v60-redesign-polish.css`; added blocking checks in `tests/v60-redesign-check.mjs`.
+- Follow-up: `src/views/InsightsView.jsx` still matches the supplied `/home/user/uploads/InsightsView.txt` verbatim; the updated file passes the production build.
+- Drive visual review: the Drive README identifies the source as v4.2 and says it depends on the rest of that project. Its `InsightsView.jsx` is byte-for-byte identical to the supplied upload, so the monthly study calendar and selectable 16-week 3D voxel heatmap were already present and have been retained. Adapted the Drive `PhaseInsights.jsx` chamber-card visual to the active v60 component, preserving current goal/status data and theme colors. Scoped v60 CSS restores the progress chamber, phase labels/badges, and completion summary that older v49/v56 rules had hidden. The v6/v7 heatmap styling was already loaded; local v29/v34 styles retain the active app palette.
+
+**Verification:** `npm run build` passes. `npm test` → 13 passing, 14 known-stale, 0 blocking. The focused v60 check → 17/17; `npm run test:hierarchy` → 27/27. The Windows x64 NSIS target builds successfully; source and portable archives are checked with `unzip -t`. The Windows installer is cross-compiled and unsigned, so Windows SmartScreen may warn.
+
+**Release files:**
+- `/home/user/StudySentry-v60-redesign.zip` — source archive (generated build/target folders excluded; verified with `unzip -t`).
+- `/home/user/StudySentry-v60-setup.exe` — Windows x64 NSIS installer (4,905,022 bytes); SHA-256 `542bf7324224abebeff9e71f712e2b3ba73fe5a59136a762157ec9c6cb187166`.
+- `/home/user/StudySentry-v60-portable.zip` — portable Windows x64 app bundle (5,764,157 bytes); SHA-256 `4c30693d1cc875cbe45b253f1a1a38d4a82fb66206f1de37ed2812417c1d772b`.

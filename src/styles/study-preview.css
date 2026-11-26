@@ -42,10 +42,10 @@
 .sp-session-stats { display:flex; justify-content:center; flex-wrap:wrap; gap:12px 25px; color:#8899a9; font-size:13px; margin-top:20px; }
 .sp-session-stats strong { color:#f5d485; margin-left:4px; }
 .sp-heading-icon { display:flex; gap:10px; align-items:center; }
-.sp-heading-icon > span { width:37px; height:37px; display:grid; place-items:center; border-radius:11px; background:#d9912517; color:#42d9a5; }
+.sp-heading-icon > span { width:37px; height:37px; display:grid; place-items:center; border-radius:11px; background:#ff980817; color:#42d9a5; }
 .sp-save-label { color:#39d8a2; font-weight:800; letter-spacing:.06em; font-size:13px; }
 .sp-notes textarea { width:100%; display:block; min-height:115px; resize:vertical; border:1px solid #ffffff12; border-radius:12px; background:#0b1017; color:#e5edf2; font:inherit; font-size:13px; line-height:1.7; padding:13px 15px; }
-.sp-notes textarea:focus { outline:2px solid #d9912580; outline-offset:1px; }
+.sp-notes textarea:focus { outline:2px solid #ff980880; outline-offset:1px; }
 .sp-notes-foot { display:flex; justify-content:space-between; align-items:center; gap:10px; color:#81909e; font-size:13px; margin-top:10px; }
 .sp-notes-foot button { display:flex; align-items:center; gap:6px; padding:6px 10px; border:1px solid #ffffff14; background:#ffffff08; color:#c5d5d3; border-radius:8px; font-size:13px; font-weight:700; }
 .sp-task-list { display:grid; gap:8px; }
@@ -79,7 +79,7 @@
 .sp-colors button.selected { outline:2px solid #dceee7; outline-offset:2px; }
 .sp-preset-modal { display:flex; gap:8px; margin:0 0 18px; }
 .sp-preset-modal button { border:1px solid #ffffff14; background:#ffffff08; color:#c2cfd5; border-radius:9px; padding:6px 12px; font-size:13px; }
-.sp-preset-modal button.selected { color:#ffcb62; border-color:#f5ae3280; background:#f59e0b12; }
+.sp-preset-modal button.selected { color:#ffcb62; border-color:#f5ae3280; background:#ff980812; }
 @media(max-width:1000px) { .sp-subject-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media(max-width:650px) {
   .sp-subject-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }

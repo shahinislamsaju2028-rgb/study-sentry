@@ -505,12 +505,12 @@ export default function CommandHubView() {
             <svg viewBox="0 0 220 58" className="bento-spark-svg" aria-hidden="true">
               <defs>
                 <linearGradient id="homeSparkGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="var(--accent, #fbbf24)" stopOpacity="0.42" />
-                  <stop offset="100%" stopColor="var(--accent, #fbbf24)" stopOpacity="0.0" />
+                  <stop offset="0%" stopColor="var(--accent, #ffd369)" stopOpacity="0.42" />
+                  <stop offset="100%" stopColor="var(--accent, #ffd369)" stopOpacity="0.0" />
                 </linearGradient>
                 <linearGradient id="homeSparkStroke" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="color-mix(in srgb, var(--accent, #f59e0b) 68%, #000)" />
-                  <stop offset="100%" stopColor="color-mix(in srgb, var(--accent, #fbbf24) 80%, #fff)" />
+                  <stop offset="0%" stopColor="color-mix(in srgb, var(--accent, #ff9808) 68%, #000)" />
+                  <stop offset="100%" stopColor="color-mix(in srgb, var(--accent, #ffd369) 80%, #fff)" />
                 </linearGradient>
               </defs>
               <path d={sparkArea} fill="url(#homeSparkGrad)" />
@@ -528,7 +528,7 @@ export default function CommandHubView() {
                   cy={pt.y}
                   r={idx === 6 ? 3.8 : 2.5}
                   fill={idx === 6 ? '#ffffff' : '#0d1018'}
-                  stroke="var(--accent, #fbbf24)"
+                  stroke="var(--accent, #ffd369)"
                   strokeWidth="2"
                 />
               ))}
@@ -639,6 +639,7 @@ export default function CommandHubView() {
               <div
                 key={key}
                 className={`bento-slot-tile ${active ? 'active' : ''}`}
+                data-slot={key}
                 style={{ '--slot-tone': tone }}
               >
                 <Icon size={14} />

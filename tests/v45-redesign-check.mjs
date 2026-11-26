@@ -7,7 +7,7 @@
  *   1. one full-width sprint-name dropdown, no − / +, no duplicate title card
  *   2. right-click menu opens with "এডিট"; the dropdown locks during edit
  *   3. one single border around the onboarding block
- *   4. class time · sheet review · practice in one row of three equal cells
+ *   4. class count · time · sheet · review · practice in one row of five cells
  *   5. no always-visible total minutes; overload chip only above 240
  *   6. class-count dropdown is gone; each chapter card carries an icon
  *   7. chapters are a 2–3 column grid with checkbox, search and select-all
@@ -76,7 +76,7 @@ const sprint = {
   end: '2026-11-25',
   endTime: '23:59',
   sessionsPerDay: 3,
-  modules: [{ id: 'm1', subject: 'Physics', chapter: 'ভেক্টর', paper: '1', classCount: 2, classMin: 60, reviewMin: 30, practiceMin: 45, phaseId: 'dawn' }],
+  modules: [{ id: 'm1', subject: 'Physics', chapter: 'ভেক্টর', paper: '1', classCount: 2, classMin: 60, sheetMin: 30, reviewMin: 45, practiceMin: 45, phaseId: 'dawn' }],
   classes: [
     { id: 'c1', subject: 'Physics', chapter: 'ভেক্টর', paper: '1', phaseId: 'dawn', date: '2026-11-22', index: 1, duration: 60, done: false, title: 'ভেক্টর · ক্লাস 1' },
   ],
@@ -208,6 +208,38 @@ try {
   await click([...document.querySelectorAll('button')].find((b) => b.textContent.includes('নতুন স্প্রিন্ট')));
   for (let i = 0; i < 40 && !document.querySelector('.chapter-picker-card'); i += 1) await flush(50);
 
+  await ok('the planner has a working top X, no return footer, and Escape exits immediately', async () => {
+    let sheet = document.querySelector('.v45-onboard-sheet');
+    const close = sheet?.querySelector('.v60-sprint-close');
+    assert.ok(close, 'the top close control is missing');
+    assert.ok(!/ফিরে যান/.test(sheet.textContent), 'the old return button label survived');
+    await click(close);
+    assert.equal(document.querySelector('.v45-onboard-sheet'), null, 'the top X did not exit the fullscreen planner');
+
+    await click([...document.querySelectorAll('button')].find((b) => b.textContent.includes('নতুন স্প্রিন্ট')));
+    for (let i = 0; i < 40 && !document.querySelector('.chapter-picker-card'); i += 1) await flush(50);
+    sheet = document.querySelector('.v45-onboard-sheet');
+    assert.ok(sheet, 'the planner did not reopen after the X close');
+    await act(async () => {
+      document.dispatchEvent(new dom.window.KeyboardEvent('keydown', {
+        key: 'Escape', bubbles: true, cancelable: true,
+      }));
+    });
+    await flush();
+    assert.equal(document.querySelector('.v45-onboard-sheet'), null, 'Escape did not exit the fullscreen planner');
+  });
+
+  await click([...document.querySelectorAll('button')].find((b) => b.textContent.includes('নতুন স্প্রিন্ট')));
+  for (let i = 0; i < 40 && !document.querySelector('.chapter-picker-card'); i += 1) await flush(50);
+  const physicsSubject = [...document.querySelectorAll('.premium-subject-card')].find((b) => /Physics/.test(b.textContent));
+  if (physicsSubject) await click(physicsSubject);
+  for (let i = 0; i < 40; i += 1) {
+    const picker = document.querySelector('.chapter-picker');
+    if (picker?.querySelector('.chapter-picker-subject-name')?.textContent.includes('Physics')
+      && picker.querySelectorAll('.chapter-picker-card').length) break;
+    await flush(50);
+  }
+
   // ── 3. one single border ──────────────────────────────────────────────────
   await ok('the onboarding block is one border — inner sections carry no border', () => {
     const shell = document.querySelector('.v45-onboard-sheet');
@@ -245,14 +277,26 @@ try {
     assert.ok(/এডিট/.test(editMenu.textContent), 'the edit action is missing from the preset menu');
   });
 
-  // ── 4. triple row ─────────────────────────────────────────────────────────
-  await ok('class count · class time · sheet review · practice share ONE row of four', () => {
+  // ── 4. five workload controls + vertical phase row ────────────────────────
+  await ok('class count, class time, sheet, review, and practice share one row of five', () => {
     const quad = document.querySelector('.v45-quad');
-    assert.ok(quad, 'the four-column stepper row is missing');
-    assert.equal(quad.children.length, 4, 'the row must hold exactly four cells');
-    const styles = fs.readFileSync('src/styles/v45-redesign.css', 'utf8');
-    const rule = styles.match(/\.v45-quad\s*\{[^}]*\}/)?.[0] || '';
-    assert.ok(/grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\)/.test(rule), 'the four cells are not equal width');
+    assert.ok(quad, 'the workload-control row is missing');
+    assert.equal(quad.children.length, 5, 'the row must hold exactly five controls');
+    const styles = fs.readFileSync('src/styles/v60-redesign-polish.css', 'utf8');
+    const rules = [...styles.matchAll(/\.v60-sprint-right \.v45-quad\s*\{[^}]*\}/g)];
+    const rule = rules.at(-1)?.[0] || '';
+    assert.ok(/repeat\(5,\s*minmax\(142px,\s*1fr\)\)/.test(rule), 'the five controls are not given usable minimum widths');
+    assert.ok(/min-width:\s*750px/.test(rule), 'the controls do not retain a scrollable single row on narrow screens');
+  });
+
+  await ok('the full-width chapter selector precedes a separate phase row', () => {
+    const split = document.querySelector('.v60-sprint-right .v48-step2-split');
+    assert.ok(split, 'the chapter/phase layout is missing');
+    assert.equal(split.children[0].classList.contains('v48-step2-chapters'), true, 'the chapter picker is not first');
+    assert.equal(split.children[1].classList.contains('v48-step2-phase'), true, 'the phase selector is not below the chapter picker');
+    const styles = fs.readFileSync('src/styles/v60-redesign-polish.css', 'utf8');
+    const rule = styles.match(/\.v60-sprint-right \.v48-step2-split\.v48-step2\s*\{[^}]*\}/)?.[0] || '';
+    assert.ok(/grid-template-columns:\s*minmax\(0,\s*1fr\)/.test(rule), 'the chapter selector does not span the full right column');
   });
 
   // ── 5. no visible total, chip above 240 ───────────────────────────────────
@@ -279,11 +323,12 @@ try {
       assert.ok(preset, `the ${value}-minute preset is missing`);
       await click(preset);
     };
-    // cells: 0 class count · 1 class time · 2 sheet review · 3 practice
-    // 120 + 90 + 120 = 330 minutes — comfortably over the four-hour limit.
+    // cells: 0 class count · 1 class time · 2 sheet · 3 review · 4 practice
+    // 120 + 90 + 90 + 120 = 420 minutes — comfortably over the limit.
     await pickPreset(1, 120);
     await pickPreset(2, 90);
-    await pickPreset(3, 120);
+    await pickPreset(3, 90);
+    await pickPreset(4, 120);
     const chip = document.querySelector('.v45-overload-chip');
     assert.ok(chip, 'the overload chip did not appear above 240 minutes');
     // bnNum() is identity in this project, so ASCII digits are the norm.
@@ -303,7 +348,10 @@ try {
     for (const card of cards) {
       assert.equal(card.getAttribute('role'), 'checkbox', 'a card is not a checkbox');
       assert.ok(card.querySelector('.chapter-picker-name'), 'a card carries no chapter name');
+      assert.ok(card.querySelector('.chapter-picker-index'), 'a science chapter is missing its index badge');
     }
+    const paperSwitch = document.querySelector('.chapter-picker-papers');
+    assert.ok(paperSwitch?.querySelector('.chapter-picker-paper-indicator'), 'the paper switch is missing its sliding indicator');
     // every card in the grid must be exactly the same width — the core rule
     const widths = [...new Set([...cards].map((c) => Math.round(c.getBoundingClientRect().width)))];
     assert.equal(widths.length, 1, `cards are not all the same width: ${widths.join(', ')}`);
@@ -361,6 +409,17 @@ try {
     const dd = modal.querySelector('.v45-name-dd');
     assert.ok(dd.className.includes('is-locked'), 'the dropdown is not locked in edit mode');
     assert.ok(modal.querySelector('.v45-name-dd-trigger').disabled, 'the locked dropdown is still clickable');
+  });
+
+  await ok('Escape closes the edit modal through ModalShell without closing the planner route', async () => {
+    assert.ok(document.querySelector('.v44-sprint-edit-modal'), 'the edit modal is missing before Escape');
+    await act(async () => {
+      document.dispatchEvent(new dom.window.KeyboardEvent('keydown', {
+        key: 'Escape', bubbles: true, cancelable: true,
+      }));
+    });
+    await flush();
+    assert.equal(document.querySelector('.v44-sprint-edit-modal'), null, 'Escape did not close the edit modal');
   });
 
   await act(async () => root2.unmount());

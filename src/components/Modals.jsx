@@ -1,9 +1,10 @@
 import { BanglaNumberInput } from './BanglaInputs';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   X,
   Plus,
   Minus,
+  Clock3,
   Sparkles,
   Headphones,
   Play,
@@ -18,6 +19,7 @@ import {
   PictureInPicture2,
 } from 'lucide-react';
 import AnalogFocusDial from './AnalogFocusDial';
+import FocusDigitalReadout from './FocusDigitalReadout';
 import { useStudy } from '../context/StudyContext';
 import { bnNum, bnSubject } from '../utils/bangla';
 import { formatHM } from '../utils/seedData';
@@ -29,6 +31,44 @@ import FocusCompletionHero from './FocusCompletionHero';
 import FocusRoomScene from './FocusRoomScene';
 
 export function ModalShell({ title, eyebrow, children, onClose, wide = false, extraWide = false, fullScreen = false, className = '' }) {
+  const dialogRef = useRef(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+
+  useEffect(() => {
+    if (!fullScreen) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        event.stopPropagation();
+        onCloseRef.current?.();
+        return;
+      }
+
+      if (event.key !== 'Enter') return;
+      const target = event.target;
+      if (target?.tagName === 'TEXTAREA' || target?.isContentEditable) return;
+      if (target?.closest?.('button, a, [role="button"], [role="tab"], [role="radio"], [role="checkbox"]')) return;
+
+      // Enter follows the sheet's primary action. Forms retain native validation;
+      // non-form sheets (Focus Config) use their explicitly marked default button.
+      event.preventDefault();
+      event.stopPropagation();
+      const form = dialogRef.current?.querySelector('form');
+      if (form?.requestSubmit) {
+        form.requestSubmit();
+        return;
+      }
+      dialogRef.current?.querySelector('[data-modal-default-action]')?.click();
+    };
+
+    // A portal may leave focus on the button that opened it. Capture at the
+    // document level so Escape/Enter work immediately even before a Tab press.
+    document.addEventListener('keydown', onKeyDown, true);
+    return () => document.removeEventListener('keydown', onKeyDown, true);
+  }, [fullScreen]);
+
   return (
     <div
       className="modal-backdrop"
@@ -37,6 +77,7 @@ export function ModalShell({ title, eyebrow, children, onClose, wide = false, ex
       }}
     >
       <section
+        ref={dialogRef}
         className={`modal-card ${fullScreen ? 'is-fullscreen' : ''} ${className}`}
         role="dialog"
         aria-modal="true"
@@ -56,8 +97,8 @@ export function ModalShell({ title, eyebrow, children, onClose, wide = false, ex
             {eyebrow && <div className="eyebrow">{eyebrow}</div>}
             <h2>{title}</h2>
           </div>
-          <button className="icon-btn" aria-label="বন্ধ করুন" onClick={onClose}>
-            <X size={17} />
+          <button type="button" className="icon-btn" aria-label="বন্ধ করুন" onClick={onClose}>
+            <X size={18} />
           </button>
         </div>
         {children}
@@ -641,6 +682,7 @@ export function ZenChamber() {
     updatePip,
     modal,
   } = useStudy();
+  const [zenClockStyle, setZenClockStyle] = useState('analog');
 
   useEffect(() => {
     if (!zen) return;
@@ -693,19 +735,62 @@ export function ZenChamber() {
       <div className="v51-zen-scene">
         <FocusRoomScene
           status={
-            isAlarm ? 'break' : timer?.status === 'running' ? 'studying' : 'offline'
+            isAlarm || timer?.phase === 'break'
+              ? 'break'
+              : timer?.status === 'running'
+                ? 'studying'
+                : 'resting'
           }
           fill={false}
           tall
           wallClock={
-            <AnalogFocusDial
-              remainingSec={zenDialRemaining}
-              totalSec={zenDialTotal}
-              size={176}
-              isAlarm={isAlarm}
-              isPaused={timer?.status === 'paused'}
-              isRunning={timer?.status === 'running'}
-            />
+            <div className="v61-zen-wall-clock">
+              <div className="v61-zen-clock-toggle" role="group" aria-label="Zen ঘড়ির ধরন">
+                <button
+                  type="button"
+                  className={zenClockStyle === 'analog' ? 'is-active' : ''}
+                  aria-pressed={zenClockStyle === 'analog'}
+                  onClick={() => setZenClockStyle('analog')}
+                  title="অ্যানালগ ঘড়ি"
+                >
+                  <Clock3 size={15} />
+                  <span>অ্যানালগ</span>
+                </button>
+                <button
+                  type="button"
+                  className={zenClockStyle === 'digital' ? 'is-active' : ''}
+                  aria-pressed={zenClockStyle === 'digital'}
+                  onClick={() => setZenClockStyle('digital')}
+                  title="ডিজিটাল ঘড়ি"
+                >
+                  <Sparkles size={15} />
+                  <span>ডিজিটাল</span>
+                </button>
+              </div>
+              <div className="v61-zen-clock-readout v35-clock-wrap">
+                {zenClockStyle === 'analog' ? (
+                  <AnalogFocusDial
+                    remainingSec={zenDialRemaining}
+                    totalSec={zenDialTotal}
+                    size={248}
+                    isAlarm={isAlarm}
+                    isPaused={timer?.status === 'paused'}
+                    isRunning={timer?.status === 'running'}
+                    className="v61-zen-dial"
+                  />
+                ) : (
+                  <FocusDigitalReadout
+                    remainingSec={zenDialRemaining}
+                    isAlarm={isAlarm}
+                    isPaused={timer?.status === 'paused'}
+                    isRunning={timer?.status === 'running'}
+                  />
+                )}
+              </div>
+              <div className="v61-clock-depth-line" aria-hidden="true">
+                <i style={{ width: `${Math.min(100, Math.max(2, zenPct))}%` }} />
+              </div>
+            </div>
           }
         />
       </div>

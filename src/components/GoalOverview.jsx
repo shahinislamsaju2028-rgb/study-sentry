@@ -41,14 +41,14 @@ const SLOT_ICON_MAP = {
 };
 
 const SUBJECT_ACCENTS = {
-  Physics: '#f59e0b',
+  Physics: '#ff9808',
   Chemistry: '#38bdf8',
   Math: '#818cf8',
   'Higher Math': '#818cf8',
   Mathematics: '#818cf8',
   Biology: '#f472b6',
   ICT: '#60a5fa',
-  Bangla: '#fbbf24',
+  Bangla: '#ffd369',
   English: '#a78bfa',
 };
 
@@ -308,7 +308,7 @@ export default function GoalOverview({ onOpenSprint, onEditSprint }) {
       color:
         state.subjects?.find((s) => s.name.toLowerCase() === r.subject.toLowerCase())?.color ||
         SUBJECT_ACCENTS[r.subject] ||
-        '#f59e0b',
+        '#ff9808',
     }));
 
     const startKey = sprint.start || todayKey;
@@ -562,7 +562,7 @@ export default function GoalOverview({ onOpenSprint, onEditSprint }) {
         )}
 
         <div className="v29-ov-telemetry-layout">
-          {/* A. Sculpted Countdown & Overall Progress Card */}
+          {/* A. Sculpted countdown card */}
           <div className="v29-ov-countdown-box v57-countdown-box">
             <div className="v29-ov-box-head v57-countdown-head">
               <span className="v29-ov-kicker">
@@ -590,96 +590,50 @@ export default function GoalOverview({ onOpenSprint, onEditSprint }) {
               </div>
             )}
 
-            <div className="v29-ov-master-bar v57-step-progress">
-              <div className="v29-ov-mb-top v57-step-progress-head">
-                <span>সামগ্রিক ধাপ অগ্রগতি</span>
-                <strong>
-                  {bnNum(doneCount)} <i>/</i> {bnNum(totalCount)} <small>ধাপ</small>
-                </strong>
-              </div>
-              <div
-                className="v57-step-segments"
-                role="img"
-                aria-label={`${bnNum(doneCount)} / ${bnNum(totalCount)} ধাপ সম্পন্ন · ${bnNum(overallPct)} শতাংশ`}
-              >
-                {Array.from({ length: 12 }, (_, i) => (
-                  <span
-                    key={i}
-                    className={i < Math.ceil((overallPct / 100) * 12) && overallPct > 0 ? 'is-complete' : ''}
-                  />
-                ))}
-              </div>
-              <div className="v57-step-progress-foot">
-                <span>{bnNum(overallPct)}% সম্পন্ন</span>
-                <span>{bnNum(Math.max(0, totalCount - doneCount))} ধাপ বাকি</span>
-              </div>
-            </div>
           </div>
 
-          {/* B. Center Luminous Curved Progress Ring */}
-          <div className="v29-ov-ring-showcase v57-radial-showcase">
+          {/* B. A compact progress cockpit replaces the radial gauge. */}
+          <div className="v60-ov-progress-card" aria-label={`${bnNum(overallPct)} শতাংশ সামগ্রিক অগ্রগতি`}>
+            <div className="v60-ov-progress-top">
+              <span className="v60-ov-progress-kicker">
+                <i><Sparkles size={14} /></i>
+                <span>স্প্রিন্ট অগ্রগতি</span>
+              </span>
+              <span className={`v60-ov-progress-state ${overallPct === 100 ? 'is-complete' : ''}`}>
+                {overallPct === 100 ? 'সম্পন্ন' : 'চলমান'}
+              </span>
+            </div>
+
+            <div className="v60-ov-progress-reading">
+              <strong>{bnNum(overallPct)}<em>%</em></strong>
+              <span>পথ সম্পন্ন</span>
+            </div>
+
             <div
-              className="v29-ov-ring-wrap v57-radial-wrap"
-              role="img"
-              aria-label={`${bnNum(overallPct)} শতাংশ সামগ্রিক অগ্রগতি`}
+              className="v60-ov-progress-rail"
+              role="progressbar"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={overallPct}
+              aria-label={`${bnNum(overallPct)} শতাংশ সম্পন্ন`}
             >
-              <svg viewBox="0 0 120 120" className="v29-ov-ring-svg v57-radial-svg" aria-hidden="true">
-                <defs>
-                  <linearGradient id="v57OvDonutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="var(--vd-accent, #FBBF24)" />
-                    <stop offset="52%" stopColor="#ead9b9" />
-                    <stop offset="100%" stopColor="var(--vd-accent-2, #38BDF8)" />
-                  </linearGradient>
-                  <filter id="v57OvDonutGlow" x="-60%" y="-60%" width="220%" height="220%">
-                    <feGaussianBlur stdDeviation="2.5" result="blur" />
-                    <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                  </filter>
-                </defs>
-                <circle cx="60" cy="60" r="50" className="v29-ov-ring-track v57-radial-track" />
-                {Array.from({ length: 40 }, (_, i) => {
-                  const angle = (i / 40) * Math.PI * 2 - Math.PI / 2;
-                  const inner = i % 5 === 0 ? 54 : 56.5;
-                  const outer = 59;
-                  return (
-                    <line
-                      key={`tick-${i}`}
-                      x1={60 + Math.cos(angle) * inner}
-                      y1={60 + Math.sin(angle) * inner}
-                      x2={60 + Math.cos(angle) * outer}
-                      y2={60 + Math.sin(angle) * outer}
-                      className={`v57-radial-tick ${i % 5 === 0 ? 'major' : ''}`}
-                    />
-                  );
-                })}
-                <circle
-                  cx="60"
-                  cy="60"
-                  r="41"
-                  fill="none"
-                  className="v57-radial-inner-ring"
+              {Array.from({ length: 10 }, (_, i) => (
+                <span
+                  key={i}
+                  className={i < Math.ceil(overallPct / 10) && overallPct > 0 ? 'is-filled' : ''}
                 />
-                {overallPct > 0 && (
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="50"
-                    className="v29-ov-ring-fill v57-radial-fill"
-                    stroke="url(#v57OvDonutGrad)"
-                    pathLength="100"
-                    strokeDasharray="100"
-                    strokeDashoffset={100 - overallPct}
-                    filter={`url(#v57OvDonutGlow)`}
-                  />
-                )}
-                <circle cx="60" cy="60" r="32" className="v57-radial-core" />
-              </svg>
-              <div className="v29-ov-ring-center v57-radial-center">
-                <strong>
-                  {bnNum(overallPct)}
-                  <em>%</em>
-                </strong>
-                <span>ধাপ সম্পন্ন</span>
-              </div>
+              ))}
+            </div>
+
+            <div className="v60-ov-progress-foot">
+              <span className="v60-ov-progress-count">
+                <CheckCircle2 size={14} />
+                <strong>{bnNum(doneCount)} <em>/ {bnNum(totalCount)}</em></strong>
+                <small>ধাপ সম্পন্ন</small>
+              </span>
+              <span className="v60-ov-progress-remaining">
+                {bnNum(Math.max(0, totalCount - doneCount))} বাকি
+              </span>
             </div>
           </div>
 
@@ -795,7 +749,7 @@ export default function GoalOverview({ onOpenSprint, onEditSprint }) {
                   role="tab"
                   aria-selected={isSelected}
                   className={`v28-ov-phase-pill ${isSelected ? 'active' : ''}`}
-                  style={{ '--slot-color': slot.tone || '#fbbf24' }}
+                  style={{ '--slot-color': slot.tone || '#ffd369' }}
                   key={slot.id}
                   onClick={() => setSelectedPhase(slot.id)}
                 >
@@ -817,7 +771,7 @@ export default function GoalOverview({ onOpenSprint, onEditSprint }) {
                     (s) => s.name.toLowerCase() === String(item.subject || '').toLowerCase()
                   )?.color ||
                   SUBJECT_ACCENTS[item.subject] ||
-                  '#f59e0b';
+                  '#ff9808';
 
                 return (
                   <div

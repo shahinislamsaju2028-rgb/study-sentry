@@ -42,7 +42,7 @@ export function buildCleanTwoPartSubjects(
       result.push({
         id: match.id,
         name: spec.label,
-        color: spec.color || match.color || '#fbbf24',
+        color: spec.color || match.color || '#ffd369',
       });
     } else {
       result.push({
@@ -61,7 +61,7 @@ export function buildCleanTwoPartSubjects(
     result.push({
       id: extra.id,
       name: extra.name,
-      color: extra.color || '#fbbf24',
+      color: extra.color || '#ffd369',
     });
   }
 
@@ -94,7 +94,7 @@ const DEFAULT_MENU_STATE: PipStatePayload = {
   })),
 };
 
-export function renderAbstractSubjectGlyph(name: string, color = '#fbbf24') {
+export function renderAbstractSubjectGlyph(name: string, color = '#ffd369') {
   const n = (name || '').toLowerCase();
   if (n.includes('phys') || n.includes('পদার্থ')) {
     return (

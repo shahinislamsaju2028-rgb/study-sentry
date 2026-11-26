@@ -47,7 +47,7 @@
   -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
   backdrop-filter: blur(22px) saturate(160%) !important;
 
-  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 24%, rgba(255, 255, 255, 0.18)) !important;
+  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #ffd369) 24%, rgba(255, 255, 255, 0.18)) !important;
   box-shadow:
     0 14px 34px rgba(0, 0, 0, 0.54),
     inset 0 1px 0 rgba(255, 255, 255, 0.24) !important;
@@ -86,7 +86,7 @@
 
 .nav-dock .bottom-navigation.liquid-glass-dock.is-awake {
   opacity: 1;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 40%, rgba(255, 255, 255, 0.24)) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 40%, rgba(255, 255, 255, 0.24)) !important;
 }
 
 .nav-dock .bn-track {
@@ -153,15 +153,15 @@
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.18) 0%,
-    color-mix(in srgb, var(--accent-primary, #f59e0b) 32%, rgba(255, 255, 255, 0.06)) 100%
+    color-mix(in srgb, var(--accent-primary, #ff9808) 32%, rgba(255, 255, 255, 0.06)) 100%
   ) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 48%, rgba(255, 255, 255, 0.3)) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 48%, rgba(255, 255, 255, 0.3)) !important;
   color: #ffffff !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32) !important;
 }
 
 .nav-dock .bn-item.active svg {
-  color: var(--accent-primary-bright, #fbbf24) !important;
+  color: var(--accent-primary-bright, #ffd369) !important;
 }
 
 .nav-dock .bn-live-time {

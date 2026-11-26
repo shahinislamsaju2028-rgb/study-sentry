@@ -10,7 +10,7 @@
  *   3. the type ladder stays ordered: title > subtitle, metric > title
  *   4. the dock declares a heavier blur than the base layer shipped
  *
- * Plus a structural guard: the latest polish layer must be imported LAST,
+ * Plus a structural guard: the newest Focus polish layer must be imported LAST,
  * after every other stylesheet, so its overrides remain effective.
  */
 import { readFileSync } from 'node:fs';
@@ -153,7 +153,7 @@ check('dev JSX is compiled to the production runtime', /jsxDev:\s*false/.test(vi
 /* ── 7. import order ────────────────────────────────────────────────────── */
 const order = [...main.matchAll(/import '\.\/styles\/([^']+)'/g)].map((m) => m[1]);
 const last = order[order.length - 1];
-check('latest polish layer is imported last', last === 'v59-suite-redesign.css', `last is ${last}; v59-suite-redesign.css must be final`);
+check('latest polish layer is imported last', last === 'v61-focus-redesign.css', `last is ${last}; v61-focus-redesign.css must be final`);
 
 console.log(`\n${pass}/${pass + fails.length} checks passed`);
 if (fails.length) {

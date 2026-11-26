@@ -5,13 +5,13 @@ import { bnNum } from '../utils/bangla';
 import { studyAudio } from '../utils/audioEngine';
 
 const CONFETTI_COLORS = [
-  '#fbbf24',
+  '#ffd369',
   '#34d399',
   '#38bdf8',
   '#f472b6',
   '#a78bfa',
-  '#fde68a',
-  '#fb923c',
+  '#ffd369',
+  '#ff9808',
 ];
 
 /**
@@ -96,19 +96,19 @@ export default function RankOneCelebration({ notice, onClose }) {
               <svg className="sc-rank1-rays" viewBox="0 0 320 220" width="320" height="220">
                 <defs>
                   <linearGradient id="scRay" x1="0" y1="1" x2="0.6" y2="0">
-                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.06" />
-                    <stop offset="55%" stopColor="#fde68a" stopOpacity="0.42" />
-                    <stop offset="100%" stopColor="#fbbf24" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#ff9808" stopOpacity="0.06" />
+                    <stop offset="55%" stopColor="#ffd369" stopOpacity="0.42" />
+                    <stop offset="100%" stopColor="#ffd369" stopOpacity="0" />
                   </linearGradient>
                   <radialGradient id="scHalo" cx="50%" cy="52%" r="50%">
-                    <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.4" />
-                    <stop offset="58%" stopColor="#f59e0b" stopOpacity="0.11" />
-                    <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#ffd369" stopOpacity="0.4" />
+                    <stop offset="58%" stopColor="#ff9808" stopOpacity="0.11" />
+                    <stop offset="100%" stopColor="#ff9808" stopOpacity="0" />
                   </radialGradient>
                   <linearGradient id="scPodium" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#fde68a" />
-                    <stop offset="46%" stopColor="#f59e0b" />
-                    <stop offset="100%" stopColor="#b45309" />
+                    <stop offset="0%" stopColor="#ffd369" />
+                    <stop offset="46%" stopColor="#ff9808" />
+                    <stop offset="100%" stopColor="#ff9808" />
                   </linearGradient>
                   <linearGradient id="scLaurel" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stopColor="#86efac" />
@@ -155,10 +155,10 @@ export default function RankOneCelebration({ notice, onClose }) {
                   <ellipse cx="160" cy="188" rx="52" ry="11" fill="#000" opacity="0.34" />
                   {/* podium */}
                   <path d="M126 186 H194 L202 214 H118 Z" fill="url(#scPodium)" />
-                  <path d="M126 186 H194 L192 178 H128 Z" fill="#fde68a" opacity="0.85" />
+                  <path d="M126 186 H194 L192 178 H128 Z" fill="#ffd369" opacity="0.85" />
                   <text x="160" y="207" textAnchor="middle" fontSize="17" fontWeight="800" fill="#4a2c05">১</text>
                   {/* body */}
-                  <path d="M142 178 C142 158 150 150 160 150 C170 150 178 158 178 178 Z" fill="#fde68a" />
+                  <path d="M142 178 C142 158 150 150 160 150 C170 150 178 158 178 178 Z" fill="#ffd369" />
                   <path d="M160 150 C160 150 150 148 149 138 C148 130 152 124 160 124 C168 124 172 130 171 138 C170 148 160 150 160 150 Z" fill="#fcd9a6" />
                   {/* arms raised in celebration */}
                   <path d="M146 156 L124 138" stroke="#fcd9a6" strokeWidth="8" strokeLinecap="round" />
@@ -166,7 +166,7 @@ export default function RankOneCelebration({ notice, onClose }) {
                   <circle cx="122" cy="136" r="6" fill="#fcd9a6" />
                   <circle cx="198" cy="136" r="6" fill="#fcd9a6" />
                   {/* medal */}
-                  <circle cx="160" cy="164" r="9" fill="#fbbf24" stroke="#b45309" strokeWidth="2" />
+                  <circle cx="160" cy="164" r="9" fill="#ffd369" stroke="#ff9808" strokeWidth="2" />
                   <path d="M160 158 L162 163 L167 163 L163 166 L164 171 L160 168 L156 171 L157 166 L153 163 L158 163 Z" fill="#fffbeb" />
                 </g>
               </svg>

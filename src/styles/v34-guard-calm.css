@@ -1,7 +1,7 @@
 /* ===========================================================================
    v34 — FOCUS GUARD & CALM UI
    ---------------------------------------------------------------------------
-   Loaded last so these rules always win over the older sheets.
+   Loaded before the later v35–v61 refinements; newer overlapping selectors win.
    ========================================================================= */
 
 /* ---------------------------------------------------------------------------
@@ -16,13 +16,13 @@
   border-radius: 999px;
   font-size: 11.5px;
   font-weight: 720;
-  color: #ffd98a;
+  color: #ffd369;
   background: rgba(247, 202, 85, 0.1);
   border: 1px solid rgba(247, 202, 85, 0.28);
 }
 
 .v30-guard-always svg {
-  color: #f0c56b;
+  color: #ffd369;
 }
 
 .v30-guard-domain-card {

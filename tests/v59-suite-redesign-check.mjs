@@ -62,7 +62,7 @@ check('chapter labels have a leading icon and larger solid circular progress', /
 check('rounded chapter type chip opens the full-screen checklist', /className="v52-ch-types v59-ch-types-chip"[\s\S]*aria-haspopup="dialog"[\s\S]*setCheckChapter\(ch\.id\)/.test(suite) && /<ModalShell title=\{chapterTitle\} onClose=\{onClose\} fullScreen>/.test(checklist));
 check('type overlay explicitly distinguishes selected and unselected types', /selected: done > 0/.test(checklist) && /'সিলেক্টেড' : 'সিলেক্ট করা হয়নি'/.test(checklist));
 check('chapter-add CTA follows the shared selector accent treatment', /v30-glow-btn v59-syl-add-btn/.test(suite) && /\.v59-syl-add-btn/.test(css));
-check('v59 redesign stylesheet is imported last', /import '\.\/styles\/v59-suite-redesign\.css';\s*$/.test(main));
+check('v59, v60 and v61 redesign layers load in cascade order', /import '\.\/styles\/v59-suite-redesign\.css';\s*import '\.\/styles\/v60-redesign-polish\.css';\s*import '\.\/styles\/v61-focus-redesign\.css';/.test(main));
 
 console.log(`\n${pass}/${pass + failures.length} checks passed`);
 if (failures.length) {
