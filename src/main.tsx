@@ -2,8 +2,8 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { installDesktopBridge } from './bridge/desktopBridge';
 
-// CSS imports intentionally remain in cascade order. v61 is the final shared
-// palette layer; keep every stylesheet above the App import and React mount.
+// CSS imports intentionally remain in cascade order. v61 is the final Focus
+// polish layer; keep every stylesheet above the App import and React mount.
 import './styles/app.css';
 import './styles/desktop.css';
 import './styles/study-preview.css';

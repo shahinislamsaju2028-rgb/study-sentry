@@ -1,6 +1,6 @@
 /* ============================================================================
    v34 — INSIGHTS HARMONY + TASK VIEW STAGE
-   Loaded before the later v35–v61 refinements; newer overlapping selectors win.
+   Loaded last so it wins over every legacy !important rule.
    ========================================================================== */
 
 /* ---------------------------------------------------------------------------
@@ -258,7 +258,7 @@
   width: 34px;
   height: 34px;
   border-radius: 11px;
-  color: #ffd369;
+  color: #fbbf24;
   background: rgba(251, 191, 36, 0.12);
   border: 1px solid rgba(251, 191, 36, 0.26);
 }
@@ -315,7 +315,7 @@
 }
 
 .v34-balance-stat.is-gold strong {
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v34-balance-stat.is-sky strong {
@@ -323,7 +323,7 @@
 }
 
 .v34-balance-stat.is-emerald strong {
-  color: #ffd369;
+  color: #f0c56b;
 }
 
 .v34-balance-stat small {
@@ -366,7 +366,7 @@
   font-size: 0.78rem;
   font-weight: 820;
   color: #0b0c10;
-  background: linear-gradient(140deg, #ffd369, #ff9808);
+  background: linear-gradient(140deg, #fde68a, #f59e0b);
 }
 
 .v34-podium-item.is-2 .v34-podium-medal {
@@ -393,7 +393,7 @@
   margin-top: 3px;
   font-size: 0.7rem;
   font-weight: 700;
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v34-podium-bar {
@@ -408,7 +408,7 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ffd369, #ffd369);
+  background: linear-gradient(90deg, #fbbf24, #fde68a);
 }
 
 /* Subject rows — richer, with a soft inline track instead of a bare dot */
@@ -445,7 +445,7 @@
 
 .v31-subj-row.is-hovered .v31-sr-rank {
   color: #0b0c10;
-  background: linear-gradient(140deg, #ffd369, #ff9808);
+  background: linear-gradient(140deg, #fde68a, #f59e0b);
   border-color: transparent;
 }
 
@@ -511,7 +511,7 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #38bdf8, #ffd369 70%, #ffd369);
+  background: linear-gradient(90deg, #38bdf8, #fbbf24 70%, #fde68a);
   box-shadow: 0 0 14px rgba(251, 191, 36, 0.35);
   transition: width 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -644,5 +644,5 @@
 .v34-balance-tip svg {
   flex: none;
   margin-top: 2px;
-  color: #ffd369;
+  color: #fbbf24;
 }

@@ -52,7 +52,7 @@
   border-radius: 999px;
   font-size: 11.5px;
   font-weight: 700;
-  color: #ffd369;
+  color: #ffd98a;
   background: rgba(239, 189, 74, 0.14);
   border: 1px solid rgba(247, 202, 85, 0.28);
 }
@@ -88,7 +88,7 @@
 
 .ss-recovery-body strong em {
   font-style: normal;
-  color: var(--vd-accent-strong, #ffd369);
+  color: var(--vd-accent-strong, #fbbf24);
 }
 
 .ss-recovery-body p {
@@ -121,7 +121,7 @@
 
 .ss-recovery-btn.primary {
   flex: 1;
-  background: var(--vd-btn-grad, linear-gradient(135deg, #ffd369, #ff9808));
+  background: var(--vd-btn-grad, linear-gradient(135deg, #fbbf24, #d97706));
   color: var(--vd-btn-ink, #140f06);
 }
 
@@ -147,7 +147,7 @@
 .ss-recovery-timer-rail i {
   display: block;
   height: 100%;
-  background: var(--vd-accent, #ff9808);
+  background: var(--vd-accent, #f59e0b);
   transition: width 0.95s linear;
 }
 
@@ -275,8 +275,8 @@
 }
 
 .ss-pmc-check.on {
-  background: var(--vd-accent, #ff9808);
-  border-color: var(--vd-accent, #ff9808);
+  background: var(--vd-accent, #f59e0b);
+  border-color: var(--vd-accent, #f59e0b);
   color: var(--vd-btn-ink, #111);
 }
 
@@ -293,13 +293,13 @@
   padding: 5px 9px;
   border-radius: 9px;
   font-size: 12px;
-  background: color-mix(in srgb, var(--p-tone, #ff9808) 13%, rgba(15, 23, 42, 0.7));
-  border: 1px solid color-mix(in srgb, var(--p-tone, #ff9808) 34%, transparent);
+  background: color-mix(in srgb, var(--p-tone, #f59e0b) 13%, rgba(15, 23, 42, 0.7));
+  border: 1px solid color-mix(in srgb, var(--p-tone, #f59e0b) 34%, transparent);
   color: #f1f5f9;
 }
 
 .ss-pmc-pill svg {
-  color: var(--p-tone, #ff9808);
+  color: var(--p-tone, #f59e0b);
 }
 
 .ss-pmc-pill b {
@@ -390,7 +390,7 @@
 
 .min-phase-goals button.active {
   background: rgba(var(--vd-accent-rgb, 245, 158, 11), 0.18);
-  color: var(--vd-accent-strong, #ffd369);
+  color: var(--vd-accent-strong, #fbbf24);
 }
 
 .min-phase-config-btn {
@@ -482,7 +482,7 @@
 }
 
 .min-phase-state.done {
-  color: #ffd369;
+  color: #f0c56b;
 }
 
 .min-phase-state.live,
@@ -599,7 +599,7 @@
 .sp-premade-name-chip.active {
   background: rgba(var(--vd-accent-rgb, 245, 158, 11), 0.2) !important;
   border-color: rgba(var(--vd-accent-rgb, 245, 158, 11), 0.65) !important;
-  color: var(--vd-accent-strong, #ffd369) !important;
+  color: var(--vd-accent-strong, #fde68a) !important;
 }
 
 .sp-chapter-trigger {
@@ -625,7 +625,7 @@
   padding: 2px 7px;
   border-radius: 6px;
   background: rgba(var(--vd-accent-rgb, 245, 158, 11), 0.18);
-  color: var(--vd-accent-strong, #ffd369);
+  color: var(--vd-accent-strong, #fbbf24);
   flex-shrink: 0;
 }
 
@@ -709,7 +709,7 @@
   padding: 1px 6px;
   border-radius: 999px;
   background: rgba(var(--vd-accent-rgb, 245, 158, 11), 0.18);
-  color: var(--vd-accent-strong, #ffd369);
+  color: var(--vd-accent-strong, #fbbf24);
 }
 
 .guard-app-tile.is-fixed,
@@ -746,7 +746,7 @@
 }
 
 .guard-arena-title svg {
-  color: var(--vd-accent-strong, #ffd369);
+  color: var(--vd-accent-strong, #fbbf24);
 }
 
 .guard-arena-title code {
@@ -755,7 +755,7 @@
   font-size: 11.5px;
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--vd-accent-strong, #ffd369);
+  color: var(--vd-accent-strong, #fde68a);
 }
 
 .guard-arena-copy small {
@@ -776,7 +776,7 @@
 }
 
 .guard-policy-note svg {
-  color: #ffd369;
+  color: #f0c56b;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -799,13 +799,13 @@
   border-radius: 999px;
   background: rgba(247, 202, 85, 0.16);
   border: 1px solid rgba(247, 202, 85, 0.35);
-  color: #ffd369;
+  color: #ffd98a;
   margin-left: 6px;
   vertical-align: middle;
 }
 
 .v28-hero-live-pill {
-  color: #ffd369;
+  color: #ffd98a;
   font-weight: 600;
 }
 
@@ -857,7 +857,7 @@
 .live-elapsed-pill {
   font-size: 11.5px;
   font-weight: 600;
-  color: #ffd369;
+  color: #fde68a;
   font-variant-numeric: tabular-nums;
 }
 
@@ -928,7 +928,7 @@
 .v28-rank-pill.tier-gold {
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.28), rgba(217, 119, 6, 0.22));
   border-color: rgba(251, 191, 36, 0.65);
-  color: #ffd369;
+  color: #fde68a;
   box-shadow: 0 0 16px rgba(251, 191, 36, 0.22);
 }
 
@@ -965,7 +965,7 @@
 }
 
 .v28-user-avatar.tier-gold {
-  border-color: #ffd369;
+  border-color: #fbbf24;
   box-shadow: 0 0 18px rgba(251, 191, 36, 0.35);
 }
 
@@ -974,11 +974,11 @@
 }
 
 .v28-user-avatar.tier-bronze {
-  border-color: #ff9808;
+  border-color: #fb923c;
 }
 
 .v28-user-avatar.is-me {
-  outline: 2px solid #ffd369;
+  outline: 2px solid #f0c56b;
   outline-offset: 2px;
 }
 
@@ -998,13 +998,13 @@
 .v28-user-name em {
   font-style: normal;
   font-size: 9.5px;
-  color: #ffd369;
+  color: #ffd98a;
 }
 
 .v28-user-hours {
   font-size: 12.5px;
   font-weight: 800;
-  color: var(--vd-accent-strong, #ffd369);
+  color: var(--vd-accent-strong, #fde68a);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1028,7 +1028,7 @@
 }
 
 .v28-vbar-fill.tier-gold {
-  background: linear-gradient(180deg, #ffd369 0%, #ff9808 55%, #ff9808 100%);
+  background: linear-gradient(180deg, #fde68a 0%, #f59e0b 55%, #b45309 100%);
   box-shadow: 0 0 26px rgba(245, 158, 11, 0.34);
 }
 
@@ -1037,11 +1037,11 @@
 }
 
 .v28-vbar-fill.tier-bronze {
-  background: linear-gradient(180deg, #fed7aa 0%, #ff9808 60%, #9a3412 100%);
+  background: linear-gradient(180deg, #fed7aa 0%, #fb923c 60%, #9a3412 100%);
 }
 
 .v28-vbar-col.is-me .v28-vbar-fill.tier-standard {
-  background: linear-gradient(180deg, #ffd369 0%, #ff9808 60%, #96601a 100%);
+  background: linear-gradient(180deg, #ffd98a 0%, #d99125 60%, #96601a 100%);
 }
 
 .v28-vbar-shine {
@@ -1081,9 +1081,9 @@
   color: #cbd5e1;
 }
 
-.v28-row-rank.r-1 { color: #ffd369; }
+.v28-row-rank.r-1 { color: #fbbf24; }
 .v28-row-rank.r-2 { color: #e2e8f0; }
-.v28-row-rank.r-3 { color: #ff9808; }
+.v28-row-rank.r-3 { color: #fb923c; }
 
 .v28-row-user {
   display: grid;
@@ -1104,12 +1104,12 @@
   align-items: center;
   gap: 4px;
   font-size: 11px;
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v28-row-time {
   font-size: 13px;
-  color: var(--vd-accent-strong, #ffd369);
+  color: var(--vd-accent-strong, #fde68a);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1150,7 +1150,7 @@
   position: absolute;
   width: var(--size, 8px);
   height: var(--size, 8px);
-  background: var(--col, #ffd369);
+  background: var(--col, #fbbf24);
   opacity: 0;
   animation: scConfettiBurst 1.65s cubic-bezier(0.16, 0.88, 0.32, 1) var(--delay, 0s) forwards;
 }
@@ -1180,7 +1180,7 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: linear-gradient(145deg, #ffd369, #ff9808);
+  background: linear-gradient(145deg, #fde68a, #f59e0b);
   color: #1c1304;
   box-shadow: 0 12px 32px rgba(245, 158, 11, 0.45);
   margin-bottom: 4px;
@@ -1194,8 +1194,8 @@
   font-size: 11px;
   font-weight: 800;
   background: #111827;
-  color: #ffd369;
-  border: 1px solid #ffd369;
+  color: #fde68a;
+  border: 1px solid #fbbf24;
 }
 
 .sc-rank1-eyebrow {
@@ -1204,7 +1204,7 @@
   gap: 5px;
   font-size: 12px;
   font-weight: 700;
-  color: #ffd369;
+  color: #fde68a;
 }
 
 .sc-rank1-group {
@@ -1216,14 +1216,14 @@
   font-size: 13.5px;
 }
 
-.sc-rank1-group svg { color: #ffd369; }
+.sc-rank1-group svg { color: #fbbf24; }
 
 .sc-rank1-hours-pill {
   padding: 6px 14px;
   border-radius: 999px;
   background: rgba(251, 191, 36, 0.14);
   border: 1px solid rgba(251, 191, 36, 0.32);
-  color: #ffd369;
+  color: #fef3c7;
   font-size: 13px;
 }
 
@@ -1240,7 +1240,7 @@
   gap: 7px;
   padding: 10px 22px !important;
   border-radius: 12px !important;
-  background: linear-gradient(135deg, #ffd369, #ff9808) !important;
+  background: linear-gradient(135deg, #fde68a, #f59e0b) !important;
   color: #181104 !important;
   font-weight: 800 !important;
   border: 0 !important;
@@ -1273,7 +1273,7 @@
   place-items: center;
   font-size: 22px;
   font-weight: 800;
-  color: var(--vd-accent-strong, #ffd369);
+  color: var(--vd-accent-strong, #fde68a);
   overflow: hidden;
 }
 
@@ -1372,8 +1372,8 @@
   border-radius: 8px;
   font-size: 12px;
   font-weight: 600;
-  background: color-mix(in srgb, var(--p-col, #ff9808) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--p-col, #ff9808) 36%, transparent);
+  background: color-mix(in srgb, var(--p-col, #f59e0b) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--p-col, #f59e0b) 36%, transparent);
   color: #f1f5f9;
 }
 
@@ -1487,11 +1487,11 @@
   border-radius: 18px;
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--vd-accent, #ff9808) 14%, rgba(18, 24, 38, 0.94)),
+    color-mix(in srgb, var(--vd-accent, #f59e0b) 14%, rgba(18, 24, 38, 0.94)),
     rgba(13, 18, 30, 0.92) 58%,
     color-mix(in srgb, var(--vd-accent-2, #38bdf8) 12%, rgba(15, 22, 36, 0.94))
   );
-  border: 1px solid color-mix(in srgb, var(--vd-accent, #ff9808) 32%, rgba(255, 255, 255, 0.1));
+  border: 1px solid color-mix(in srgb, var(--vd-accent, #f59e0b) 32%, rgba(255, 255, 255, 0.1));
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
@@ -1510,10 +1510,10 @@
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  color: var(--vd-accent, #ffd369);
-  background: color-mix(in srgb, var(--vd-accent, #ff9808) 18%, rgba(15, 23, 42, 0.85));
-  border: 1px solid color-mix(in srgb, var(--vd-accent, #ff9808) 42%, transparent);
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--vd-accent, #ff9808) 18%, transparent);
+  color: var(--vd-accent, #fbbf24);
+  background: color-mix(in srgb, var(--vd-accent, #f59e0b) 18%, rgba(15, 23, 42, 0.85));
+  border: 1px solid color-mix(in srgb, var(--vd-accent, #f59e0b) 42%, transparent);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--vd-accent, #f59e0b) 18%, transparent);
 }
 
 .v28-ov-sprint-copy {
@@ -1537,7 +1537,7 @@
   border-radius: 999px;
   font-size: 11.5px;
   font-weight: 700;
-  color: #ffd369;
+  color: #ffd98a;
   background: rgba(239, 189, 74, 0.14);
   border: 1px solid rgba(247, 202, 85, 0.34);
 }
@@ -1546,8 +1546,8 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #ffd369;
-  box-shadow: 0 0 8px #ffd369;
+  background: #f0c56b;
+  box-shadow: 0 0 8px #f0c56b;
 }
 
 .v28-ov-stat-chip {
@@ -1558,7 +1558,7 @@
   border-radius: 999px;
   font-size: 11.5px;
   font-weight: 600;
-  color: #ffd369;
+  color: #fde68a;
   background: rgba(245, 158, 11, 0.13);
   border: 1px solid rgba(251, 191, 36, 0.28);
 }
@@ -1607,13 +1607,13 @@
   gap: 7px;
   padding: 10px 15px;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--vd-accent, #ff9808) 50%, transparent);
+  border: 1px solid color-mix(in srgb, var(--vd-accent, #f59e0b) 50%, transparent);
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--vd-accent, #ff9808) 26%, rgba(30, 41, 59, 0.9)),
-    color-mix(in srgb, var(--vd-accent, #ff9808) 14%, rgba(15, 23, 42, 0.95))
+    color-mix(in srgb, var(--vd-accent, #f59e0b) 26%, rgba(30, 41, 59, 0.9)),
+    color-mix(in srgb, var(--vd-accent, #f59e0b) 14%, rgba(15, 23, 42, 0.95))
   );
-  color: #ffd369;
+  color: #fef3c7;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
@@ -1622,7 +1622,7 @@
 
 .v28-ov-planner-cta:hover {
   transform: translateY(-1px);
-  border-color: var(--vd-accent, #ffd369);
+  border-color: var(--vd-accent, #fbbf24);
 }
 
 .v28-ov-goal-btn {
@@ -1639,7 +1639,7 @@
 }
 
 .v28-ov-goal-btn:hover {
-  border-color: var(--vd-accent, #ffd369);
+  border-color: var(--vd-accent, #fbbf24);
   color: #fff;
 }
 
@@ -1684,13 +1684,13 @@
 
 .v28-ov-sprint-tab.active {
   color: #fff;
-  border-color: color-mix(in srgb, var(--vd-accent, #ff9808) 58%, transparent);
-  background: color-mix(in srgb, var(--vd-accent, #ff9808) 20%, rgba(15, 23, 42, 0.88));
+  border-color: color-mix(in srgb, var(--vd-accent, #f59e0b) 58%, transparent);
+  background: color-mix(in srgb, var(--vd-accent, #f59e0b) 20%, rgba(15, 23, 42, 0.88));
 }
 
 .v28-ov-sprint-tab.active i {
-  background: var(--vd-accent, #ffd369);
-  box-shadow: 0 0 8px var(--vd-accent, #ffd369);
+  background: var(--vd-accent, #fbbf24);
+  box-shadow: 0 0 8px var(--vd-accent, #fbbf24);
 }
 
 /* Colored-icon phase pills inside Overview -> Today's Sprint Action Plan */
@@ -1709,8 +1709,8 @@
   min-width: 0;
   padding: 9px 10px;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--slot-color, #ffd369) 24%, rgba(255, 255, 255, 0.08));
-  background: color-mix(in srgb, var(--slot-color, #ffd369) 8%, rgba(15, 23, 42, 0.72));
+  border: 1px solid color-mix(in srgb, var(--slot-color, #fbbf24) 24%, rgba(255, 255, 255, 0.08));
+  background: color-mix(in srgb, var(--slot-color, #fbbf24) 8%, rgba(15, 23, 42, 0.72));
   color: #e2e8f0;
   font-size: 12.5px;
   font-weight: 700;
@@ -1719,14 +1719,14 @@
 }
 
 .v28-ov-phase-pill:hover {
-  border-color: color-mix(in srgb, var(--slot-color, #ffd369) 52%, transparent);
+  border-color: color-mix(in srgb, var(--slot-color, #fbbf24) 52%, transparent);
 }
 
 .v28-ov-phase-pill.active {
-  background: color-mix(in srgb, var(--slot-color, #ffd369) 22%, rgba(15, 23, 42, 0.9));
-  border-color: var(--slot-color, #ffd369);
+  background: color-mix(in srgb, var(--slot-color, #fbbf24) 22%, rgba(15, 23, 42, 0.9));
+  border-color: var(--slot-color, #fbbf24);
   color: #ffffff;
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--slot-color, #ffd369) 18%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--slot-color, #fbbf24) 18%, transparent);
 }
 
 .v28-ov-phase-ico {
@@ -1736,8 +1736,8 @@
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  color: var(--slot-color, #ffd369);
-  background: color-mix(in srgb, var(--slot-color, #ffd369) 18%, rgba(15, 23, 42, 0.8));
+  color: var(--slot-color, #fbbf24);
+  background: color-mix(in srgb, var(--slot-color, #fbbf24) 18%, rgba(15, 23, 42, 0.8));
 }
 
 .v28-ov-phase-name {
@@ -1786,20 +1786,20 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--sub-tone, #ff9808);
-  box-shadow: 0 0 8px color-mix(in srgb, var(--sub-tone, #ff9808) 65%, transparent);
+  background: var(--sub-tone, #f59e0b);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--sub-tone, #f59e0b) 65%, transparent);
 }
 
 .v28-sprint-sub-chip:hover {
-  border-color: color-mix(in srgb, var(--sub-tone, #ff9808) 55%, transparent);
+  border-color: color-mix(in srgb, var(--sub-tone, #f59e0b) 55%, transparent);
   transform: translateY(-1px);
 }
 
 .v28-sprint-sub-chip.active {
   color: #fff;
-  border-color: var(--sub-tone, #ff9808);
-  background: color-mix(in srgb, var(--sub-tone, #ff9808) 20%, rgba(15, 23, 42, 0.92));
-  box-shadow: 0 6px 18px color-mix(in srgb, var(--sub-tone, #ff9808) 20%, transparent);
+  border-color: var(--sub-tone, #f59e0b);
+  background: color-mix(in srgb, var(--sub-tone, #f59e0b) 20%, rgba(15, 23, 42, 0.92));
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--sub-tone, #f59e0b) 20%, transparent);
 }
 
 /* Guaranteed 100% Equal-Width Division in Insights -> Monthly Calendar Phase Box */

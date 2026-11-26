@@ -31,12 +31,12 @@
 .wr-day>strong { color:#d9e4e7; font-size:13px; }
 .wr-cell { display:flex; align-items:center; min-width:0; min-height:54px; padding:8px 10px; border:1px solid #ffffff0e; border-radius:10px; background:#ffffff05; transition:border-color .15s,background .15s; }
 .wr-cell:hover { background:#ffffff09; border-color:#ffffff20; }
-.wr-cell:focus-within { background:#10291f; border-color:#39d4a487; box-shadow:0 0 0 2px #ffd36912; }
+.wr-cell:focus-within { background:#10291f; border-color:#39d4a487; box-shadow:0 0 0 2px #f0c56b12; }
 .wr-cell textarea { display:block; width:100%; min-width:0; min-height:31px; max-height:120px; height:31px; padding:0; border:0; outline:0; resize:none; background:transparent; color:#dce9e7; font:inherit; font-size:13px; line-height:1.4; overflow:auto; }
 .wr-cell textarea::placeholder { color:#62777f; }
 .wr-cell:focus-within textarea { resize:vertical; }
 .wr-mobile-period { display:none; }
-.wr-save-status { display:inline-flex; align-items:center; gap:5px; padding:6px 9px; border:1px solid #31d4a03d; border-radius:99px; background:#ff980812; color:#6bdcb5; font-size:13px; font-weight:800; letter-spacing:.04em; white-space:nowrap; }
+.wr-save-status { display:inline-flex; align-items:center; gap:5px; padding:6px 9px; border:1px solid #31d4a03d; border-radius:99px; background:#d9912512; color:#6bdcb5; font-size:13px; font-weight:800; letter-spacing:.04em; white-space:nowrap; }
 .wr-save-status.error { border-color:#ef444455; color:#ff989f; background:#ef444412; }
 .wr-form-error { color:#ff9daa; font-size:13px; margin:0 0 10px; }
 @media(max-width:750px) {

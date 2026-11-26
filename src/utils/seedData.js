@@ -6,12 +6,12 @@ export const AURA_RANKS = [
   { tier: 3, name: 'Initiate', minXp: 600, badge: '⚡', color: '#38bdf8' },
   { tier: 4, name: 'Focused', minXp: 1100, badge: '🎯', color: '#34d399' },
   { tier: 5, name: 'Scholar', minXp: 1800, badge: '🧠', color: '#c9a227' },
-  { tier: 6, name: 'Disciplined', minXp: 2700, badge: '🛡️', color: '#ff9808' },
-  { tier: 7, name: 'Relentless', minXp: 3900, badge: '🔥', color: '#ff9808' },
+  { tier: 6, name: 'Disciplined', minXp: 2700, badge: '🛡️', color: '#f59e0b' },
+  { tier: 7, name: 'Relentless', minXp: 3900, badge: '🔥', color: '#f97316' },
   { tier: 8, name: 'Vanguard', minXp: 5400, badge: '⚔️', color: '#ec4899' },
   { tier: 9, name: 'Mastermind', minXp: 7200, badge: '👑', color: '#a855f7' },
   { tier: 10, name: 'Apex', minXp: 9500, badge: '💎', color: '#8b5cf6' },
-  { tier: 11, name: 'Legend', minXp: 12500, badge: '🌟', color: '#ffd369' },
+  { tier: 11, name: 'Legend', minXp: 12500, badge: '🌟', color: '#fbbf24' },
 ];
 
 // Civil date objects represent calendar selections; real instants use Dhaka (UTC+06).

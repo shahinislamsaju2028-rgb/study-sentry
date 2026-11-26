@@ -97,7 +97,7 @@ export default function PhaseInsights() {
               className={`v29-phase-card ${isComplete ? 'is-done' : ''} ${
                 phase.isWindowActive ? 'is-active' : ''
               } ${phase.isRunningNow ? 'is-running' : ''} ${phase.done ? 'is-target-done' : ''}`}
-              style={{ '--p-accent': phase.accent || '#ff9808' }}
+              style={{ '--p-accent': phase.accent || '#f59e0b' }}
             >
               <div className="v29-phase-head">
                 <div className="v29-phase-id">

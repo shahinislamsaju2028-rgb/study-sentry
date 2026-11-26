@@ -32,7 +32,7 @@ const KNOWN_PASSING = [
   'v60-redesign-check.mjs',
   'v61-focus-redesign-check.mjs',
   'v62-home-palette-check.mjs',
-  'v63-midnight-prism-palette-check.mjs',
+  'v63-obsidian-gold-palette-check.mjs',
   'verify_catalog.mjs',
 ];
 

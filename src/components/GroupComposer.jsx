@@ -117,12 +117,12 @@ export const GROUP_TEMPLATES = [
 export const GROUP_EMBLEMS = GROUP_SYMBOLS;
 
 const EMBLEM_TINTS = [
-  ['#ffd369', '#ff9808'],
+  ['#fbbf24', '#f59e0b'],
   ['#34d399', '#10b981'],
   ['#60a5fa', '#3b82f6'],
   ['#f472b6', '#ec4899'],
   ['#a78bfa', '#8b5cf6'],
-  ['#ff9808', '#ff9808'],
+  ['#fb923c', '#f97316'],
   ['#22d3ee', '#06b6d4'],
   ['#f87171', '#ef4444'],
 ];
@@ -134,7 +134,7 @@ export function emblemDataUri(symbol, tintIndex = 0) {
 }
 
 const CATEGORY_META = {
-  study: { label: 'একাডেমিক', hint: 'পড়া ও পরীক্ষা', Icon: BookOpen, tint: '#ffd369' },
+  study: { label: 'একাডেমিক', hint: 'পড়া ও পরীক্ষা', Icon: BookOpen, tint: '#fbbf24' },
   productivity: { label: 'ফোকাস', hint: 'রুটিন ও ডিসিপ্লিন', Icon: Target, tint: '#34d399' },
 };
 

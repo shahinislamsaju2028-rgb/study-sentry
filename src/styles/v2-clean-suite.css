@@ -23,13 +23,13 @@
 }
 
 .clean-head-icon {
-  color: var(--accent, #ff9808);
+  color: var(--accent, #f59e0b);
   flex-shrink: 0;
 }
 
 .jp-liquid-fill.static-smooth {
   animation: none !important;
-  background: linear-gradient(90deg, var(--accent, #ff9808), var(--accent-2, #38bdf8)) !important;
+  background: linear-gradient(90deg, var(--accent, #f59e0b), var(--accent-2, #38bdf8)) !important;
   transition: width 260ms cubic-bezier(0.2, 0, 0, 1);
 }
 
@@ -43,10 +43,10 @@
   border-radius: 16px !important;
   overflow: hidden;
   user-select: none;
-  border: 1.5px solid color-mix(in srgb, var(--accent, #ffd369) 64%, rgba(255, 255, 255, 0.25)) !important;
+  border: 1.5px solid color-mix(in srgb, var(--accent, #fbbf24) 64%, rgba(255, 255, 255, 0.25)) !important;
   box-shadow:
     0 20px 48px rgba(0, 0, 0, 0.72),
-    0 0 24px color-mix(in srgb, var(--accent, #ffd369) 22%, transparent),
+    0 0 24px color-mix(in srgb, var(--accent, #fbbf24) 22%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
 }
 
@@ -59,9 +59,9 @@
   font-size: 0.64rem;
   font-weight: 800;
   letter-spacing: 0.03em;
-  background: color-mix(in srgb, var(--accent, #ffd369) 20%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent, #ffd369) 45%, transparent);
-  color: var(--accent, #ffd369);
+  background: color-mix(in srgb, var(--accent, #fbbf24) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #fbbf24) 45%, transparent);
+  color: var(--accent, #fbbf24);
 }
 
 .pip-native-shell {
@@ -197,8 +197,8 @@
 }
 
 .pip-micro-btn.primary {
-  background: var(--accent, #ff9808);
-  border-color: color-mix(in srgb, var(--accent, #ff9808) 70%, #fff);
+  background: var(--accent, #f59e0b);
+  border-color: color-mix(in srgb, var(--accent, #f59e0b) 70%, #fff);
   color: #090a0e;
 }
 
@@ -243,7 +243,7 @@
 
 .dt-cell.dt-clean-cell:hover .dt-launch-icon-only {
   opacity: 1;
-  color: var(--accent, #ffd369);
+  color: var(--accent, #fbbf24);
   transform: scale(1.1);
 }
 
@@ -273,7 +273,7 @@
   align-items: center;
   gap: 5px;
   font-size: 0.78rem;
-  color: var(--accent, #ffd369);
+  color: var(--accent, #fbbf24);
   font-weight: 600;
 }
 
@@ -284,9 +284,9 @@
 }
 
 .home-pip-btn.active {
-  border-color: var(--accent, #ffd369) !important;
-  background: color-mix(in srgb, var(--accent, #ffd369) 18%, transparent) !important;
-  color: var(--accent, #ffd369) !important;
+  border-color: var(--accent, #fbbf24) !important;
+  background: color-mix(in srgb, var(--accent, #fbbf24) 18%, transparent) !important;
+  color: var(--accent, #fbbf24) !important;
 }
 
 .home-central-grid {
@@ -324,7 +324,7 @@
 
 .home-quick-nav-card.junk .hqn-icon {
   background: rgba(251, 191, 36, 0.14);
-  color: #ffd369;
+  color: #fbbf24;
   border: 1px solid rgba(251, 191, 36, 0.3);
 }
 
@@ -387,7 +387,7 @@
 
 .hqn-badge.locked {
   background: rgba(251, 191, 36, 0.18);
-  color: #ffd369;
+  color: #fcd34d;
 }
 
 .hqn-arrow {
@@ -424,8 +424,8 @@
 }
 
 .settings-seg-btn.active {
-  background: color-mix(in srgb, var(--accent, #ff9808) 20%, rgba(255, 255, 255, 0.06));
-  border-color: color-mix(in srgb, var(--accent, #ff9808) 48%, transparent);
+  background: color-mix(in srgb, var(--accent, #f59e0b) 20%, rgba(255, 255, 255, 0.06));
+  border-color: color-mix(in srgb, var(--accent, #f59e0b) 48%, transparent);
   color: #ffffff;
 }
 
@@ -455,7 +455,7 @@
 .smart-guard-state-pill.enforcing {
   background: rgba(251, 191, 36, 0.18);
   border: 1px solid rgba(251, 191, 36, 0.45);
-  color: #ffd369;
+  color: #fde68a;
 }
 
 .smart-guard-columns {
@@ -498,7 +498,7 @@
 }
 
 .sp-icon-yellow {
-  color: #ffd369;
+  color: #fbbf24;
   filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.45));
 }
 
@@ -531,7 +531,7 @@
   justify-content: center;
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(56, 189, 248, 0.2));
   border: 1px solid rgba(251, 191, 36, 0.42);
-  color: #ffd369;
+  color: #fbbf24;
   box-shadow: 0 0 22px rgba(251, 191, 36, 0.22);
 }
 
@@ -585,7 +585,7 @@
 .sp-yb-seg-tabs button.active.yellow {
   background: rgba(251, 191, 36, 0.18);
   border-color: rgba(251, 191, 36, 0.52);
-  color: #ffd369;
+  color: #fde68a;
   box-shadow: 0 0 18px rgba(251, 191, 36, 0.2);
 }
 
@@ -650,7 +650,7 @@
 
 .sp-stat-card.yellow .sp-stat-icon {
   background: rgba(251, 191, 36, 0.16);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .sp-stat-card.blue .sp-stat-icon {
@@ -679,7 +679,7 @@
   padding: 2px 6px;
   border-radius: 999px;
   background: rgba(251, 191, 36, 0.2);
-  color: #ffd369;
+  color: #fde68a;
 }
 
 .sp-card-title-row {
@@ -770,7 +770,7 @@
   padding: 0 18px;
   border-radius: 13px;
   border: 1px solid rgba(251, 191, 36, 0.65);
-  background: linear-gradient(135deg, #ffd369, #ff9808);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
   color: #090a0e;
   font-weight: 800;
   font-size: 0.86rem;
@@ -872,7 +872,7 @@
 .chip-yellow {
   background: rgba(251, 191, 36, 0.16);
   border: 1px solid rgba(251, 191, 36, 0.36);
-  color: #ffd369;
+  color: #fde68a;
 }
 
 .chip-neutral {
@@ -896,7 +896,7 @@
   border-radius: 10px;
   border: 1px solid rgba(251, 191, 36, 0.55);
   background: rgba(251, 191, 36, 0.18);
-  color: #ffd369;
+  color: #fde68a;
   font-size: 0.78rem;
   font-weight: 800;
   cursor: pointer;
@@ -1067,15 +1067,15 @@
 }
 
 .premade-slot-btn:hover {
-  border-color: color-mix(in srgb, var(--slot-tone, #ffd369) 50%, rgba(255, 255, 255, 0.15));
+  border-color: color-mix(in srgb, var(--slot-tone, #fbbf24) 50%, rgba(255, 255, 255, 0.15));
   background: rgba(255, 255, 255, 0.06);
 }
 
 .premade-slot-btn.selected {
-  border-color: var(--slot-tone, #ffd369);
-  background: color-mix(in srgb, var(--slot-tone, #ffd369) 18%, rgba(255, 255, 255, 0.04));
+  border-color: var(--slot-tone, #fbbf24);
+  background: color-mix(in srgb, var(--slot-tone, #fbbf24) 18%, rgba(255, 255, 255, 0.04));
   color: #ffffff;
-  box-shadow: 0 0 18px color-mix(in srgb, var(--slot-tone, #ffd369) 24%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--slot-tone, #fbbf24) 24%, transparent);
 }
 
 .slot-icon-wrap {
@@ -1085,8 +1085,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--slot-tone, #ffd369) 18%, transparent);
-  color: var(--slot-tone, #ffd369);
+  background: color-mix(in srgb, var(--slot-tone, #fbbf24) 18%, transparent);
+  color: var(--slot-tone, #fbbf24);
   flex-shrink: 0;
 }
 
@@ -1115,9 +1115,9 @@
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 700;
-  background: color-mix(in srgb, var(--slot-tone, #ffd369) 16%, transparent);
-  border: 1px solid color-mix(in srgb, var(--slot-tone, #ffd369) 36%, transparent);
-  color: var(--slot-tone, #ffd369);
+  background: color-mix(in srgb, var(--slot-tone, #fbbf24) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--slot-tone, #fbbf24) 36%, transparent);
+  color: var(--slot-tone, #fbbf24);
 }
 
 /* --- 8. Study Insights Glowing Gradient Curved Performance Graph --- */
@@ -1126,7 +1126,7 @@
   padding: 14px 14px 10px;
   border-radius: 18px;
   background:
-    radial-gradient(110% 90% at 50% 0%, color-mix(in srgb, var(--accent, #ff9808) 12%, transparent), transparent 68%),
+    radial-gradient(110% 90% at 50% 0%, color-mix(in srgb, var(--accent, #f59e0b) 12%, transparent), transparent 68%),
     rgba(255, 255, 255, 0.022);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -1196,8 +1196,8 @@
 
 .iv-curve-day-btn.hovered,
 .iv-curve-day-btn.selected {
-  background: color-mix(in srgb, var(--accent, #ff9808) 15%, rgba(255, 255, 255, 0.03));
-  border-color: color-mix(in srgb, var(--accent, #ff9808) 45%, transparent);
+  background: color-mix(in srgb, var(--accent, #f59e0b) 15%, rgba(255, 255, 255, 0.03));
+  border-color: color-mix(in srgb, var(--accent, #f59e0b) 45%, transparent);
   color: #ffffff;
 }
 
@@ -1221,10 +1221,10 @@
   padding: 18px 22px;
   border-radius: 22px;
   background:
-    radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--accent, #ff9808) 18%, transparent), transparent 58%),
+    radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--accent, #f59e0b) 18%, transparent), transparent 58%),
     radial-gradient(110% 130% at 100% 100%, color-mix(in srgb, var(--accent-2, #38bdf8) 16%, transparent), transparent 62%),
     var(--bg-card, #11141d);
-  border: 1px solid color-mix(in srgb, var(--accent, #ff9808) 28%, rgba(255, 255, 255, 0.1));
+  border: 1px solid color-mix(in srgb, var(--accent, #f59e0b) 28%, rgba(255, 255, 255, 0.1));
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.44),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -1241,8 +1241,8 @@
   height: 62px;
   padding: 0;
   border-radius: 18px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent, #ff9808) 24%, transparent), rgba(0, 0, 0, 0.3));
-  border: 1px solid color-mix(in srgb, var(--accent, #ff9808) 44%, rgba(255, 255, 255, 0.14));
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent, #f59e0b) 24%, transparent), rgba(0, 0, 0, 0.3));
+  border: 1px solid color-mix(in srgb, var(--accent, #f59e0b) 44%, rgba(255, 255, 255, 0.14));
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1282,9 +1282,9 @@
 }
 
 .bh-pill.accent {
-  background: color-mix(in srgb, var(--accent, #ff9808) 18%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent, #ff9808) 42%, transparent);
-  color: var(--accent-primary-bright, #ffd369);
+  background: color-mix(in srgb, var(--accent, #f59e0b) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #f59e0b) 42%, transparent);
+  color: var(--accent-primary-bright, #fde68a);
 }
 
 .bh-pill.flame {
@@ -1340,17 +1340,17 @@
   height: 46px;
   padding: 0 20px;
   border-radius: 15px;
-  border: 1px solid color-mix(in srgb, var(--accent, #ff9808) 70%, #ffffff);
+  border: 1px solid color-mix(in srgb, var(--accent, #f59e0b) 70%, #ffffff);
   background: linear-gradient(
     135deg,
-    var(--accent, #ff9808),
-    color-mix(in srgb, var(--accent, #ff9808) 72%, var(--accent-2, #6366f1))
+    var(--accent, #f59e0b),
+    color-mix(in srgb, var(--accent, #f59e0b) 72%, var(--accent-2, #6366f1))
   );
   color: #090a0e;
   font-weight: 800;
   font-size: 0.92rem;
   cursor: pointer;
-  box-shadow: 0 10px 26px color-mix(in srgb, var(--accent, #ff9808) 36%, transparent);
+  box-shadow: 0 10px 26px color-mix(in srgb, var(--accent, #f59e0b) 36%, transparent);
 }
 
 /* 12-Column Responsive Bento Navigation Matrix */
@@ -1412,7 +1412,7 @@
 /* Subtle Signature Card Tints */
 .bento-card.tone-amber {
   background:
-    radial-gradient(120% 120% at 0% 0%, color-mix(in srgb, var(--accent, #ff9808) 14%, transparent), transparent 62%),
+    radial-gradient(120% 120% at 0% 0%, color-mix(in srgb, var(--accent, #f59e0b) 14%, transparent), transparent 62%),
     var(--bg-card, #11141d);
 }
 .bento-card.tone-violet {
@@ -1460,9 +1460,9 @@
 }
 
 .bento-icon-box.amber {
-  background: color-mix(in srgb, var(--accent, #ff9808) 18%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent, #ff9808) 38%, transparent);
-  color: var(--accent, #ffd369);
+  background: color-mix(in srgb, var(--accent, #f59e0b) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #f59e0b) 38%, transparent);
+  color: var(--accent, #fbbf24);
 }
 .bento-icon-box.violet {
   background: rgba(139, 92, 246, 0.18);
@@ -1482,7 +1482,7 @@
 .bento-icon-box.sprint-yb {
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(56, 189, 248, 0.2));
   border: 1px solid rgba(251, 191, 36, 0.44);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .bento-title-group {
@@ -1517,7 +1517,7 @@
 }
 
 .bento-card:hover .bento-go-arrow {
-  color: var(--accent, #ffd369);
+  color: var(--accent, #fbbf24);
   transform: translate(2px, -2px);
 }
 
@@ -1545,14 +1545,14 @@
 }
 
 .bento-live-pill.live {
-  background: color-mix(in srgb, var(--accent, #ff9808) 20%, transparent);
-  border-color: color-mix(in srgb, var(--accent, #ff9808) 50%, transparent);
-  color: #ffd369;
+  background: color-mix(in srgb, var(--accent, #f59e0b) 20%, transparent);
+  border-color: color-mix(in srgb, var(--accent, #f59e0b) 50%, transparent);
+  color: #fde68a;
 }
 
 .bento-live-pill.live i {
-  background: var(--accent, #ffd369);
-  box-shadow: 0 0 8px var(--accent, #ffd369);
+  background: var(--accent, #fbbf24);
+  box-shadow: 0 0 8px var(--accent, #fbbf24);
 }
 
 /* Bento 1: Focus Body */
@@ -1593,7 +1593,7 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent, #ff9808), var(--accent-2, #38bdf8));
+  background: linear-gradient(90deg, var(--accent, #f59e0b), var(--accent-2, #38bdf8));
   transition: width 240ms cubic-bezier(0.2, 0, 0, 1);
 }
 
@@ -1664,11 +1664,11 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent, #ffd369), var(--accent-2, #818cf8));
+  background: linear-gradient(90deg, var(--accent, #fbbf24), var(--accent-2, #818cf8));
 }
 
 .bento-xp-strip strong {
-  color: var(--accent, #ffd369);
+  color: var(--accent, #fbbf24);
   font-weight: 800;
 }
 
@@ -1701,7 +1701,7 @@
 }
 
 .bk-stat.doing strong {
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .bk-stat.done strong {
@@ -1723,7 +1723,7 @@
 }
 
 .bento-segmented-bar .seg-doing {
-  background: #ffd369;
+  background: #fbbf24;
   height: 100%;
 }
 
@@ -1748,9 +1748,9 @@
   border-radius: 999px;
   font-size: 0.69rem;
   font-weight: 800;
-  background: color-mix(in srgb, var(--slot-tone, #ffd369) 18%, transparent);
-  border: 1px solid color-mix(in srgb, var(--slot-tone, #ffd369) 42%, transparent);
-  color: var(--slot-tone, #ffd369);
+  background: color-mix(in srgb, var(--slot-tone, #fbbf24) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--slot-tone, #fbbf24) 42%, transparent);
+  color: var(--slot-tone, #fbbf24);
   flex-shrink: 0;
 }
 
@@ -1777,14 +1777,14 @@
 }
 
 .bento-slot-tile.active {
-  background: color-mix(in srgb, var(--slot-tone, #ffd369) 16%, rgba(255, 255, 255, 0.02));
-  border-color: color-mix(in srgb, var(--slot-tone, #ffd369) 50%, transparent);
+  background: color-mix(in srgb, var(--slot-tone, #fbbf24) 16%, rgba(255, 255, 255, 0.02));
+  border-color: color-mix(in srgb, var(--slot-tone, #fbbf24) 50%, transparent);
   color: #ffffff;
-  box-shadow: 0 0 14px color-mix(in srgb, var(--slot-tone, #ffd369) 16%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--slot-tone, #fbbf24) 16%, transparent);
 }
 
 .bento-slot-tile.active svg {
-  color: var(--slot-tone, #ffd369);
+  color: var(--slot-tone, #fbbf24);
 }
 
 /* Bento 5: Sprint Yellow + Blue Dual Bars */
@@ -1812,7 +1812,7 @@
   color: #7dd3fc;
 }
 .txt-yellow {
-  color: #ffd369;
+  color: #fde68a;
 }
 
 .bs-track {
@@ -1834,7 +1834,7 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ffd369, #ff9808);
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
   box-shadow: 0 0 12px rgba(251, 191, 36, 0.45);
 }
 
@@ -1880,8 +1880,8 @@
 }
 
 .btm-dots i.done {
-  background: var(--accent, #ffd369);
-  box-shadow: 0 0 6px var(--accent, #ffd369);
+  background: var(--accent, #fbbf24);
+  box-shadow: 0 0 6px var(--accent, #fbbf24);
 }
 
 /* Bento 7: Student Suite Syllabus & Next Exam Split */
@@ -2003,7 +2003,7 @@
 .bsa-icon.amber {
   background: rgba(251, 191, 36, 0.16);
   border: 1px solid rgba(251, 191, 36, 0.34);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .bsa-icon.violet {

@@ -41,14 +41,14 @@ const SLOT_ICON_MAP = {
 };
 
 const SUBJECT_ACCENTS = {
-  Physics: '#ff9808',
+  Physics: '#f59e0b',
   Chemistry: '#38bdf8',
   Math: '#818cf8',
   'Higher Math': '#818cf8',
   Mathematics: '#818cf8',
   Biology: '#f472b6',
   ICT: '#60a5fa',
-  Bangla: '#ffd369',
+  Bangla: '#fbbf24',
   English: '#a78bfa',
 };
 
@@ -308,7 +308,7 @@ export default function GoalOverview({ onOpenSprint, onEditSprint }) {
       color:
         state.subjects?.find((s) => s.name.toLowerCase() === r.subject.toLowerCase())?.color ||
         SUBJECT_ACCENTS[r.subject] ||
-        '#ff9808',
+        '#f59e0b',
     }));
 
     const startKey = sprint.start || todayKey;
@@ -749,7 +749,7 @@ export default function GoalOverview({ onOpenSprint, onEditSprint }) {
                   role="tab"
                   aria-selected={isSelected}
                   className={`v28-ov-phase-pill ${isSelected ? 'active' : ''}`}
-                  style={{ '--slot-color': slot.tone || '#ffd369' }}
+                  style={{ '--slot-color': slot.tone || '#fbbf24' }}
                   key={slot.id}
                   onClick={() => setSelectedPhase(slot.id)}
                 >
@@ -771,7 +771,7 @@ export default function GoalOverview({ onOpenSprint, onEditSprint }) {
                     (s) => s.name.toLowerCase() === String(item.subject || '').toLowerCase()
                   )?.color ||
                   SUBJECT_ACCENTS[item.subject] ||
-                  '#ff9808';
+                  '#f59e0b';
 
                 return (
                   <div

@@ -1,131 +1,131 @@
 /*
- * v61 — Focus studio refresh + app-wide supplied palette
+ * v61 — Focus studio refresh aligned to the original Obsidian Gold theme.
  * Keep the stable theme ID `obsidian-amber` for saved-preference compatibility.
- * Shared surfaces and accents use the supplied navy, ocean, forest, violet,
- * magenta, gold, slate, and plum colors with neutral text for legibility.
+ * New surfaces use the original obsidian, champagne-gold, indigo and sky palette.
  */
 :root,
 html[data-theme='obsidian-amber'] {
-  --palette-orange: #ff9808;
-  --palette-navy: #0b132b;
-  --palette-green: #255f38;
-  --palette-purple: #7a1cac;
-  --palette-blue: #03346e;
-  --palette-magenta: #a91079;
-  --palette-teal-deep: #092635;
-  --palette-teal: #12544f;
-  --palette-gold: #ffd369;
-  --palette-slate: #202940;
-  --palette-plum: #210f37;
+  --palette-orange: #f59e0b;
+  --palette-navy: #090a0e;
+  --palette-green: #34d399;
+  --palette-purple: #6366f1;
+  --palette-blue: #38bdf8;
+  --palette-magenta: #fb7185;
+  --palette-teal-deep: #0b0d13;
+  --palette-teal: #38bdf8;
+  --palette-gold: #fbbf24;
+  --palette-slate: #14171f;
+  --palette-plum: #191d27;
 
-  --home-canvas: #0b132b;
-  --home-surface: #202940;
-  --home-blue: #03346e;
-  --home-green: #255f38;
-  --home-violet: #7a1cac;
-  --home-magenta: #a91079;
-  --home-teal: #12544f;
-  --home-teal-deep: #092635;
-  --home-gold: #ffd369;
-  --home-orange: #ff9808;
-  --home-plum: #210f37;
+  --home-canvas: #090a0e;
+  --home-surface: #14171f;
+  --home-blue: #38bdf8;
+  --home-green: #34d399;
+  --home-violet: #6366f1;
+  --home-magenta: #fb7185;
+  --home-teal: #38bdf8;
+  --home-teal-deep: #0b0d13;
+  --home-gold: #fbbf24;
+  --home-orange: #f59e0b;
+  --home-plum: #171a26;
 
-  /* Shared component-system surfaces. */
-  --v30-canvas: #0b132b;
-  --v30-canvas-2: #092635;
-  --v30-rail: #0b132b;
-  --v30-surface: #202940;
-  --v30-surface-2: #210f37;
-  --v30-surface-3: #03346e;
-  --v30-input: #092635;
-  --v30-line: rgba(186, 197, 223, 0.14);
-  --v30-line-strong: rgba(255, 211, 105, 0.36);
-  --v30-text: #f3f5ff;
-  --v30-dim: #bac5df;
-  --v30-mute: #8996b6;
-  --v30-accent: #ffd369;
-  --v30-accent-bright: #ff9808;
-  --v30-accent-2: #7a1cac;
-  --v30-accent-3: #03346e;
-  --v30-good: #255f38;
-  --v30-warn: #ff9808;
-  --v30-bad: #a91079;
-  --v30-glow: rgba(255, 152, 8, 0.26);
-  --v30-glow-soft: rgba(122, 28, 172, 0.2);
-  --v30-sheen: rgba(235, 239, 255, 0.06);
+  /* Original shared component tokens from the pre-refresh source. */
+  --v30-canvas: #090a0f;
+  --v30-canvas-2: #0b0d13;
+  --v30-rail: #0d0f16;
+  --v30-surface: #14171f;
+  --v30-surface-2: #191d27;
+  --v30-surface-3: #1f242f;
+  --v30-input: #0b0d12;
+  --v30-line: rgba(255, 255, 255, 0.07);
+  --v30-line-strong: rgba(251, 191, 36, 0.26);
+  --v30-text: #f7fafc;
+  --v30-dim: #a7b0c0;
+  --v30-mute: #6f7989;
+  --v30-accent: #f59e0b;
+  --v30-accent-bright: #fbbf24;
+  --v30-accent-2: #818cf8;
+  --v30-accent-3: #38bdf8;
+  --v30-good: #f0c56b;
+  --v30-warn: #fbbf24;
+  --v30-bad: #fb7185;
+  --v30-glow: rgba(245, 158, 11, 0.3);
+  --v30-glow-soft: rgba(251, 191, 36, 0.14);
+  --v30-sheen: rgba(255, 255, 255, 0.05);
 
-  --bg-root: #0b132b;
-  --bg-titlebar: #0b132b;
-  --bg-sidebar: #0b132b;
-  --bg-card: #202940;
-  --bg-card-bottom: #092635;
-  --bg-card-elevated: #202940;
-  --bg-card-hover: #03346e;
-  --bg-tile: #092635;
-  --bg-tile-bottom: #0b132b;
-  --bg-input: #092635;
-  --bg-void: #0b132b;
+  --bg-root: #090a0e;
+  --bg-titlebar: #07080c;
+  --bg-sidebar: #0d0f15;
+  --bg-card: #12141d;
+  --bg-card-bottom: #0d0f16;
+  --bg-card-elevated: #171a26;
+  --bg-card-hover: #1f242f;
+  --bg-tile: #141722;
+  --bg-tile-bottom: #0f111a;
+  --bg-input: #0c0e15;
+  --bg-void: #090a0e;
 
-  --border-subtle: rgba(186, 197, 223, 0.14);
-  --border-strong: rgba(255, 211, 105, 0.36);
-  --text-primary: #f3f5ff;
-  --text-secondary: #bac5df;
-  --text-muted: #8996b6;
-  --text-dim: #bac5df;
-  --text-strong: #f3f5ff;
+  --border-subtle: rgba(255, 255, 255, 0.085);
+  --border-strong: rgba(251, 191, 36, 0.30);
+  --text-primary: #f8fafc;
+  --text-secondary: #a1a9b8;
+  --text-muted: #6e7787;
+  --text-dim: #a1a9b8;
+  --text-strong: #f8fafc;
 
-  --brand-pink: #a91079;
-  --accent-yellow: #ffd369;
-  --accent-gold: #ffd369;
-  --accent-light: #f3f5ff;
-  --accent-orange: #ff9808;
-  --accent-neon-blue: #03346e;
-  --accent-violet: #7a1cac;
-  --accent-violet-pink: #a91079;
-  --accent: #ffd369;
-  --accent-2: #7a1cac;
-  --accent-primary: #ffd369;
-  --accent-primary-bright: #ff9808;
-  --accent-primary-soft: rgba(255, 211, 105, 0.16);
-  --accent-secondary: #7a1cac;
-  --accent-secondary-bright: #a91079;
-  --accent-tertiary: #03346e;
-  --accent-warm: #ff9808;
-  --accent-danger: #a91079;
-  --vd-accent: #ffd369;
-  --vd-accent-2: #7a1cac;
-  --vd-accent-rgb: 255, 211, 105;
-  --vd-accent-strong: #ff9808;
-  --vd-btn-grad: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
-  --vd-btn-ink: #0b132b;
-  --vd-muted: #8996b6;
-  --vd-surface-1: #202940;
-  --vd-bg-1: #0b132b;
-  --vd-border: rgba(186, 197, 223, 0.14);
-  --vd-text: #f3f5ff;
-  --vd-text-soft: #bac5df;
+  --brand-pink: #f43f5e;
+  --accent-yellow: #fbbf24;
+  --accent-gold: #fbbf24;
+  --accent-light: #f8fafc;
+  --accent-orange: #f59e0b;
+  --accent-neon-blue: #38bdf8;
+  --accent-violet: #6366f1;
+  --accent-violet-pink: #fb7185;
+  --accent: #f59e0b;
+  --accent-2: #6366f1;
+  --accent-primary: #f59e0b;
+  --accent-primary-bright: #fbbf24;
+  --accent-primary-soft: rgba(245, 158, 11, 0.14);
+  --accent-secondary: #6366f1;
+  --accent-secondary-bright: #818cf8;
+  --accent-tertiary: #38bdf8;
+  --accent-warm: #fbbf24;
+  --accent-danger: #fb7185;
 
-  --emerald: #255f38;
-  --emerald-bright: color-mix(in srgb, #255f38 48%, #f3f5ff);
-  --amber: #ffd369;
-  --amber-deep: #ff9808;
-  --violet: #7a1cac;
-  --blue: #03346e;
-  --danger: #a91079;
-  --glow-rim-main: rgba(255, 211, 105, 0.68);
-  --glow-rim-sub: rgba(122, 28, 172, 0.4);
-  --glass-tint-top: rgba(32, 41, 64, 0.56);
-  --glass-tint-mid: rgba(11, 19, 43, 0.48);
-  --glass-tint-bot: rgba(9, 38, 53, 0.62);
+  --vd-accent: #fbbf24;
+  --vd-accent-2: #6366f1;
+  --vd-accent-rgb: 251, 191, 36;
+  --vd-accent-strong: #f59e0b;
+  --vd-btn-grad: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  --vd-btn-ink: #0b0c10;
+  --vd-muted: #6e7787;
+  --vd-surface-1: #14171f;
+  --vd-bg-1: #090a0e;
+  --vd-border: rgba(255, 255, 255, 0.085);
+  --vd-text: #f8fafc;
+  --vd-text-soft: #a1a9b8;
 
-  --btn-primary-bg: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
-  --btn-primary-ink: #0b132b;
-  --btn-primary-border: rgba(255, 211, 105, 0.64);
-  --btn-primary-shadow: rgba(255, 152, 8, 0.3);
-  --chart-bar-top: #ffd369;
-  --chart-bar-bottom: #ff9808;
-  --chart-highlight-top: #a91079;
-  --chart-highlight-bottom: #7a1cac;
+  --emerald: #f59e0b;
+  --emerald-bright: #fbbf24;
+  --amber: #fbbf24;
+  --amber-deep: #d97706;
+  --violet: #818cf8;
+  --blue: #38bdf8;
+  --danger: #fb7185;
+  --glow-rim-main: rgba(251, 191, 36, 0.72);
+  --glow-rim-sub: rgba(129, 140, 248, 0.34);
+  --glass-tint-top: rgba(34, 32, 42, 0.48);
+  --glass-tint-mid: rgba(18, 19, 28, 0.40);
+  --glass-tint-bot: rgba(12, 13, 20, 0.52);
+
+  --btn-primary-bg: linear-gradient(135deg, #fbbf24 0%, #f59e0b 55%, #d97706 100%);
+  --btn-primary-ink: #0b0c10;
+  --btn-primary-border: rgba(253, 230, 138, 0.55);
+  --btn-primary-shadow: rgba(245, 158, 11, 0.28);
+  --chart-bar-top: #fbbf24;
+  --chart-bar-bottom: #d97706;
+  --chart-highlight-top: #a5b4fc;
+  --chart-highlight-bottom: #6366f1;
 }
 
 /* ── Focus: larger cinematic room, clock and configuration in one card ── */
@@ -141,16 +141,16 @@ html[data-theme='obsidian-amber'] {
   gap: clamp(14px, 1.8vw, 22px) !important;
   width: 100%;
   padding: clamp(14px, 2.2vw, 28px) !important;
-  border: 1px solid rgba(122, 28, 172, 0.42) !important;
+  border: 1px solid rgba(99, 102, 241, 0.42) !important;
   border-radius: 27px !important;
   background:
-    radial-gradient(100% 95% at 2% 0%, rgba(122, 28, 172, 0.2), transparent 56%),
-    radial-gradient(75% 80% at 98% 45%, rgba(18, 84, 79, 0.22), transparent 62%),
-    linear-gradient(145deg, #202940 0%, #121d35 62%, #0b132b 100%) !important;
+    radial-gradient(100% 95% at 2% 0%, rgba(99, 102, 241, 0.2), transparent 56%),
+    radial-gradient(75% 80% at 98% 45%, rgba(56, 189, 248, 0.22), transparent 62%),
+    linear-gradient(145deg, #171a26 0%, #12141d 62%, #090a0e 100%) !important;
   box-shadow:
     0 28px 64px rgba(0, 0, 0, 0.48),
-    inset 0 1px 0 rgba(235, 239, 255, 0.075),
-    0 0 34px -27px rgba(122, 28, 172, 0.46) !important;
+    inset 0 1px 0 rgba(248, 250, 252, 0.075),
+    0 0 34px -27px rgba(99, 102, 241, 0.46) !important;
 }
 
 .focus-session-page .v48-focus-stage {
@@ -159,9 +159,9 @@ html[data-theme='obsidian-amber'] {
 }
 
 .focus-session-page .v48-scene-card {
-  border: 1px solid rgba(37, 95, 56, 0.42) !important;
+  border: 1px solid rgba(52, 211, 153, 0.42) !important;
   border-radius: 23px !important;
-  background: #0b132b !important;
+  background: #090a0e !important;
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.42),
     inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
@@ -173,7 +173,7 @@ html[data-theme='obsidian-amber'] {
   max-height: 570px !important;
   height: auto !important;
   border-radius: 22px !important;
-  background: #092635 !important;
+  background: #0d0f16 !important;
 }
 
 .focus-session-page .v48-scene-frame .focus-room-scene {
@@ -188,8 +188,8 @@ html[data-theme='obsidian-amber'] {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, transparent 42%, rgba(11, 19, 43, 0.12) 68%, rgba(11, 19, 43, 0.24)),
-    linear-gradient(0deg, rgba(11, 19, 43, 0.2), transparent 26%);
+    linear-gradient(90deg, transparent 42%, rgba(9, 10, 14, 0.12) 68%, rgba(9, 10, 14, 0.24)),
+    linear-gradient(0deg, rgba(9, 10, 14, 0.2), transparent 26%);
 }
 
 .focus-session-page .v48-wall-clock {
@@ -224,13 +224,13 @@ html[data-theme='obsidian-amber'] {
   width: min(276px, 100%) !important;
   height: 11px !important;
   margin: 16px auto 0 !important;
-  border: 1px solid rgba(37, 95, 56, 0.48);
+  border: 1px solid rgba(52, 211, 153, 0.48);
   border-radius: 999px;
-  background: linear-gradient(180deg, #202940 0%, #092635 48%, #0b132b 100%);
+  background: linear-gradient(180deg, #171a26 0%, #0d0f16 48%, #090a0e 100%);
   box-shadow:
     inset 0 2px 4px rgba(0, 0, 0, 0.92),
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 3px 0 #0b132b,
+    0 3px 0 #090a0e,
     0 6px 12px rgba(0, 0, 0, 0.5) !important;
   overflow: hidden;
 }
@@ -238,37 +238,37 @@ html[data-theme='obsidian-amber'] {
 .focus-session-page .v48-wall-clock .v48-wall-rail span {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(180deg, #255f38 0%, #255f38 46%, #03346e 100%) !important;
+  background: linear-gradient(180deg, #34d399 0%, #34d399 46%, #38bdf8 100%) !important;
   box-shadow:
-    inset 0 1px 0 rgba(235, 239, 255, 0.64),
-    0 0 12px rgba(37, 95, 56, 0.62) !important;
+    inset 0 1px 0 rgba(248, 250, 252, 0.64),
+    0 0 12px rgba(52, 211, 153, 0.62) !important;
 }
 
 /* Focus controls: the main action uses the palette gold-to-orange gradient in every state. */
 .focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary {
   min-height: 60px !important;
   margin-top: 0 !important;
-  border: 1px solid rgba(255, 211, 105, 0.78) !important;
+  border: 1px solid rgba(251, 191, 36, 0.78) !important;
   border-radius: 15px !important;
-  color: #0b132b !important;
-  background: linear-gradient(180deg, #ffd369 0%, #ff9808 72%, #ff9808 100%) !important;
+  color: #090a0e !important;
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 72%, #f59e0b 100%) !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.76),
-    inset 0 -3px 0 rgba(11, 19, 43, 0.28),
-    0 8px 18px -7px rgba(255, 152, 8, 0.62) !important;
+    inset 0 -3px 0 rgba(9, 10, 14, 0.28),
+    0 8px 18px -7px rgba(245, 158, 11, 0.62) !important;
   transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease !important;
 }
 
 .focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary.is-running,
 .focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary.is-break,
 .focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary.is-alarm {
-  color: #0b132b !important;
-  border-color: rgba(255, 211, 105, 0.78) !important;
-  background: linear-gradient(180deg, #ffd369 0%, #ff9808 72%, #ff9808 100%) !important;
+  color: #090a0e !important;
+  border-color: rgba(251, 191, 36, 0.78) !important;
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 72%, #f59e0b 100%) !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.76),
-    inset 0 -3px 0 rgba(11, 19, 43, 0.28),
-    0 8px 18px -7px rgba(255, 152, 8, 0.62) !important;
+    inset 0 -3px 0 rgba(9, 10, 14, 0.28),
+    0 8px 18px -7px rgba(245, 158, 11, 0.62) !important;
 }
 
 .focus-session-page .v61-focus-shell .v35-focus-controls > .v4-dock-primary:hover:not(:disabled) {
@@ -276,7 +276,7 @@ html[data-theme='obsidian-amber'] {
   filter: brightness(1.07) saturate(1.04);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.82),
-    0 12px 24px -8px rgba(255, 152, 8, 0.72) !important;
+    0 12px 24px -8px rgba(245, 158, 11, 0.72) !important;
 }
 
 /* Larger, brighter configuration summary — aligned under the live stage inside its parent card. */
@@ -293,17 +293,17 @@ html[data-theme='obsidian-amber'] {
   box-sizing: border-box;
   margin: 0 !important;
   padding: clamp(16px, 2.1vw, 24px) !important;
-  border: 1px solid rgba(122, 28, 172, 0.4) !important;
+  border: 1px solid rgba(99, 102, 241, 0.4) !important;
   border-radius: 21px !important;
   background:
-    radial-gradient(110% 150% at 0% 0%, rgba(122, 28, 172, 0.2), transparent 55%),
-    radial-gradient(80% 130% at 100% 100%, rgba(18, 84, 79, 0.2), transparent 66%),
-    radial-gradient(45% 90% at 100% 0%, rgba(255, 152, 8, 0.1), transparent 72%),
-    linear-gradient(140deg, rgba(32, 41, 64, 0.96), rgba(11, 19, 43, 0.98)) !important;
+    radial-gradient(110% 150% at 0% 0%, rgba(99, 102, 241, 0.2), transparent 55%),
+    radial-gradient(80% 130% at 100% 100%, rgba(56, 189, 248, 0.2), transparent 66%),
+    radial-gradient(45% 90% at 100% 0%, rgba(245, 158, 11, 0.1), transparent 72%),
+    linear-gradient(140deg, rgba(23, 26, 38, 0.96), rgba(9, 10, 14, 0.98)) !important;
   box-shadow:
     0 13px 34px rgba(0, 0, 0, 0.3),
-    0 0 34px -23px rgba(122, 28, 172, 0.58),
-    inset 0 1px 0 rgba(235, 239, 255, 0.1) !important;
+    0 0 34px -23px rgba(99, 102, 241, 0.58),
+    inset 0 1px 0 rgba(248, 250, 252, 0.1) !important;
   animation: v61-summary-arrive 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -316,7 +316,7 @@ html[data-theme='obsidian-amber'] {
   width: 42%;
   height: 250%;
   transform: rotate(22deg);
-  background: linear-gradient(90deg, transparent, rgba(255, 211, 105, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.1), transparent);
   animation: v61-summary-sheen 8s ease-in-out 1.2s infinite;
   pointer-events: none;
 }
@@ -336,21 +336,21 @@ html[data-theme='obsidian-amber'] {
   width: 48px;
   height: 48px;
   border-radius: 15px;
-  color: #ffd369;
-  background: linear-gradient(145deg, rgba(122, 28, 172, 0.26), rgba(37, 95, 56, 0.2));
-  border-color: rgba(122, 28, 172, 0.48);
-  box-shadow: 0 0 22px -9px rgba(122, 28, 172, 0.76), inset 0 1px 0 rgba(235, 239, 255, 0.12);
+  color: #fbbf24;
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.26), rgba(52, 211, 153, 0.2));
+  border-color: rgba(99, 102, 241, 0.48);
+  box-shadow: 0 0 22px -9px rgba(99, 102, 241, 0.76), inset 0 1px 0 rgba(248, 250, 252, 0.12);
 }
 
 .focus-session-page .v61-focus-shell .v54-focus-summary-heading small {
-  color: #ffd369;
+  color: #fbbf24;
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .focus-session-page .v61-focus-shell .v54-focus-summary-heading strong {
-  color: #f3f5ff;
+  color: #f8fafc;
   font-size: clamp(15px, 1.35vw, 18px);
   line-height: 1.35;
   font-weight: 800;
@@ -370,9 +370,9 @@ html[data-theme='obsidian-amber'] {
   grid-template-columns: 23px minmax(0, 1fr);
   column-gap: 9px;
   row-gap: 5px;
-  border: 1px solid rgba(37, 95, 56, 0.34);
+  border: 1px solid rgba(52, 211, 153, 0.34);
   border-radius: 15px;
-  background: linear-gradient(145deg, rgba(32, 41, 64, 0.8), rgba(9, 38, 53, 0.82));
+  background: linear-gradient(145deg, rgba(23, 26, 38, 0.8), rgba(13, 15, 22, 0.82));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 5px 14px rgba(0, 0, 0, 0.17);
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
   animation: v61-summary-item-arrive 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -385,24 +385,24 @@ html[data-theme='obsidian-amber'] {
 
 .focus-session-page .v61-focus-shell .v54-focus-summary-item:hover {
   transform: translateY(-3px);
-  border-color: rgba(122, 28, 172, 0.58);
-  background: linear-gradient(145deg, rgba(122, 28, 172, 0.24), rgba(3, 52, 110, 0.52));
-  box-shadow: 0 10px 24px -14px rgba(122, 28, 172, 0.6), inset 0 1px 0 rgba(235, 239, 255, 0.09);
+  border-color: rgba(99, 102, 241, 0.58);
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.24), rgba(56, 189, 248, 0.52));
+  box-shadow: 0 10px 24px -14px rgba(99, 102, 241, 0.6), inset 0 1px 0 rgba(248, 250, 252, 0.09);
 }
 
 .focus-session-page .v61-focus-shell .v54-focus-summary-item svg {
   width: 20px;
   height: 20px;
-  color: #ffd369;
-  filter: drop-shadow(0 0 6px rgba(122, 28, 172, 0.36));
+  color: #fbbf24;
+  filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.36));
 }
 
-.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(2) svg { color: #ff9808; }
-.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(3) svg { color: #255f38; }
-.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(4) svg { color: #a91079; }
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(2) svg { color: #f59e0b; }
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(3) svg { color: #34d399; }
+.focus-session-page .v61-focus-shell .v54-focus-summary-item:nth-child(4) svg { color: #fb7185; }
 
 .focus-session-page .v61-focus-shell .v54-focus-summary-item span {
-  color: #bac5df;
+  color: #a1a9b8;
   font-size: 12px;
   line-height: 1.3;
   font-weight: 700;
@@ -410,7 +410,7 @@ html[data-theme='obsidian-amber'] {
 
 .focus-session-page .v61-focus-shell .v54-focus-summary-item b {
   align-self: start;
-  color: #f3f5ff;
+  color: #f8fafc;
   font-size: 14px;
   line-height: 1.4;
   font-weight: 760;
@@ -455,19 +455,19 @@ html[data-theme='obsidian-amber'] {
   min-height: 150px !important;
   padding: 22px 27px 19px !important;
   overflow: hidden;
-  border: 2px solid rgba(122, 28, 172, 0.82) !important;
+  border: 2px solid rgba(99, 102, 241, 0.82) !important;
   border-radius: 25px !important;
   background:
-    linear-gradient(180deg, rgba(235, 239, 255, 0.09), transparent 26%),
-    radial-gradient(130% 120% at 50% 0%, rgba(122, 28, 172, 0.2), transparent 62%),
-    linear-gradient(150deg, #202940 0%, #101a31 56%, #0b132b 100%) !important;
+    linear-gradient(180deg, rgba(248, 250, 252, 0.09), transparent 26%),
+    radial-gradient(130% 120% at 50% 0%, rgba(99, 102, 241, 0.2), transparent 62%),
+    linear-gradient(150deg, #171a26 0%, #171a26 56%, #090a0e 100%) !important;
   box-shadow:
-    0 0 0 5px rgba(11, 19, 43, 0.96),
-    0 0 0 7px rgba(122, 28, 172, 0.32),
+    0 0 0 5px rgba(9, 10, 14, 0.96),
+    0 0 0 7px rgba(99, 102, 241, 0.32),
     0 12px 26px rgba(0, 0, 0, 0.52),
     inset 0 3px 10px rgba(0, 0, 0, 0.88),
-    inset 0 -1px 0 rgba(235, 239, 255, 0.08) !important;
-  filter: drop-shadow(0 0 15px rgba(122, 28, 172, 0.28));
+    inset 0 -1px 0 rgba(248, 250, 252, 0.08) !important;
+  filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.28));
   animation: v34DialIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -476,16 +476,16 @@ html[data-theme='obsidian-amber'] {
   position: absolute;
   z-index: -1;
   inset: 6px;
-  border: 1px solid rgba(255, 211, 105, 0.18);
+  border: 1px solid rgba(251, 191, 36, 0.18);
   border-radius: 18px;
-  background: linear-gradient(165deg, rgba(235, 239, 255, 0.05), transparent 38%);
+  background: linear-gradient(165deg, rgba(248, 250, 252, 0.05), transparent 38%);
   pointer-events: none;
 }
 
 .v35-clock-wrap .v35-digital-readout .v61-digital-caption {
   grid-column: 1 / -1;
   justify-self: center;
-  color: rgba(255, 211, 105, 0.72);
+  color: rgba(251, 191, 36, 0.72);
   font: 800 9px/1.2 'Hind Siliguri', system-ui, sans-serif !important;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -493,24 +493,24 @@ html[data-theme='obsidian-amber'] {
 }
 
 .v35-clock-wrap .v35-digital-readout .v61-digital-value {
-  color: #f3f5ff !important;
+  color: #f8fafc !important;
   font-family: 'Roboto Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace !important;
   font-size: clamp(2.55rem, 4vw, 3.55rem) !important;
   font-variant-numeric: tabular-nums;
   font-weight: 800 !important;
   line-height: 1 !important;
   letter-spacing: 0.045em !important;
-  text-shadow: 0 0 7px rgba(122, 28, 172, 0.82), 0 0 22px rgba(169, 16, 121, 0.48) !important;
+  text-shadow: 0 0 7px rgba(99, 102, 241, 0.82), 0 0 22px rgba(251, 113, 133, 0.48) !important;
 }
 
 .v35-clock-wrap .v35-digital-readout > i {
-  color: #ffd369 !important;
+  color: #fbbf24 !important;
   font-family: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace !important;
   font-size: clamp(2.3rem, 3.7vw, 3.2rem) !important;
   line-height: 1 !important;
   font-style: normal;
   opacity: 0.9;
-  text-shadow: 0 0 14px rgba(255, 211, 105, 0.58);
+  text-shadow: 0 0 14px rgba(251, 191, 36, 0.58);
   animation: v61-lcd-colon 1s steps(2, end) infinite;
 }
 
@@ -518,19 +518,19 @@ html[data-theme='obsidian-amber'] {
 
 .v35-clock-wrap .v35-digital-readout.is-paused .v61-digital-value,
 .v35-clock-wrap .v35-digital-readout.is-paused > i {
-  color: #f3f5ff !important;
-  text-shadow: 0 0 12px rgba(122, 28, 172, 0.62) !important;
+  color: #f8fafc !important;
+  text-shadow: 0 0 12px rgba(99, 102, 241, 0.62) !important;
 }
 
 .v35-clock-wrap .v35-digital-readout.is-alarm {
-  border-color: rgba(169, 16, 121, 0.86) !important;
-  filter: drop-shadow(0 0 17px rgba(169, 16, 121, 0.4));
+  border-color: rgba(251, 113, 133, 0.86) !important;
+  filter: drop-shadow(0 0 17px rgba(251, 113, 133, 0.4));
 }
 
 .v35-clock-wrap .v35-digital-readout.is-alarm .v61-digital-value,
 .v35-clock-wrap .v35-digital-readout.is-alarm > i {
-  color: #f3f5ff !important;
-  text-shadow: 0 0 12px rgba(169, 16, 121, 0.78) !important;
+  color: #f8fafc !important;
+  text-shadow: 0 0 12px rgba(251, 113, 133, 0.78) !important;
 }
 
 .focus-session-page .v48-wall-clock .v48-wall-rail {
@@ -539,7 +539,7 @@ html[data-theme='obsidian-amber'] {
 
 /* Zen mode: bigger analog dial, no cast shadow, and a persistent digital/analog toggle. */
 .v51-zen {
-  background: #0b132b !important;
+  background: #090a0e !important;
 }
 
 .v51-zen-scene {
@@ -574,9 +574,9 @@ html[data-theme='obsidian-amber'] {
   align-items: center;
   gap: 4px;
   padding: 4px;
-  border: 1px solid rgba(255, 211, 105, 0.25);
+  border: 1px solid rgba(251, 191, 36, 0.25);
   border-radius: 13px;
-  background: rgba(11, 19, 43, 0.84);
+  background: rgba(9, 10, 14, 0.84);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
 }
@@ -590,7 +590,7 @@ html[data-theme='obsidian-amber'] {
   padding: 0 11px;
   border: 1px solid transparent;
   border-radius: 9px;
-  color: #bac5df;
+  color: #a1a9b8;
   background: transparent;
   font: 750 11px/1 'Hind Siliguri', system-ui, sans-serif;
   cursor: pointer;
@@ -600,14 +600,14 @@ html[data-theme='obsidian-amber'] {
 
 .v61-zen-clock-toggle button:hover {
   transform: translateY(-1px);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v61-zen-clock-toggle button.is-active {
-  color: #ffd369;
-  border-color: rgba(255, 211, 105, 0.42);
-  background: linear-gradient(145deg, rgba(255, 211, 105, 0.22), rgba(122, 28, 172, 0.18));
-  box-shadow: inset 0 1px 0 rgba(235, 239, 255, 0.12), 0 0 18px -9px rgba(255, 152, 8, 0.7);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.42);
+  background: linear-gradient(145deg, rgba(251, 191, 36, 0.22), rgba(99, 102, 241, 0.18));
+  box-shadow: inset 0 1px 0 rgba(248, 250, 252, 0.12), 0 0 18px -9px rgba(245, 158, 11, 0.7);
 }
 
 .v61-zen-clock-readout {
@@ -634,13 +634,13 @@ html[data-theme='obsidian-amber'] {
   height: 11px;
   margin: 0 auto;
   overflow: hidden;
-  border: 1px solid rgba(255, 211, 105, 0.3);
+  border: 1px solid rgba(251, 191, 36, 0.3);
   border-radius: 999px;
-  background: linear-gradient(180deg, #202940 0%, #092635 52%, #0b132b 100%);
+  background: linear-gradient(180deg, #171a26 0%, #0d0f16 52%, #090a0e 100%);
   box-shadow:
     inset 0 2px 4px rgba(0, 0, 0, 0.94),
-    inset 0 1px 0 rgba(235, 239, 255, 0.13),
-    0 3px 0 #0b132b,
+    inset 0 1px 0 rgba(248, 250, 252, 0.13),
+    0 3px 0 #090a0e,
     0 7px 13px rgba(0, 0, 0, 0.48);
 }
 
@@ -648,17 +648,17 @@ html[data-theme='obsidian-amber'] {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #255f38 0%, #ffd369 52%, #ff9808 100%);
-  box-shadow: inset 0 1px 0 rgba(235, 239, 255, 0.7), 0 0 13px rgba(255, 152, 8, 0.4);
+  background: linear-gradient(90deg, #34d399 0%, #fbbf24 52%, #f59e0b 100%);
+  box-shadow: inset 0 1px 0 rgba(248, 250, 252, 0.7), 0 0 13px rgba(245, 158, 11, 0.4);
   transition: width 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .v51-zen-btn.is-primary,
 .v51-zen-btn.is-live {
-  color: #0b132b !important;
-  border-color: rgba(255, 211, 105, 0.72) !important;
-  background: linear-gradient(180deg, #ffd369 0%, #ff9808 100%) !important;
-  box-shadow: 0 8px 22px -9px rgba(255, 152, 8, 0.58), inset 0 1px 0 rgba(235, 239, 255, 0.62) !important;
+  color: #090a0e !important;
+  border-color: rgba(251, 191, 36, 0.72) !important;
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%) !important;
+  box-shadow: 0 8px 22px -9px rgba(245, 158, 11, 0.58), inset 0 1px 0 rgba(248, 250, 252, 0.62) !important;
 }
 
 /* Smaller displays preserve the room without shrinking labels or clipping the controls. */
@@ -670,7 +670,7 @@ html[data-theme='obsidian-amber'] {
 
   .focus-session-page .v61-focus-shell .v54-focus-summary-heading {
     padding-bottom: 12px;
-    border-bottom: 1px solid rgba(255, 232, 190, 0.12);
+    border-bottom: 1px solid rgba(253, 230, 138, 0.12);
   }
 }
 
@@ -757,147 +757,147 @@ html[data-theme='obsidian-amber'] {
 
 /* ── Home Navigation: unified supplied palette ── */
 body:has(.v48-home) .topbar.clean-topbar.v12-spatial-topbar {
-  background: linear-gradient(105deg, rgba(32, 41, 64, 0.98), rgba(3, 52, 110, 0.94) 54%, rgba(9, 38, 53, 0.97)) !important;
-  border-bottom-color: rgba(255, 211, 105, 0.24) !important;
-  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(122, 28, 172, 0.28) !important;
+  background: linear-gradient(105deg, rgba(23, 26, 38, 0.98), rgba(31, 36, 47, 0.96) 54%, rgba(13, 15, 22, 0.97)) !important;
+  border-bottom-color: rgba(251, 191, 36, 0.24) !important;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(99, 102, 241, 0.28) !important;
 }
 
 body:has(.v48-home) .topbar.clean-topbar.v12-spatial-topbar .page-heading {
-  color: #f3f5ff !important;
+  color: #f8fafc !important;
 }
 
 body:has(.v48-home) .topbar.clean-topbar.v12-spatial-topbar .topbar-pip {
-  color: #ffd369 !important;
-  background: linear-gradient(145deg, rgba(255, 211, 105, 0.16), rgba(122, 28, 172, 0.28)) !important;
-  border-color: rgba(255, 211, 105, 0.3) !important;
+  color: #fbbf24 !important;
+  background: linear-gradient(145deg, rgba(251, 191, 36, 0.16), rgba(99, 102, 241, 0.28)) !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
 }
 
 .v48-home .v48-hero {
   position: relative;
   isolation: isolate;
-  border: 1px solid rgba(255, 211, 105, 0.27) !important;
+  border: 1px solid rgba(251, 191, 36, 0.27) !important;
   background:
-    radial-gradient(48% 150% at 7% 0%, rgba(255, 152, 8, 0.2), transparent 66%),
-    radial-gradient(37% 130% at 88% 4%, rgba(122, 28, 172, 0.26), transparent 68%),
-    radial-gradient(30% 110% at 3% 100%, rgba(18, 84, 79, 0.22), transparent 72%),
-    radial-gradient(31% 105% at 100% 100%, rgba(169, 16, 121, 0.16), transparent 72%),
-    linear-gradient(112deg, #03346e 0%, #202940 48%, #210f37 100%) !important;
+    radial-gradient(48% 150% at 7% 0%, rgba(245, 158, 11, 0.2), transparent 66%),
+    radial-gradient(37% 130% at 88% 4%, rgba(99, 102, 241, 0.26), transparent 68%),
+    radial-gradient(30% 110% at 3% 100%, rgba(56, 189, 248, 0.22), transparent 72%),
+    radial-gradient(31% 105% at 100% 100%, rgba(251, 113, 133, 0.16), transparent 72%),
+    linear-gradient(112deg, #12141d 0%, #171a26 48%, #191d27 100%) !important;
   box-shadow:
     0 20px 48px rgba(0, 0, 0, 0.45),
-    0 0 30px -22px rgba(255, 152, 8, 0.48),
-    inset 0 1px 0 rgba(235, 239, 255, 0.16) !important;
+    0 0 30px -22px rgba(245, 158, 11, 0.48),
+    inset 0 1px 0 rgba(248, 250, 252, 0.16) !important;
 }
 
 .v48-home .v48-hero .bento-hero-copy h2 {
-  color: #f3f5ff !important;
+  color: #f8fafc !important;
 }
 
 .v48-home .v48-hero .v13-hero-orbital-meta small {
-  color: #ffd369 !important;
+  color: #fbbf24 !important;
 }
 
 .v48-home .bento-nav-grid .bento-card {
-  color: #f3f5ff !important;
-  border: 1px solid rgba(255, 211, 105, 0.18) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(251, 191, 36, 0.18) !important;
   background:
-    radial-gradient(120% 120% at 2% 0%, rgba(122, 28, 172, 0.16), transparent 65%),
-    linear-gradient(145deg, #202940 0%, #092635 58%, #0b132b 100%) !important;
+    radial-gradient(120% 120% at 2% 0%, rgba(99, 102, 241, 0.16), transparent 65%),
+    linear-gradient(145deg, #171a26 0%, #0d0f16 58%, #090a0e 100%) !important;
   box-shadow:
     0 16px 38px rgba(0, 0, 0, 0.42),
-    inset 0 1px 0 rgba(235, 239, 255, 0.075) !important;
+    inset 0 1px 0 rgba(248, 250, 252, 0.075) !important;
 }
 
 .v48-home .bento-nav-grid .bento-card .bento-title-group h3,
 .v48-home .bento-nav-grid .bento-card .bento-big-stat strong,
 .v48-home .bento-nav-grid .bento-card .bento-metric-pill,
 .v48-home .bento-nav-grid .bento-card .bento-go-arrow {
-  color: #f3f5ff !important;
+  color: #f8fafc !important;
 }
 
 .v48-home .bento-nav-grid .bento-card .bento-title-group small,
 .v48-home .bento-nav-grid .bento-card .bento-big-stat > span,
 .v48-home .bento-nav-grid .bento-card .bento-muted-hint {
-  color: #bac5df !important;
+  color: #a1a9b8 !important;
 }
 
 .v48-home .bento-nav-grid .bento-card.tone-amber {
-  border-color: rgba(255, 152, 8, 0.48) !important;
+  border-color: rgba(245, 158, 11, 0.48) !important;
   background:
-    radial-gradient(130% 140% at 0% 0%, rgba(255, 152, 8, 0.2), transparent 59%),
-    radial-gradient(80% 100% at 100% 100%, rgba(255, 211, 105, 0.11), transparent 70%),
-    linear-gradient(145deg, #202940 0%, #092635 55%, #0b132b 100%) !important;
+    radial-gradient(130% 140% at 0% 0%, rgba(245, 158, 11, 0.2), transparent 59%),
+    radial-gradient(80% 100% at 100% 100%, rgba(251, 191, 36, 0.11), transparent 70%),
+    linear-gradient(145deg, #171a26 0%, #0d0f16 55%, #090a0e 100%) !important;
 }
 
 .v48-home .bento-nav-grid .bento-card.tone-violet {
-  border-color: rgba(122, 28, 172, 0.48) !important;
+  border-color: rgba(99, 102, 241, 0.48) !important;
   background:
-    radial-gradient(125% 130% at 100% 0%, rgba(122, 28, 172, 0.25), transparent 60%),
-    radial-gradient(90% 100% at 0% 100%, rgba(169, 16, 121, 0.12), transparent 68%),
-    linear-gradient(145deg, #202940 0%, #210f37 57%, #0b132b 100%) !important;
+    radial-gradient(125% 130% at 100% 0%, rgba(99, 102, 241, 0.25), transparent 60%),
+    radial-gradient(90% 100% at 0% 100%, rgba(251, 113, 133, 0.12), transparent 68%),
+    linear-gradient(145deg, #171a26 0%, #191d27 57%, #090a0e 100%) !important;
 }
 
 .v48-home .bento-nav-grid .bento-card.tone-sky {
-  border-color: rgba(3, 52, 110, 0.72) !important;
+  border-color: rgba(56, 189, 248, 0.72) !important;
   background:
-    radial-gradient(130% 130% at 0% 0%, rgba(3, 52, 110, 0.42), transparent 61%),
-    radial-gradient(80% 110% at 100% 100%, rgba(18, 84, 79, 0.2), transparent 70%),
-    linear-gradient(145deg, #202940 0%, #092635 57%, #0b132b 100%) !important;
+    radial-gradient(130% 130% at 0% 0%, rgba(56, 189, 248, 0.42), transparent 61%),
+    radial-gradient(80% 110% at 100% 100%, rgba(56, 189, 248, 0.2), transparent 70%),
+    linear-gradient(145deg, #171a26 0%, #0d0f16 57%, #090a0e 100%) !important;
 }
 
 .v48-home .bento-nav-grid .bento-card.tone-orange {
-  border-color: rgba(255, 152, 8, 0.4) !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
   background:
-    radial-gradient(125% 125% at 0% 0%, rgba(255, 211, 105, 0.14), transparent 60%),
-    radial-gradient(100% 130% at 100% 100%, rgba(169, 16, 121, 0.17), transparent 64%),
-    linear-gradient(145deg, #202940 0%, #210f37 56%, #0b132b 100%) !important;
+    radial-gradient(125% 125% at 0% 0%, rgba(251, 191, 36, 0.14), transparent 60%),
+    radial-gradient(100% 130% at 100% 100%, rgba(251, 113, 133, 0.17), transparent 64%),
+    linear-gradient(145deg, #171a26 0%, #191d27 56%, #090a0e 100%) !important;
 }
 
 .v48-home .bento-nav-grid .bento-card.tone-sprint-yb {
-  border-color: rgba(37, 95, 56, 0.6) !important;
+  border-color: rgba(52, 211, 153, 0.6) !important;
   background:
-    radial-gradient(125% 130% at 0% 0%, rgba(37, 95, 56, 0.3), transparent 58%),
-    radial-gradient(100% 130% at 100% 100%, rgba(255, 211, 105, 0.12), transparent 65%),
-    linear-gradient(145deg, #202940 0%, #12544f 48%, #0b132b 100%) !important;
+    radial-gradient(125% 130% at 0% 0%, rgba(52, 211, 153, 0.3), transparent 58%),
+    radial-gradient(100% 130% at 100% 100%, rgba(251, 191, 36, 0.12), transparent 65%),
+    linear-gradient(145deg, #171a26 0%, #38bdf8 48%, #090a0e 100%) !important;
 }
 
 .v48-home .bento-nav-grid .bento-card.tone-purple {
-  border-color: rgba(169, 16, 121, 0.44) !important;
+  border-color: rgba(251, 113, 133, 0.44) !important;
   background:
-    radial-gradient(125% 130% at 100% 0%, rgba(169, 16, 121, 0.22), transparent 60%),
-    radial-gradient(90% 110% at 0% 100%, rgba(122, 28, 172, 0.16), transparent 68%),
-    linear-gradient(145deg, #202940 0%, #210f37 57%, #0b132b 100%) !important;
+    radial-gradient(125% 130% at 100% 0%, rgba(251, 113, 133, 0.22), transparent 60%),
+    radial-gradient(90% 110% at 0% 100%, rgba(99, 102, 241, 0.16), transparent 68%),
+    linear-gradient(145deg, #171a26 0%, #191d27 57%, #090a0e 100%) !important;
 }
 
 .v48-home .bento-nav-grid .bento-card.tone-emerald {
-  border-color: rgba(37, 95, 56, 0.56) !important;
+  border-color: rgba(52, 211, 153, 0.56) !important;
   background:
-    radial-gradient(125% 135% at 0% 0%, rgba(37, 95, 56, 0.24), transparent 60%),
-    radial-gradient(95% 120% at 100% 100%, rgba(18, 84, 79, 0.18), transparent 68%),
-    linear-gradient(145deg, #202940 0%, #092635 57%, #0b132b 100%) !important;
+    radial-gradient(125% 135% at 0% 0%, rgba(52, 211, 153, 0.24), transparent 60%),
+    radial-gradient(95% 120% at 100% 100%, rgba(56, 189, 248, 0.18), transparent 68%),
+    linear-gradient(145deg, #171a26 0%, #0d0f16 57%, #090a0e 100%) !important;
 }
 
 .v48-home .bento-nav-grid .bento-card:hover {
-  border-color: rgba(255, 211, 105, 0.58) !important;
+  border-color: rgba(251, 191, 36, 0.58) !important;
   box-shadow:
     0 22px 46px rgba(0, 0, 0, 0.48),
-    0 0 26px -14px rgba(122, 28, 172, 0.52),
-    inset 0 1px 0 rgba(235, 239, 255, 0.11) !important;
+    0 0 26px -14px rgba(99, 102, 241, 0.52),
+    inset 0 1px 0 rgba(248, 250, 252, 0.11) !important;
 }
 
 .v48-home .bento-quick-dock {
-  border-color: rgba(255, 211, 105, 0.24) !important;
+  border-color: rgba(251, 191, 36, 0.24) !important;
   background:
-    radial-gradient(95% 140% at 0% 0%, rgba(18, 84, 79, 0.2), transparent 64%),
-    radial-gradient(75% 120% at 100% 100%, rgba(122, 28, 172, 0.18), transparent 66%),
-    linear-gradient(145deg, #202940 0%, #0b132b 100%) !important;
+    radial-gradient(95% 140% at 0% 0%, rgba(56, 189, 248, 0.2), transparent 64%),
+    radial-gradient(75% 120% at 100% 100%, rgba(99, 102, 241, 0.18), transparent 66%),
+    linear-gradient(145deg, #171a26 0%, #090a0e 100%) !important;
 }
 
 .v48-home .bento-quick-dock .bento-sub-action {
-  border-color: rgba(255, 211, 105, 0.2) !important;
-  background: linear-gradient(145deg, rgba(32, 41, 64, 0.76), rgba(9, 38, 53, 0.88)) !important;
+  border-color: rgba(251, 191, 36, 0.2) !important;
+  background: linear-gradient(145deg, rgba(23, 26, 38, 0.76), rgba(13, 15, 22, 0.88)) !important;
 }
 
 .v48-home .bento-quick-dock .bento-sub-action:hover {
-  border-color: rgba(255, 152, 8, 0.5) !important;
-  background: linear-gradient(145deg, rgba(255, 152, 8, 0.15), rgba(122, 28, 172, 0.24)) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.15), rgba(99, 102, 241, 0.24)) !important;
 }

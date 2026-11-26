@@ -1,6 +1,6 @@
 /* ============================================================================
    v43 — USER-DIRECTED POLISH LAYER
-   Imported after v36 and before the later v45–v61 cascade layers.
+   Imported last so it always wins over the legacy cascade.
 
    1. Focus studio  — action buttons become a ROW, config dialog goes extra wide
    2. Task timeline — weekly cards leave the teal/green world for warm gold,
@@ -237,7 +237,7 @@
 
 .tl-v3-page .tl-day-btn .tl42-task-count.has-items {
   background: rgba(244, 190, 84, 0.17) !important;
-  color: #ffd369 !important;
+  color: #ffd98a !important;
 }
 
 /* A day with nothing planned collapses to a slim chip — no empty card body. */
@@ -419,36 +419,36 @@
 
 .v30-dt-phase-bar {
   border-radius: 14px !important;
-  border: 1px solid color-mix(in srgb, var(--ph-accent, #ffd369) 34%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--ph-accent, #fbbf24) 34%, transparent) !important;
   background:
     linear-gradient(
       90deg,
-      color-mix(in srgb, var(--ph-accent, #ffd369) 24%, transparent),
-      color-mix(in srgb, var(--ph-accent, #ffd369) 7%, transparent) 46%,
+      color-mix(in srgb, var(--ph-accent, #fbbf24) 24%, transparent),
+      color-mix(in srgb, var(--ph-accent, #fbbf24) 7%, transparent) 46%,
       transparent 78%
     ),
     var(--v30-surface-3) !important;
   box-shadow:
-    inset 3px 0 0 color-mix(in srgb, var(--ph-accent, #ffd369) 70%, transparent),
+    inset 3px 0 0 color-mix(in srgb, var(--ph-accent, #fbbf24) 70%, transparent),
     0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
 .v30-dt-phase-icon {
-  color: var(--ph-accent, #ffd369) !important;
-  background: color-mix(in srgb, var(--ph-accent, #ffd369) 20%, transparent) !important;
-  border: 1px solid color-mix(in srgb, var(--ph-accent, #ffd369) 44%, transparent) !important;
-  box-shadow: 0 0 16px color-mix(in srgb, var(--ph-accent, #ffd369) 30%, transparent) !important;
+  color: var(--ph-accent, #fbbf24) !important;
+  background: color-mix(in srgb, var(--ph-accent, #fbbf24) 20%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--ph-accent, #fbbf24) 44%, transparent) !important;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--ph-accent, #fbbf24) 30%, transparent) !important;
 }
 
 .v30-dt-phase-left strong {
   font-size: 14.5px !important;
   font-weight: 800 !important;
-  color: color-mix(in srgb, var(--ph-accent, #ffd369) 72%, #ffffff) !important;
+  color: color-mix(in srgb, var(--ph-accent, #fbbf24) 72%, #ffffff) !important;
   letter-spacing: 0.01em;
 }
 
 .v30-dt-phase-left small {
-  color: color-mix(in srgb, var(--ph-accent, #ffd369) 42%, var(--v30-mute)) !important;
+  color: color-mix(in srgb, var(--ph-accent, #fbbf24) 42%, var(--v30-mute)) !important;
   font-size: 11.5px !important;
 }
 
@@ -466,7 +466,7 @@
 .v30-dt-item-row .v30-dt-task-cell {
   background: linear-gradient(
     90deg,
-    color-mix(in srgb, var(--ph-accent, #ffd369) 7%, transparent),
+    color-mix(in srgb, var(--ph-accent, #fbbf24) 7%, transparent),
     transparent 42%
   );
 }
@@ -561,7 +561,7 @@
 }
 
 .v40-summary b {
-  color: #ffd369 !important;
+  color: #ffd98a !important;
 }
 
 /* ---------------------------------------------------------------------------
@@ -696,7 +696,7 @@
 }
 
 .v30-profile-avatar > .profile-avatar .profile-avatar-initial {
-  background: radial-gradient(circle at 32% 28%, var(--v30-accent-bright, #ffd369), var(--v30-accent, #ff9808) 70%);
+  background: radial-gradient(circle at 32% 28%, var(--v30-accent-bright, #fbbf24), var(--v30-accent, #f59e0b) 70%);
   color: var(--btn-primary-ink, #0b0c10);
 }
 
@@ -740,7 +740,7 @@
 }
 
 .v29-icp-paper-btn.active {
-  background: linear-gradient(135deg, #ffd369, #ff9808) !important;
+  background: linear-gradient(135deg, #f6c969, #d99125) !important;
   color: #21180a !important;
   box-shadow: 0 4px 12px rgba(222, 159, 55, 0.28);
 }
@@ -804,7 +804,7 @@
 }
 
 .v29-icp-ch-card.active .v29-icp-ch-num {
-  background: linear-gradient(135deg, #ffd369, #ff9808) !important;
+  background: linear-gradient(135deg, #f6c969, #d99125) !important;
   color: #21180a !important;
 }
 
@@ -814,7 +814,7 @@
 }
 
 .v29-icp-ch-check {
-  background: linear-gradient(135deg, #ffd369, #ff9808) !important;
+  background: linear-gradient(135deg, #f6c969, #d99125) !important;
   color: #21180a !important;
 }
 
@@ -929,14 +929,14 @@
   padding: 7px 14px;
   border-radius: 999px;
   color: #21180a;
-  background: linear-gradient(135deg, #ffd369, #ffd369);
+  background: linear-gradient(135deg, #fef3c7, #fbbf24);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
   font-weight: 800;
 }
 
 .v43-celebration-badge svg {
-  color: #ff9808;
+  color: #b45309;
 }
 
 .v43-celebration-badge b {
@@ -1047,7 +1047,7 @@
 
 .v40-group-pill.is-active {
   color: #21180a;
-  background: linear-gradient(135deg, #ffd369, #ff9808);
+  background: linear-gradient(135deg, #f6c969, #d99125);
   border-color: rgba(255, 255, 255, 0.42);
   box-shadow: 0 4px 12px rgba(222, 159, 55, 0.3);
 }
@@ -1094,7 +1094,7 @@
 .gh-lv2 { background: rgba(245, 158, 11, 0.42) !important; }
 .gh-lv3 { background: rgba(251, 191, 36, 0.66) !important; }
 .gh-lv4 {
-  background: #ffd369 !important;
+  background: #fbbf24 !important;
   box-shadow: 0 0 8px rgba(251, 191, 36, 0.42) !important;
 }
 
@@ -1109,51 +1109,51 @@
    ------------------------------------------------------------------------- */
 
 .v34-wr-slot-card {
-  border-color: color-mix(in srgb, var(--period-tone, #ffd369) 22%, transparent) !important;
+  border-color: color-mix(in srgb, var(--period-tone, #fbbf24) 22%, transparent) !important;
   background:
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--period-tone, #ffd369) 11%, transparent),
+      color-mix(in srgb, var(--period-tone, #fbbf24) 11%, transparent),
       transparent 42%
     ),
     linear-gradient(165deg, rgba(21, 25, 35, 0.96), rgba(11, 14, 21, 0.98)) !important;
   box-shadow:
-    inset 3px 0 0 color-mix(in srgb, var(--period-tone, #ffd369) 62%, transparent),
+    inset 3px 0 0 color-mix(in srgb, var(--period-tone, #fbbf24) 62%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
     0 14px 32px rgba(0, 0, 0, 0.34) !important;
 }
 
 .v34-wr-slot-card.has-plan {
-  border-color: color-mix(in srgb, var(--period-tone, #ffd369) 42%, transparent) !important;
+  border-color: color-mix(in srgb, var(--period-tone, #fbbf24) 42%, transparent) !important;
 }
 
 .v34-wr-slot-icon {
-  color: var(--period-tone, #ffd369) !important;
-  background: color-mix(in srgb, var(--period-tone, #ffd369) 18%, transparent) !important;
-  border-color: color-mix(in srgb, var(--period-tone, #ffd369) 40%, transparent) !important;
+  color: var(--period-tone, #fbbf24) !important;
+  background: color-mix(in srgb, var(--period-tone, #fbbf24) 18%, transparent) !important;
+  border-color: color-mix(in srgb, var(--period-tone, #fbbf24) 40%, transparent) !important;
 }
 
 .v34-wr-slot-title h4 {
-  color: color-mix(in srgb, var(--period-tone, #ffd369) 62%, #ffffff) !important;
+  color: color-mix(in srgb, var(--period-tone, #fbbf24) 62%, #ffffff) !important;
   font-size: 1rem !important;
   font-weight: 800 !important;
 }
 
 .v34-wr-slot-state {
-  color: color-mix(in srgb, var(--period-tone, #ffd369) 55%, #b3a88d) !important;
-  background: color-mix(in srgb, var(--period-tone, #ffd369) 12%, transparent) !important;
-  border-color: color-mix(in srgb, var(--period-tone, #ffd369) 28%, transparent) !important;
+  color: color-mix(in srgb, var(--period-tone, #fbbf24) 55%, #b3a88d) !important;
+  background: color-mix(in srgb, var(--period-tone, #fbbf24) 12%, transparent) !important;
+  border-color: color-mix(in srgb, var(--period-tone, #fbbf24) 28%, transparent) !important;
 }
 
 /* The matrix header row of the small-card week view. */
 .wr-matrix-col-head {
-  color: color-mix(in srgb, var(--period-tone, #ffd369) 62%, #d8ceb4) !important;
+  color: color-mix(in srgb, var(--period-tone, #fbbf24) 62%, #d8ceb4) !important;
 }
 
 .wr-matrix-cell.filled {
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--period-tone, #ffd369) 13%, transparent),
+    color-mix(in srgb, var(--period-tone, #fbbf24) 13%, transparent),
     transparent 60%
   ) !important;
 }
@@ -1226,11 +1226,11 @@
 .v30-dt-item-row td.is-today-col {
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--ph-accent, #ffd369) 15%, transparent),
-    color-mix(in srgb, var(--ph-accent, #ffd369) 4%, transparent) 72%,
+    color-mix(in srgb, var(--ph-accent, #fbbf24) 15%, transparent),
+    color-mix(in srgb, var(--ph-accent, #fbbf24) 4%, transparent) 72%,
     transparent
   ) !important;
-  box-shadow: inset 3px 0 0 var(--ph-accent, #ffd369) !important;
+  box-shadow: inset 3px 0 0 var(--ph-accent, #fbbf24) !important;
 }
 
 /* Non-today columns stay neutral — no colour, no wash. */
@@ -1242,24 +1242,24 @@
 
 /* The checkbox inside today's column follows the phase colour. */
 .v30-dt-item-row td.is-today-col .v30-dt-check {
-  border-color: color-mix(in srgb, var(--ph-accent, #ffd369) 55%, transparent) !important;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ph-accent, #ffd369) 13%, transparent);
+  border-color: color-mix(in srgb, var(--ph-accent, #fbbf24) 55%, transparent) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ph-accent, #fbbf24) 13%, transparent);
 }
 
 .v30-dt-item-row td.is-today-col .v30-dt-check.is-done {
-  background: var(--ph-accent, #ffd369) !important;
-  border-color: color-mix(in srgb, var(--ph-accent, #ffd369) 88%, #ffffff) !important;
+  background: var(--ph-accent, #fbbf24) !important;
+  border-color: color-mix(in srgb, var(--ph-accent, #fbbf24) 88%, #ffffff) !important;
   color: #10131a !important;
-  box-shadow: 0 0 14px color-mix(in srgb, var(--ph-accent, #ffd369) 45%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--ph-accent, #fbbf24) 45%, transparent);
 }
 
 .v30-dt-item-row td.is-today-col .v30-dt-check.is-missed {
-  border-color: color-mix(in srgb, var(--ph-accent, #ffd369) 72%, transparent) !important;
-  color: color-mix(in srgb, var(--ph-accent, #ffd369) 82%, #ffffff) !important;
+  border-color: color-mix(in srgb, var(--ph-accent, #fbbf24) 72%, transparent) !important;
+  color: color-mix(in srgb, var(--ph-accent, #fbbf24) 82%, #ffffff) !important;
 }
 
 .v30-dt-item-row td.is-today-col .v30-dt-na {
-  color: color-mix(in srgb, var(--ph-accent, #ffd369) 34%, transparent) !important;
+  color: color-mix(in srgb, var(--ph-accent, #fbbf24) 34%, transparent) !important;
 }
 
 /* The footer "daily success" cell keeps the warm gold of the app. */
@@ -1286,18 +1286,18 @@
 /* The phase section header itself wears its own colour, so the reader can
    tell the five periods apart at a glance. */
 .v30-dt-phase-row {
-  --ph-accent: var(--ph-accent, #ffd369);
+  --ph-accent: var(--ph-accent, #fbbf24);
 }
 
 .v30-dt-phase-row .v30-dt-phase-bar {
-  border-left: 4px solid var(--ph-accent, #ffd369);
+  border-left: 4px solid var(--ph-accent, #fbbf24);
 }
 
 /* Explicit per-phase palette for the tracker — the phases are never allowed
    to collapse into one shared colour. */
 .v30-dt-table {
-  --ph-dawn: #ff9808;
-  --ph-morning: #ffd369;
+  --ph-dawn: #fb923c;
+  --ph-morning: #fbbf24;
   --ph-noon: #38bdf8;
   --ph-afternoon: #38bdf8;
   --ph-night: #a78bfa;
@@ -1361,7 +1361,7 @@
 .sc-rank1-card h2 {
   font-size: 1.55rem !important;
   font-weight: 850 !important;
-  background: linear-gradient(180deg, #fff7e2, #ffd369);
+  background: linear-gradient(180deg, #fff7e2, #fbbf24);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent !important;
@@ -1465,7 +1465,7 @@
 
 .v37-todo-task-modal .tp-chip-row[aria-label='Task activity'] button.selected .tp-chip-icon {
   color: #21180a;
-  background: linear-gradient(135deg, #ffd369, #ff9808);
+  background: linear-gradient(135deg, #f6c969, #d99125);
   border-color: rgba(255, 255, 255, 0.45);
   box-shadow: 0 6px 14px rgba(214, 152, 44, 0.34);
 }
@@ -1571,7 +1571,7 @@
 }
 
 .v44-ctx-item:hover svg {
-  color: #ffd369;
+  color: #ffd98a;
 }
 
 .v44-ctx-item.is-primary {
@@ -1638,7 +1638,7 @@
 }
 
 .sp-yb-sprint-tab.is-active i {
-  background: #ffd369;
+  background: #fbbf24;
   box-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
 }
 
@@ -1745,9 +1745,9 @@
   font-size: 10.6px;
   padding: 2px 7px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--manual-tone, #ffd369) 16%, transparent);
-  color: color-mix(in srgb, var(--manual-tone, #ffd369) 72%, #e8dfc6);
-  border: 1px solid color-mix(in srgb, var(--manual-tone, #ffd369) 30%, transparent);
+  background: color-mix(in srgb, var(--manual-tone, #fbbf24) 16%, transparent);
+  color: color-mix(in srgb, var(--manual-tone, #fbbf24) 72%, #e8dfc6);
+  border: 1px solid color-mix(in srgb, var(--manual-tone, #fbbf24) 30%, transparent);
 }
 
 /* ── Edit / delete icons: hidden until hover, always visible on touch ── */
@@ -1808,7 +1808,7 @@
 }
 
 .v44-wr-add-row:hover {
-  color: #ffd369 !important;
+  color: #ffd98a !important;
   background: rgba(244, 190, 84, 0.09) !important;
 }
 
@@ -1844,12 +1844,12 @@
 .v34-wr-clock:hover,
 .v34-wr-bell:hover {
   background: rgba(244, 190, 84, 0.16);
-  color: #ffd369;
+  color: #ffd98a;
   transform: translateY(-1px);
 }
 
 .v34-wr-clock.is-set {
-  color: #ffd369;
+  color: #ffd98a;
   background: rgba(244, 190, 84, 0.16);
 }
 
@@ -1861,12 +1861,12 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #ffd369;
+  background: #fbbf24;
   box-shadow: 0 0 6px rgba(251, 191, 36, 0.85);
 }
 
 .v34-wr-bell.is-on {
-  color: #ffd369;
+  color: #ffd98a;
   background: rgba(244, 190, 84, 0.18);
 }
 
@@ -1968,7 +1968,7 @@
 
 .v44-wr-time-grid button.is-active {
   border-color: rgba(255, 205, 104, 0.8);
-  background: linear-gradient(135deg, #ffd369, #ff9808);
+  background: linear-gradient(135deg, #f6c969, #d99125);
   color: #21180a;
 }
 

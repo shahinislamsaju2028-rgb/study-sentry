@@ -23,7 +23,7 @@ export default function FocusCompletionHero({ subjectName = '', durationSec = 0,
           y: Math.sin(angle) * radius,
           delay: `${(i % 8) * 0.16}s`,
           size: 2.4 + (i % 3) * 1.3,
-          tone: ['#ffd369', '#ffd369', '#ffd369', '#a91079'][i % 4],
+          tone: ['#fde68a', '#fbbf24', '#fef3c7', '#f472b6'][i % 4],
         };
       }),
     []
@@ -39,14 +39,14 @@ export default function FocusCompletionHero({ subjectName = '', durationSec = 0,
         <svg className="v43-celebration-rays" viewBox="0 0 240 240" width="240" height="240">
           <defs>
             <linearGradient id="v43Ray" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#ffd369" stopOpacity="0.55" />
-              <stop offset="55%" stopColor="#ff9808" stopOpacity="0.12" />
-              <stop offset="100%" stopColor="#ff9808" stopOpacity="0" />
+              <stop offset="0%" stopColor="#fde68a" stopOpacity="0.55" />
+              <stop offset="55%" stopColor="#f59e0b" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
             </linearGradient>
             <radialGradient id="v43Halo" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#ffd369" stopOpacity="0.38" />
-              <stop offset="60%" stopColor="#ff9808" stopOpacity="0.1" />
-              <stop offset="100%" stopColor="#ff9808" stopOpacity="0" />
+              <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.38" />
+              <stop offset="60%" stopColor="#f59e0b" stopOpacity="0.1" />
+              <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
             </radialGradient>
           </defs>
           <circle cx="120" cy="120" r="118" fill="url(#v43Halo)" />
@@ -79,14 +79,14 @@ export default function FocusCompletionHero({ subjectName = '', durationSec = 0,
         <svg className="v43-celebration-trophy" viewBox="0 0 120 120" width="118" height="118">
           <defs>
             <linearGradient id="v43Gold" x1="0" y1="0" x2="0.4" y2="1">
-              <stop offset="0%" stopColor="#ffd369" />
-              <stop offset="38%" stopColor="#ffd369" />
-              <stop offset="72%" stopColor="#ff9808" />
-              <stop offset="100%" stopColor="#210f37" />
+              <stop offset="0%" stopColor="#fef3c7" />
+              <stop offset="38%" stopColor="#fbbf24" />
+              <stop offset="72%" stopColor="#d97706" />
+              <stop offset="100%" stopColor="#92400e" />
             </linearGradient>
             <linearGradient id="v43Ribbon" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#a91079" />
-              <stop offset="100%" stopColor="#7a1cac" />
+              <stop offset="0%" stopColor="#f472b6" />
+              <stop offset="100%" stopColor="#be185d" />
             </linearGradient>
           </defs>
           {/* laurel */}
@@ -111,9 +111,9 @@ export default function FocusCompletionHero({ subjectName = '', durationSec = 0,
             d="M38 30 H82 V56 C82 70 72 78 60 78 C48 78 38 70 38 56 Z"
             fill="url(#v43Gold)"
           />
-          <path d="M38 36 H28 C28 48 32 54 40 55" fill="none" stroke="#ffd369" strokeWidth="3.4" strokeLinecap="round" />
-          <path d="M82 36 H92 C92 48 88 54 80 55" fill="none" stroke="#ffd369" strokeWidth="3.4" strokeLinecap="round" />
-          <rect x="54" y="78" width="12" height="10" rx="2.5" fill="#ff9808" />
+          <path d="M38 36 H28 C28 48 32 54 40 55" fill="none" stroke="#fbbf24" strokeWidth="3.4" strokeLinecap="round" />
+          <path d="M82 36 H92 C92 48 88 54 80 55" fill="none" stroke="#fbbf24" strokeWidth="3.4" strokeLinecap="round" />
+          <rect x="54" y="78" width="12" height="10" rx="2.5" fill="#d97706" />
           <rect x="44" y="88" width="32" height="8" rx="4" fill="url(#v43Gold)" />
           {/* star on the cup */}
           <path

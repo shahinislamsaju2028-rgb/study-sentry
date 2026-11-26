@@ -955,7 +955,7 @@ export function StudyProvider({ children }) {
         ? data.subjects.find((s) => String(s.name).toLowerCase() === fixed.toLowerCase()) || {
             id: `goal_${fixed.toLowerCase().replace(/\s+/g, '_')}`,
             name: fixed,
-            color: '#ff9808',
+            color: '#f59e0b',
           }
         : data.subjects.find((s) => s.id === subjectId);
       if (!subject && options.phase !== 'break') {
@@ -2090,7 +2090,7 @@ export function StudyProvider({ children }) {
     const totalSec = state.sessions.reduce((sum, s) => sum + (Number(s.durationSec) || 0), 0) + (timer && timer.phase !== 'break' ? elapsedSec : 0);
     const selectedSubject =
       state.subjects.find((s) => s.id === (timer?.subjectId || state.timerPrefs.selectedSubjectId)) ||
-      (timer?.subjectName && timer.phase !== 'break' ? { id: timer.subjectId, name: timer.subjectName, color: '#ff9808' } : null) ||
+      (timer?.subjectName && timer.phase !== 'break' ? { id: timer.subjectId, name: timer.subjectName, color: '#f59e0b' } : null) ||
       state.subjects[0] ||
       null;
     const xp = Number(state.profile.xp) || 0;
@@ -2159,7 +2159,7 @@ export function StudyProvider({ children }) {
     const activeSubColor =
       timer?.phase === 'break'
         ? '#38bdf8'
-        : state.subjects.find((s) => s.name === activeSubName || s.id === timer?.subjectId)?.color || '#ff9808';
+        : state.subjects.find((s) => s.name === activeSubName || s.id === timer?.subjectId)?.color || '#f59e0b';
     const idleTotalMin = Math.max(1, Math.round(Number(pip.idleMinutes) || 25));
     const idleTime = `${String(idleTotalMin).padStart(2, '0')}:00`;
     // Strict MM:SS for PiP (total minutes + seconds ONLY — never hours!)

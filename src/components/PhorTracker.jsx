@@ -76,8 +76,8 @@ const LATE_NIGHT_DEFAULTS = BASE_ITEMS.filter((x) => x.phase === 'late_night');
  *   গভীর রাত → গাঢ় ইন্ডিগো
  */
 const PHASE_VISUALS = {
-  dawn: { Icon: Sunrise, accent: '#ff9808' },
-  morning: { Icon: Sun, accent: '#ffd369' },
+  dawn: { Icon: Sunrise, accent: '#fb923c' },
+  morning: { Icon: Sun, accent: '#fbbf24' },
   afternoon: { Icon: SunMedium, accent: '#38bdf8' },
   noon: { Icon: SunMedium, accent: '#38bdf8' },
   night: { Icon: MoonStar, accent: '#a78bfa' },
@@ -113,7 +113,7 @@ export default function PhorTracker() {
         id: p.slotId,
         label: p.label,
         windowLabel: p.windowLabel,
-        accent: p.accent || PHASE_VISUALS[p.slotId]?.accent || '#ffd369',
+        accent: p.accent || PHASE_VISUALS[p.slotId]?.accent || '#fbbf24',
         Icon: PHASE_VISUALS[p.slotId]?.Icon || Sparkles,
       })),
     [activePhases]

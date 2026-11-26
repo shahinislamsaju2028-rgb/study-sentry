@@ -10,14 +10,14 @@ body,
 .app-shell {
   color: var(--text-primary, #f8fafc) !important;
   background:
-    radial-gradient(620px 300px at 12% -8%, color-mix(in srgb, var(--accent-primary, #ff9808) 13%, transparent), transparent 68%),
+    radial-gradient(620px 300px at 12% -8%, color-mix(in srgb, var(--accent-primary, #f59e0b) 13%, transparent), transparent 68%),
     radial-gradient(540px 260px at 88% 3%, color-mix(in srgb, var(--accent-secondary, #6366f1) 11%, transparent), transparent 66%),
     var(--bg-root, #090a0e) !important;
 }
 
 .ambient-glow {
   background:
-    radial-gradient(460px 230px at 18% 0%, color-mix(in srgb, var(--accent-primary, #ff9808) 10%, transparent), transparent 72%),
+    radial-gradient(460px 230px at 18% 0%, color-mix(in srgb, var(--accent-primary, #f59e0b) 10%, transparent), transparent 72%),
     radial-gradient(420px 210px at 84% 6%, color-mix(in srgb, var(--accent-secondary, #6366f1) 9%, transparent), transparent 72%) !important;
   opacity: 0.68 !important;
 }
@@ -47,7 +47,7 @@ body,
 .gw-eyebrow,
 .tp-overline,
 .iv-eyebrow {
-  color: var(--accent-primary-bright, #ffd369) !important;
+  color: var(--accent-primary-bright, #fbbf24) !important;
 }
 
 /* 3. Primary & Secondary Buttons */
@@ -78,16 +78,16 @@ body,
 .today-link,
 .dt-today {
   color: var(--text-primary, #f1f5f9) !important;
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 11%, var(--bg-card-elevated, #171a26)) !important;
-  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #ffd369) 28%, rgba(255, 255, 255, 0.08)) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 11%, var(--bg-card-elevated, #171a26)) !important;
+  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 28%, rgba(255, 255, 255, 0.08)) !important;
 }
 
 .clean-outline:hover:not(:disabled),
 .action-btn:not(.primary-emerald):not(.ghost-danger):not(.tp-delete-btn):hover:not(:disabled),
 .today-link:hover,
 .dt-today:hover {
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 19%, var(--bg-card-elevated, #171a26)) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 48%, rgba(255, 255, 255, 0.12)) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 19%, var(--bg-card-elevated, #171a26)) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 48%, rgba(255, 255, 255, 0.12)) !important;
 }
 
 /* 4. TopBar Controls & Live Status Pills */
@@ -97,24 +97,24 @@ body,
 }
 
 .language-switch > svg {
-  color: var(--accent-primary-bright, #ffd369) !important;
+  color: var(--accent-primary-bright, #fbbf24) !important;
 }
 
 .language-switch button[aria-pressed="true"] {
-  background: var(--accent-primary, #ff9808) !important;
+  background: var(--accent-primary, #f59e0b) !important;
   color: var(--btn-primary-ink, #0b0c10) !important;
 }
 
 .topbar-pip {
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 12%, var(--bg-card, #12141d)) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 28%, transparent) !important;
-  color: var(--accent-primary-bright, #ffd369) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 12%, var(--bg-card, #12141d)) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 28%, transparent) !important;
+  color: var(--accent-primary-bright, #fbbf24) !important;
 }
 
 .clean-status,
 .focus-live-status {
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 12%, var(--bg-card, #12141d)) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 28%, transparent) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 12%, var(--bg-card, #12141d)) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 28%, transparent) !important;
   color: var(--text-primary, #f8fafc) !important;
 }
 
@@ -122,8 +122,8 @@ body,
 .focus-live-status i,
 .live-dot,
 .bn-live-time.running i {
-  background: var(--accent-primary-bright, #ffd369) !important;
-  box-shadow: 0 0 8px color-mix(in srgb, var(--accent-primary-bright, #ffd369) 70%, transparent) !important;
+  background: var(--accent-primary-bright, #fbbf24) !important;
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 70%, transparent) !important;
 }
 
 /* 5. Segmented Tabs, Filter Chips & Calendar Strip */
@@ -143,11 +143,11 @@ body,
 .board-choice button.selected {
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--accent-primary, #ff9808) 24%, var(--bg-card-elevated, #171a26)),
+    color-mix(in srgb, var(--accent-primary, #f59e0b) 24%, var(--bg-card-elevated, #171a26)),
     color-mix(in srgb, var(--accent-secondary, #6366f1) 18%, var(--bg-card, #12141d))
   ) !important;
   color: var(--text-primary, #f8fafc) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 50%, transparent) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 50%, transparent) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
@@ -163,11 +163,11 @@ body,
 .home-welcome {
   background: linear-gradient(
     128deg,
-    color-mix(in srgb, var(--accent-primary, #ff9808) 16%, var(--bg-card-elevated, #171a26)) 0%,
+    color-mix(in srgb, var(--accent-primary, #f59e0b) 16%, var(--bg-card-elevated, #171a26)) 0%,
     var(--bg-card, #12141d) 54%,
     color-mix(in srgb, var(--accent-secondary, #6366f1) 14%, var(--bg-card-bottom, #0d0f16)) 100%
   ) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 24%, rgba(255, 255, 255, 0.08)) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 24%, rgba(255, 255, 255, 0.08)) !important;
 }
 
 .home-summary-card,
@@ -180,8 +180,8 @@ body,
 }
 
 .home-summary-card:nth-child(4n + 1) .home-summary-icon {
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 16%, transparent) !important;
-  color: var(--accent-primary-bright, #ffd369) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 16%, transparent) !important;
+  color: var(--accent-primary-bright, #fbbf24) !important;
 }
 .home-summary-card:nth-child(4n + 2) .home-summary-icon {
   background: color-mix(in srgb, var(--accent-secondary, #6366f1) 16%, transparent) !important;
@@ -242,20 +242,20 @@ body,
 .cs-menu,
 .modal-card {
   background: linear-gradient(180deg, var(--bg-card-elevated, #171a26) 0%, var(--bg-card-bottom, #0d0f16) 100%) !important;
-  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #ffd369) 22%, rgba(255, 255, 255, 0.10)) !important;
+  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 22%, rgba(255, 255, 255, 0.10)) !important;
   box-shadow: 0 24px 56px rgba(0, 0, 0, 0.68) !important;
 }
 
 .cs-option[aria-selected="true"],
 .cs-option.selected {
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 20%, transparent) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 20%, transparent) !important;
   color: var(--text-primary, #f8fafc) !important;
 }
 
 /* 8. Home Brief Grid & Deadline Summary */
 .home-deadline-summary > span,
 .home-deadline-summary > svg {
-  color: var(--accent-primary-bright, #ffd369) !important;
+  color: var(--accent-primary-bright, #fbbf24) !important;
 }
 
 .home-brief-grid button {
@@ -265,8 +265,8 @@ body,
 }
 
 .home-brief-grid button:hover {
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 14%, var(--bg-tile, #141722)) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 40%, transparent) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 14%, var(--bg-tile, #141722)) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 40%, transparent) !important;
 }
 
 /* 9. Task Board Columns & 120FPS Drag-and-Drop */
@@ -282,8 +282,8 @@ body,
 }
 
 .board-column.doing .board-col-dot {
-  background: var(--accent-primary-bright, #ffd369) !important;
-  box-shadow: 0 0 8px color-mix(in srgb, var(--accent-primary-bright, #ffd369) 55%, transparent);
+  background: var(--accent-primary-bright, #fbbf24) !important;
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 55%, transparent);
 }
 
 .board-column.done .board-col-dot {
@@ -292,14 +292,14 @@ body,
 }
 
 .board-column.is-drop-target {
-  border-color: var(--accent-primary-bright, #ffd369) !important;
+  border-color: var(--accent-primary-bright, #fbbf24) !important;
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--accent-primary, #ff9808) 13%, var(--bg-card-elevated, #171a26)) 0%,
+    color-mix(in srgb, var(--accent-primary, #f59e0b) 13%, var(--bg-card-elevated, #171a26)) 0%,
     var(--bg-card-bottom, #0d0f16) 100%
   ) !important;
   box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--accent-primary-bright, #ffd369) 34%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 34%, transparent),
     0 12px 28px rgba(0, 0, 0, 0.48) !important;
 }
 
@@ -329,7 +329,7 @@ body,
 .board-task.is-dragging {
   opacity: 0.36 !important;
   border-style: dashed !important;
-  border-color: var(--accent-primary-bright, #ffd369) !important;
+  border-color: var(--accent-primary-bright, #fbbf24) !important;
 }
 
 body.is-dragging-task,
@@ -348,10 +348,10 @@ body.is-dragging-task * {
   padding: 12px 14px;
   border-radius: 13px;
   background: linear-gradient(160deg, var(--bg-card-elevated, #171a26) 0%, var(--bg-card-bottom, #0d0f16) 100%);
-  border: 1px solid var(--accent-primary-bright, #ffd369);
+  border: 1px solid var(--accent-primary-bright, #fbbf24);
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.72),
-    0 0 0 1px color-mix(in srgb, var(--accent-primary-bright, #ffd369) 28%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 28%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.14);
   color: var(--text-primary, #f8fafc);
   display: grid;
@@ -377,7 +377,7 @@ body.is-dragging-task * {
   align-items: center;
   gap: 5px;
   font-size: 12px;
-  color: var(--accent-primary-bright, #ffd369);
+  color: var(--accent-primary-bright, #fbbf24);
   font-weight: 600;
 }
 
@@ -416,28 +416,28 @@ body.is-dragging-task * {
   font-size: 12px;
   font-weight: 700;
   color: var(--text-primary, #f8fafc);
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 13%, var(--bg-card, #12141d));
-  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #ffd369) 30%, transparent);
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 13%, var(--bg-card, #12141d));
+  border: 1px solid color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 30%, transparent);
   cursor: pointer;
   white-space: nowrap;
 }
 
 .board-quick-shift:hover {
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 24%, var(--bg-card, #12141d));
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 55%, transparent);
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 24%, var(--bg-card, #12141d));
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 55%, transparent);
 }
 
 .board-empty.is-drop-ready {
-  border: 1px dashed var(--accent-primary-bright, #ffd369) !important;
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 9%, transparent) !important;
+  border: 1px dashed var(--accent-primary-bright, #fbbf24) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 9%, transparent) !important;
   color: var(--text-primary, #f8fafc) !important;
 }
 
 /* 10. Timeline, Zen, Sprint Orbs & Settings Accents */
 .timeline-node-icon[aria-pressed="true"],
 .timeline-task-item.done .timeline-node-icon {
-  background: var(--accent-primary, #ff9808) !important;
-  border-color: var(--accent-primary-bright, #ffd369) !important;
+  background: var(--accent-primary, #f59e0b) !important;
+  border-color: var(--accent-primary-bright, #fbbf24) !important;
   color: var(--btn-primary-ink, #0b0c10) !important;
 }
 
@@ -445,36 +445,36 @@ body.is-dragging-task * {
 .privacy-card {
   background: linear-gradient(
     145deg,
-    color-mix(in srgb, var(--accent-primary, #ff9808) 10%, var(--bg-card-elevated, #171a26)),
+    color-mix(in srgb, var(--accent-primary, #f59e0b) 10%, var(--bg-card-elevated, #171a26)),
     var(--bg-card-bottom, #0d0f16)
   ) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 24%, rgba(255, 255, 255, 0.08)) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 24%, rgba(255, 255, 255, 0.08)) !important;
   color: var(--text-primary, #f8fafc) !important;
 }
 
 .privacy-icon,
 .settings-icon:not(.danger) {
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 16%, var(--bg-card, #12141d)) !important;
-  color: var(--accent-primary-bright, #ffd369) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 16%, var(--bg-card, #12141d)) !important;
+  color: var(--accent-primary-bright, #fbbf24) !important;
 }
 
 .privacy-check svg,
 .settings-page .backup-icon {
-  color: var(--accent-primary-bright, #ffd369) !important;
+  color: var(--accent-primary-bright, #fbbf24) !important;
 }
 
 .loading-screen {
   background: radial-gradient(
     circle at center,
-    color-mix(in srgb, var(--accent-primary, #ff9808) 14%, var(--bg-card, #12141d)),
+    color-mix(in srgb, var(--accent-primary, #f59e0b) 14%, var(--bg-card, #12141d)),
     var(--bg-root, #090a0e) 50%
   ) !important;
 }
 
 .loading-screen:not(.error-screen) .loading-mark {
-  background: color-mix(in srgb, var(--accent-primary, #ff9808) 18%, transparent) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 42%, transparent) !important;
-  color: var(--accent-primary-bright, #ffd369) !important;
+  background: color-mix(in srgb, var(--accent-primary, #f59e0b) 18%, transparent) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 42%, transparent) !important;
+  color: var(--accent-primary-bright, #fbbf24) !important;
 }
 
 .zen-brand,
@@ -482,23 +482,23 @@ body.is-dragging-task * {
 .mini-task-heading button,
 .calc-result,
 .sound-level {
-  color: var(--accent-primary-bright, #ffd369) !important;
+  color: var(--accent-primary-bright, #fbbf24) !important;
 }
 
 .zen-orbit {
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 24%, transparent) !important;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent-primary, #ff9808) 14%, transparent), transparent 70%) !important;
-  box-shadow: 0 0 90px color-mix(in srgb, var(--accent-primary, #ff9808) 9%, transparent) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 24%, transparent) !important;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-primary, #f59e0b) 14%, transparent), transparent 70%) !important;
+  box-shadow: 0 0 90px color-mix(in srgb, var(--accent-primary, #f59e0b) 9%, transparent) !important;
 }
 
 .zen-orbit-inner {
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 42%, transparent) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 42%, transparent) !important;
 }
 
 .sd-day-box {
   background: radial-gradient(
     ellipse at 50% 30%,
-    color-mix(in srgb, var(--accent-primary, #ff9808) 15%, transparent),
+    color-mix(in srgb, var(--accent-primary, #f59e0b) 15%, transparent),
     transparent 75%
   ), var(--bg-card-bottom, #0d0f16) !important;
   border-color: var(--border-subtle, rgba(255, 255, 255, 0.10)) !important;
@@ -515,9 +515,9 @@ body.is-dragging-task * {
 .sd-orb.current,
 .sd-orb-legend i.current {
   color: var(--btn-primary-ink, #0b0c10) !important;
-  background: var(--accent-primary-bright, #ffd369) !important;
+  background: var(--accent-primary-bright, #fbbf24) !important;
   border-color: #ffffff !important;
-  box-shadow: 0 0 14px color-mix(in srgb, var(--accent-primary-bright, #ffd369) 58%, transparent) !important;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 58%, transparent) !important;
   animation: none !important;
 }
 

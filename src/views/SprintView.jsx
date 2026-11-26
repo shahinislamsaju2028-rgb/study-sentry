@@ -1124,7 +1124,7 @@ const CLASS_COUNT_PRESETS = [3, 5, 8, 10, 12, 15, 20];
                           )}
                           <span
                             className="phase"
-                            style={{ '--slot-tone': sl?.tone || '#ffd369' }}
+                            style={{ '--slot-tone': sl?.tone || '#fbbf24' }}
                           >
                             <SlIcon size={11.5} /> {sl?.bnLabel || mod.phaseId}
                           </span>

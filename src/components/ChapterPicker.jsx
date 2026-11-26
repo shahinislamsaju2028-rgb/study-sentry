@@ -6,7 +6,7 @@ import { bnChapterName, bnNum, bnSubject } from '../utils/bangla';
 import { getAcademicGroup } from '../utils/groupSubjects';
 import { useOptionalStudy } from '../context/StudyContext';
 
-const CHAPTER_ACCENTS = { first: '#73D3E8', second: '#B3A2F4' };
+const CHAPTER_ACCENTS = { first: '#fbbf24', second: '#818cf8' };
 const INDEXED_CHAPTER_SUBJECTS = new Set(['physics', 'chemistry', 'biology', 'ict']);
 
 /**

@@ -154,7 +154,7 @@ export default function AnalogFocusDial({
   );
 
   const handColor = isAlarm ? '#fb7185' : '#f8fafc';
-  const sweepColor = isAlarm ? '#fb7185' : '#ffd369';
+  const sweepColor = isAlarm ? '#fb7185' : '#e7c88a';
 
   return (
     <div
@@ -170,22 +170,22 @@ export default function AnalogFocusDial({
       <svg viewBox="0 0 260 260" width="100%" height="100%" aria-hidden="true">
         <defs>
           <radialGradient id="v34dialFace" cx="38%" cy="26%" r="82%">
-            <stop offset="0%" stopColor="#202940" />
-            <stop offset="52%" stopColor="#092635" />
-            <stop offset="100%" stopColor="#0b132b" />
+            <stop offset="0%" stopColor="#20242f" />
+            <stop offset="52%" stopColor="#12151d" />
+            <stop offset="100%" stopColor="#07090e" />
           </radialGradient>
           <linearGradient id="v34dialBezel" x1="0.1" y1="0" x2="0.9" y2="1">
-            <stop offset="0%" stopColor="#ffd369" stopOpacity="0.95" />
-            <stop offset="22%" stopColor="#ff9808" stopOpacity="0.78" />
-            <stop offset="48%" stopColor="#ffd369" stopOpacity="0.9" />
-            <stop offset="72%" stopColor="#ff9808" stopOpacity="0.72" />
-            <stop offset="100%" stopColor="#ffd369" stopOpacity="0.92" />
+            <stop offset="0%" stopColor="#fde68a" stopOpacity="0.95" />
+            <stop offset="22%" stopColor="#d97706" stopOpacity="0.78" />
+            <stop offset="48%" stopColor="#fef3c7" stopOpacity="0.9" />
+            <stop offset="72%" stopColor="#b45309" stopOpacity="0.72" />
+            <stop offset="100%" stopColor="#fcd34d" stopOpacity="0.92" />
           </linearGradient>
           <linearGradient id="v34dialHand" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor={isAlarm ? '#fda4af' : '#ff9808'} />
-            <stop offset="34%" stopColor={isAlarm ? '#fecdd3' : '#ffd369'} />
-            <stop offset="62%" stopColor={isAlarm ? '#fb7185' : '#ffd369'} />
-            <stop offset="100%" stopColor={isAlarm ? '#9f1239' : '#210f37'} />
+            <stop offset="0%" stopColor={isAlarm ? '#fda4af' : '#b45309'} />
+            <stop offset="34%" stopColor={isAlarm ? '#fecdd3' : '#fde68a'} />
+            <stop offset="62%" stopColor={isAlarm ? '#fb7185' : '#fbbf24'} />
+            <stop offset="100%" stopColor={isAlarm ? '#9f1239' : '#92400e'} />
           </linearGradient>
           <linearGradient id="v34dialGlass" x1="0.1" y1="0" x2="0.7" y2="1">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.20" />
@@ -217,8 +217,8 @@ export default function AnalogFocusDial({
 
         {/* Machined outer bezel */}
         <circle cx={C} cy={C} r={R + 11} fill="url(#v34dialBezel)" opacity="0.92" />
-        <circle cx={C} cy={C} r={R + 6} fill="#0b132b" />
-        <circle cx={C} cy={C} r={R + 6} fill="none" stroke="#ffd369" strokeOpacity="0.28" strokeWidth="1" />
+        <circle cx={C} cy={C} r={R + 6} fill="#0a0c12" />
+        <circle cx={C} cy={C} r={R + 6} fill="none" stroke="#fde68a" strokeOpacity="0.28" strokeWidth="1" />
 
         {/* Knurled bezel notches — 72 fine cuts around the metal rim */}
         <g aria-hidden="true" opacity="0.5">
@@ -233,7 +233,7 @@ export default function AnalogFocusDial({
                 y1={y1}
                 x2={x2}
                 y2={y2}
-                stroke="#210f37"
+                stroke="#3a2a08"
                 strokeOpacity="0.55"
                 strokeWidth="1"
               />
@@ -244,7 +244,7 @@ export default function AnalogFocusDial({
         {/* Dial face */}
         <circle cx={C} cy={C} r={R} fill="url(#v34dialFace)" />
         <circle cx={C} cy={C} r={R} fill="none" stroke="#ffffff" strokeOpacity="0.09" strokeWidth="1" />
-        <circle cx={C} cy={C} r={R - 13} fill="none" stroke="#ffd369" strokeOpacity="0.10" strokeWidth="1" />
+        <circle cx={C} cy={C} r={R - 13} fill="none" stroke="#fbbf24" strokeOpacity="0.10" strokeWidth="1" />
         <circle cx={C} cy={C} r={R - 13} fill="url(#v34dialInner)" />
 
         {/* Engraved inner chapter ring */}
@@ -265,7 +265,7 @@ export default function AnalogFocusDial({
           cy={C}
           r={circleR}
           fill="none"
-          stroke={isAlarm ? '#fb7185' : '#ffd369'}
+          stroke={isAlarm ? '#fb7185' : '#fbbf24'}
           strokeOpacity={isAlarm ? 0.9 : 0.62}
           strokeWidth="3.4"
           strokeLinecap="round"
@@ -347,7 +347,7 @@ export default function AnalogFocusDial({
             width="4.4"
             height="16"
             rx="2.2"
-            fill={isAlarm ? '#fb7185' : '#ff9808'}
+            fill={isAlarm ? '#fb7185' : '#d97706'}
             opacity="0.9"
           />
           {/* tapered blade */}
@@ -363,14 +363,14 @@ export default function AnalogFocusDial({
             cx={C}
             cy={C + 20}
             r="6.4"
-            fill={isAlarm ? '#fb7185' : '#ffd369'}
+            fill={isAlarm ? '#fb7185' : '#fcd34d'}
             opacity="0.95"
           />
           <circle
             cx={C}
             cy={C + 20}
             r="2.4"
-fill="#0b132b"
+            fill="#0b0e14"
             opacity="0.5"
           />
         </g>
@@ -386,9 +386,9 @@ fill="#0b132b"
         </g>
 
         {/* Centre cap */}
-        <circle cx={C} cy={C} r="11" fill="#0b0e14" stroke={isAlarm ? '#fb7185' : '#ffd369'} strokeOpacity="0.6" strokeWidth="1.6" />
-        <circle cx={C} cy={C} r="6.4" fill={isAlarm ? '#fb7185' : '#ffd369'} opacity="0.22" filter="url(#v34dialSoft)" />
-        <circle cx={C} cy={C} r="4" fill={isAlarm ? '#fb7185' : '#ffd369'} />
+        <circle cx={C} cy={C} r="11" fill="#0b0e14" stroke={isAlarm ? '#fb7185' : '#fbbf24'} strokeOpacity="0.6" strokeWidth="1.6" />
+        <circle cx={C} cy={C} r="6.4" fill={isAlarm ? '#fb7185' : '#fbbf24'} opacity="0.22" filter="url(#v34dialSoft)" />
+        <circle cx={C} cy={C} r="4" fill={isAlarm ? '#fb7185' : '#fde68a'} />
 
         {/* Readout window (small, mechanical — never a big digital screen) */}
         <g>
@@ -398,8 +398,8 @@ fill="#0b132b"
             width="68"
             height="21"
             rx="7"
-            fill="#092635"
-            stroke="#ffd369"
+            fill="#06080d"
+            stroke="#fbbf24"
             strokeOpacity="0.24"
           />
           <text

@@ -88,7 +88,7 @@ export default function TodoTimelineView({ embedded = false }) {
       const bySlot = new Map();
       for (const task of dayTasks) {
         const slot = slotForTask(task) || slotMetaById('dawn');
-        const tone = slot?.tone || '#ffd369';
+        const tone = slot?.tone || '#f6c969';
         const entry = bySlot.get(slot.id) || {
           id: slot.id,
           label: slot.bnLabel || slot.label || '',
@@ -288,7 +288,7 @@ export default function TodoTimelineView({ embedded = false }) {
                     </span>
                   ))}
                   {!d.slots?.length && (
-                    <span className="tl42-chip" style={{ '--chip-tone': '#ffd369' }}>
+                    <span className="tl42-chip" style={{ '--chip-tone': '#f6c969' }}>
                       {bnNum(d.count)} টাস্ক
                     </span>
                   )}
@@ -379,7 +379,7 @@ export default function TodoTimelineView({ embedded = false }) {
                       ? 'is-muted-phase'
                       : 'is-neutral-phase'
                   }`}
-                  style={{ '--phase-tone': slot.tone || '#ffd369' }}
+                  style={{ '--phase-tone': slot.tone || '#fbbf24' }}
                   aria-label={`${slot.bnLabel} প্রহরের টাস্ক`}
                 >
                   <header className="v29-tl-phase-head">

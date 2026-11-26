@@ -67,13 +67,13 @@
     .jp-rank-card
   ):hover:not(:focus-within) {
     transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--accent-primary-bright, var(--accent, #ff9808)) 46%, rgba(255, 255, 255, 0.16));
+    border-color: color-mix(in srgb, var(--accent-primary-bright, var(--accent, #f59e0b)) 46%, rgba(255, 255, 255, 0.16));
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
   }
 }
 
 :where(button, input, textarea, select):focus-visible {
-  outline: 2px solid var(--accent-primary-bright, #ffd369);
+  outline: 2px solid var(--accent-primary-bright, #fbbf24);
   outline-offset: 2px;
 }
 

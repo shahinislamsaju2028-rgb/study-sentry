@@ -214,8 +214,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent, #ff9808);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--accent, #ff9808) 65%, transparent);
+  background: var(--accent, #f59e0b);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--accent, #f59e0b) 65%, transparent);
 }
 
 .v4-mech-size-pip .v4-mech-colon i {
@@ -288,15 +288,15 @@
 
 .v4-pip-ring-progress {
   fill: none;
-  stroke: var(--accent, #ff9808);
+  stroke: var(--accent, #f59e0b);
   stroke-width: 2.8px;
   stroke-linecap: round;
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent, #ff9808) 58%, transparent));
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent, #f59e0b) 58%, transparent));
   transition: stroke-dashoffset 0.35s cubic-bezier(0.22, 1, 0.36, 1), stroke 0.25s ease;
 }
 
 .v4-pip-ring-svg.is-paused .v4-pip-ring-progress {
-  stroke: #ff9808;
+  stroke: #fb923c;
   animation: v4PipPausePulse 1.3s ease-in-out infinite;
 }
 
@@ -391,9 +391,9 @@
 .v4-pip-pct-pill {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--accent, #ff9808);
-  background: color-mix(in srgb, var(--accent, #ff9808) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent, #ff9808) 32%, transparent);
+  color: var(--accent, #f59e0b);
+  background: color-mix(in srgb, var(--accent, #f59e0b) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #f59e0b) 32%, transparent);
   padding: 2px 8px;
   border-radius: 999px;
 }
@@ -472,10 +472,10 @@
 }
 
 .v4-pip-btn.primary {
-  background: linear-gradient(135deg, var(--accent, #ff9808), color-mix(in srgb, var(--accent, #ff9808) 76%, #fff));
+  background: linear-gradient(135deg, var(--accent, #f59e0b), color-mix(in srgb, var(--accent, #f59e0b) 76%, #fff));
   color: #090b10;
   border-color: transparent;
-  box-shadow: 0 6px 16px color-mix(in srgb, var(--accent, #ff9808) 36%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--accent, #f59e0b) 36%, transparent);
 }
 
 .v4-pip-btn.subtle {
@@ -512,7 +512,7 @@
 }
 
 .v4-pip-summary-task svg {
-  color: var(--accent, #ff9808);
+  color: var(--accent, #f59e0b);
   flex-shrink: 0;
 }
 
@@ -608,7 +608,7 @@
   justify-content: flex-start;
   padding: 28px;
   background:
-    radial-gradient(circle at 80% 18%, color-mix(in srgb, var(--accent, #ff9808) 10%, transparent), transparent 45%),
+    radial-gradient(circle at 80% 18%, color-mix(in srgb, var(--accent, #f59e0b) 10%, transparent), transparent 45%),
     radial-gradient(circle at 20% 82%, color-mix(in srgb, var(--accent-2, #3b82f6) 10%, transparent), transparent 48%),
     #06080d;
 }
@@ -677,7 +677,7 @@
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #ffd369;
+  color: #fbbf24;
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.28);
 }
@@ -739,14 +739,14 @@
 }
 
 .v4-focus-status-badge.running {
-  color: #ffd369;
+  color: #fde68a;
   background: rgba(245, 158, 11, 0.12);
   border-color: rgba(245, 158, 11, 0.32);
 }
 
 .v4-focus-status-badge.running i {
-  background: #ffd369;
-  box-shadow: 0 0 10px #ffd369;
+  background: #fbbf24;
+  box-shadow: 0 0 10px #fbbf24;
 }
 
 .v4-focus-status-badge.paused {
@@ -756,7 +756,7 @@
 }
 
 .v4-focus-status-badge.paused i {
-  background: #ff9808;
+  background: #fb923c;
   animation: v4PipPausePulse 1s ease-in-out infinite;
 }
 
@@ -815,7 +815,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #ff9808, #38bdf8);
+  background: linear-gradient(90deg, #f59e0b, #38bdf8);
   box-shadow: 0 0 12px rgba(245, 158, 11, 0.45);
   transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -849,7 +849,7 @@
   font-size: 0.96rem;
   font-weight: 800;
   color: #090b10;
-  background: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
   box-shadow:
     0 12px 28px rgba(245, 158, 11, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
@@ -912,7 +912,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: var(--accent, #ff9808);
+  color: var(--accent, #f59e0b);
   margin-bottom: 3px;
 }
 
@@ -952,7 +952,7 @@
 .v4-phase-preset-pills button.active {
   background: rgba(245, 158, 11, 0.16);
   border-color: rgba(245, 158, 11, 0.45);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v4-phases-grid {
@@ -1027,7 +1027,7 @@
 
 .v4-phase-badge.live {
   background: rgba(245, 158, 11, 0.18);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v4-phase-badge.done {
@@ -1051,7 +1051,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #ff9808, #38bdf8);
+  background: linear-gradient(90deg, #f59e0b, #38bdf8);
   transition: width 0.35s ease;
 }
 
@@ -1071,7 +1071,7 @@
   border-radius: 8px;
   border: 1px solid rgba(245, 158, 11, 0.36);
   background: rgba(245, 158, 11, 0.14);
-  color: #ffd369;
+  color: #fbbf24;
   font-size: 0.72rem;
   font-weight: 700;
   cursor: pointer;
@@ -1116,7 +1116,7 @@
   justify-content: center;
   flex-shrink: 0;
   background: rgba(245, 158, 11, 0.16);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v4-ai-mentor-banner.is-complete .v4-ai-mentor-icon {
@@ -1133,7 +1133,7 @@
   display: block;
   font-size: 0.7rem;
   font-weight: 700;
-  color: #ffd369;
+  color: #fbbf24;
   margin-bottom: 2px;
 }
 
@@ -1219,7 +1219,7 @@
   border-radius: 999px;
   font-size: 0.76rem;
   font-weight: 700;
-  color: #ffd369;
+  color: #fbbf24;
   background: rgba(245, 158, 11, 0.13);
   border: 1px solid rgba(245, 158, 11, 0.3);
 }
@@ -1295,7 +1295,7 @@
 }
 
 .v4-ov-sprint-switcher button.active {
-  color: #ffd369;
+  color: #fbbf24;
   border-color: rgba(245, 158, 11, 0.45);
   background: rgba(245, 158, 11, 0.14);
 }
@@ -1328,7 +1328,7 @@
   border-radius: 999px;
   border: 1px solid rgba(245, 158, 11, 0.38);
   background: rgba(245, 158, 11, 0.14);
-  color: #ffd369;
+  color: #fbbf24;
   font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
@@ -1390,7 +1390,7 @@
   display: block;
   font-size: 2.15rem;
   line-height: 1.05;
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v4-ov-cd-unit span {
@@ -1429,7 +1429,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #ff9808, #38bdf8);
+  background: linear-gradient(90deg, #f59e0b, #38bdf8);
   box-shadow: 0 0 12px rgba(245, 158, 11, 0.45);
   transition: width 0.45s ease;
 }
@@ -1471,10 +1471,10 @@
 
 .v4-ov-donut .fill {
   fill: none;
-  stroke: var(--accent, #ff9808);
+  stroke: var(--accent, #f59e0b);
   stroke-width: 8;
   stroke-linecap: round;
-  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--accent, #ff9808) 50%, transparent));
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--accent, #f59e0b) 50%, transparent));
   transition: stroke-dashoffset 0.5s ease;
 }
 
@@ -1683,7 +1683,7 @@
   padding: 8px 14px;
   border-radius: 11px;
   border: none;
-  background: linear-gradient(135deg, #ffd369, #ff9808);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
   color: #090b10;
   font-size: 0.78rem;
   font-weight: 800;
@@ -1742,7 +1742,7 @@
 .v4-ov-upcoming-mini > span {
   font-size: 0.74rem;
   font-weight: 700;
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v4-ov-up-row {
@@ -1758,7 +1758,7 @@
 
 /* Subject-wise Sprint Progress Matrix */
 .v4-ov-trend-icon {
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v4-ov-subject-list {
@@ -1801,7 +1801,7 @@
 .v4-ov-sub-pct {
   font-size: 0.8rem;
   font-weight: 800;
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v4-ov-sub-track {
@@ -1840,7 +1840,7 @@
   border-radius: 13px;
   border: 1px dashed rgba(245, 158, 11, 0.35);
   background: rgba(245, 158, 11, 0.07);
-  color: #ffd369;
+  color: #fbbf24;
   font-size: 0.8rem;
   font-weight: 700;
   display: inline-flex;

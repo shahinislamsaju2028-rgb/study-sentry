@@ -131,7 +131,7 @@
 }
 
 .v5-posture-caption.active {
-  color: #ffd369;
+  color: #fbbf24;
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.25);
 }
@@ -223,11 +223,11 @@
 .v5-dot-stat.today {
   background: rgba(245, 158, 11, 0.14);
   border-color: rgba(245, 158, 11, 0.38);
-  color: #ffd369;
+  color: #fde68a;
 }
 
 .v5-dot-stat.today strong {
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v5-dot-stat.remaining {
@@ -280,7 +280,7 @@
 
 /* Today: Bright Glowing & Pulsing Beacon */
 .v5-day-dot.is-today {
-  background: radial-gradient(circle at 35% 35%, #ffd369 0%, #ffd369 55%, #ff9808 100%);
+  background: radial-gradient(circle at 35% 35%, #fef08a 0%, #fbbf24 55%, #f59e0b 100%);
   border: 1.5px solid #ffffff;
   box-shadow:
     0 0 14px rgba(251, 191, 36, 0.95),
@@ -496,7 +496,7 @@
   height: 34px;
   border-radius: 999px;
   border: 1px solid rgba(251, 191, 36, 0.42);
-  background: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
+  background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
   color: #090d16;
   font-size: 0.78rem;
   font-weight: 800;
@@ -531,7 +531,7 @@
 }
 
 .v5-pip-start-pill.is-paused {
-  background: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
   color: #090d16;
 }
 
@@ -557,7 +557,7 @@
   height: 66px;
   border-radius: 15px;
   border: none;
-  background: linear-gradient(155deg, #ffd369 0%, #ff9808 100%);
+  background: linear-gradient(155deg, #fcd34d 0%, #f59e0b 100%);
   color: #0a101d;
   display: inline-flex;
   align-items: center;
@@ -660,7 +660,7 @@
 
 .v5-pcm-row:hover .v5-pcm-icon {
   border-color: rgba(251, 191, 36, 0.45);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v5-pcm-row.exit:hover .v5-pcm-icon {
@@ -676,7 +676,7 @@
 
 .v5-pcm-subtag {
   font-size: 0.68rem;
-  color: #ffd369;
+  color: #fbbf24;
   background: rgba(245, 158, 11, 0.13);
   padding: 2px 7px;
   border-radius: 999px;
@@ -698,8 +698,8 @@
 }
 
 .v5-pcm-goal-dots i.filled {
-  background: #ffd369;
-  border-color: #ffd369;
+  background: #fbbf24;
+  border-color: #fbbf24;
   box-shadow: 0 0 7px rgba(251, 191, 36, 0.7);
 }
 
@@ -743,7 +743,7 @@
 .v5-pcm-style-pills button.active {
   background: rgba(245, 158, 11, 0.18);
   border-color: rgba(245, 158, 11, 0.48);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v5-pcm-sublink {
@@ -816,7 +816,7 @@
 }
 
 .v5-neon-badge.warn {
-  color: #ffd369;
+  color: #fde68a;
   background: rgba(245, 158, 11, 0.14);
   border: 1px solid rgba(251, 191, 36, 0.38);
 }
@@ -831,8 +831,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #ffd369;
-  box-shadow: 0 0 12px #ffd369;
+  background: #fbbf24;
+  box-shadow: 0 0 12px #fbbf24;
   animation: v5OneSecNeonPulse 1s ease-in-out infinite;
 }
 
@@ -875,7 +875,7 @@
 
 .v5-pause-ring-svg .fill {
   fill: none;
-  stroke: #ffd369;
+  stroke: #fbbf24;
   stroke-width: 7;
   stroke-linecap: round;
   filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.65));
@@ -924,7 +924,7 @@
   padding: 13px 22px;
   border-radius: 14px;
   border: none;
-  background: linear-gradient(135deg, #ffd369 0%, #ff9808 100%);
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
   color: #090d16;
   font-size: 0.92rem;
   font-weight: 800;
@@ -965,7 +965,7 @@
   gap: 5px;
   font-size: 0.7rem;
   font-weight: 700;
-  color: #ffd369;
+  color: #fbbf24;
   margin-bottom: 4px;
 }
 
@@ -996,7 +996,7 @@
 .v5-dt-step-btn:hover {
   background: rgba(245, 158, 11, 0.16);
   border-color: rgba(245, 158, 11, 0.4);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v5-dt-today-btn {
@@ -1064,7 +1064,7 @@
   padding: 2px 8px;
   border-radius: 999px;
   background: rgba(245, 158, 11, 0.18);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v5-dt-matrix-wrap {
@@ -1179,14 +1179,14 @@
   transform: translateY(-1px);
   border-color: rgba(251, 191, 36, 0.48);
   background: rgba(245, 158, 11, 0.13);
-  color: #ffd369;
+  color: #fde68a;
   box-shadow: 0 6px 16px rgba(245, 158, 11, 0.18);
 }
 
 .v5-dt-btn.status-done {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(56, 189, 248, 0.15));
   border-color: rgba(251, 191, 36, 0.45);
-  color: #ffd369;
+  color: #fef08a;
 }
 
 .v5-dt-btn.status-partial {
@@ -1213,7 +1213,7 @@
 
 .v5-dt-btn-icon.done {
   background: rgba(251, 191, 36, 0.24);
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 .v5-dt-btn-icon.play {
@@ -1252,7 +1252,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #ff9808, #38bdf8);
+  background: linear-gradient(90deg, #f59e0b, #38bdf8);
   transition: width 0.35s ease;
 }
 
@@ -1264,7 +1264,7 @@
 }
 
 .v5-dt-prog-box strong.is-full {
-  color: #ffd369;
+  color: #fbbf24;
 }
 
 /* ============================================================================
@@ -1309,8 +1309,8 @@
 }
 
 .v5-day-dot.is-today {
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #ffd369 42%, #ff9808 82%, #38bdf8 100%) !important;
-  border: 1px solid #ffd369 !important;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fde047 42%, #f59e0b 82%, #38bdf8 100%) !important;
+  border: 1px solid #fef08a !important;
   box-shadow:
     0 0 12px rgba(251, 191, 36, 0.95),
     0 0 24px rgba(56, 189, 248, 0.6) !important;
@@ -1437,7 +1437,7 @@
   gap: 6px;
   font-size: 13px;
   font-weight: 700;
-  color: #ffd369;
+  color: #fde68a;
 }
 
 .v6-fsp-junk-head small {
@@ -1507,7 +1507,7 @@
 
 .v6-confirm-pause-btn.is-ready {
   cursor: pointer;
-  color: #ffd369;
+  color: #fde68a;
   border-color: rgba(251, 191, 36, 0.48);
   background: rgba(245, 158, 11, 0.15);
 }
@@ -1632,7 +1632,7 @@ body.pip-os-window-body #root {
   opacity: 1 !important;
   pointer-events: auto !important;
   transform: translate3d(0, 0, 0) scale(1) !important;
-  border-color: color-mix(in srgb, var(--accent-primary-bright, #ffd369) 42%, rgba(255, 255, 255, 0.26)) !important;
+  border-color: color-mix(in srgb, var(--accent-primary-bright, #fbbf24) 42%, rgba(255, 255, 255, 0.26)) !important;
   box-shadow:
     0 16px 40px rgba(0, 0, 0, 0.62),
     0 0 26px rgba(56, 189, 248, 0.14),
@@ -1664,11 +1664,11 @@ body.pip-os-window-body #root {
 
 .storage-pill svg {
   flex: 0 0 auto;
-  color: #ffd369 !important;
+  color: #fbbf24 !important;
 }
 
 .storage-pill strong {
-  color: #ffd369 !important;
+  color: #fde68a !important;
 }
 
 .backup-grid {
@@ -1714,7 +1714,7 @@ body.pip-os-window-body #root {
 }
 
 .backup-tile svg {
-  color: #ffd369 !important;
+  color: #fbbf24 !important;
   margin-bottom: 2px;
 }
 
@@ -1786,7 +1786,7 @@ body.pip-os-window-body #root {
 }
 
 .v5-day-dot.is-today {
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #ffd369 38%, #ffd369 74%, #ff9808 100%) !important;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #fef08a 38%, #fbbf24 74%, #f59e0b 100%) !important;
   border: 1.5px solid #ffffff !important;
   box-shadow:
     0 0 14px rgba(251, 191, 36, 1),
@@ -1907,7 +1907,7 @@ body.pip-menu-os-body #root {
 
 .v8-pip-ring-progress {
   fill: none;
-  stroke: #ffd369;
+  stroke: #fbbf24;
   stroke-linecap: round;
   filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.65));
   transition: stroke-dashoffset 0.35s linear, stroke 0.25s ease;
@@ -1919,7 +1919,7 @@ body.pip-menu-os-body #root {
 }
 
 .v8-pip-viewport.is-alarm .v8-pip-ring-progress {
-  stroke: #ffd369;
+  stroke: #fde047;
   filter: drop-shadow(0 0 7px rgba(250, 204, 21, 0.9));
 }
 
@@ -1991,7 +1991,7 @@ body.pip-menu-os-body #root {
 .v8-pip-colon {
   font-style: normal;
   margin: 0 2px;
-  color: #ffd369;
+  color: #fbbf24;
   transform: translateY(-2px);
 }
 
@@ -2026,7 +2026,7 @@ body.pip-menu-os-body #root {
 .v8-pip-icon-btn.play-btn {
   background: rgba(251, 191, 36, 0.12) !important;
   border-color: rgba(251, 191, 36, 0.3) !important;
-  color: #ffd369 !important;
+  color: #fde68a !important;
 }
 
 .v8-pip-icon-btn:hover {
@@ -2112,8 +2112,8 @@ body.pip-menu-os-body #root {
 }
 
 .v7-pm-dots i.filled {
-  background: #ffd369;
-  border-color: #ffd369;
+  background: #fbbf24;
+  border-color: #fde047;
   box-shadow: 0 0 6px rgba(251, 191, 36, 0.8);
 }
 
@@ -2143,7 +2143,7 @@ body.pip-menu-os-body #root {
 .v8-qm-primary-btn {
   background: rgba(251, 191, 36, 0.15) !important;
   border: 1px solid rgba(251, 191, 36, 0.38) !important;
-  color: #ffd369 !important;
+  color: #fef08a !important;
 }
 
 .v8-qm-primary-btn:hover {

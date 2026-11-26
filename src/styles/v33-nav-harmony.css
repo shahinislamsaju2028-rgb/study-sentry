@@ -77,7 +77,7 @@
 
 /* ACTIVE — darker outline, translucent fill, outer + inner glow */
 .v33-seg-tab.is-active {
-  color: #ffd369;
+  color: #fde68a;
   border-color: rgba(251, 191, 36, 0.55);
   background:
     linear-gradient(
@@ -159,7 +159,7 @@
 .v33-seg-tab.is-active .v33-seg-badge {
   background: rgba(251, 191, 36, 0.2);
   border-color: rgba(251, 191, 36, 0.42);
-  color: #ffd369;
+  color: #fde68a;
 }
 
 /* Full-width variant (Overview top bar) */
@@ -239,7 +239,7 @@
 
 .v30-dt-table th.is-today-col .v30-dt-day-num,
 .v30-dt-table th.is-today-col .v30-dt-day-wk {
-  color: #ffd369;
+  color: #fde68a;
   text-shadow: 0 0 12px rgba(251, 191, 36, 0.45);
 }
 
@@ -249,7 +249,7 @@
 }
 
 .v30-dt-table th.is-today-col .v30-dt-day-bar b {
-  background: linear-gradient(90deg, #ff9808, #ffd369);
+  background: linear-gradient(90deg, #f59e0b, #fde047);
   box-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
 }
 
@@ -266,7 +266,7 @@
     180deg,
     #ffffff 0%,
     #fdf3d0 46%,
-    var(--v30-accent-bright, #ffd369) 100%
+    var(--v30-accent-bright, #fbbf24) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -283,8 +283,8 @@
   font-size: 0.56em;
   font-weight: 800;
   background: none;
-  -webkit-text-fill-color: var(--v30-accent-bright, #ffd369);
-  color: var(--v30-accent-bright, #ffd369);
+  -webkit-text-fill-color: var(--v30-accent-bright, #fbbf24);
+  color: var(--v30-accent-bright, #fbbf24);
   transform: translateY(-0.06em);
   filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
 }
@@ -354,7 +354,7 @@
 
 .v33-syl-type.is-open .v33-syl-caret {
   transform: rotate(90deg);
-  color: var(--v30-accent-bright, #ffd369);
+  color: var(--v30-accent-bright, #fbbf24);
 }
 
 .v33-syl-type-name {
@@ -435,7 +435,7 @@
 
 .v33-syl-topic.is-done .v33-syl-box {
   color: #052e16;
-  background: linear-gradient(180deg, #ffd369, #ff9808);
+  background: linear-gradient(180deg, #f6c969, #b9791c);
   border-color: rgba(251, 207, 89, 0.8);
   box-shadow: 0 0 12px rgba(247, 202, 85, 0.45);
 }
@@ -498,7 +498,7 @@
   border-radius: 9px;
   border: 1px solid rgba(251, 191, 36, 0.38);
   background: linear-gradient(180deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.07));
-  color: #ffd369;
+  color: #fde68a;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -537,7 +537,7 @@
 }
 
 .v33-syl-toggle.is-open {
-  color: #ffd369;
+  color: #fde68a;
   border-color: rgba(251, 191, 36, 0.5);
   background: linear-gradient(180deg, rgba(251, 191, 36, 0.17), rgba(251, 191, 36, 0.05));
   box-shadow:
@@ -597,7 +597,7 @@
 }
 
 .v33-sp-subnav-note svg {
-  color: var(--v30-accent-bright, #ffd369);
+  color: var(--v30-accent-bright, #fbbf24);
   filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.45));
 }
 
@@ -757,7 +757,7 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ff9808, #ffd369 62%, #fff7d6);
+  background: linear-gradient(90deg, #f59e0b, #fde047 62%, #fff7d6);
   box-shadow: 0 0 12px rgba(251, 191, 36, 0.7);
   transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -777,7 +777,7 @@
 .v13-hero-orbital-meta strong {
   font-size: 1.42rem !important;
   font-weight: 850 !important;
-  background: linear-gradient(180deg, #ffffff, #ffd369);
+  background: linear-gradient(180deg, #ffffff, #fde68a);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -788,7 +788,7 @@
 .v13-hero-orbital-meta small {
   font-size: 0.78rem !important;
   font-weight: 700;
-  color: #ffd369 !important;
+  color: #fcd34d !important;
 }
 
 /* Crystal medallion inside the chrono ring */
@@ -825,7 +825,7 @@
   width: 7px !important;
   height: 7px !important;
   margin-bottom: 5px !important;
-  background: #ffd369 !important;
+  background: #f0c56b !important;
   box-shadow: 0 0 0 3px rgba(247, 202, 85, 0.16), 0 0 12px rgba(247, 202, 85, 0.8) !important;
 }
 
@@ -848,7 +848,7 @@
   border-radius: 16px !important;
   letter-spacing: 0.01em;
   box-shadow:
-    0 12px 30px color-mix(in srgb, var(--accent, #ff9808) 38%, transparent),
+    0 12px 30px color-mix(in srgb, var(--accent, #f59e0b) 38%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
   transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
 }
@@ -870,7 +870,7 @@
 .bento-focus-cta:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 16px 38px color-mix(in srgb, var(--accent, #ff9808) 48%, transparent),
+    0 16px 38px color-mix(in srgb, var(--accent, #f59e0b) 48%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
@@ -933,7 +933,7 @@
 }
 
 .sp-week-day-card.is-today .sp-wd-dayname {
-  color: #ffd369;
+  color: #fde68a;
   border-color: rgba(251, 191, 36, 0.42);
   background: rgba(251, 191, 36, 0.14);
 }
@@ -963,7 +963,7 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ff9808, #ffd369);
+  background: linear-gradient(90deg, #f59e0b, #fde047);
   box-shadow: 0 0 10px rgba(251, 191, 36, 0.65);
   transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -1032,7 +1032,7 @@
 
 .sp-tl-group.today .sp-tl-dot {
   border-color: rgba(251, 191, 36, 0.85);
-  background: #ffd369;
+  background: #fbbf24;
   box-shadow: 0 0 14px rgba(251, 191, 36, 0.8);
 }
 
@@ -1047,7 +1047,7 @@
   border-radius: 999px;
   border: 1px solid rgba(251, 191, 36, 0.45);
   background: rgba(251, 191, 36, 0.16);
-  color: #ffd369;
+  color: #fde68a;
   font-size: 10px;
   font-weight: 800;
   box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
@@ -1075,7 +1075,7 @@
 }
 
 .sp-tl-group.today .sp-tl-meter i {
-  background: linear-gradient(90deg, #ff9808, #ffd369);
+  background: linear-gradient(90deg, #f59e0b, #fde047);
   box-shadow: 0 0 10px rgba(251, 191, 36, 0.65);
 }
 
@@ -1122,7 +1122,7 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ff9808, #ffd369 70%, #fff7d6);
+  background: linear-gradient(90deg, #f59e0b, #fde047 70%, #fff7d6);
   box-shadow: 0 0 12px rgba(251, 191, 36, 0.7);
   transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }

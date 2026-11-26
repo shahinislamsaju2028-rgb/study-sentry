@@ -22,7 +22,7 @@
    ========================================================================== */
 
 .chapter-picker {
-  --chp-accent: #ffd369;
+  --chp-accent: #fbbf24;
   --chp-accent-2: color-mix(in srgb, var(--chp-accent) 55%, #ffffff);
   --chp-line: rgba(148, 163, 184, 0.16);
   --chp-line-strong: rgba(148, 163, 184, 0.26);

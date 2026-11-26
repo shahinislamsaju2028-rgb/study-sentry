@@ -290,15 +290,15 @@ export const SentryChronoCore3D: React.FC<{
           <defs>
             <linearGradient id="v35ArcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="var(--v30-accent-2, var(--vd-accent-2, #38bdf8))" />
-              <stop offset="46%" stopColor="var(--v30-accent, var(--vd-accent, #ffd369))" />
-              <stop offset="100%" stopColor="var(--v30-accent-bright, var(--vd-accent, #ffd369))" />
+              <stop offset="46%" stopColor="var(--v30-accent, var(--vd-accent, #fbbf24))" />
+              <stop offset="100%" stopColor="var(--v30-accent-bright, var(--vd-accent, #fde047))" />
             </linearGradient>
             <linearGradient id="v35BezelGrad" x1="0.1" y1="0" x2="0.9" y2="1">
-              <stop offset="0%" stopColor="#ffd369" stopOpacity="0.95" />
-              <stop offset="26%" stopColor="#ff9808" stopOpacity="0.8" />
-              <stop offset="52%" stopColor="#ffd369" stopOpacity="0.92" />
-              <stop offset="78%" stopColor="#210f37" stopOpacity="0.78" />
-              <stop offset="100%" stopColor="#ffd369" stopOpacity="0.9" />
+              <stop offset="0%" stopColor="#fde68a" stopOpacity="0.95" />
+              <stop offset="26%" stopColor="#b45309" stopOpacity="0.8" />
+              <stop offset="52%" stopColor="#fef3c7" stopOpacity="0.92" />
+              <stop offset="78%" stopColor="#92400e" stopOpacity="0.78" />
+              <stop offset="100%" stopColor="#fcd34d" stopOpacity="0.9" />
             </linearGradient>
             <radialGradient id="v35GlassWell" cx="34%" cy="24%" r="76%">
               <stop offset="0%" stopColor="#2b3242" />
@@ -333,7 +333,7 @@ export const SentryChronoCore3D: React.FC<{
                 y1={k.y1}
                 x2={k.x2}
                 y2={k.y2}
-                stroke="#210f37"
+                stroke="#2a1d06"
                 strokeWidth="0.8"
               />
             ))}
@@ -368,7 +368,7 @@ export const SentryChronoCore3D: React.FC<{
               y2={tk.y2}
               stroke={
                 tk.activeTick
-                  ? 'var(--v30-accent, var(--vd-accent, #ffd369))'
+                  ? 'var(--v30-accent, var(--vd-accent, #fbbf24))'
                   : tk.major
                   ? 'rgba(255,255,255,0.32)'
                   : 'rgba(255,255,255,0.13)'
@@ -416,7 +416,7 @@ export const SentryChronoCore3D: React.FC<{
                 cx={tipX}
                 cy={tipY}
                 r="7"
-                fill="var(--v30-accent, var(--vd-accent, #ffd369))"
+                fill="var(--v30-accent, var(--vd-accent, #fbbf24))"
                 opacity="0.26"
               />
               <circle
@@ -424,7 +424,7 @@ export const SentryChronoCore3D: React.FC<{
                 cy={tipY}
                 r="3.8"
                 fill="#FFFFFF"
-                stroke="var(--v30-accent, var(--vd-accent, #ffd369))"
+                stroke="var(--v30-accent, var(--vd-accent, #fbbf24))"
                 strokeWidth="1.8"
               />
             </g>

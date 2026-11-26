@@ -29,7 +29,7 @@ export const UI_MODES: UiModeOption[] = [
     bnName: 'ক্যাম্পাস — স্টুডি লাউঞ্জের মতো',
     desc: 'নরম কার্ড, মসৃণ আলো, বেশি শ্বাসকষ্ট। ওভারভিউ · ট্র্যাকার · সুইট · লাউঞ্জ।',
     modelledOn: 'Study Lounge',
-    swatches: ['#090a0f', '#151822', '#ff9808'],
+    swatches: ['#090a0f', '#151822', '#f59e0b'],
   },
   {
     id: 'studio',

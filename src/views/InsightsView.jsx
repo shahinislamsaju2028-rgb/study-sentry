@@ -38,12 +38,12 @@ const shortSubjectName = (name) => {
 };
 
 const PALETTE = [
-  '#ffd369',
+  '#fbbf24',
   '#38bdf8',
   '#a78bfa',
   '#34d399',
   '#fb7185',
-  '#ff9808',
+  '#fb923c',
   '#60a5fa',
   '#f472b6',
 ];
@@ -364,25 +364,25 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
             <defs>
               {/* Front Sunlit Face */}
               <linearGradient id="v12FrontGold" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0%" stopColor="#210f37" stopOpacity="0.88" />
-                <stop offset="55%" stopColor="#ff9808" stopOpacity="0.96" />
-                <stop offset="100%" stopColor="#ffd369" stopOpacity="1" />
+                <stop offset="0%" stopColor="#78350f" stopOpacity="0.88" />
+                <stop offset="55%" stopColor="#f59e0b" stopOpacity="0.96" />
+                <stop offset="100%" stopColor="#fde68a" stopOpacity="1" />
               </linearGradient>
               {/* Top Bevel Highlight Cap */}
               <linearGradient id="v12TopCapGold" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#f3f5ff" />
-                <stop offset="100%" stopColor="#ffd369" />
+                <stop offset="0%" stopColor="#fef9c3" />
+                <stop offset="100%" stopColor="#fbbf24" />
               </linearGradient>
               {/* Right Extruded 3D Side Wall */}
               <linearGradient id="v12SideWallGold" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#ff9808" stopOpacity="0.95" />
-                <stop offset="100%" stopColor="#0b132b" stopOpacity="0.92" />
+                <stop offset="0%" stopColor="#d97706" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#451a03" stopOpacity="0.92" />
               </linearGradient>
               {/* Active Cyan-Gold Highlight Front */}
               <linearGradient id="v12FrontActive" x1="0" y1="1" x2="0" y2="0">
                 <stop offset="0%" stopColor="#0369a1" stopOpacity="0.92" />
                 <stop offset="52%" stopColor="#38bdf8" stopOpacity="0.96" />
-                <stop offset="100%" stopColor="#ffd369" stopOpacity="1" />
+                <stop offset="100%" stopColor="#fef08a" stopOpacity="1" />
               </linearGradient>
               <linearGradient id="v12SideActive" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#0ea5e9" />
@@ -522,7 +522,7 @@ const CleanWeeklyChart = React.memo(function CleanWeeklyChart({
                     cy={sy}
                     r={active ? 5 : 3.5}
                     fill={active ? '#ffffff' : '#0b0e17'}
-                    stroke={active ? '#38bdf8' : '#ffd369'}
+                    stroke={active ? '#38bdf8' : '#fde68a'}
                     strokeWidth="2.2"
                   />
                   {active && (
@@ -747,11 +747,11 @@ const FriendlySubjectRadarCard = React.memo(function FriendlySubjectRadarCard({
         <svg viewBox="0 0 320 308" className="v10-radar-svg" role="img" aria-label="Subject Balance Radar">
           <defs>
             <linearGradient id="v11RadarFill" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#ffd369" stopOpacity="0.42" />
+              <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.42" />
               <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.34" />
             </linearGradient>
             <linearGradient id="v11RadarStroke" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#ffd369" />
+              <stop offset="0%" stopColor="#fde68a" />
               <stop offset="100%" stopColor="#38bdf8" />
             </linearGradient>
           </defs>
@@ -800,8 +800,8 @@ const FriendlySubjectRadarCard = React.memo(function FriendlySubjectRadarCard({
                   cx={p.x}
                   cy={p.y}
                   r={hovered ? 5.2 : 4}
-                  fill="#0b132b"
-                  stroke={hovered ? '#ffffff' : '#ffd369'}
+                  fill="#0b101d"
+                  stroke={hovered ? '#ffffff' : '#fbbf24'}
                   strokeWidth="2.2"
                 />
                 <text
@@ -1515,7 +1515,7 @@ export default function InsightsView() {
                   <div
                     key={p.id}
                     className="v29-cal-tl-col-head"
-                    style={{ '--p-col': p.accent || '#ffd369' }}
+                    style={{ '--p-col': p.accent || '#fbbf24' }}
                   >
                     <span className="v29-cal-tl-name">
                       <i aria-hidden="true" />
@@ -1536,7 +1536,7 @@ export default function InsightsView() {
                       className={`v29-cal-tl-compartment tone-${p.id} ${
                         secInPhase > 0 ? 'has-study' : ''
                       }`}
-                      style={{ '--p-col': p.accent || '#ffd369' }}
+                      style={{ '--p-col': p.accent || '#fbbf24' }}
                       title={`${p.label} (${p.windowLabel}) · মোট ${readable(secInPhase)}`}
                     >
                       <div className="v29-cal-tl-lane">
@@ -1566,7 +1566,7 @@ export default function InsightsView() {
                     <div
                       key={p.id}
                       className={`v29-cal-tl-col-foot ${secInPhase > 0 ? 'active' : ''}`}
-                      style={{ '--p-col': p.accent || '#ffd369' }}
+                      style={{ '--p-col': p.accent || '#fbbf24' }}
                     >
                       <strong>{secInPhase > 0 ? compactHM(secInPhase) : '—'}</strong>
                     </div>

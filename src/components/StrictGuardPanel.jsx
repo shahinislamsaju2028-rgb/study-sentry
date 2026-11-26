@@ -19,13 +19,13 @@ import {
 import { useStudy } from '../context/StudyContext';
 
 const ALLOWED_SOFTWARE = [
-  { id: 'sentry', name: 'Study Sentry', meta: 'Core Workspace', Icon: ShieldCheck, tone: '#ffd369' },
+  { id: 'sentry', name: 'Study Sentry', meta: 'Core Workspace', Icon: ShieldCheck, tone: '#fbbf24' },
   {
     id: 'chromium',
     name: 'Chromium Browsers',
     meta: 'Chrome · Edge · Brave · Opera · Vivaldi',
     Icon: Globe,
-    tone: '#ff9808',
+    tone: '#fb923c',
   },
   { id: 'sumatra', name: 'SumatraPDF', meta: 'PDF & Books', Icon: FileText, tone: '#38bdf8' },
   { id: 'potplayer', name: 'PotPlayer', meta: 'Offline Classes', Icon: PlaySquare, tone: '#a78bfa' },
